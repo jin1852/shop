@@ -221,12 +221,22 @@ class ProductController extends BaseController {
         $list = array();
         $lj = array();
         $related = array();
+        $isFavourite = 0;
         if ($prodId > 0) {
             $list = $Product->get_product($prodId, $colorId, $sizeId);
             $lj = $Product->plj($prodId);
             if($list) {
                 $related = $Product->detail_link($list['prodId'], $list['proTypeId'],$lj['lv1']['proTypeId']);
                 $this->set_product_view_history($prodId);
+                 /**
+                 * heart begin
+                 * add by j
+                 * Date: 2018-06-07 0:0:0
+                 */
+                $uid = $this->get_session();
+                $favourite = M('users_favourite')->where("userId = {$uid} and prodId = {$prodId} and status = 1")->cache(false)->find();
+                $isFavourite = $favourite ? 1 :0;
+                // heart end
             }
         }
         $this->assign('cid',$colorId);
@@ -236,6 +246,13 @@ class ProductController extends BaseController {
         $this->assign('imqq',$list['imqq']);
         $this->assign('tname',$lj);
         $this->assign('related',$related);
+        /**
+         * heart begin
+         * add by j
+         * Date: 2018-06-07 0:0:0
+         */
+        $this->assign('isFavourite',$isFavourite);
+        // heart end
         $this->display('Product/detail');
     }
 

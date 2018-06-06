@@ -53,10 +53,10 @@ return  array(
 
     /* 数据库设置 */
     'DB_TYPE'               =>  'mysql',     // 数据库类型
-    'DB_HOST'               =>  '127.0.0.1', // 服务器地址
+    'DB_HOST'               =>  '120.24.152.22', // 服务器地址
     'DB_NAME'               =>  'shop',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名  shop
-    'DB_PWD'                =>  'root',          // 密码   aqxor#Pf11!e5K&p8^*Kt
+    'DB_PWD'                =>  'sipu_root',          // 密码   aqxor#Pf11!e5K&p8^*Kt
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  'jd_',    // 数据库表前缀
     'DB_FIELDTYPE_CHECK'    =>  false,       // 是否进行字段类型检查

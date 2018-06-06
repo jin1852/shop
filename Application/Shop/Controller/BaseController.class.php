@@ -397,7 +397,7 @@ class BaseController extends Controller {
         if (!$status or $status != 1) {
             open_close(0);
         } else {
-            open_();
+//            open_();
         }
     }
 

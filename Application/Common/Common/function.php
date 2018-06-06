@@ -1,17 +1,17 @@
 <?php
 
 function open_(){
-    $time = mktime(0, 0, 0, 12, 25, 2017);
-    $dead = mktime(0, 0, 0, 1, 1, 2018);
-
-    if ($dead - time() <= 0) {
-        open_close(2);
-    }
-//    if ($time - time() <= 0) {
-
-    if ($time - time() >= 0) {
-        open_close(1);
-    }
+//    $time = mktime(0, 0, 0, 12, 25, 2017);
+//    $dead = mktime(0, 0, 0, 1, 1, 2018);
+//
+//    if ($dead - time() <= 0) {
+//        open_close(2);
+//    }
+////    if ($time - time() <= 0) {
+//
+//    if ($time - time() >= 0) {
+//        open_close(1);
+//    }
 }
 
 function open_close($type){

@@ -1,0 +1,34 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+	<title>GALA - {$head_title}</title>
+	<link rel="icon" href="__IMG__/images/icon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="__IMG__/images/icon.ico" type="image/x-icon" />
+	<script src="__JS__/jquery-2.2.3.js "></script>
+	<script src="__JS__/jquery.easing-1.3.0.js"></script>
+	<script src="__JS__/bootstrap-3.3.5.js "></script>
+	<script src="__JS__/unslider.min.js"></script>
+	<script src="__JS__/masonry.pkgd.min.js"></script>
+	<?php switch($head_title){case "Product List":case "Product detail": ?>
+			<link href='__CSS__/product.css' rel='stylesheet'>
+		<?php break;case "Login":case "Register": ?>
+			<link href="__CSS__/sign.css" rel="stylesheet">
+		<?php break;case "Story": ?>
+			<link href="__CSS__/story.css" rel="stylesheet">
+		<?php break;case "About": ?>
+			<link href="__CSS__/resources.css" rel="stylesheet">
+		<?php break; ?>
+	<?php } ?>
+	<link href="__CSS__/base.css" rel="stylesheet">
+	<link href="__CSS__/bootstrap-3.3.5.css" rel="stylesheet">
+	<link href="__CSS__/style.css" rel="stylesheet">
+	<link href="__CSS__/nav.css" rel="stylesheet">
+	<link href="__CSS__/footer.css" rel="stylesheet">
+	<link href="__CSS__/font-awesome-4.6.3.css" rel="stylesheet">
+	<link href="__CSS__/animate-3.5.1.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="__JS__/html5shiv-3.7.2.js"></script>
+	<script src="__JS__/respond-1.4.2.js"></script>
+	<![endif]-->
+</head>

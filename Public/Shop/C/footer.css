@@ -1,0 +1,173 @@
+	@charset "UTF-8";
+	footer {
+		width: 100%;
+		margin: 20px 0 40px;
+		padding: 20px 0;
+		background: #fff;
+	}
+	footer div.searchshare {
+		margin-bottom: 40px;
+	}
+	footer div.searchshare > ul {
+		width: 100%;
+		margin: 0;
+		color: #595757;
+		font-size: 16px;
+	}
+	footer div.searchshare > ul i {
+		font-size: 20px;
+	}
+	footer div.searchshare > ul > li {
+		height: 35px;
+		line-height: 35px;
+		float: left;
+		color: #595757;
+	}
+	footer div.searchshare > ul > li.search {
+		width: -webkit-calc(100% - 378px);
+		width: -moz-calc(100% - 378px);
+		width: calc(100% - 378px);
+		margin-right: 18px;
+	}
+	footer div.searchshare > ul > li.search > form {
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		border: 1px #b9b9b9 solid;
+		position: relative;
+	}
+	footer div.searchshare > ul > li.search > form > input {
+		width: 100%;
+		background: none;
+		border: none;
+		outline: none;
+		padding: 5px 10px;
+		line-height: 25px;
+	}
+	footer div.searchshare > ul > li.search > form > a {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		color: #595757;
+	}
+	footer div.searchshare > ul > li.share {
+		width: 360px;
+	}
+	footer div.searchshare > ul > li.share > a {
+		float: left;
+		display: block;
+		width: 35px;
+		height: 35px;
+		text-align: center;
+		line-height: 35px;
+		border: 1px solid #b9b9b9;
+		color: #595757;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		margin-left: 10px;
+		/*cursor: pointer;*/
+		position: relative;
+	}
+	footer div.searchshare > ul > li.share > a > div.popup {
+		position: absolute;
+		top:calc(100% + 1px);
+		right: 0;
+		display: none;
+		padding-top: 2px;
+		background: #fff;
+	}
+
+	footer div.searchshare > ul > li.share > a > div.popup > div {
+		padding: 10px;
+		height: auto;
+		width: 180px;
+		background: #fff;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		color: #b60005;
+		border: 1px solid #b60005;
+		display: inline-block;
+	}
+
+
+
+	footer div.searchshare > ul > li.share > a > div.popup h5 {
+		color: #333;
+		cursor: text;
+	}
+	footer div.searchshare > ul > li.share > a:hover > div.popup {
+		display: inline-block;
+	}
+	footer div.searchshare > ul > li.share > a:hover,
+	footer div.searchshare > ul > li.share > a:focus {
+		cursor: pointer;
+		color: #b60005;
+		border-color: #b60005;
+	}
+	footer div.help {
+		border-bottom: 2px solid #b8b9b9;
+		padding: 20px 140px;
+	}
+	footer div.help > ul {
+		float: left;
+		text-align: left;
+		margin: 0;
+		padding: 5px;
+		width: 25%;
+		color: #333;
+	}
+	footer div.help > ul > h4 {
+		font-size: 20px;
+		margin-bottom: 20px;
+		font-family: 'HSbold';
+		color: #595757;
+	}
+	footer div.help > ul > li > a {
+		color: #333;
+		line-height: 22px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	footer div.help > ul > li > a:hover {
+		color: #b60005;
+		cursor: pointer;
+	}
+	footer div.copy {
+		padding: 60px 0 0;
+		position: relative;
+		margin-bottom: 20px;
+	}
+	footer div.copy > h5 {
+		position: absolute;
+		top: 2px;
+		color: #595757;
+		left: 0;
+		font-size: 16px;
+		font-family: 'HSbold';
+	}
+	footer div.copy > h5.right {
+		left: auto;
+		right: 0;
+	}
+	footer div.copy > div.icon {
+		float: left;
+		width: 550px;
+		height: 55px;
+	}
+	footer div.copy > div.icon > ul {
+		margin-bottom: 0;
+	}
+	footer div.copy > div.icon > ul > li {
+		float: left;
+		margin-right: 10px;
+	}
+	footer div.copy > div.icon > ul > li img {
+		height: 35px;
+		width: auto;
+	}
+	footer div.copy > div.copyright {
+		text-align: right;
+		float: right;
+	}

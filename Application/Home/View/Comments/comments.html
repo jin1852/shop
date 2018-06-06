@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>评论页面</title>
+		<meta charset="utf-8"/>
+			<load href="__HOMECSS__comments.css"/>
+			<load href="__HOMEJS__jquery-1.8.3.js"/>
+			<load href="__HOMEJS__comments.js"/>
+<include file="Common/header"/>	
+		<div id="container">
+			
+			<!-- 左侧商品展示区 -->
+			<div id="container_left">
+				<!-- 商品信息 -->
+				<div class="goods_messages">
+					<!-- 导航栏 -->
+					<div class="daohang"><span>商品信息</span></div>
+					<!-- 商品图片展示 -->
+				<foreach name="arr" item="volist">
+					<div class="goods_img"><a href="{:U('Details/details/id/'.$volist['prodId'])}">
+						<img src="__PUBLIC__/Uploads/{$volist['img']}" width="208" height="210px;"></a>
+					</div>
+						<!-- 商品名称 -->
+					<div class="goods_name">
+						商品名称：
+						<a href="{:U('Details/details/id/'.$volist['prodId'])}">
+							{$volist['prodInfo']}
+						</a>
+					</div>
+					<!-- 商品京东价格 -->
+					<div class="goods_price">
+						京东价：<span>￥{$volist['price2']}</span>
+					</div>
+					<!-- 商品评价得分 -->
+					<div class="goods_code">
+						评价得分：<span class="code_checked">
+							<?php
+								for($i=0;$i<$volist['Gcode'];$i++){
+									echo "★";
+								}
+							?>
+						</span><span class="code_nochecked">
+							<?php
+								for($i=0;$i<5-$volist['Gcode'];$i++){
+									echo "★";
+								}
+							?>
+						</span>({$volist['Gcode']}分)
+					</div>
+					<!-- 商品评论总数 -->
+					<div class="goods_comments_total">
+						评论数：{$volist['count(cId)']}条
+					</div>
+					<!-- 加入购物车 -->
+					<div class="add_cart">
+						<a href="#"><img src="__PUBLIC__/Uploads/Images/buy_cart.JPG"></a>
+					</div>
+				</div>
+				</foreach>
+				<!-- 其他谈论话题 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>其他谈论话题</span></div>
+					<foreach name="arr1" item="vo">
+					<div class="other_talk">
+						<img src="__PUBLIC__/Uploads/{$vo['simimg']}" width="20px">
+						<a href="{:U('Details/details/id/'.$volist['prodId'])}"><span>{$vo['prodName']}</span></a>
+					</div>
+					</foreach>
+				</div>
+				<!-- 同类推荐 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>同类推荐</span></div>
+					<foreach name="arr3" item="vo1">
+					<div class="tj_goods">
+						<div class="goods_img">
+							<a href="{:U('Details/details/id/'.$vo1['prodId'])}">
+								<img src="__PUBLIC__/Uploads/{$vo1['img']}" width="208px" height="210px;">
+							</a>
+						</div>
+						<div class="goods_desc">
+							<span><a href="{:U('Details/details/id/'.$vo1['prodId'])}">{$vo1['prodName']}</span>
+						</div>
+						<div class="price">{$vo1['price2']}</div>
+					</div>
+					</foreach>
+				</div>
+				<!-- 搭配组合 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>搭配组合</span></div>
+					<foreach name="arr10" item="vo2">
+					<?php 
+						foreach($vo2 as $v){
+					?>
+						<div class="goods">
+							<div class="img">
+								<a href="#">
+									<img src="__PUBLIC__/Uploads/{$v['simimg']}" height="75px;" width="60px;">
+								</a>
+							</div>
+							<div class="descr">
+								<a href="#">{$v['prodName']}</a>
+							</div>
+						</div>
+					<?php
+						}
+					?>
+					
+					</foreach>
+				</div>
+			</div>
+			<!-- 右侧商品评论区 -->
+			<div id="container_right">
+				<div class="daohang">
+					<span>商品评论</span>
+				</div>
+				<div class="shuoming">
+					<div class="jd_logo"></div>
+					<div class="text">
+						<span>感谢您对本店的支持，为了我们能够更好的为您服务，请对您所购买的商品以及我们的服务进行评价！</span>
+					</div>
+				</div>
+				<div class="buy_goods_messages">
+					<div class="daohang">您的评价</div>
+					<div class="comments_img">
+						<a href="{:U('Details/details/id/'.$volist['prodId'])}"><img src="__PUBLIC__/Uploads/{$volist['img']}" width="200px" height="200px"></a>
+					</div>
+					<div class="comments_name">
+						<a href="{:U('Details/details/id/'.$volist['prodId'])}">{$volist['prodInfo']}</a>
+					</div>
+					<div class="form">
+						<form action="{:U('do_comments')}" method="post">
+							<input type="hidden" name="cId" value="{$volist['prodId']}"/>
+							<input type="hidden" name="commentsBId" value="1"/>
+							<input type="hidden" name="Gcode"/>
+							<input type="hidden" name="Scode"/>
+							<input type="hidden" name="Tcode"/>
+							<input type="hidden" name="impression"/>
+							<table border="0">
+								<tr height="30px;">
+									<td align="right" width="240px;">您对本次购物的总体评价：</td>
+									<td style="200px;line-height:20px;" class="com">
+										<input type="radio" name="commentsdj" value="1"/><span>好评</span>
+										<input type="radio" name="commentsdj" value="2"/><span>中评</span>
+										<input type="radio" name="commentsdj" value="3"/><span>差评</span>
+									</td>
+								</tr>
+								<tr>
+									<td rowspan="2" align="right">您对本次购买商品的评价：</td>
+									<td class="code1">
+										<?php
+											for($i=0;$i<5;$i++){
+												echo "<span>☆</span>";
+											}
+										?>
+										<span></span>
+									</td>
+									
+								</tr>
+								<tr>
+									<td>
+										<textarea name="content" cols="30" id="text" rows="8"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td align="right">您对我们服务的评价：</td>
+									<td class="code2">
+										<?php
+											for($i=0;$i<5;$i++){
+												echo "<span>☆</span>";
+											}
+										?>
+										<span></span>
+									</td>
+								</tr>
+								<tr>
+									<td align="right">您对本次物流的评价：</td>
+									<td class="code3">
+										<?php
+											for($i=0;$i<5;$i++){
+												echo "<span>☆</span>";
+											}
+										?>
+										<span></span>
+									</td>
+								</tr>
+								<tr>
+									<td align="right">您对本商品的印象是：</td>
+									<td id="yx">
+										<span>配置不错</span>
+										<span>电脑还不错</span>
+										<span>屏幕够清晰</span>
+										<span>运行流畅</span>
+										<span>速度快</span>
+										<span>外观漂亮</span>
+										<span>散热好</span>
+									</td>
+								</tr>
+							</table>
+							<div class="sub">
+								<input id="submit" type='submit' value="提交评论"/>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="comments_area">
+					<form>
+						
+					</form>
+				</div>
+			</div>
+			
+		</div>
+		<include file="Common/footer"/>
+	</body>
+</html>

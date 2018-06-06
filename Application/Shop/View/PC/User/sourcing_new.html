@@ -1,0 +1,567 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+<link href="__PUBLIC__/Shop/p/css/uploadSourcingList.css" rel="stylesheet">
+<form action="{:U('ucenter/sourcing_new')}" method="post" id="sourcing_form">
+<div class="content_list">
+    <div class="title">
+        <ul class="enquiry">
+            <li class="icon"> </li>
+            <li class="enquiryNo">Date</li>
+            <li class="date"> </li>
+            <li class="files">Files</li>
+        </ul>
+    </div>
+    <!-- end .title -->
+
+    <div class="list">
+        <ul class="enquiry sourcing">
+            <li class="active">
+                <ul class="title">
+                    <li class="icon">
+                        <a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="enquiryNo">new Sourcing</li>
+                    <li class="date"></li>
+                    <li class="files">
+                        <!--<a href="#">Download PDF</a>-->
+                    </li>
+                </ul>
+                <div class="content">
+                    <div class="list sourcingList">
+                        <div class="sourcingL">
+                            <ul style="display:none;">
+                                <!-- uploadSourcingList icon [just loading one times] 关于Sourcing上传文件图标样式 -->
+
+                                <!-- end link uploadSourcingList -->
+                                <li class="disabledList">
+                                    <div class="left">
+                                        <div class="img">
+                                            <a href="#">Upload Images</a>
+                                            <a class="deletImg">x</a>
+                                        </div>
+                                        <div class="upload">
+                                            <a href="#">Upload Sourcing List/Images</a>
+                                        </div>
+                                        <div class="file">
+                                            <ul>
+
+                                                <li class="xls"><span>123.xls</span>
+                                                </li>
+                                                <li class="pdf"><span>abcdefg.pdf</span>
+                                                </li>
+                                                <li class="pdf"><span>abcdefg.pdf</span>
+                                                </li>
+                                                <div class="clr"></div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <h5>Product Details  (Optional)</h5>
+                                        <label>
+                                            <span></span>
+                                            <div>
+                                                <select class="type" >
+                                                    <optgroup label="Choose a Product Type">
+
+                                                    <option value="Tools &Gadgets">Tools &amp; Gadgets</option>
+                                                    <option value="Knife">Knife</option>
+                                                    <option value="Cutting Boards">Cutting Boards</option>
+                                                    <option value="BBQ"> BBQ</option>
+                                                    <option value="Baking">Baking</option>
+                                                    <option value="Accessories">Accessories</option>
+                                                    <option value="Others">Others</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Size</span>
+                                            <div>
+                                                <input type="text" class="sizetext" value="" name="size" placeholder="input size">
+                                            </div>
+                                            <div style="margin-left:-4px;padding-left:5px;">
+                                                <select class="size" name="sizetype">
+                                                    <option selected="selected">CM</option>
+                                                    <option>Inch</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select class="function" name="function">
+                                                    <!--<option>Function</option>-->
+                                                    <volist name="function" id="one">
+                                                        <option value="">Function</option>
+                                                        <option value="{$one.styleName}">{$one.styleName}</option>
+                                                    </volist>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Tanget Price</span>
+                                            <div>
+                                                <input class="price" type="text" placeholder="3.33">
+                                            </div>
+                                            <div>
+                                                <select class="material" name="material">
+                                                    <option>Material</option>
+                                                    <option>Stailess Steel</option>
+                                                    <option>Silicone</option>
+                                                    <option>Nylon</option>
+                                                    <option>Wood</option>
+                                                    <option>Bamboo</option>
+                                                    <option>Plastic</option>
+                                                    <option>MDF</option>
+                                                    <option>Acrylic</option>
+                                                    <option>Others</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Quantity</span>
+                                            <div>
+                                                <input class="quantity" type="text"  placeholder="10000">
+                                            </div>
+                                            <div>
+                                                <select class="features" >
+                                                    <option>Coating</option>
+                                                    <option>Space Saving</option>
+                                                    <option>Multi-functiongs</option>
+                                                    <option>Innovative Functiong</option>
+                                                    <option>Non-slip</option>
+                                                    <option>Hot Selling</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Remark</span>
+                                            <div class="remarkDiv">
+                                                <textarea class="remark" style="border: 1px solid  #000;"> copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy copy</textarea>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="clr"></div>
+                                </li>
+                            </ul>
+
+                            <ul id="new_sourcing_area">
+
+                                <li>
+                                    <!--<a href="#" class="closeLi"><i class="fa fa-times" aria-hidden="true"></i></a>-->
+                                    <div class="left">
+                                        <div class="img" >
+                                            <input name="imgmain[]" class="mainimg_input" type="hidden">
+                                            <a href="javascript:void(0);" data-type="image" class="imageup">Upload Image</a>
+                                            <a class="deletImg"  href="javascript:void(0);" style="display:none;">x</a>
+                                        </div>
+                                        <div class="upload">
+                                            <a href="javascript:void(0);" data-type="attach" class="upfile">Upload Sourcing List/Images</a>
+                                        </div>
+                                        <div class="file">
+                                            <input name="attach[]" class="attach_input" type="hidden" data-type="json"/>
+                                            <ul>
+
+                                                <div class="clr"></div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <h5>Product Details  (Optional)</h5>
+                                        <label>
+                                            <span></span>
+                                            <div>
+                                                <select class="type" name="prodtype[]">
+                                                    <option value="">Choose a Product Type </option>
+                                                    <option value="Tools &amp; Gadgets">Tools &amp; Gadgets</option>
+                                                    <option value="Knife">Knife</option>
+                                                    <option value="Cutting Boards">Cutting Boards</option>
+                                                    <option value="BBQ">BBQ</option>
+                                                    <option value="Baking">Baking</option>
+                                                    <option value="Accessories">Accessories</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Size</span>
+                                            <div>
+                                                <input type="text" class="sizetext" name="size[]">
+                                            </div>
+                                            <div style="margin-left:-4px;padding-left:5px;">
+                                                <select class="size" name="size_type[]">
+                                                    <option value="CM">CM</option>
+                                                    <option value="Inch">Inch</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select class="function" name="function[]">
+                                                    <optgroup label="Function">
+                                                        <volist name="function" id="one">
+                                                            <option value="{$one.styleName}">{$one.styleName}</option>
+                                                        </volist>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Tanget Price</span>
+                                            <div>
+                                                <input class="price" type="text" name="price[]">
+                                            </div>
+                                            <div>
+                                                <select class="material" name="material[]">
+                                                    <option value="Material">Material</option>
+                                                    <option value="Stailess Steel">Stailess Steel</option>
+                                                    <option value="Silicone">Silicone</option>
+                                                    <option value="Nylon">Nylon</option>
+                                                    <option value="Wood">Wood</option>
+                                                    <option value="Bamboo">Bamboo</option>
+                                                    <option value="Plastic">Plastic</option>
+                                                    <option value="MDF">MDF</option>
+                                                    <option value="Acrylic">Acrylic</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Quantity</span>
+                                            <div>
+                                                <input class="quantity" type="text" name="quantity[]">
+                                            </div>
+                                            <div>
+                                                <select class="features" name="coating[]">
+                                                    <option value="Coating">Coating</option>
+                                                    <option value="Space Saving">Space Saving</option>
+                                                    <option value="Multi-functiongs">Multi-functiongs</option>
+                                                    <option value="Innovative Functiong">Innovative Functiong</option>
+                                                    <option value="Non-slip">Non-slip</option>
+                                                    <option value="Hot Selling">Hot Selling</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>
+                                            <span>Remark</span>
+                                            <div class="remarkDiv">
+                                                <textarea class="remark" name="remark[]"></textarea>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="clr"></div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btnBar">
+                        <a href="javascript:void(0);" class="float_left" id="additem">+ Add New Items</a>
+                        <!--<a href="#">Download Quotation</a>-->
+                        <input id="imageupload" type="file" name="files" style="display:none;">
+                        <input id="fileupload" type="file" name="files" style="display:none;">
+                        <a class="black" href="javascript:void(0);" onclick="javascript:submit_new();">Save</a>
+                    </div>
+                    <!-- end .list -->
+                </div>
+                <!-- end .content -->
+            </li>
+        </ul>
+    </div>
+
+    <!-- end .list -->
+    <!--<div class="page">-->
+        <!--<ul>-->
+            <!--<li class="active"><a href="#">1</a></li>-->
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li><a href="#">3</a></li>-->
+            <!--<li><a href="#">4</a></li>-->
+            <!--<li>...</li>-->
+            <!--<li><a href="#">35</a></li>-->
+            <!--<li><a href="#">36</a></li>-->
+            <!--<li><a href="#">NEXT</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+</div>
+</form>
+</div>
+<div class="clr"></div>
+</section>
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+<script src="__PUBLIC__/Shop/J/vendor/jquery.ui.widget.js"></script>
+<script src="__PUBLIC__/Shop/J/jquery.fileupload.js"></script>
+<script type="text/javascript">
+
+    function submit_new(){
+        var imgmain=$("input[name='imgmain[]']");
+        var attach=$("input[name='attach[]']");
+        var prodtype=$("input[name='prodtype[]']");
+        var size=$("input[name='size[]']");
+        var size_type=$("input[name='size_type[]']");
+        var _function=$("input[name='function[]']");
+        var price=$("input[name='price[]']");
+        var material=$("input[name='material[]']");
+        var quantity=$("input[name='quantity[]']");
+        var coating=$("input[name='coating[]']");
+        var remark=$("input[name='remark[]']");
+        for(var i=0;i<imgmain.length;i++){
+
+            if($(size[i]).val()==""){
+                $(size[i]).focus();
+                $(size[i]).css({'background-color':'#ffdfdf'});
+                alert("please input size");
+                return false;
+            }
+            if($(imgmain[i]).val()==""){
+                $(imgmain[i]).parent().css({'background-color':'#ffdfdf' });
+                $(imgmain[i]).parent().find("a.imageup").css({'color':'black'});
+                alert("please upload image");
+                return false;
+            }
+            if($(price[i]).val()==""){
+                $(price[i]).focus();
+                $(price[i]).css({'background-color':'#ffdfdf'});
+                alert("please input price");
+                return false;
+            }
+            if($(quantity[i]).val()==""){
+                $(quantity[i]).focus();
+                $(quantity[i]).css({'background-color':'#ffdfdf'});
+                alert("please input quantity");
+                return false;
+            }
+        }
+//        console.log(len);
+        $("#sourcing_form").submit();
+        return true;
+    }
+
+    $(document).ready(function(){
+        $(".t_list").click(function () {
+            window.location.href = '__APP__/Ucenter/view_history/type/' + $(this).data('id');
+        });
+        $(".delete").click(function () {
+            var prodId = $(this).data("id");
+            try {
+                if (prodId > 0) {
+                    post_url_data('__APP__/Users/del_history', 'POST', {prodId: prodId}, function (err, Data) {
+                        if (err) {
+                            alert(err);
+                        } else {
+                            if (Data.status == 1) {
+                                alert(Data.info);
+                                window.location.href = '__APP__/ucenter/view_history/type/' + $(".t_list.active").data('id');
+                            } else {
+                                alert(Data.info);
+                            }
+                        }
+                    });
+                } else {
+                    return false;
+                }
+            } catch (e) {
+                console.log(e);
+            } finally {
+                prodId = null;
+            }
+        });
+//        添加项目
+        $("#additem").click(function(){
+            $.get("{:U('ucenter/sourcing_ajax_newform')}",function(data){
+                $("#new_sourcing_area").append(data);
+//                alert($("#new_sourcing_area>li:last").html());
+                $("#new_sourcing_area>li:last").fadeIn("normal");
+
+            },"html");
+        });
+        $(document).on("click", "#new_sourcing_area .closeLi",function(){
+            $(this).parent("li").slideUp('normal',function(){
+                $(this).remove()
+            });
+        });
+        $('#fileupload').fileupload({
+            url: '/index.php/ucenter/uploadSourcingFile.html',
+            dataType: 'json',
+            done: function (e, data) {
+//                $.each(data.result.files, function (index, file) {
+//                    $('<p/>').text(file.name).appendTo('#files');
+//                });
+                //background: url(/Public/Shop/p/images/update/bg-usercenter-tools.png) no-repeat center;background-size: cover;
+                console.log(data);
+            },
+            progressall: function (e, data) {
+                console.log(data);
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        });
+
+        //＝＝＝＝＝＝＝＝＝上传附件＝＝＝＝＝＝＝＝＝
+        $(document).on("click",'a.deleAttach',function(){
+            var del_filename=$(this).data("filename");
+            var leftdiv=$(this).parents("div.left");
+            var upload_input=leftdiv.find("div.file input");
+            var attach=upload_input.val();
+            if(attach.length==0||attach==null){
+                attach="[]";
+            }
+            var attach_json = eval('(' + attach + ')');
+            var newAttach=[];
+            for(var i=0;i<attach_json.length;i++){
+                var one=attach_json[i];
+                console.log(one);
+                console.log(name);
+                if(one.filename!=del_filename){
+                    newAttach.push(one);
+                }
+            }
+            var upload_input=leftdiv.find("div.file input");
+            upload_input.val(JSON.stringify(newAttach));
+            console.log(newAttach);
+        });
+        $(document).on("click", ".upfile",function(){
+//            var attach=[];
+//            attach.push({'name':'filename','filename':'/public/xxxx.jpg'});
+//            attach.splice(0,1);
+//            console.log(attach);
+//            return;
+            $("#imageupload").click();
+            var leftdiv=$(this).parents("div.left");
+            var filelist=leftdiv.find("div.file ul");
+
+
+            //console.log(filelist.find('div.clr').before("xxxxx"));
+
+            var upload_attach_a=leftdiv.find("div.upload a");
+            var upload_input=leftdiv.find("div.file input");
+
+            $('#imageupload').fileupload({
+                url: '/index.php/ucenter/uploadSourcingFile.html',
+                formData:{exts:'xls,pdf,txt,jpg,png,gif'},
+                dataType: 'json',
+                done: function (e, data) {
+//                    console.log("xxx");
+                    if(data.result.status==1){
+                        var filename=data.result.filename;
+                        var name=data.result.name;
+                        var ext=data.result.ext;
+
+                        var html='<li class="'+data.result.ext+'"><span>'+name+'</span>'+
+                            '<a href="javascript:void(0);" class="deleAttach" data-filename="'+filename+'">x</a>'+
+                            '</li>';
+                        var attach=upload_input.val();
+                        if(attach.length==0||attach==null){
+                            attach="[]";
+                        }
+                        var hasSame=false;
+                        var attach_json = eval('(' + attach + ')');
+                        for(var i=0;i<attach_json.length;i++){
+                            var one=attach_json[i];
+//                            console.log(one);
+//                            console.log(name);
+                            if(one.name==name){
+                                hasSame=true;
+                            }
+                        }
+                        if(hasSame==false){
+                            attach_json.push({'name':name,'filename':filename,'ext':ext});
+                            filelist.find('div.clr').before(html);
+                            upload_input.val(JSON.stringify(attach_json));
+                        }else alert("had same file");
+//                        console.log(attach_json);
+
+
+                    }else{
+                        alert(data.result.msg);
+                    }
+                },
+                progressall: function (e, data) {
+//                    var progress = parseInt(data.loaded / data.total * 100, 10);
+//                    leftdiv.find('.imageup').html(progress + '%');
+                }
+            });
+        });
+        //＝＝＝＝＝＝＝＝＝主图片删除＝＝＝＝＝＝＝＝＝
+        $(document).on("click",'.deletImg',function(){
+            if(confirm("is remove this Picture ?")) {
+                var leftdiv=$(this).parents("div.left");
+                leftdiv.find('div.img').removeAttr("style");
+                leftdiv.find('a.imageup').show();
+                leftdiv.find('input.mainimg_input').val("");
+                $(this).hide();
+
+            }
+        });
+        //＝＝＝＝＝＝＝＝＝上传主图片＝＝＝＝＝＝＝＝＝
+        $(document).on("click", ".imageup",function(){
+            $("#imageupload").click();
+            var imageup=$(this);
+            var leftdiv=$(this).parents("div.left");
+
+            $('#imageupload').fileupload({
+                url: '/index.php/ucenter/uploadSourcingFile.html',
+                dataType: 'json',
+                formData:{exts:'jpg,png,jpeg,gif'},
+                done: function (e, data) {
+
+                    if(data.result.status==1){
+                        var filename=data.result.filename;
+                        leftdiv.find('div.img').css({
+                            'background':'url('+filename+') no-repeat center',
+                            'background-size':'cover'
+                        });
+                        leftdiv.find('.imageup').hide();
+                        leftdiv.find('.deletImg').show();
+                        leftdiv.find('.mainimg_input').val(filename);
+                    }else{
+                        alert("please upload Picture");
+                    }
+                    leftdiv.find('.imageup').html("Upload Images");
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    leftdiv.find('.imageup').html(progress + '%');
+                }
+            });
+        });
+        //＝＝＝＝＝＝＝＝＝上传主图片＝＝＝＝＝＝＝＝＝end
+
+
+        $(".btn").click(function () {
+            var prodId = get_id($(this)), prodName = get_name($(this)), data = {};
+            try {
+                if (prodId > 0 && prodName) {
+                    data = {prodId: prodId, prodName: prodName};
+                    post_url_data('__APP__/Users/add_to_cart', 'POST', data, function (err, result) {
+                        if (err) {
+                            alert(err);
+                        } else {
+                            alert(result.info);
+                            if (result.status == -20) {
+                                window.location.href = '__APP__/Login/index';
+                            }
+                        }
+                    });
+                } else {
+                    return false;
+                }
+            } catch (e) {
+                console.log(e);
+            } finally {
+                prodId = null;
+                prodName = null;
+                data = null;
+            }
+        });
+    });
+    function get_id(dom) {
+        return dom.data('id');
+    }
+    function get_name(dom) {
+        return dom.data('prodname');
+    }
+</script>
+</body>
+</html>

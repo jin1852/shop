@@ -1,0 +1,610 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+<style>
+	.clear{
+		padding-left: 35px;
+	}
+	.inputForm{
+		padding-bottom: 30px;
+		height:450px;
+	}
+	#save_info{
+		color: #fff !important;
+		background: #595757 !important;
+		padding: 0 8px;
+		display: inline-block;
+		border: 1px solid #595757;
+		line-height: 26px;
+		text-align: center;
+		text-decoration: none !important;
+		right: 0;
+		float: right;
+		margin-top: 5px;
+		margin-left: 50px;
+	}
+	#save_info:hover{
+		color: #fff;
+		background: #b60005 !important;
+	}
+	.default{
+		margin-top: 100px !important;
+	}
+</style>
+<div class="content_list profile">
+	<div class="profile_container">
+		<form>
+			<link href="__CSS__/profile.css" rel="stylesheet">
+			<!-- profile css -->
+			<div class="inputForm clear">
+				<div class="col-md-12 left">
+					<div class="col-md-12">
+						<span>ClientID.</span>
+						<div>
+							<span>{$ulist.userId}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 left" style="height:180px;">
+					<div class="col-md-12">
+						<span>Company</span>
+						<div>
+							<input type="text" id="company" name="company" value="{$ulist.userCompany}"><i>*</i>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<span>Phone</span>
+						<div>
+							<input type="text" style="width:220px;" id="company_phone" name="company_phone" value="{$ulist.userCompanyPhone}"><i>*</i>
+						</div>
+					</div>
+					<!--<div class="col-md-12">-->
+						<!--<span>Fax</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:140px;" id="company_phone" name="company_phone" value="{$ulist.userCompanyPhone}">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-12">-->
+						<!--<span>Email</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:300px;" id="email" name="email" value="{$ulist.useremail}"><i>*</i>-->
+						<!--</div>-->
+					<!--</div>-->
+					<div class="col-md-12">
+						<span>Website</span>
+						<div>
+							<input type="text" style="width:140px;" id="website" name="website" value="{$ulist.website}"><i>*</i>
+						</div>
+					</div>
+				<!--</div>-->
+				<!-- end left -->
+				<!--<div class="col-md-6 right" style="height:180px;">-->
+					<div class="col-md-12">
+						<span>Country</span>
+						<div>
+							<select style="width:220px;" id="country" name="country">
+								<volist name="clist" id="cl1">
+									<option value="{$cl1.id}" <?php if($ulist['country'] == $cl1['id']){ ?>selected<?php } ?>>{$cl1.en_name}</option>
+								</volist>
+							</select><i>*</i>
+
+						</div>
+					</div>
+					<!--<div class="col-md-12">-->
+						<!--<span>Destination</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:140px;">-->
+						<!--</div>-->
+					<!--</div>-->
+					<div class="col-md-12">
+						<span>Full Address</span>
+						<div>
+							<textarea style="width:300px; height:63px; resize:none;" id="address" name="address">{$ulist.address}</textarea>
+						</div>
+					</div>
+					<!--<div class="col-md-12">-->
+						<!--<span>Express Account</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:300px;">-->
+						<!--</div>-->
+					<!--</div>-->
+
+				<!--</div>-->
+				<!-- end right -->
+
+
+				<!--<div class="col-md-12" style="height:100px;">-->
+					<div class="col-md-12">
+						<span>Contact</span>
+						<div>
+							<input type="text" style="width:140px;" id="userContact" name="userContact" value="{$ulist.userContact}"><i>*</i>
+
+						</div>
+					</div>
+					<div class="col-md-12">
+						<span>Title</span>
+						<div>
+							<input type="text" style="width:140px;" id="zy_title" name="zy_title" value="{$ulist.zy_title}">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<span>Email</span>
+						<div>
+							<input type="text" style="width:220px;" id="email" name="email" value="{$ulist.useremail}">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<span>Mobile No.</span>
+						<div>
+							<input type="text" style="width:220px;" id="phone" name="phone" value="{$ulist.usertel}">
+						</div>
+					</div>
+				</div>
+				<!-- end left -->
+
+				<!--<div class="col-md-6 right" style="height:100px;">-->
+					<!--<div class="col-md-12">-->
+						<!--<span>Type of Sourcing</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:170px;">-->
+							<!--<input type="text" style="width:125px;">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-12">-->
+						<!--<span>Express Account</span>-->
+						<!--<div>-->
+							<!--<select style="width:220px;">-->
+								<!--<option>1</option>-->
+								<!--<option>2</option>-->
+							<!--</select>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!-- end right -->
+
+				<!--<div class="col-md-6 left" style="height:100px;">-->
+					<!--<div class="col-md-12">-->
+						<!--<span>ContactA</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:140px;"><i>*</i>-->
+							<!--<span>Title</span>-->
+							<!--<input type="text" style="width:140px;">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-12">-->
+						<!--<span>Email</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:220px;">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-12">-->
+						<!--<span>Mobile No.</span>-->
+						<!--<div>-->
+							<!--<input type="text" style="width:220px;">-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!-- end left -->
+
+			</div>
+			<!-- end .inputForm -->
+
+			<div class="card">
+				<?php if($ulist['business_card']){ ?>
+				<label style="background: url('{$ulist.business_card}'); background-repeat: no-repeat;background-position: center;">
+				<?php }else{ ?>
+				<label>
+					<?php } ?>
+					<span id="bct">Upload Business Card</span>
+					<input type="file" id="business_card"/>
+				</label>
+			</div>
+			<div class="bt">
+				<a id="save_info" style="cursor: pointer">Save My profile</a>
+			</div>
+
+			<div class="default">
+				<ul class="title clear">
+					<!--<li class="yi"></li>-->
+					<li class="er">Default Address</li>
+					<li class="san">Full Address</li>
+					<li class="si">Postal Code</li>
+					<li class="wu">Phone</li>
+					<li class="liu"><a class="address_add" style="cursor: pointer"> + Add</a>　</li>
+				</ul>
+				<?php if($alist){ ?>
+				<volist name="alist" id="al" key="i">
+					<ul class="clear">
+					<!--<li class="yi">-->
+						<!--<input type="checkBox" />-->
+					<!--</li>-->
+					<li class="er">Address{$i}</li>
+					<li class="san">{$al.address}</li>
+					<li class="si">{$al.PostalCode}</li>
+					<li class="wu">{$al.tel}</li>
+					<li class="liu">
+						<a class="address_edit" style="cursor: pointer"
+						   data-addressId="{$al.addressId}"
+						   data-address="{$al.address}"
+						   data-receiver="{$al.receiver}"
+						   data-tel="{$al.tel}"
+						   data-PostalCode="{$al.PostalCode}"
+						   data-Express="{$al.Express}"
+						   data-Express_name="{$al.Express_name}"
+						   data-Service="{$al.Service}"
+						   data-Service_name="{$al.Service_name}"
+						   data-AcountNO="{$al.AcountNo}"
+						   data-email="{$al.email}"
+						   data-countryId = "{$al.countyId}"
+						> - Edit</a>|<a data-id="{$al.addressId}" class="address_del" style="cursor: pointer"> - Remove</a></li>
+					</ul>
+				</volist>
+				<?php } ?>
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address1</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address2</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address3</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address4</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address5</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="clear">-->
+					<!--<li class="yi"><input type="checkBox" /></li>-->
+					<!--<li class="er">Address6</li>-->
+					<!--<li class="san">CopyCopyCopyCopyCopyCopy</li>-->
+					<!--<li class="si">0000000000000000</li>-->
+					<!--<li class="wu">0000000000000000</li>-->
+					<!--<li class="liu"><a href="">Edit</a>|<a href="">Remove</a></li>-->
+				<!--</ul>-->
+				<div class="address-popup" style="display: none">
+					<a class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+					<!--<div class="left">-->
+						<!--<ul>-->
+							<!--<li class="active"><a>Address 1</a></li>-->
+							<!--<li><a>Address 2</a></li>-->
+							<!--<li><a>Address 3</a></li>-->
+							<!--<li><a>Address 4</a></li>-->
+							<!--<li><a>Address 5</a></li>-->
+							<!--<li><a>Address 6</a></li>-->
+							<!--<li><a>Address 7</a></li>-->
+							<!--<li><a>Address 8</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<!-- end .left -->
+					<div class="right" >
+						<div class="inputContent">
+							<ul id="info">
+								<!--<li style="width:440px"><span>Company</span>-->
+									<!--<input type="text" class="info_Company" name="info_Company">-->
+								<!--</li>-->
+								<li style="width:440px"><span>receiver</span>
+									<input type="text" class="info_receiver" name="info_receiver">
+								</li>
+								<li style="width:440px"><span>Country</span>
+									<select  class="info_Country" name="info_Country">
+										<volist name="clist" id="cl2">
+											<option class="info_cl" value="{$cl2.id}" >{$cl2.en_name}</option>
+										</volist>
+									</select>
+								</li>
+								<li style="width:440px"><span>Address</span>
+									<textarea class="info_Address" name="info_Address"></textarea>
+								</li>
+								<li style="width:330px"><span>Acount No.</span>
+									<input type="text" class="info_AccountNO" name="info_AccountNO">
+								</li>
+								<li style="width:330px; clear:both"><span>Email</span>
+									<input type="text" class="info_email" name="info_email">
+								</li>
+								<li style="width:330px; clear:both"><span>Phone No.</span>
+									<input type="text" class="info_phone" name="info_phone">
+								</li>
+								<li style="width:330px; clear:both"><span>Postal Code</span>
+									<input type="text" class="info_PostalCode" name="info_PostalCode">
+								</li>
+								<li style="width:100%"><span>Express</span>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="1">Fedex
+									</label>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="2">UPS
+									</label>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="3">TNT
+									</label>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="4">DHL
+									</label>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="5">SF-EXPRESS
+									</label>
+									<label>
+										<input type="radio" class="info_express" name="info_express" value="6">Other
+										<input type="text" class="info_expressother" name="info_expressother">
+									</label>
+								</li>
+								<li style="width:100%"><span>Service</span>
+									<label style="margin-right:40px">
+										<input type="radio" class="info_service" name="info_service" value="1">Intl.Priority
+									</label>
+									<label style="margin-right:40px">
+										<input type="radio" class="info_service" name="info_service" value="2">Intl.Economy
+									</label>
+									<label>
+										<input type="radio" class="info_service" name="info_service" value="3">Other
+										<input type="text" class="info_serviceother" name="info_serviceother">
+									</label>
+
+								</li>
+								<li style="width:100%">
+									<span></span>
+									<div class="bt">
+										<a id="ad_select" style="cursor: pointer;">Select</a>
+										<a id="ad_del" style="cursor: pointer;">Delete</a>
+										<a id="ad_save" style="cursor: pointer;">Save</a>
+										<a id="ad_add" style="cursor: pointer;">Add</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- end .right -->
+					<div class="clr"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end .content_list -->
+</div>
+<!-- end .content -->
+<div class="clr"></div>
+</section>
+<!-- end .userCenter -->
+
+
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+</body>
+</html>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).on('click',"a.close",function(){
+			$(this).parents("div.address-popup").hide();
+		});
+		$(document).on('click','.address_edit',function(){
+			var data = $(this).data();
+			console.log(data);
+			address_show(1,data);
+		});
+		$(document).on('click','.address_add',function(){
+			address_show(2,'');
+		});
+		$(document).on('click','.address_del',function(){
+			var id = $(this).data('id'), data = {id: id};
+			del_select(data);
+		});
+		$(document).on('click','#ad_select',function(){
+			var id = $(this).data('id'), data = {id: id};
+			set_select(data);
+		});
+		$(document).on('click','#ad_del',function(){
+			var id = $(this).data('id'), data = {id: id};
+			del_select(data);
+		});
+		$(document).on('click','#ad_save',function(){
+			var i = $("#info"),
+					data = {
+						id:$(this).data('id'),
+						receiver: i.find(".info_receiver").val(),
+						phone: i.find(".info_phone").val(),
+						address: i.find(".info_Address").val(),
+						country_id: i.find('.info_cl').parents("select").val(),
+						express: i.find(".info_express:checked").val(),
+						express_other: i.find(".info_expressother").val(),
+						service: i.find(".info_service:checked").val(),
+						service_other: i.find(".info_serviceother").val(),
+						acount_no: i.find(".info_AccountNO").val(),
+						postal_code: i.find(".info_PostalCode").val(),
+						email: i.find(".info_email").val()
+					};
+			do_save(data);
+		});
+		$(document).on('click','#ad_add',function(){
+			var i = $("#info"),
+					data = {
+						receiver: i.find(".info_receiver").val(),
+						phone: i.find(".info_phone").val(),
+						address: i.find(".info_Address").val(),
+						country_id: i.find('.info_cl').parents("select").val(),
+						express: i.find(".info_express:checked").val(),
+						express_other: i.find(".info_expressother").val(),
+						service: i.find(".info_service:checked").val(),
+						service_other: i.find(".info_serviceother").val(),
+						acount_no: i.find(".info_AccountNO").val(),
+						postal_code: i.find(".info_PostalCode").val(),
+						email: i.find(".info_email").val()
+					};
+			do_add(data);
+		});
+		$(document).on("click","#save_info",function(){
+			var data = {
+
+				company: $("#company").val(),
+				company_phone: $("#company_phone").val(),
+				website: $("#website").val(),
+
+				country: $("#country").val(),
+				address: $("#address").val(),
+
+				contact: $("#userContact").val(),
+				zy_title: $("#zy_title").val(),
+				email: $("#email").val(),
+				phone: $("#phone").val(),
+
+				business_card: $("#business_card").parent().data('img'),
+			};
+			do_save_info(data);
+		});
+		$("#business_card").change(function(i){
+			var file = i.target.files[0],reader = new FileReader(),th = $(this);
+			if(file) {
+				if (/image\/\w+/.test(file.type)) {
+					//将文件以Data URL形式读入页面
+					reader.readAsDataURL(file);
+					//监听
+					reader.onload = function (e) {
+						th.parent().find('#bct').hide();
+						th.parent().data('img',this.result).css("background-image","url('"+this.result+"')");
+						th.parent().css("background-repeat","no-repeat");
+						th.parent().css("background-position","center");
+					}
+				} else {
+					show_alert("It is not a image");
+				}
+			}else{
+				show_alert('please select file');
+			}
+		});
+	});
+
+
+	function address_show(type,data){
+		if(type==1){
+			$("#ad_select").data('id',data.addressid).show();
+			$("#ad_del").data('id',data.addressid).show();
+			$("#ad_save").data('id',data.addressid).show();
+			$("#ad_add").hide();
+		}else{
+			$("#ad_select").hide();
+			$("#ad_del").hide();
+			$("#ad_save").hide();
+			$("#ad_add").show();
+		}
+
+		change_list_data(data);
+		$("div.address-popup").fadeIn();
+	}
+
+	function create_country_select_list(cid){
+		console.log(cid);
+		if(cid){
+			$(".info_cl").parents("select").val(cid);
+		}else{
+			$(".info_cl").parents("select").val('');
+		}
+	}
+
+	function change_list_data(data){
+		var i = $("#info");
+
+		create_country_select_list(data.countryid);
+
+		i.find(".info_receiver").val(data.receiver ? data.receiver : "");
+		i.find(".info_Address").val(data.address ? data.address : "");
+		i.find(".info_AccountNO").val(data.acountno ? data.acountno : "");
+		i.find(".info_email").val(data.email ? data.email : "");
+		i.find(".info_phone").val(data.tel ? data.tel : "");
+		i.find(".info_PostalCode").val(data.postalcode ? data.postalcode : "");
+
+		if (data.express == 6) {
+			i.find(".info_expressother").val(data.express_name);
+		} else {
+			i.find(".info_expressother").val("");
+		}
+		change_express(i.find(".info_express"), data.express ? data.express : "");
+
+		if (data.service == 3) {
+			i.find(".info_serviceother").val(data.service_name);
+		} else {
+			i.find(".info_serviceother").val("");
+		}
+		change_express(i.find(".info_service"), data.service ? data.service : "");
+
+	}
+
+	function change_express(cl_,id){
+		$($(cl_)).each(function () {
+			if ($(this).val() == id) {
+				$(this).attr('checked', "checked");
+			} else {
+				$(this).removeAttr("checked");
+			}
+		});
+	}
+
+	function set_select(data){
+		post_('__APP__/Ucenter/address_default',data);
+	}
+
+	function del_select(data){
+		post_('__APP__/Ucenter/address_del',data);
+	}
+
+	function do_add(data){
+		post_('__APP__/Ucenter/address_add',data);
+	}
+
+	function do_save(data){
+		post_('__APP__/Ucenter/address_edit',data);
+	}
+
+	function do_save_info(data){
+		post_('__APP__/Ucenter/user_info_edit',data);
+	}
+
+
+	function post_(url,data){
+		post_url_data(url, 'POST', data, function (err, result) {
+			if (err) {
+				alert(err);
+			} else {
+				alert(result.info);
+				if (result.status == -20) {
+					window.location.href = '__APP__/Login/index';
+				}
+				if(result.status==1){
+					reload();
+				}
+			}
+		});
+	}
+
+
+	function reload(){
+		window.location.reload(true);
+	}
+</script>

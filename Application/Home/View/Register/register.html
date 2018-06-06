@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__/register.css">
+	<include  file='Common/topper' />
+	<div style='clear:both'></div>
+	<div id="logo">
+		<a href='{:U('Index/index')}'>
+		<img src="__PUBLIC__/Uploads/Images/jd_logo.png">
+		</a>
+	</div>
+	<div id="jt">
+		<ul>
+			<li>个人用户</li>
+			<!-- <li>企业用户</li>
+			<li>International Customer</li> -->
+		</ul>
+	</div>
+	<div id="main">
+		<form action={:U("do_register")} onsubmit="return false" method="post">
+			<div class="input_style">
+				<span><b style="mi">*</b>用户名</span>
+				<div class="inputbox">
+					<input type="text" name="uname">
+				</div>
+				<label id="r_name" class="foucs">4到20位字母，数字，下划线及“_”组成</label>
+			</div>
+			<div class="input_style">
+				<span><b>*</b>请设置密码</span>
+				<div class="inputbox">
+					<input type="password" name="upwd">
+				</div>
+				<label style="line-height:18px" id="r_pass"class="foucs">6到20位字母，数字，下划线及“_”组成,不建议使用纯数字，纯字母，纯符号</label>
+			</div>
+			<div class="input_style">
+				<span><b>*</b>请确认密码</span>
+				<div class="inputbox">
+					<input type="password" name="rupwd">
+				</div>
+				<label id="r_rpass"class="foucs">再次输入密码</label>
+			</div>
+			<div class="input_style">
+				<span style="width:190px;"><b>*</b>:邮箱</span>
+				<div class="inputbox">
+					<input type="text" name="useremail">
+				</div>
+				<label id="r_phone"class="foucs">
+				完成验证后你可以通过该邮箱登录和找回密码
+				</label>
+			</div>
+			<div class="input_style">
+				<span><b>*</b>验证码</span>
+				<div style="width:115px" class="inputbox">
+					<input  style="width:115px" type="text" name="code">
+				</div>
+				<div class="getcode">
+					<img src="__URL__/get_code" onclick="this.src='__URL__/get_code?id='+Math.random()+1">
+				</div>
+				<label id="r_code"class="foucs">aaaaaaaaaaa</label>
+			</div>
+			<div class="input_style">
+				<span><b></b></span>
+				<input style="width:10px;height:10px;margin-top:10px;"
+				type="checkbox" name="agrement">
+				<label class="aggrement">我已阅读并同意
+				<a class="agg" href="#">《京东用户注册协议》</a>
+				</label>
+				<label style="margin-left:0px"id="r_aggrement"class="foucs">aaaaaaaaaaaa</label>
+			</div>
+			<div class="input_style">
+				<span><b></b></span>
+				<input 
+				style="background-color:#EC3F41;border:0 none;
+				border-radius:5px;color:#fff;cursor:pointer;" 
+				type="submit" value="注册">
+			</div>
+		</form>
+		<div class="phone">
+			<img src="__PUBLIC__/Uploads/Images/phone-bg.jpg">
+		</div>
+	</div>
+	<div class='rfooter'>
+		<ul>
+			<li style="margin-left:100px;"><a href='#'>关于我们|</a></li>
+			<li><a href='#'>联系我们|</a></li>
+			<li><a href='#'>人才招聘|</a></li>
+			<li><a href='#'>商家入驻|</a></li>
+			<li><a href='#'>广告服务|</a></li>
+			<li><a href='#'>手机京东|</a></li>
+			<li><a href='#'>友情链接|</a></li>
+			<li><a href='#'>销售联盟|</a></li>
+			<li><a href='#'>京东社区|</a></li>
+			<li><a href='#'>友情链接|</a></li>
+			<li><a href='#'>京东公益|</a></li>
+			<li style="margin-left:40%;">Copyright©2004-2014  京东JD.com 版权所有</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="__HOMEJS__/Register.js"></script>
+<script type="text/javascript" src="__HOMEJS__/md5.js"></script>	
+</html>

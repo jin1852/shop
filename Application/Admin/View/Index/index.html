@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/custom-plugins/wizard/wizard.css" media="screen">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+<title>后台首页</title>
+<script type="text/javascript">
+    var days=<?php echo $dayNums ?>;
+    var totalJson=<?php echo $totalJson ?>;
+    var moneyJson=<?php echo $moneyJson ?>;
+</script>
+</head>
+
+<body>
+    <!-- Themer End -->
+
+	<include file="Common/header" />
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    <include file="Common/left_nav" /> 
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+            	<div class="mws-stat-container clearfix">
+                	
+                    <!-- Statistic Item -->
+                	<a class="mws-stat" href="#">
+                    	<!-- Statistic Icon (edit to change icon) -->
+                    	<span class="mws-stat-icon icol32-building"></span>
+                        
+                        <!-- Statistic Content -->
+                        <span class="mws-stat-content">
+                        	<span class="mws-stat-title">Floors Climbed</span>
+                            <span class="mws-stat-value">324</span>
+                        </span>
+                    </a>
+                	<a class="mws-stat" href="#">
+                    	<!-- Statistic Icon (edit to change icon) -->
+                    	<span class="mws-stat-icon icol32-sport"></span>
+                        
+                        <!-- Statistic Content -->
+                        <span class="mws-stat-content">
+                        	<span class="mws-stat-title">Calories Burned</span>
+                            <span class="mws-stat-value down">74%</span>
+                        </span>
+                    </a>
+
+                	<a class="mws-stat" href="#">
+                    	<!-- Statistic Icon (edit to change icon) -->
+                    	<span class="mws-stat-icon icol32-walk"></span>
+                        
+                        <!-- Statistic Content -->
+                        <span class="mws-stat-content">
+                        	<span class="mws-stat-title">Kilometers Walked</span>
+                            <span class="mws-stat-value">14</span>
+                        </span>
+                    </a>
+                    
+                	<a class="mws-stat" href="#">
+                    	<!-- Statistic Icon (edit to change icon) -->
+                    	<span class="mws-stat-icon icol32-bug"></span>
+                        
+                        <!-- Statistic Content -->
+                        <span class="mws-stat-content">
+                        	<span class="mws-stat-title">Bugs Fixed</span>
+                            <span class="mws-stat-value up">22%</span>
+                        </span>
+                    </a>
+                    
+                	<a class="mws-stat" href="#">
+                    	<!-- Statistic Icon (edit to change icon) -->
+                    	<span class="mws-stat-icon icol32-car"></span>
+
+                        <!-- Statistic Content -->
+                        <span class="mws-stat-content">
+                        	<span class="mws-stat-title">Cars Repaired</span>
+                            <span class="mws-stat-value">77</span>
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Panels Start -->
+                
+            	<div class="mws-panel grid_5">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-graph"></i>销售额</span>
+                    </div>
+                    <div class="mws-panel-body">
+                        <div id="mws-dashboard-chart" style="height: 222px;"></div>
+                    </div>
+                </div>
+                    <div class="mws-panel grid_3">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-book"></i>站点信息统计</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <ul class="mws-summary clearfix">
+                            <li>
+                                <span class="key"><i class="icon-certificate"></i>今日日期</span>
+                                <span class="val">
+                                    <span class="text-nowrap">{$dayStr}</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="key"><i class="icon-shopping-cart"></i>本月累积销量</span>
+                                <span class="val">
+                                    <span class="text-nowrap">{$saleSum}</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="key"><i class="icon-install"></i>本月累积销售额</span>
+                                <span class="val">
+                                    <span class="text-nowrap">￥{$moneySum}</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="key"><i class="icon-edit"></i> 登录次数</span>
+                                <span class="val">
+                                    <span class="text-nowrap">{$loginNum}</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="key"><i class="icon-key"></i> 上次登录时间</span>
+                                <span class="val">
+                                    <span class="text-nowrap">{$lastTime}</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="key"><i class="icon-edit"></i> 上次登录IP</span>
+                                <span class="val">
+                                    <span class="text-nowrap">{$loginIP}</span>
+                                </span>
+                            </li>
+                            <!--<li>-->
+                                <!--<span class="key"><i class="icon-windows"></i> 操作系统</span>-->
+                                <!--<span class="val">-->
+                                    <!--<span class="text-nowrap">windows</span>-->
+                                <!--</span>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="mws-panel grid_4" style="width:1068px;">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-stats-up"></i>销售量</span>
+                    </div>
+                    <div class="mws-panel-body">
+                        <div class="mws-panel-content">
+                            <div id="mws-bar-chart" style="width:100%;height:300px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+    <script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+    <script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+    <script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+    <script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+    <script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+    <!-- Core Script -->
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="__ADMIN__/js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="__ADMIN__/js/demo/demo.dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+*{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	text-decoration: none;
+}
+body{
+	background-color: #f2f2f2;
+}
+#logo{
+	width: 988px;
+	height: 60px;
+	margin: 10px auto;
+}
+#jt{
+	width: 988px;
+	height: 34px;
+	margin: 0px auto;
+}
+#jt ul{
+	width:450px;
+	margin:0px auto;
+}
+#jt ul li{
+	height:34px;
+	float: left;
+	margin-left:5px;
+	line-height: 34px;
+	padding: 0px 20px;
+	font-size:14px;
+	border: 1px solid #DDD;
+	background-color: #f7f7f7;
+	border-bottom:none;
+}
+#main{
+	width: 988px;
+	height: 514px;
+	background-color:#fff;
+	border: 1px solid #DDD;
+	margin: 0px auto;
+}
+/*右侧图标样式*/
+#main .phone{
+	float: left;
+	margin-top: 40px;
+}
+/*表单样式*/
+#main form{
+	float: left;
+	margin: 0px;
+	margin-top: 20px;
+	width: 750px;
+	height: 465px;
+}
+#main .input_style{
+	width: 750px;
+	height: 60px;
+	line-height:60px;
+	float: left;
+	margin-top: 10px;
+}
+#main .input_style .inputbox{
+	height:35px;line-height:35px;
+	width: 238px;
+	border: 1px solid #ddd;
+	margin-left: 15px;
+	float: left;
+}
+#main .input_style input{
+	height:35px;line-height:35px;
+	width: 238px;
+	border:none;
+	font-size: 18px;
+	float: left;
+}
+#main .input_style span{
+	text-align:right;
+	float: left;
+	color:#999;
+	line-height:35px;
+	font-size:14px;
+	width: 190px;
+	height:35px;
+}
+#main .input_style label.foucs{
+	width: 260px;
+	height:35px;line-height:35px;
+	margin-left: 15px;
+	border: 1px solid #DDD;
+	background-color: #f2f2f2;
+	font-size: 12px;
+	text-align: left;
+	text-indent: 5px;
+	display:none;
+	float: left; 
+}
+#main .input_style label.show{
+	display:block;
+}
+#main .input_style label.errshow{
+	background-color:#FFEBEB;
+	color: red;
+	border-color: red;
+	display:block;
+}		
+#main .input_style label.aggrement{
+	width: 238px;
+	height:35px;line-height:35px;
+	font-size:12px;
+	margin-left:5px;
+	float: left;
+}
+#main .input_style label a.agg{
+	font-size: 12px;
+	color:blue;
+}
+#main .input_style label a:hover{
+	text-decoration: underline;
+	color: blue;
+}
+#main .input_style span b{
+	color:red;
+	margin-right:5px; 
+}
+#main .input_style .getcode{
+	float: left;
+	margin-left: 15px;
+	height: 35px;
+	line-height: 35px;
+	width:106px;
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f4f4f4;
+}
+#main .input_style .getcode img{
+	width: 106px;
+	height: 35px;
+}
+#main .input_style .getcode a{
+	font-size:12px;
+	line-height: 35px;
+	color: #333;
+}
+#main .input_style .getcode a:hover{
+	text-decoration: underline;
+}
+.rfooter{
+	width: 988px;
+	height: 100px;
+	margin: 0 auto;
+}	
+.rfooter ul li{
+	float: left;
+	margin: 10px;	
+}

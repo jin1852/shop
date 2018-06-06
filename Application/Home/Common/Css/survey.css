@@ -1,0 +1,77 @@
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,big,cite,code,del,em,font,img,small,strong,var,b,u,i,center,dl,dt,dd,ol,ul,li,form,input,button{
+	margin:0;
+	padding:0;
+}
+body{
+	color:#666666;
+	font:12px/150% Arial,Verdana,"宋体";
+}
+.w{
+	margin:0 auto;
+	width:1210px;
+	height: 1000px;
+	margin-top: 50px;
+}
+.w .top{
+	width: 1210px;
+	height: 51px;
+	line-height: 43px;
+	border-bottom: 2px solid #ca2f2c;
+}
+.top .log{
+	height: 43px;
+	width: 100px;
+	margin-top: 13px;
+	float: left;
+}
+.top b{
+	float: left;
+	line-height: 51px;
+	font-size: 20px;
+	margin-left: 100px;
+	width: 300px;
+}
+.top .dog{
+	height: 43px;
+	width: 100px;
+	float: right;
+}
+.welcome{
+	width: 100%;
+	height: 120px;
+}
+.welcome .welcome-content{
+	width: 1023px;
+	height: 62px;
+	margin-top: 25px;
+	margin-left: 40px;
+ }
+ form .input{
+ 	width: 100%;
+ 	margin: 10px;
+ 	border: 1px solid #CCE8FF;
+ }
+ form .input .title{
+ 	height: 30px;
+ 	line-height: 30px;
+ 	font-size: 13px;
+ 	background-color: #EEF6FF;
+ }
+ form .input .input-content{
+ 	margin: 15px 0 15px 35px;
+ }
+ form .input .input-content input{
+ 	height: 15px;
+ }
+ .input-button-style{
+ 	width:65px;
+ 	border-radius:5px;
+ 	border: 1px solid #AED0EA;
+ 	height:30px;
+ 	background-color:#E1F0FA;
+ 	position: absolute;
+ 	left: 650px;
+ 	margin-top: 10px;
+ 	color: blue;
+ 	cursor: pointer;
+ }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<section class="content-masonry ">
+    <div class="container">
+        <include file="Public:lj"/>
+        <div class="story-text">
+            <h4>CUSTOMER DISTRIBUTION MAP</h4>
+            <div class="map" style="background-image: url(__IMG__/update/story-map.jpg)"></div>
+            <h5>GALA has won a broad reputation worldwide, which covers the Europe, American, Asia and Australia market.<br>GALA’s products are traded by several major agents and importers globally.</h5>
+        </div>
+        <ul class="link story">
+            <volist name="business_list" id="bul">
+                <li><img src="{$bul.image}" title="{$bul.title}"></li>
+            </volist>
+            <div class="clr"></div>
+        </ul>
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .content-masonry -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

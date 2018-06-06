@@ -1,0 +1,971 @@
+	@charset "UTF-8";
+	@font-face {
+		font-family: 'HSlight';
+		src: url('../F/HanSanLight.otf');
+	}
+	
+	@font-face {
+		font-family: 'HSregular';
+		src: url('../F/HanSanRegular.otf');
+	}
+	
+	@font-face {
+		font-family: 'HSbold';
+		src: url('../F/HanSanBold.otf');
+	}
+	
+	body {
+		width: 100%;
+		font-family: 'HSlight', Microsoft YaHei, '微软雅黑';
+	}
+	
+	.container {
+		padding: 0 15px;
+		margin: 0 auto;
+		width: 1238px;
+	}
+	
+	body > section {
+		width: 100%;
+		position: relative;
+	}
+	/********************************
+*
+*	
+*	signIn popup 登陆弹窗
+*
+*
+*********************************/
+	
+	div.signIn-popup-fixed {
+		width: 400px;
+		padding: 30px 40px;
+		background: #fff;
+		position: absolute;
+		top: 19%;
+		left: 50%;
+		margin-left: -200px;
+		z-index: 9990;
+	}
+	
+	div.signIn-popup-fixed > ul.meun {
+		margin-bottom: 40px;
+	}
+	
+	div.signIn-popup-fixed > ul.meun > li {
+		float: left;
+		border-bottom: 2px solid #cacbcc;
+		width: 25%;
+		text-align: center;
+		line-height: 48px;
+		font-size: 18px;
+	}
+	
+	div.signIn-popup-fixed > ul.meun > li > a {
+		color: #999;
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		cursor: pointer;
+		font-family: 'HSregular';
+	}
+	
+	div.signIn-popup-fixed > ul.meun > li > a:hover {
+		color: #333;
+	}
+	
+	div.signIn-popup-fixed > ul.meun > li.active {
+		border-bottom: 2px solid #000;
+	}
+	
+	div.signIn-popup-fixed > ul.meun > li.active > a {
+		color: #000;
+	}
+	
+	div.signIn-popup-fixed > form {
+		display: block;
+		padding: 0 20px 50px;
+		font-size: 16px;
+	}
+	
+	div.signIn-popup-fixed > form > label {
+		width: 100%;
+		margin: 0 0 10px;
+		line-height: 32px;
+	}
+	
+	div.signIn-popup-fixed > form > label > input {
+		width: 100%;
+		border: 1px #cacbcc solid;
+		text-align: center;
+		line-height: 32px;
+		outline: none;
+		background: none;
+	}
+	
+	div.signIn-popup-fixed > form > label > input:focus {
+		border: #b60005 1px solid;
+	}
+	
+	div.signIn-popup-fixed > form > label > button {
+		width: 100%;
+		border: 1px #050505 solid;
+		text-align: center;
+		outline: none;
+		background: none;
+	}
+	
+	div.signIn-popup-fixed > form > label > button:hover {
+		border: #b60005 1px solid;
+		color: #b60005;
+	}
+	
+	div.signIn-popup-fixed > form > label > a {
+		text-align: center;
+		color: #999;
+		display: block;
+		width: 100%;
+	}
+	
+	div.signIn-popup-fixed > form > label > a:hover {
+		color: #000;
+	}
+	
+	div.signIn-popup-fixed > div.register {
+		text-align: center;
+		width: 180px;
+		margin: 0 auto 20px;
+		font-size: 16px;
+		line-height: 18px;
+	}
+	
+	div.signIn-popup-fixed > div.register > h5 {
+		font-size: 16px;
+		line-height: 20px;
+		margin: 0;
+		font-family: 'HSregular';
+	}
+	
+	div.signIn-popup-fixed > div.register > ul {
+		margin: 10px 0 0;
+		padding: 10px 0 0;
+		border-top: 1px solid #333;
+	}
+	
+	div.signIn-popup-fixed > div.register > ul > li {
+		float: left;
+		border-right: 1px solid #ccc;
+		height: 20px;
+		width: 25%;
+	}
+	
+	div.signIn-popup-fixed > div.register > ul > li:last-child {
+		border: none;
+	}
+	
+	div.signIn-popup-fixed > div.register > ul > li > a {
+		width: 28px;
+		height: 28px;
+		margin: -4px auto 0;
+		display: block;
+		line-height: 28px;
+		color: #fff;
+		border-radius: 5px;
+		background: #5f5d5d;
+	}
+	
+	div.signIn-popup-fixed > div.reset {
+		background: #f1f1f0;
+		padding: 10px;
+		margin: -50px 20px 0;
+	}
+	
+	div.signIn-popup-fixed > div.reset > h4 {
+		font-size: 24px;
+		margin: 0;
+	}
+	
+	div.signIn-popup-fixed > div.reset > input {
+		width: 100%;
+		border: 1px #cacbcc solid;
+		text-align: center;
+		line-height: 32px;
+		outline: none;
+		background: #fff;
+		margin-bottom: 10px;
+	}
+	
+	div.signIn-popup-fixed > div.reset > button {
+		width: 100%;
+		border: 1px #cacbcc solid;
+		text-align: center;
+		line-height: 32px;
+		outline: none;
+		background: #f1f1f0;
+	}
+	
+	div.signIn-popup-fixed > div.reset >button:hover {
+		border: #b60005 1px solid;
+		color: #b60005;
+	}
+	/********************************
+*
+*	
+*	index banner 首页图片轮播
+*
+*
+*********************************/
+	
+	section.indexBanner {
+		width: 100%;
+		height: 348px;
+		position: relative;
+	}
+	
+	section.indexBanner ul,
+	section.indexBanner li {
+		list-style: none;
+	}
+	
+	section.indexBanner li {
+		float: left;
+		background-position: center;
+		background-size: cover;
+		height: 670px;
+	}
+	
+	section.indexBanner.indexBanner-important > ul > li {
+		height: 670px;
+	}
+	
+	section.indexBanner li > div.text {
+		height: 348px;
+		padding-left: 40px;
+		padding-top: 40px;
+		position: relative;
+		color: #fff;
+	}
+	
+	section.indexBanner li > div.text > h5 {
+		font-family: 'HSbold';
+		font-size: 32px;
+	}
+	
+	section.indexBanner li > div.text > h6 {
+		font-family: 'HSlight';
+		font-size: 36px;
+	}
+	
+	section.indexBanner li > div.text > a {
+		position: absolute;
+		bottom: 40px;
+		left: 40px;
+		padding: 10px 25px;
+		color: #fff;
+		border: 2px solid #fff;
+		text-decoration: none;
+	}
+	
+	section.indexBanner li > div.text > a:hover,
+	section.indexBanner li > div.text > a:focus {
+		background: rgba(255, 255, 255, 0.4);
+	}
+	
+	section.indexBanner > ol {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -37.5px;
+	}
+	
+	section.indexBanner > ol > li {
+		height: 15px;
+		width: 15px;
+		text-indent: -99999em;
+		background: #333;
+		margin: 5px;
+		border: 2px solid #fff;
+		border-radius: 15px;
+	}
+	
+	section.indexBanner > ol > li.active {
+		background: #b60005;
+		border: 2px solid #fff;
+	}
+	
+	section.indexBanner-important {
+		/*height: 670px;*/
+		height: 500px;
+		min-width: 1208px;
+	}
+	/********************************
+*
+*	
+*     Subscribe 订阅
+*
+*
+*********************************/
+	
+	section.subscribe {
+		background: #595757;
+		height: 166px;
+		width: 100%;
+	}
+	
+	section.subscribe > div >span {
+		color: #fff;
+		line-height: 166px;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	section.subscribe > div > div {
+		float: left;
+		margin: 68px 0;
+		height: 30px;
+	}
+	
+	section.subscribe > div > div > input {
+		height: 30px;
+		width: 250px;
+		outline: none;
+		border: none;
+		display: inline-block;
+		padding: 0 5px;
+		top: 0;
+		position: relative;
+		float: left;
+	}
+	
+	section.subscribe > div > div > button {
+		height: 30px;
+		text-align: center;
+		padding: 0 10px;
+		font-size: 16px;
+		color: #333;
+		background: #c9cacb;
+		outline: none;
+		border: none;
+	}
+	/********************************
+*
+*	
+*	index search bar 首页搜索条
+*
+*
+*********************************/
+	
+	section.searchBar {
+		width: 100%;
+		height: auto;
+		padding: 30px 0;
+	}
+	
+	section.searchBar form {
+		display: block;
+		margin: 0 auto;
+		width: 800px;
+	}
+	
+	section.searchBar label {
+		height: 50px;
+		padding: 0;
+		border: 1px #b8b8b8 solid;
+		width: 580px;
+		display: block;
+		float: left;
+	}
+	
+	section.searchBar label > input {
+		color: #595757;
+		width: 100%;
+		padding: 5px 15px;
+		line-height: 38px;
+		border: none;
+		outline: none;
+		font-size: 24px;
+	}
+	
+	section.searchBar a {
+		background: #595757;
+		color: #fff;
+		text-decoration: none;
+		font-size: 18px;
+		line-height: 40px;
+		padding: 5px;
+		width: 200px;
+		text-align: center;
+		display: block;
+		float: left;
+		margin-left: 20px;
+		cursor: pointer;
+	}
+	section.searchBar a:hover{
+		background: #b60005;
+	}
+	/********************************
+*
+*	
+*	content 内容
+*
+*
+*********************************/
+	
+	body > section.content div.box {
+		width: 100%;
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+	
+	body > section.content div.box:hover {
+		z-index: 990;
+		position: relative;
+	}
+	
+	body > section.content div.box > a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+	}
+	/********************************
+*
+*	
+*	index content 首页内容
+*
+*
+*********************************/
+	
+	body > section.content.content-index div.box.indexBanner-min {
+		height: 380px;
+		position: relative;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: 380px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul > li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		float: left;
+		height: 380px;
+		width: 100%;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -37.5px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol >li {
+		height: 15px;
+		width: 15px;
+		text-indent: -99999em;
+		background: #333;
+		margin: 5px;
+		border: 2px solid #fff;
+		border-radius: 15px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul > li > a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol >li.active {
+		background: #b60005;
+		border: 2px solid #fff;
+	}
+	
+	body > section.content.content-index div.box {
+		height: 390px;
+	}
+	
+	body > section.content.content-index div.box.halfbox {
+		width: 50%;
+		height: 702px;
+	}
+	/********************************
+*
+*	
+*     masonry content 图片瀑布流
+*
+*
+*********************************/
+	
+	section.content-masonry {
+		width: 100%;
+		padding: 20px 0;
+	}
+	
+	section > div.container > div.brand {
+		padding: 3px 5px;
+		border-bottom: 1px solid #9fa0a0;
+		color: #9fa0a0;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	
+	section > div.container > div.brand > a {
+		color: #9fa0a0;
+	}
+	
+	section > div.container > div.brand > span {
+		color: #9fa0a0;
+	}
+	
+	section.content-masonry > div.container > ul.grid {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item {
+		width: 100%;
+		transition: all .3s;
+		z-index: 1;
+		float: left;
+		overflow: hidden;
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.grid-item-half {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a {
+		text-decoration: none;
+		display: block;
+		position: relative;
+	}
+
+
+	section.content-masonry > div.container > ul.grid > li.grid-item > a .mark_img {
+		display: none;
+	}
+	section.content-masonry > div.container > ul.grid > li.grid-item > a:hover .mark_img {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height:100%;
+		background-color: rgba(0,0,0,.2);
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a > img {
+		width: auto;
+		height: 100%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.jtweb:hover {
+		box-shadow: none;
+		margin: 0;
+		width: 100%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.grid-item-half.jtweb:hover {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button {
+		font-size: 16px;
+		line-height: 32px;
+		position: absolute;
+		padding: 0px 20px;
+		color: #333;
+		border: 1px solid #333;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button.wbtn {
+		color: #fff;
+		border: 1px solid #fff;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button:hover {
+		background: #595757;
+		color: #fff;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button.wbtn:hover {
+		background: #fff;
+		color: #595757;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > h5.text {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo {
+		position: relative;
+		margin-bottom: 60px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result {
+		width: 100%;
+		position: absolute;
+		top: 40px;
+		left: 0;
+		color: #595757;
+		line-height: 23px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div {
+		border: 1px solid #9fa0a0;
+		display: inline-block;
+		height: 23px;
+		margin-left: 20px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div > a {
+		line-height: 23px;
+		padding: 0 15px;
+		border-right: 1px solid #9fa0a0;
+		text-decoration: none;
+		color: #595757;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div > a:last-child {
+		border: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label {
+		height: 24px;
+		line-height: 22px;
+		border: 1px #595757 solid;
+		margin: 0 0 0 5px;
+		padding: 0;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result input {
+		height: 22px;
+		line-height: 22px;
+		font-size: 16px;
+		padding: 0 10px;
+		border: none;
+		outline: none;
+		background: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label > a {
+		display: inline-block;
+		height: 22px;
+		line-height: 22px;
+		margin: 0;
+		padding: 0 8px;
+		color: #595757;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: #dcdddd;
+		text-decoration: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label.date {
+		width: 140px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label.search {
+		width: 215px;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item {
+		float: left;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item img {
+		height: 445px;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item {
+		width: 33.33333333%;
+	}
+
+	.grid-item > a.heart {
+		display: none !important;
+		position: absolute !important;
+		top: 20px !important;
+		right: 20px !important;
+		color: red !important;
+		font-size: 18px !important;
+	}
+	.grid-item:hover > a.heart {
+		display: block !important;
+	}
+
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item1 {
+		width: 33.33333333%;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item2 {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item3 {
+		width: 100%;
+	}
+
+	/*20170811 add marketing support*/
+
+	section.marketing {
+		display: block;
+		position: relative;
+	}
+	section.marketing > div.container {
+		width: 1240px;
+		margin: 0 auto;
+		padding: 42px 0 0;
+		position: relative;
+	}
+	section.marketing div.brandbar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		line-height: 23px;
+		font-size: 12px;
+		color: #9fa0a0;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	section.marketing div.brandbar > a {
+		color: #9fa0a0;
+	}
+	section.marketing div.brandbar > a:hover {
+		color: #333;
+	}
+	section.marketing div.search {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-webkit-justify-content: flex-end;
+		-moz-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+		position: absolute;
+		right: 0;
+		top: 0;
+		line-height: 23px;
+	}
+	section.marketing div.search > div.showallbar > a {
+		color: #333;
+		font-family: 'HSbold';
+		margin-right: 10px;
+	}
+	section.marketing div.search > div.selectbar > select {
+		border: none;
+		outline: #9fa0a0 1px solid;
+		background: none;
+		margin-right: 10px;
+		height: 23px !important;
+		width: 75px;
+	}
+	section.marketing div.search > div.inputbar {
+		position: relative;
+	}
+	section.marketing div.search > div.inputbar > input {
+		border: #9fa0a0 1px solid;
+		outline: none;
+		background: none;
+		height: 23px;
+		width: 215px;
+		padding: 2px 3px;
+		line-height: 19px;
+	}
+	section.marketing div.search > div.inputbar > a {
+		background: #dcdddd;
+		color: #595757;
+		line-height: 23px;
+		text-align: center;
+		width: 21px;
+		height: 21px;
+		display: inline-block;
+		margin-left: -24px;
+		position: relative;
+		top: 1px;
+	}
+	section.marketing ul.list {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: start;
+		-webkit-justify-content: flex-start;
+		-moz-box-pack: start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		-webkit-flex-flow: wrap;
+		-ms-flex-flow: wrap;
+		flex-flow: wrap;
+	}
+	section.marketing ul.list > li {
+		width: 400px;
+		height: 470px;
+		margin: 0 20px 20px 0;
+	}
+	section.marketing ul.list > li:nth-child(3n) {
+		margin-right: 0;
+	}
+	section.marketing ul.list > li > a {
+		display: block;
+		text-decoration: none;
+	}
+	section.marketing ul.list > li > a > div.img {
+		height: 400px;
+		width: 400px;
+		background-color: #ccc;
+		-webkit-background-size: contain;
+		-moz-background-size: contain;
+		-o-background-size: contain;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: 10px;
+	}
+	section.marketing ul.list > li > a > h5 {
+		word-break: break-all;
+		font-size: 18px;
+		color: #333;
+		line-height: 20px;
+		height: 40px;
+		margin: 0;
+	}
+	section.marketing ul.list > li > a > h6 {
+		font-size: 14px;
+		color: #a9a9a9;
+		line-height: 20px;
+		height: 20px;
+		margin: 0;
+	}
+	section.marketing > div.container > div.content {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-moz-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		border-top: 1px solid #ccc;
+	}
+	section.marketing > div.container > div.content > div.left {
+		width: 880px;
+	}
+	section.marketing > div.container > div.content > div.left > h3 {
+		color: #000;
+		font-size: 36px;
+		line-height: 100px;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 100%;
+		height: 100px;
+		margin: 0;
+	}
+	section.marketing > div.container > div.content > div.left > h6 {
+		font-size: 18px;
+		color: #999;
+		margin: 0;
+	}
+	section.marketing > div.container > div.content > div.left > h6 > a {
+		margin-left: 10px;
+		color: #f71735;
+		border: 1px solid #f71735;
+		padding: 0 5px;
+	}
+	section.marketing > div.container > div.content > div.left > div.text {
+		display: block;
+		width: 100%;
+		margin-top: 20px;
+	}
+	section.marketing > div.container > div.content > div.left > div.text > img {
+		width: 100%;
+		height: auto;
+		margin: 20px 0;
+		background-color: #ccc;
+	}
+	section.marketing > div.container > div.content > div.left > div.text > h5 {
+		display: block;
+		font-size: 18px;
+		line-height: 32px;
+		color: #333;
+		margin: 20px 0;
+	}
+	section.marketing > div.container > div.content > div.right {
+		width: 295px;
+		padding-top: 160px;
+	}
+	section.marketing > div.container > div.content > div.right > a.back {
+		background: #595757;
+		color: #fff;
+		height: 50px;
+		width: 100%;
+		line-height: 50px;
+		text-align: center;
+		display: block;
+	}
+	section.marketing > div.container > div.content > div.right > h5 {
+		color: #595757;
+		font-size: 24px;
+		line-height: 80px;
+	}
+	section.marketing > div.container > div.content > div.right > ul > li {
+		border: 1px solid #c9caca;
+		height: 100px;
+		margin-bottom: 10px;
+	}
+	section.marketing > div.container > div.content > div.right > ul > li > a {
+		display: block;
+		height: 100px;
+		width: 100%;
+	}
+	section.marketing > div.container > div.content > div.right > ul > li > a > div.img {
+		height: 100px;
+		width: 100px;
+		background-color: #ccc;
+		background-position: center;
+		-webkit-background-size: contain;
+		-moz-background-size: contain;
+		-o-background-size: contain;
+		background-size: contain;
+		background-repeat: no-repeat;
+		float: left;
+	}
+	section.marketing > div.container > div.content > div.right > ul > li > a > h5 {
+		margin-left: 120px;
+		padding-top: 10px;
+		height: 45px;
+		margin-top: 0;
+		margin-bottom: 15px;
+		line-height: 15px;
+		font-size: 12px;
+		color: #4c4948;
+	}
+	section.marketing > div.container > div.content > div.right > ul > li > a > h6 {
+		margin-left: 120px;
+		line-height: 15px;
+		font-size: 12px;
+		color: #999;
+	}

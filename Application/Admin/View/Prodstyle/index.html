@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport Metatag -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Plugin Stylesheets first to ease overrides -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__plugins/colorpicker/colorpicker.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__custom-plugins/wizard/wizard.css" media="screen">
+
+    <!-- Required Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/fonts/ptsans/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/fonts/icomoon/style.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/mws-style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/icons/icol16.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/icons/icol32.css" media="screen">
+
+    <!-- Demo Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/demo.css" media="screen">
+
+    <!-- jQuery-UI Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__jui/css/jquery.ui.all.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__jui/jquery-ui.custom.css" media="screen">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/themer.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__css/admin_page.css" media="screen">
+    <title>后台管理系统</title>
+
+</head>
+
+<body>
+<!-- Themer End -->
+
+<!-- Header -->
+<include file="./Application/Admin/View/Common/header.html" />
+
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+    <include file="./Application/Admin/View/Common/left_nav.html" />
+    <!-- Necessary markup, do not remove -->
+
+
+
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix">
+
+        <!-- Inner Container Start -->
+        <div class="container">
+
+            <!-- Statistics Button Container -->
+
+            <!-- Panels Start -->
+            <div class="mws-panel grid_9">
+                <div class="mws-panel-header">
+                    <span><i class="icon-table"></i> {$title}</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+                        <form action="__APP__/Prodstyle/index" method="get" >
+                            <div class="dataTables_filter">
+                                <label>
+                                    系列名称&nbsp;&nbsp;<input type="text" name="styleName" placeholder="搜索名称" aria-controls="DataTables_Table_0" value="{$_GET['styleName']}">
+                                    系列分类&nbsp;&nbsp;<input type="text" name="typeName" placeholder="搜索分类" aria-controls="DataTables_Table_0" value="{$_GET['typeName']}">
+                                    所属产品分类&nbsp;&nbsp;
+                                    <select name="proTypeId">
+                                        <option value="0" >全部</option>
+                                        <foreach name='proType' item='pro'>
+                                            <option value="{$pro.proTypeId}" <if condition="$pro.proTypeId eq $_GET.proTypeId ">selected</if> >{$pro.proName}</option>
+                                        </foreach>
+                                    </select>
+                                </label><input type="submit" class='btn' value="搜索"><a href="{:U('Prodstyle/index')}" class='btn'>清空</a></div>
+                        </form>
+                    </div>
+                    <table class="mws-datatable mws-table">
+                        <thead>
+                        <tr>
+                            <th>系列Id</th>
+                            <th>系列名称</th>
+                            <th>系列分类</th>
+                            <th>所属产品分类</th>
+                            <th>图片</th>
+                            <th>是否在产品list显示</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <foreach name='data' item='vo'>
+                            <tr>
+                                <td>{$vo.styleId}</td>
+                                <td>{$vo.styleName}</td>
+                                <td>{$vo.typeName}</td>
+                                <td>{$vo.proName}</td>
+                                <td><empty name="vo.photo">未添加<else /> <img src="{$vo.photp_img}"/></empty></td>
+                                <td>{$vo.display_name}</td>
+                                <td>{$vo.status_name}</td>
+                                <td>
+                                    <a href="{:U('Prodstyle/edit','id='.$vo['styleId'])}" style="color:black;padding:0 5px"><button type="button" class="btn"><i class="icon-pencil"></i> 修改</button></a>
+                                    <switch name="vo['status']">
+                                        <case value="1"><a href="{:U('Prodstyle/status',array('id'=>$vo['styleId'],'status'=>0))}"><button type="button" class="btn" ><i class="icon-lock"></i> 禁用</button></a></case>
+                                        <case value="0"><a href="{:U('Prodstyle/status',array('id'=>$vo['styleId'],'status'=>1))}"><button type="button" class="btn" ><i class="icon-unlock"></i> 启用</button></a></case>
+                                    </switch>
+                                    <switch name="vo['display']">
+                                        <case value="1"><a href="{:U('Prodstyle/p_display',array('id'=>$vo['styleId'],'display'=>0))}"><button type="button" class="btn" ><i class="icon-eye-closed"></i> list隐藏</button></a></case>
+                                        <case value="0"><a href="{:U('Prodstyle/p_display',array('id'=>$vo['styleId'],'display'=>1))}"><button type="button" class="btn" ><i class="icon-eye-open"></i> list显示</button></a></case>
+                                    </switch>
+                                </td>
+                            </tr>
+                        </foreach>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid_8 page">
+                    {$page}
+                </div>
+            </div>
+        </div>
+        <!-- Panels End -->
+    </div>
+    <!-- Inner Container End -->
+
+    <!-- Footer -->
+    <include file="Common:footer"/>
+
+</div>
+<!-- Main Container End -->
+
+<!-- JavaScript Plugins -->
+<script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+<script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+<script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+<script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__ADMIN__/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="__ADMIN__/js/core/themer.js"></script>
+
+<!-- Demo Scripts (remove if not needed) -->
+</body>
+</html>

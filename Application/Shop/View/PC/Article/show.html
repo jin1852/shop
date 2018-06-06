@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<style>
+    .btn{
+        margin-top: 40px;
+        color: #fff;
+        background: #595757;
+    }
+    .btn:hover{
+        color: #fff;
+        background: #b60005;
+    }
+    .icon{
+        width: 24px;
+    }
+    .text{
+        position: relative !important;
+    }
+    div.toTop{
+        height:40px;
+        width: 40px;
+        border-radius:50%;
+        background: #b60005;
+        position: absolute;
+        right:20px;
+        bottom: 65px;
+    }
+    div.toTop:hover{
+        background: #595757;
+    }
+    div.toTop>a{
+        color:#fff;
+        text-align:center;
+        display: block;
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+    }
+    div.toTop span{
+        display:block;
+        width: 40px;
+        position: absolute;
+        bottom: 8px;
+        left:0;
+    }
+    div.toTop i{
+        width: 40px;
+        position: absolute;
+        bottom: 8px;
+        left:0;
+    }
+</style>
+<section class="marketing">
+    <div class="container content">
+        <div class="brandbar">
+            <a href="{:U('Index/index')}">Home Page</a> &gt; <span>Marketing Support</span>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h3>{$article.title}</h3>
+                <h6>{$article.add_time|date="M d, Y",###} </h6>
+                <div class="text">
+                    {$article.content}
+
+                    <a class="btn" data-id="{$article.id}" >
+                        <i class="icon fa fa-heart-o" data-id="{$article.id}"></i> ADD TO FOLLOWING ACTIVITIES
+                    </a>
+                    <div class="toTop"><a id="to_top"><span>Top<span><i class="fa fa-angle-up" aria-hidden="true"></i></span></span></a></div>
+                </div>
+
+            </div>
+            <div class="right">
+                <a class="back" href="{:U('Article/index')}">
+                    Back To Marketing Support
+                </a>
+                <h5>More from the blog</h5>
+                <ul>
+                    <volist name="list" id="one">
+                    <li>
+                        <a href="{:U('Article/show',array('id'=>$one['id']))}">
+                            <div class="img" style="background-image:url({$one.thumb});"></div>
+                            <h5>{$one.title}</h5>
+                            <h6>{$one.add_time|date="M d, Y",###}</h6>
+                        </a>
+                    </li>
+                    </volist>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img" style="background-image:url();"></div>-->
+                            <!--<h5>LASSIC Golden Kitchen Tools 2017 Catalog</h5>-->
+                            <!--<h6>timetimetime</h6>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img" style="background-image:url();"></div>-->
+                            <!--<h5>LASSIC Golden Kitchen Tools 2017 Catalog</h5>-->
+                            <!--<h6>timetimetime</h6>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img" style="background-image:url();"></div>-->
+                            <!--<h5>LASSIC Golden Kitchen Tools 2017 Catalog</h5>-->
+                            <!--<h6>timetimetime</h6>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img" style="background-image:url();"></div>-->
+                            <!--<h5>LASSIC Golden Kitchen Tools 2017 Catalog</h5>-->
+                            <!--<h6>timetimetime</h6>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click','a.btn',function(){
+            var id = $(this).data('id'),data;
+           console.log(id);
+            if(id>0){
+                data={id:id};
+                post_url_data('__APP__/Users/add_to_activities','POST', data, function (err, result){
+                    if (err) {
+                        alert(err);
+                    } else {
+                        alert(result.info);
+                        if (result.status == -20) {
+                            window.location.href = '__APP__/Login/index'
+                        }
+                    }
+                });
+            }else{
+                return false;
+            }
+        });
+        $(document).on('click','#to_top',function(){
+            $('html,body').animate({scrollTop: '0px'}, 500);
+        });
+    });
+</script>

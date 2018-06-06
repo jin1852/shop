@@ -1,0 +1,252 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>二级主页</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__/second.css">
+	<script src="__HOMEJS__/jquery-1.8.3.js" type="text/javascript"></script>
+	<script src="__HOMEJS__/SecondTopImage.js" type="text/javascript"></script>
+
+		<include file='Common/header' />
+<!-- 二级页面主要内容区域
+ -->	<div id="SecondContent">
+ <!-- 二级页面主要内容区域，左侧内容区域
+ -->
+		<div id="leftside">
+			<div class="leftside1 common">
+				<div class="leftside_title">
+					<img src='__HOMEIMG__/20130418A.png'>&nbsp;&nbsp;{$currentType.proName}商品分类
+				</div>
+				<ul>
+					<foreach name='currentType.child' item="val">
+						<li><a href='{:U('List/index',array('cat'=>$val['proPath']))}'>{$val.proName}</a></li>
+					</foreach>
+				</ul>
+				<foreach name='linkType' item="val">
+					<div class="relation"><a href='{:U('Second/index',array('cat'=>$val['proPath']))}'>{$val.proName}</a></div>
+				</foreach>
+			</div>
+			<div class="leftside2 common">
+				<div class="leftside_title">
+					推荐品牌
+				</div>
+				<ul>
+					<foreach name='imagelist' item='val'> 
+						<li>
+						<a href="{:U('List/index',array('cat'=>$val['proPath']))}"><img src="__PUBLIC__/Uploads/Images/leftside2image{$val.pic}.jpg" alt="{$val}"></a>
+						</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="leftside3 common">
+				<img  style="margin-top:10px" src="__PUBLIC__/Uploads/Images/leftsideimage1.jpg">
+				<img style="margin-top:10px"  src="__PUBLIC__/Uploads/Images/leftsideimage2.jpg">
+				<img style="margin-top:10px;width:211px;"  src="__PUBLIC__/Uploads/Images/leftsideimage3.jpg">
+			</div>
+		</div>
+<!-- 二级页面主要内容区域，中间内容区域
+ -->
+		<div id="middle">
+			<div class="middle1 common">
+				<div class="middle1_inner">
+					<ul class="images">
+						<foreach name="list" item="val">
+							<li>
+								<a href="{$val.links}">
+									<img style="width:766px;height:240px" src="__PUBLIC__/Uploads/Advance/{$val.img}">
+								</a>
+							</li>
+						</foreach>
+					</ul>
+					<ul class="num">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li style="background-color:#ca2f2c">8</li>
+					</ul>
+				</div>
+			</div>
+			<div class="middle2 common">
+				<div class="middle_title">
+					<span>疯狂抢购</span>
+				</div>
+				<ul>
+					<foreach name="middle2List" item="val">
+					<li>
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style='width:130px;height:130px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price1}</b>
+						</div>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="middle3 common">
+				<div class="middle_title">
+					<ul>
+						<li style="background-color:red">1</li>
+						<li>2</li>
+					</ul>
+					<span>新品热卖</span>
+				</div>
+				<ul>
+					<foreach name="middle3List1" item="val">
+					<li na='0'>	
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style='width:100px;height:100px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price1}</b>
+						</div>
+					</li>
+					</foreach>
+					<foreach name="middle3List2" item="val">	
+					<li style="display:none" na="1">
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style='width:100px;height:100px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price1}</b>
+						</div>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="middle4 common">
+				<div class="middle_title">
+					<span>降价推荐</span>
+				</div>
+				<ul>
+					<foreach name="middle4List" item="val">
+					<li>
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style='width:100px;height:100px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price2}</b>
+						</div>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+		</div>
+<!-- 二级页面主要内容区域，右侧内容区域
+ -->
+		<div id="rightside">
+			<div class="rightside1 common">
+				<div class="rightside_title">
+					<span>促销信息</span>
+				</div>
+				<ul>
+					<foreach name="rightSide1" item="val">
+						<li><a href="{:U('Details/details',array('id'=>$val['prodId']))}">{$val.newsInfo}</a></li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="rightside2 common">
+				<div class="rightside_title">
+					<span>限时抢购</span>
+				</div>
+				<ul>
+					<foreach name="rightSide2List" item="val">
+					<li>
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style=
+							'width:100px;height:100px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price1}</b>
+						</div>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="rightside3 common">
+				<img src="__PUBLIC__/Uploads/Images/image2.jpg">
+			</div>
+		</div>
+<!-- 二级页面主要内容区域，底部上边图片区域
+ -->
+		<div class="middle_image">
+			<img style="width:100%;" src="__PUBLIC__/Uploads/Images/image3.jpg">
+		</div>
+		<div class="clear"></div>
+		<div id="rightside-bottom">
+			<img src="__PUBLIC__/Uploads/Images/image1.jpg">
+		</div>
+<!-- 二级页面主要内容区域，底部内容区域
+ -->
+		<div id="bottom">
+			<div class="bottom_title">
+				<span>精品推荐</span>
+			</div>
+			<ul>
+					<foreach name="middle5List" item="val">
+					<li>
+						<div class="link_img">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}"><img style='width:100px;height:100px;'src="__PUBLIC__/Uploads/{$val.img}"></a>
+						</div>
+						<div class="desc">
+							<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+								{$val.prodInfo}
+							</a>
+						</div>
+						<div class="price">
+							<span style="font-size:13px;">京东价:</span>
+							<b style='color:#ca2f2c'>￥{$val.price1}</b>
+						</div>
+					</li>
+					</foreach>
+				</ul>
+		</div>
+	</div>
+	<include file='Common/footer'  />
+</body>
+
+<style type="text/css">
+	.form .button{
+		width: 88px;
+	}
+	.form .keywords{
+		height: 30px;
+	}
+</style>
+
+</script>
+</html>

@@ -1,0 +1,243 @@
+<!-- Necessary markup, do not remove -->
+<div id="mws-sidebar-stitch"></div>
+<div id="mws-sidebar-bg"></div>
+
+<!-- Sidebar Wrapper -->
+<div id="mws-sidebar">
+
+    <!-- Hidden Nav Collapse Button -->
+    <div id="mws-nav-collapse">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="mws-navigation">
+        <ul>
+            <li>
+                <a href="{:U('Home/index')}"><i class="icon-home"></i>首页</a>
+            </li>
+
+            <if condition="$_SESSION['admin']['levelId'] lt 3">
+                <li>
+                    <a href="#"><i class="icon-users"></i>管理员系统</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Admin/index')}">管理员管理</a></li>
+                        <li><a href="{:U('Admin/admin_level')}">管理员角色管理</a></li>
+                        <li><a href="{:U('Admin/leveladd')}">管理员角色添加</a></li>
+                    </ul>
+                </li>
+            </if>
+
+            <if condition="($_SESSION['admin']['levelId'] eq 1)or($_SESSION['admin']['levelId'] eq 2)">
+                <li>
+                    <a href="#"><i class="icon-user"></i>会员管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('User/user')}">会员列表</a></li>
+                        <if condition="$_SESSION['admin']['levelId'] lt 3">
+                            <li><a href="{:U('User/check_user')}">会员审核</a></li>
+                            <li><a href="{:U('User/add_user')}">添加会员</a></li>
+                        </if>
+                    </ul>
+                </li>
+            </if>
+
+            <if condition="$_SESSION['admin']['levelId'] neq 3">
+                <li>
+                    <a href="#"><i class="icon-shopping-cart"></i>订单管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Order/orderAll')}">订单列表</a></li>
+                        <li><a href="{:U('Enquiry/orderAll')}">询价单列表</a></li>
+                        <li><a href="{:U('Sourcing/orderAll')}">需求单列表</a></li>
+                        <!--<li><a href="{:U('Order/zc_orderAll')}">众筹订单列表</a></li>-->
+                    </ul>
+                </li>
+            </if>
+
+            <li>
+                <a href="#"><i class="icon-tools"></i> 商品管理</a>
+                <ul class="closed">
+                    <li><a href="{:U('Goods/index')}">浏览商品</a></li>
+                    <li><a href="{:U('Goods/add')}">添加商品</a></li>
+                    <li><a href="{:U('Goods/batchadd')}">批量上传</a></li>
+                </ul>
+            </li>
+
+            <if condition="($_SESSION['admin']['levelId'] eq 1)or($_SESSION['admin']['levelId'] eq 3)">
+
+                <li>
+                    <a href="#"><i class="icon-cogs"></i> 分类管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Cate/index')}">浏览分类</a></li>
+                        <li><a href="{:U('Cate/add?lv=0')}">添加分类</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-th-list"></i> 系列管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Prodstyle/add_lv1')}">添加系列分类</a></li>
+                        <li><a href="{:U('Prodstyle/protype_list')}">商品分类列表</a></li>
+                        <li><a href="{:U('Prodstyle/index_lv1')}">一级分类列表</a></li>
+                        <li><a href="{:U('Prodstyle/index_lv2')}">二级系列列表</a></li>
+                        <li><a href="{:U('Prodstyle/index_lv3')}">三级系列列表</a></li>
+                        <!--<li><a href="{:U('Prodstyle/add_lv3')}">添加第三层系列选项</a></li>-->
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-feather"></i> 颜色配置</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Colors/index')}">浏览颜色</a></li>
+                        <li><a href="{:U('Colors/add')}">添加颜色</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-magic"></i> 尺寸管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Sizes/index')}">浏览尺寸</a></li>
+                        <li><a href="{:U('Sizes/add')}">添加尺寸</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-clubs"></i> 风格管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Brands/index')}">浏览风格</a></li>
+                        <li><a href="{:U('Brands/add')}">添加风格</a></li>
+                    </ul>
+                </li>
+
+                <li >
+                    <a href="#"><i class="icon-newspaper"></i>站内文章</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Article/index')}">文章列表</a></li>
+                        <li><a href="{:U('Article/add')}">添加文件</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-briefcase"></i>厂商管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Business/index')}">厂商展示</a></li>
+                        <li><a href="{:U('Business/add')}">添加厂商</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="icon-check"></i>认证管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Authentication/index')}">认证展示</a></li>
+                        <li><a href="{:U('Authentication/add')}">添加认证</a></li>
+                    </ul>
+                </li>
+
+
+
+                <if condition="$_SESSION['admin']['levelId'] eq 1">
+                    <li>
+                        <a href="#"><i class="icon-television"></i>广告管理</a>
+                        <ul class="closed">
+                            <li><a href="{:U('advance/advance')}">广告列表</a></li>
+                            <li><a href="{:U('advance/advanceAdd')}">添加广告</a></li>
+                        </ul>
+                    </li>
+
+                    <li >
+                        <a href="#"><i class="icon-picture"></i>子页管理</a>
+                        <ul class="closed">
+                            <li><a href="{:U('ZtConf/index')}">子页样式列表</a></li>
+                            <li><a href="{:U('Imgshow/ImageAll')}">子页大图列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="icon-bended-arrow-down"></i>友情链接管理</a>
+                        <ul class="closed">
+                            <li><a href="{:U('link/link')}">链接列表</a></li>
+                            <li><a href="{:U('link/addLink')}">添加链接</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="icon-globe"></i> 城市管理</a>
+                        <ul class="closed">
+                            <li><a href="{:U('Areasid/index')}">浏览城市列表</a></li>
+                            <li><a href="{:U('Areasid/add')}">添加城市</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href='{:U("Comments/comments")}'><i class="icon-comments"></i>商品评论管理</a>
+                    </li>
+
+                    <li>
+                        <a href="{:U('Survey/index')}"><i class="icon-question-sign"></i>问卷调查</a>
+                    </li>
+                </if>
+
+                <!--<li>-->
+                <!--<a href="#"><i class="icon-tasks"></i>众筹管理</a>-->
+                <!--<ul class="closed">-->
+                <!--<li><a href="{:U('Zc/ZcAll')}">众筹商品展示</a></li>-->
+                <!--<li><a href="{:U('Zc/addZc')}">添加众筹商品</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+                <li>
+                    <a href='{:U("Aedit/gEdit")}'><i class="icon-pencil"></i>管理员信息修改</a>
+                </li>
+
+                <!--<a href='{:U("User/user")}'><i class="icon-user"></i>会员信息管理</a>-->
+            </if>
+
+            <li>
+                <a href="{:U('Clean/clean')}"><i class="icon-trash"></i>清除缓存</a>
+            </li>
+
+            <if condition="$_SESSION['admin']['levelId'] lt 3">
+                <li>
+                    <a href="#"><i class="icon-box-add"></i>站内信管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Message/messageAll')}">站内信息列表</a></li>
+                        <li><a href="{:U('Message/addMessage')}">发送站内信息</a></li>
+                    </ul>
+                </li>
+            </if>
+
+            <if condition="$_SESSION['admin']['levelId'] lt 3">
+                <li>
+                    <a href="#"><i class="icon-newspaper"></i>FAQ管理</a>
+                    <ul class="closed">
+                        <li><a href="{:U('Faq/index')}">FAQ列表</a></li>
+                        <li><a href="{:U('Faq/add')}">添加FAQ</a></li>
+                    </ul>
+                </li>
+            </if>
+
+
+
+            <li style='display:none'>
+                <a href='{:U("Window/showWindow")}'><i class="icon-monitor"></i>橱窗信息管理</a>
+            </li>
+
+            <li style='display:none'>
+                <a href="#"><i class="icon-camera"></i> 多图管理</a>
+                <ul class="closed">
+                    <li><a href="{:U('Multipics/index')}">浏览</a></li>
+                </ul>
+            </li>
+
+
+            <li style='display:none'>
+                <a href="#"><i class="icon-newspaper"></i>站内新闻</a>
+                <ul class="closed">
+                    <li><a href="{:U('News/news')}">新闻展示</a></li>
+                    <li><a href="{:U('News/addNews')}">添加新闻信息</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>

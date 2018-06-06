@@ -1,0 +1,355 @@
+<section class="nav">
+    <div class="container">
+        <div class="logo">
+            <a href="__APP__"></a>
+        </div>
+        <!-- end .logo -->
+        <div class="meun">
+            <ul>
+                <volist name="mini_title" id="mini">
+                    <li><a href={$mini.link}>{$mini.proName}</a></li>
+                </volist>
+                <div class="clr"></div>
+            </ul>
+            <ul>
+                <?php if(!$user){ ?>
+                <li><a style="margin-left: 20px; font-family:'HSbold';text-decoration: underline;"  class="login" href="__APP__/Login/index">Login</a></li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_user icon"></a>
+                </li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_book icon"></a>
+                </li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_shoppingcart icon"></a>
+                </li>
+                <?php }else{ ?>
+                <li>
+                    <a class="userCenter-logined" style="margin-left: 20px; font-family:'HSbold';text-decoration: underline;" href="javascript:void(0);">{$user.welcome}</a>
+                    <div class="userdropdown">
+                        <div class="arrow-up"></div>
+                        <ul class="title-tap">
+                            <li class="active">
+                                <i class="icon icon_user"></i>
+                                <h5>Notification</h5>
+                                <span></span>
+                                <i class="tiper">{$notification_count}</i>
+                            </li>
+                            <li>
+                                <i class="icon icon_book" ></i>
+                                <h5>Resoures</h5>
+                                <span></span>
+                                <i class="tiper"><php>echo count($resources)</php></i>
+                            </li>
+                            <li>
+                                <i class="icon icon_shoppingcart"></i>
+                                <h5>Cart</h5>
+                                <span></span>
+                                <i class="tiper"><php>echo count($cart);</php></i>
+                            </li>
+                        </ul>
+                        <!-- end .title-tap -->
+                        <div class="content">
+                            <div class="user active">
+                                <ul>
+                                    <php>if($update_cart){</php>
+                                    <li class="cart">
+                                        <div class="icon"><i></i>
+                                            <h6>Shopping Cart</h6></div>
+                                        <div class="list">
+                                            <h5><php>echo count($update_cart);</php> item in your shoping cart is updated</h5></div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <php>}</php>
+                                    <php>if($update_inquiry){</php>
+                                    <li class="enquiry">
+                                        <div class="icon"><i></i>
+                                            <h6>Enquiry</h6></div>
+                                        <div class="list">
+                                            <volist name="update_inquiry" id="one_i">
+                                            <h5>Your enquiry {$one_i['i_number']} has been approved</h5>
+                                            </volist>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <php>}</php>
+                                    <php>if($update_viewhistory){</php>
+                                    <li class="history">
+                                        <div class="icon"><i></i>
+                                            <h6>View History</h6></div>
+                                        <div class="list">
+                                            <volist name="update_viewhistory" id="one_v">
+                                                <h5><img src="/Public/Uploads/{$one_v.prod.simimg}" style="width: 50px;height: 50px;">
+                                                    <a href="{:U('Product/detail',array('prodId'=>$one_v['prodId']))}">{$one_v.prod.prodName}</a>
+                                                </h5>
+                                            </volist>
+                                            </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <php>}</php>
+                                    <li class="order" style="display:none;">
+                                        <div class="icon"><i></i>
+                                            <h6>Order</h6></div>
+                                        <div class="list">
+                                            <h5>Your enquiry No. 00001 has been approved</h5>
+                                            <h5>Your enquiry No. 00002 has been approved</h5>
+                                            <h5>Your enquiry No. 00003 has been approved</h5>
+                                            <h5>Your enquiry No. 00004 has been approved</h5></div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <php>if($update_favourite){</php>
+                                    <li class="following">
+                                        <div class="icon"><i></i>
+                                            <h6>Following</h6></div>
+                                        <div class="list">
+                                            <volist name="update_favourite" id="one_f">
+                                                <h5><img src="/Public/Uploads/{$one_f.prod.simimg}" style="width: 50px;height: 50px;">
+                                                    <a href="{:U('Product/detail',array('prodId'=>$one_f['prodId']))}">{$one_f.prod.prodName}</a>
+                                                </h5>
+                                            </volist>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <php>}</php>
+                                    <li class="support" style="display:none;">
+                                        <div class="icon"><i></i>
+                                            <h6>Support</h6></div>
+                                        <div class="list">
+                                            <h5>One item in your shoping cart is updated</h5></div>
+                                        <div class="clr"></div>
+                                    </li>
+                                </ul>
+                                <div class="logout"><a style="cursor:pointer;"><i>Log out</i></a></div>
+                            </div>
+                            <!-- end .user -->
+                            <div class="resources">
+                                <ul>
+                                    <volist name="resources" id="one">
+                                    <li>
+                                        <span>{$one['add_time']}</span>
+                                        <h5><a href="{:U('Article/show',array('id'=>$one['id']))}">{$one['title']}</a></h5>
+                                    </li>
+                                    </volist>
+                                </ul>
+                                <div class="viewall"><a href="{:U('Article/index',array('catid'=>1))}">View All</a></div>
+                            </div>
+                            <!-- end .resources -->
+                            <div class="cart">
+                                <ul>
+                                    <volist name="cart" id="cart_one">
+                                    <li>
+                                        <img src="/Public/Uploads/{$cart_one.img}">
+                                        <h5><a href="{:U('Ucenter/shoppingcart')}">{$cart_one.prodName}</a></h5>
+                                    </li>
+                                    </volist>
+
+                                </ul>
+                                <div class="viewall"><a href="{:U('Ucenter/shoppingcart')}">View All</a></div>
+                            </div>
+                            <!-- end .cart -->
+                        </div>
+                    </div>
+                    <!-- end .userdropdown -->
+                </li>
+                <li>
+                    <a href="{:U('Article/index')}" class="icon_book icon icon_book_p"></a>
+                    <i class="tiper"><php>echo count($resources);</php></i>
+                </li>
+                <li>
+                    <a href="{:U('Ucenter/shoppingcart')}" class="icon_shoppingcart icon"></a>
+                    <i class="tiper"><php>echo count($cart);</php></i>
+                </li>
+                <!--<li><a href="#" class="logout">logout</a></li>-->
+                <?php } ?>
+                <div class="clr"></div>
+            </ul>
+        </div>
+        <!-- end .meun -->
+        <div class="clr"></div>
+    </div>
+    <div class="container">
+        <div class="meunmain" data-stop="loading">
+            <ul>
+                <li data-title="Product" <?php if($head_title=='Product'){ ?>class='active'<?php } ?>><a href="__APP__/Product/index" style="background:#5f4b66;cursor: pointer;">{$product.title}</a>
+                    <div class="dropdown" data-stop="0">
+                        <!-- product background conf --->
+                        <div class="meunL">
+                            <ul>
+                                <volist name="product['lv1']" id="lv1" key="i1">
+                                <li l1num="{$i1}" lv="1">
+                                    <a href="{$lv1.link}">{$lv1.proName}<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    <?php if($lv1['lv2']){ ?>
+                                        <div class="meunR" style="height:670px;">
+                                            <div class="img_product_rightbottom_bg" style="background: url('{$lv1.background}') no-repeat center; background-size: contain;height:100%;width:300%;position: absolute;bottom: 0;left:10px;z-index: -1;"></div>
+                                            <h5>{$lv1.proName}<a href="{$lv1.link}">View all</a></h5>
+                                            <ul>
+                                                <volist name="lv1['lv2']" id="lv2" key="i2">
+                                                    <li lv2num="{$lv2.num}" lv="2"><a href="{$lv2.link}">{$lv2.proName}</a>
+                                                    <?php if($lv2['lv3']){ ?>
+                                                        <ul>
+                                                            <volist name="lv2['lv3']" id="lv3" key="i3">
+                                                                <li l3num="{$lv3.num}" lv="3"><a href="{$lv3.link}">{$lv3.proName}</a></li>
+                                                                <?php if($lv3['num']%$pn==0){ ?>
+                                                                    <div class="clr"></div></ul></li></ul><ul><li><ul>
+                                                                 <?php } ?>
+                                                            </volist>
+                                                            <div class="clr"></div>
+                                                        </ul>
+                                                    <?php } ?>
+                                                    </li>
+                                                    <?php if($lv2['num']%$pn==0){ ?>
+                                                       </ul><ul>
+                                                    <?php } ?>
+                                                </volist>
+                                                <div class="clr"></div>
+                                            </ul>
+                                        </div>
+
+                                    <?php } ?>
+                                </li>
+                                </volist>
+                                <div class="clr"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end .dropdown -->
+                </li>
+                <li data-title="Series" <?php if($head_title=='Series'){ ?>class='active'<?php } ?>><a href="__APP__/Series/index" style="background:#335544;">SERIES</a>
+                    <div class="dropdown" data-stop="0">
+                        <div class="meunR">
+                            <h5>Series<a href="__APP__/Series/index">View all</a></h5>
+                            <ul>
+                                <div class="img_product_rightbottom_bg" style="background: url('{$series.bg}') no-repeat center; background-size: contain;height:100%;width:calc(100% - 440px);position: absolute;bottom: 0;left:440px;z-index: -1;"></div>
+                                <volist name="series['list']" id="se1">
+                                    <li><a href="{$se1.href}">{$se1.title}</a></li>
+                                </volist>
+                                <div class="clr"></div>
+                            </ul>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-title="Design" <?php if($head_title=='Design'){ ?>class='active'<?php } ?>><a href="__APP__/Design/index" style="background:#9dbf9e;">DESIGN</a></li>
+                <li data-title="Manufacturing" <?php if($head_title=='Manufacturing'){ ?>class='active'<?php } ?>><a href="__APP__/Manufacturing/index" style="background:#5e5c5d;">MANUFACTURING</a></li>
+                <li data-title="Hot" <?php if($head_title=='Hot'){ ?>class='active'<?php } ?>><a href="__APP__/Hot/index" style="background:#b07156;">HOT</a></li>
+                <li data-title="Style" <?php if($head_title=='Style'){ ?>class='active'<?php } ?>><a href="__APP__/Style/index" style="background:#56667a;">{$style.title}</a>
+                    <div class="dropdown" data-stop="0">
+                        <div class="meunR">
+                            <h5>{$style.title}<a href="{$style.link}">View all</a></h5>
+                            <ul>
+                                <div class="img_product_rightbottom_bg" style="background: url('{$style.bg}') no-repeat center; background-size: contain;height:100%;width:calc(100% - 440px);position: absolute;bottom: 0;left:440px;z-index: -1;"></div>
+                                <volist name="style['lv1']" id="s1">
+                                    <li><a href="{$s1.link}">{$s1.brandName}</a></li>
+                                </volist>
+                                <div class="clr"></div>
+                            </ul>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-title="Service" <?php if($head_title=='Service'){ ?>class='active'<?php } ?>><a href="__APP__/Story/index" style="background:#702632;">SERVICE</a>
+                    <div class="dropdown serviceDropdown" data-stop="0">
+                        <div style="height: 5px;width:calc(100% + 80px);background-color: #fff;display: block; position: absolute; top: 0;left: 0;"></div>
+                        <div class="logo-service">
+                            <a href="__APP__/Story/index"></a>
+                        </div>
+                        <ul>
+                            <li style="background-image:url(__IMG__/images/nav_service02.jpg)"><a></a></li>
+                            <li style="background-image:url(__IMG__/images/nav_service03.jpg)"><a href="__APP__/Design/index"></a></li>
+                            <li style="background-image:url(__IMG__/images/nav_service04.jpg)"><a href="__APP__/Manufacturing/index"></a></li>
+                            <li style="background-image:url(__IMG__/images/nav_service05.jpg)"><a></a></li>
+                            <li style="background-image:url(__IMG__/images/nav_service06.jpg)"><a href="__APP__/Manufacturing/index"></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <div class="clr"></div>
+            </ul>
+        </div>
+        <!-- end .meunmian -->
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .nav -->
+<section class="navfixed">
+    <div class="container">
+        <div class="logo">
+            <a href="__APP__"></a>
+        </div>
+        <!-- end .logo -->
+        <div class="meunDiv">
+            <div class="meun">
+                <ul>
+                    <volist name="mini_title" id="mini">
+                        <li><a href={$mini.link}>{$mini.proName}</a></li>
+                    </volist>
+                    <div class="clr"></div>
+                </ul>
+                <!--user-->
+
+            </div>
+            <!-- end .meun -->
+            <div class="meunmain">
+                <ul>
+                    <li data-title="Product" <?php if($head_title=='Product'){ ?>class='active'<?php } ?>><a href="__APP__/Product/index">PRODUCT</a></li>
+                    <li data-title="Series" <?php if($head_title=='Series'){ ?>class='active'<?php } ?>><a href="__APP__/Series/index">SERIES</a></li>
+                    <li data-title="Desgin" <?php if($head_title=='Design'){ ?>class='active'<?php } ?>><a href="__APP__/Design/index">DESIGN</a></li>
+                    <li data-title="Manufacturing" <?php if($head_title=='Manufacturing'){ ?>class='active'<?php } ?>><a href="__APP__/Manufacturing/index">MANUFACTURING</a></li>
+                    <li data-title="Hot" <?php if($head_title=='Hot'){ ?>class='active'<?php } ?>><a href="__APP__/Hot/index">HOT</a></li>
+                    <li data-title="Style" <?php if($head_title=='Style'){ ?>class='active'<?php } ?>><a href="__APP__/Style/index">STYLE</a></li>
+                    <li data-title="Service" <?php if($head_title=='Service'){ ?>class='active'<?php } ?>><a href="__APP__/Story/index">SERVICE</a></li>
+                    <div class="clr"></div>
+                </ul>
+            </div>
+            <!-- end .meunmian -->
+        </div>
+        <!-- end .meunDiv -->
+        <div class="userDiv">
+            <ul>
+                <?php if(!$user){ ?>
+                <li>
+                    <a style="margin-left: 20px; font-family:'HSbold';text-decoration: underline;"  class="login" href="__APP__/Login/index">Login</a>
+                </li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_user icon"></a>
+                </li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_book icon"></a>
+                </li>
+                <li>
+                    <a href="__APP__/Login/index" class="icon_shoppingcart icon"></a>
+                </li>
+                <?php }else{ ?>
+                <li><a style="padding:0 10px; font-family:'HSbold';text-decoration: underline;" href="javascript:void(0);">{$user.welcome}</a></li>
+                <li>
+                    <a href="{:U('Article/index')}" class="icon_book icon"></a>
+                </li>
+                <li>
+                    <a href="{:U('Ucenter/shoppingcart')}" class="icon_shoppingcart icon"></a>
+                </li>
+                <?php } ?>
+                <div class="clr"></div>
+            </ul>
+        </div>
+        <!-- end .meun -->
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .navfixed -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".logout").click(function () {
+            post_url_data('__APP__/Login/logout','POST',{},function(err,Data){
+                if(err){
+                    alert(err);
+                }else{
+                    if (Data.status == 1) {
+                        alert('Logout success');
+                        window.location.href = '__APP__';
+                    } else {
+                        alert(Data.info);
+                    }
+                }
+            });
+        });
+    });
+</script>

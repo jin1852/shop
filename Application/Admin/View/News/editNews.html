@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+<title>后台管理系统</title>
+
+</head>
+
+<body>
+
+
+	<!-- Header -->
+    <block name="include"><include file="Common/header" /></block>
+
+
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+        <!-- Necessary markup, do not remove -->
+        <div id="mws-sidebar-stitch"></div>
+        <div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        
+            <!-- Hidden Nav Collapse Button -->
+            <div id="mws-nav-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- left -->
+            <block name="include"><include file="Common/left_nav" /></block>
+            
+        </div>
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	
+            	<div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-wrench"></i> 修改新闻信息</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <form class="mws-form" action="{:U('News/do_editNews')}" method="post" id="form">
+
+                            <div class="mws-form-inline">
+                            <foreach name="arr" item="newsInfo">
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">商品名称</label>
+                                    <div class="mws-form-item">
+                                    <input type="hidden" name="newsId" value="{$newsInfo['newsId']}">
+                                        {$newsInfo['prodName']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">新闻内容</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" class="small" name="newsInfo" value="{$newsInfo['newsInfo']}" />
+                                    </div>
+                                </div>
+                                 <div class="mws-form-row">
+                                    <label class="mws-form-label">是否审核</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline" id="is_checked">
+                                            <li><input type="radio" name="is_checked" value="1" <?php echo $newsInfo['is_checked'] == 1?checked:'';?> /> <label>未审核</label></li>
+                                            <li><input type="radio" name="is_checked" value="0" <?php echo $newsInfo['is_checked'] == 0?checked:'';?>/> <label>已审核</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mws-form-row" id="is_show">
+                                    <label class="mws-form-label">是否显示</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline">
+                                            <li><input type="radio" name="is_show" value="0" <?php echo $newsInfo['is_show'] == 0?checked:'';?> /> <label>不显示</label></li>
+                                            <li><input type="radio" name="is_show" value="1" <?php echo $newsInfo['is_show'] == 1?checked:'';?> /> <label>显示</label></li>
+                                        </ul>
+                                    </div>
+                                </div> 
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">活动信息</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline">
+                                            <li><input type="radio" name="activity" value="0" <?php echo $newsInfo['activity'] == 0?checked:'';?> /> <label>优惠促销</label></li>
+                                            <li><input type="radio" name="activity" value="1" <?php echo $newsInfo['activity'] == 1?checked:'';?> /> <label>限时抢购</label></li>
+                                            <li><input type="radio" name="activity" value="2" <?php echo $newsInfo['activity'] == 2?checked:'';?> /> <label>推广商品</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>
+                            <div class="mws-button-row">
+                                <input type="submit" value="Submit" class="btn btn-danger">
+                                <input type="reset" value="Reset" class="btn ">
+                            </div>
+                        </form>
+                    </div>       
+                </div>
+                
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+    <script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+    <script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+
+    <!-- Core Script -->
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="__ADMIN__/js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+   <script src="__ADMINJS__news.js"></script>
+</body>
+</html>

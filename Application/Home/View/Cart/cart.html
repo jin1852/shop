@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="__HOMECSS__/cart.css" />
+		<script src="__HOMEJS__/jquery-1.8.3.js"></script>
+		<script src="__HOMEJS__/cart.js"></script>
+		<script>
+
+			//定义路径
+			var imagesSuccess = "<img src='__HOMEIMG__/message-success.png' />";
+			var imagesError = "<img src='__HOMEIMG__/message-error.png' />";
+			
+		</script>
+	</head>
+	<body>
+
+		<!--=========导入头 start=============-->
+		<block name="include"><include file="Common/topper" /></block>
+		<!--=========导入头 end=============-->
+
+		<!--===========logo start=============-->
+		<div class="w2 w1 th clear-fix">
+			<div id="logo">
+				<a href="{:U('Index/index')}">
+					<img src="__HOMEIMG__/logo-201305.png" alt="返回京东商城首页" />
+				</a>
+			</div>
+			<div class="progress clearfix">
+				<ul class="progress-1">
+					<li class="step-1">1.我的购物车</li>
+					<li>2.填写核对订单信息</li>
+					<li>3.成功提交订单</li>
+				</ul>
+			</div>
+		</div>
+		<!--===========logo end=============-->
+		<!--===========购物车内容 start=============-->
+		<div class="w2 cart">
+			<div class="cart-hd group">
+				<h2>我的购物车</h2>
+			</div>
+			<div id="show">
+
+				<!--==========购物车没商品时显示 start=========-->
+				<empty name="list">
+
+					<div class="cart-empty">
+						<div class="message">
+							<p>
+								购物车内暂时没有商品，您可以
+								<a href="{:U('index/index')}">去首页</a>
+								挑选喜欢的商品
+							</p>
+						</div>
+					</div>
+
+				<else />
+				<!--==========购物车没商品时显示 end=========-->
+					<div class="cart-inner">
+						<div class="cart-thead clearfix">
+							<div class="column t-checkbox form1">
+								<input type="checkbox" name="toggle-checkboxes" id="toggle-checkboxes" checked="checked" />
+								<label>全选</label>
+							</div>
+							<div class="column t-goods">商品</div>
+							<div class="column t-price">京东价</div>
+							<div class="column t-promotion">优惠</div>
+							<div class="column t-inventorv">
+								<select id="selectP" pId="1" name="diquId">
+									<foreach name="diqu" item="val">
+										<option value="{$val.areaid}">{$val.diqu}</option>
+									</foreach>
+								</select>
+							</div>
+							<div class="column t-quantity">数量</div>
+							<div class="column t-action">操作</div>
+						</div>
+						
+						<!--======循环开始=========-->
+						<foreach name="list" item="vo">
+							<if condition="($key neq 'tsum') AND  ($key neq 'tprice') ">
+								<div id="prodId{$vo.prodId}" class="cart-tbody">
+									<div class="item-meet meet-give">
+										<div class="item item_selected  item-last">
+											<div class="item_form clearfix">
+												<div class="cell p-checkbox">
+													<input class="checkbox" type="checkbox" name="boxs" value="{$vo.prodId}" checked="checked" />
+												</div>
+
+												<div class="cell p-goods">
+													<div class="p-img">
+														<a href="{:U('Details/details?id='.$vo['prodId'])}" target="_blank">
+															<img src="__PUBLIC__/Uploads/{$vo.simimg}">
+														</a>
+													</div>
+													<div class="p-name">
+														<a href="{:U('Details/details?id='.$vo['prodId'])}" target="_blank"><span class="promise411">{$vo.prodName}</span></a>
+
+													</div>
+												</div>
+												
+												<div class="cell p-price">
+													<span class="price">￥{$vo.price1}</span>
+												</div>
+												<div class="cell p-promotion">
+													<span class="price preferential">￥<span>{$vo.price2}</span></span>
+												</div>
+												<div class="cell p-inventory stock-112791">有货</div>
+												<div class="cell p-quantity">
+													<div class="quantity-form">
+														<a href="javascript:void(0)" class="subtract"><span class="decrement">-</span></a>
+														<input type="text" name="{$vo.prodId}" class="quantity-text" value="{$vo.num}" />
+														<a href="javascript:void(0)" class="subtract"><span class="decrement">+</span></a>
+													</div>
+												</div>
+												<div class="cell p-remove  col-2">
+													<a href="javascript:void(0)" prodId="{$vo.prodId}" class="cart-remove">删除</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</if>
+						</foreach>
+						<!--====循环结束=======-->
+						<div id="htmlTotal">
+						<div class="cart-toolbar clearfix">
+							<div class="total fr">
+								<p>总计：<span id="totalSkuPrice" style="color:#E4393C;"></span></p>
+							</div>
+							<div class="amout fr">
+								<span id="selectedCount"></span>件商品
+							</div>
+						</div>
+						<div class="ui-ceilinglamp-1" style="width:988px;height:49px">
+							<div class="cart-dibu" style="width:988px;height:49px">
+								<div class="control fdibu">
+									<span class="column t-checkbox form1">
+										<input name="toggle-checkboxes" id="toggle-checkboxes_down" type="checkbox" clecked value="" class="jdcheckbox" checked="checked" />
+										<label>全选</label>
+									</span>
+									<span class="delete">
+										<b></b>
+										<a href="javascript:void(0)" id="remove-batch">删除选中的商品</a>
+									</span>
+									<span class="doshopping">
+										<b></b>
+										<a href="{:U('Index/index')}" id="continue">继续购物</a>
+									</span>
+								</div>
+								<div class="cart-total-2014">
+									<div class="cart-button">
+										<a class="checkout" id="cartMessage" href="javascript:void(0)">
+											<b></b>
+											去结算
+										</a>
+									</div>
+									<div class="total fr">
+										总计（不含运费）：
+										<span id="finalPrice"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div> 
+				</empty>
+			</div>
+		</div>
+		<!--===========购物车内容 end=============-->
+		<!--===========其他人购物 start==============-->
+		<div id="c-tabs" class="w2 w1">
+			<div class="m plist">
+				<div class="cm fore1 curr" id="recommend-products">
+					<div class="cmt">
+						<h3>
+							<i></i>
+							购买了同样商品的顾客还购买了
+						</h3>
+					</div>
+					<div class="cmc" id="some-buy">
+						<div id="demo1" style="position:relative;overflow:hidden;z-index:1;width:878px;height:235px;">
+							<ul id="demo2" class="clearfix" style="width:1752px;">
+								<foreach name="sameGood" item="val">
+									<li>
+										<div class="p-img">
+											<a target="_blank" href="{:U('Details/details','id='.$val['prodId'])}">
+												<img width="130" height="130" src="__PUBLIC__/Uploads/{$val.img}" />
+											</a>
+										</div>
+										<div class="p-name">
+											<a target="_blank" href="{:U('Details/details','id='.$val['prodId'])}">{$val.prodInfo}</a>
+										</div>
+										<div class="p-price">
+											<strong>￥{$val.price2}</strong>
+										</div>
+										<div class="p-btn">
+											<a prodId="{$val.prodId}" href="javascript:void(0)" class="btn">
+												<span class="btn-icon"></span>
+												<span class="btn-text">加入购物车</span>
+											</a>
+										</div>
+									</li>
+								</foreach>
+							</ul>
+		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!--===========其他人购物 end==============-->
+
+		
+		<div id="deleteBackground" class="thickdiv hide" style="width: 100%; height: 980px;"></div>
+		<div class="thickbox hide" style="left: 499.5px; top: 250px; width: 412px; height: 503px;">
+		<!--===========删除商品弹框 start==============-->
+			<div class="thickwrap hide" id="deleteCartGoods" style="width: 340px;">
+				<div id="" class="thicktitle" style="width:320">
+					<span>删除商品</span>
+				</div>
+				<div class="thickcon" style="width: 320px; height: 100px; padding-left: 10px; padding-right: 10px;">
+					<div class="m flexbox">
+						<div class="mc">
+							<div class="tip-box icon-box">
+								<span class="warn-icon m-icon"></span>
+								<div class="item-fore">
+									<h3 class="ftx04">确定从购物车中删除此商品？</h3>
+									<div class="op-btns">
+										<a id="btnRemoveConfirm" prodId="" class="btn-9" href="javascript:void(0);">确定</a>
+										<a id="cancelRemoveConfirm" class="btn-9 ml10" href="javascript:void(0);">取消</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="thickclose" href="#">×</a>
+			</div>
+			<div class="thickwrap hide" id="loginTest" style="width: 410px;">
+				<div class="thicktitle" id="thicktitler" style="width:390">
+					<span>您尚未登录</span>
+				</div>
+				<div class="thickcon" id="thickconr" style="width: 412px; height: 503px; padding-left: 10px; padding-right: 10px;">
+					<div marginwidth="0" marginheight="0" scrolling="no" style="width:390px;height:450px;border:0;">
+						<div id="regist">
+						    <div class="mt">
+						        <ul class="tab">
+						            <li class="curr">登&nbsp;录</li>
+						            <li>
+						            	<a href="{:U('Register/register')}" target="_blank" a="">注&nbsp;册</a>
+						            </li>
+						        </ul>
+						 	</div>
+
+    						<form id="formloginframe" method="post" onsubmit="return false;">
+        						<div class="mc form" id="">
+           							<div class="item fore1">
+                						<span>邮箱/用户名/已验证手机</span>
+               						 	<div class="item-ifo">
+                    						<input type="text" id="loginname" name="loginname" tabindex="1" class="text" value="">
+                    						<div class="clr"></div>
+                    						<label id="loginname_error" class="hide"></label>
+                    						<i id="ddd" class="i-name"></i><div class="clr"></div>
+                    						<label id="loginname_succeed" class="blank invisible"></label>
+                    						
+                						</div>
+           							</div>
+									<div class=".clr"></div>
+            						<div class="item fore2">
+                						<span>密码</span>
+
+                						<div class="item-ifo">
+                    						<label id="sloginpwd" style="display: none;">
+												<span id="_ocx_password_down" class="text_pge" style="text-align:center;"><a href="#JDedit.exe">请点此安装控件</a></span>
+                    						</label>
+
+                    						<input type="password" id="nloginpwd" name="nloginpwd" class="text" tabindex="2" autocomplete="off">
+                    						<div class="clr"></div>
+                    						<label id="loginpwd_error" class="hide"></label>
+           
+                   							 <i class="i-pass"></i>
+
+                    						<label id="loginpwd_succeed" class="blank invisible"></label>                						
+                						</div>
+            						</div>
+            						<div class=".clr"></div>
+						            <div class="item fore3" id="o-authcode">
+						                <span>验证码</span>
+
+                						<div class="item-ifo">
+	                    					<input type="text" id="authcode" name="authcode" class="text text-1" tabindex="6" value="" autocomplete="off">
+	                    					<div class="clr"></div>
+	                    					<label id="authcode_error" class="hide"></label>
+	                    					<div class="clr"></div>
+	                    					<label class="img">
+	                        					<img style="cursor:pointer;width:120px;height:35px;display:block;" alt="" src="{:U('Login/setCode')}" onclick="this.src=this.src+'?imgId='+Math.random()" id="JD_Verification1">
+	                    					</label>
+	                    					<label id="nextCode" class="ftx23">&nbsp;看不清？<a href="javascript:void(0)" class="flk13">换一张</a></label>
+	                    					<label id="authcode_succeed" class="blank invisible"></label>
+											
+                						</div>
+            						</div>
+            						<div class="clr"></div>
+            						<div id="autoentry" class="item fore4">
+                						<span class="label">&nbsp;</span>
+										
+                						<div class="item-ifo">
+		                    				<input type="checkbox" class="checkbox" name="chkRememberMe">
+		                    				<label class="mar">自动登录</label>
+		                                    <div style="float:left;" id="ctrlDiv">
+		                            			<input type="checkbox" class="checkbox" id="chkOpenCtrl" name="chkOpenCtrl">
+		                            			<label class="mar" id="jdsafe">安全控件登录</label>
+	                        				</div>
+                                			<label class="mar"><a href="{:U('Findpwd/index')}" target="_blank" class="flk13">忘记密码?</a></label>
+                						</div>
+                	
+            						</div>
+				            		<div class="item">
+				               			<input type="button" class="btn-img btn-regist" id="loginsubmitframe"  value="登&nbsp;录" tabindex="8">
+				            		</div>
+				            		<div class="clr"></div>
+		                        	<div class="item extra">
+		                				使用合作网站账号登录京东：
+		               				 	<div class="clr"></div>
+		            					<span class="btns qq"><s></s><a href="javascript:void(0)">QQ</a>|</span>
+		            					<span class="btns net163"><s></s><a href="javascript:void(0)">网易</a>|</span>
+		            					<span class="btns renren"><s></s><a href="javascript:void(0)">人人</a>|</span>
+		            					<span class="btns qihu"><s></s>
+		                					<a href="javascript:void(0);">奇虎360</a>|
+		            					</span>
+		            					<span class="btns kaixing001"><s></s><a href="javascript:void(0)" target="_blank">开心</a>|</span>
+		            					<span class="btns douban"><s></s>
+		                					<a href="javascript:void(0)">豆瓣</a>|
+		            					</span>
+		            					<span class="btns souhu">
+		                					<a href="javascript:void(0)">搜狐</a>|
+		            					</span>
+							        </div>
+					    		</div>
+					    	</form>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="thickclose">×</a>
+			</div>
+		</div>
+
+		<!--===========删除商品弹框 end==============-->
+		<!--=========导入尾部 start=============-->
+		<block name="include"><include file="Common/footer" /></block>
+		<!--=========导入尾部 end=============-->
+	</body>
+</html>

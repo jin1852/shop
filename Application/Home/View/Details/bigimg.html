@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>大图展示页面</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__bigimg.css"/>
+	<script type="text/javascript" src="__HOMEJS__jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="__HOMEJS__bigimg.js"></script>
+			<include file="Common/header"/>
+		<div id="container">
+			
+			<!--大图展示区 -->
+			<div id = 'bimg'>
+				<div class="butter prev"><</div>
+				<div class="butter next">></div>
+				<ul class="images">
+				<volist name="bigimg" id="imgs" key="i">
+					<li class="img{$i}"><img src="__PUBLIC__/Uploads/{$imgs['image']}" width="100%" height="100%"></li>
+				</volist>
+				</ul>
+			</div>
+			<!--小图导航区-->
+			<div id="leftSimg">
+				<div id="simg">
+					<div style="text-align:center;font-size:16px;margin:10px 0px;"><?php echo '共 '.$count.' 张图片';?></div>
+					<ul>
+						
+						<foreach name="bigimg" item="simg">
+						<li>
+							<span><img src="__PUBLIC__/Uploads/{$simg['image']}" width="100px" height="100px"></span>
+						</li>
+						</foreach>
+					</ul>
+					<div style="text-align:center;margin-bottom:5px;"><?php echo $show;?></div>
+				</div>
+				<div id="shopping">
+					<div id="jdCodes">京东评分：<span style="color:#f90;">★★★★★</span></div>
+					<div id="jdPrice">京东价：<span style="font-size:16px;color:red;font-weight:bold;">￥{$simg['price2']}</span></div>
+					<div id="cartimg"><a href="#"><img <img src="__PUBLIC__/Uploads/Images/buy_cart.JPG"></a></div>
+				</div>
+			</div>
+		</div>
+		<include file="Common/footer"/> 
+	</body>
+</html>

@@ -1,0 +1,811 @@
+/*===========初始化start==============*/
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+	margin: 0;
+	padding: 0;
+}
+body{
+	color:#666666;
+	font:12px/150% Arial,Verdana,"宋体";
+	background: #fff;
+}
+ol,ul{list-style:none}
+a img{border:0}
+img{vertical-align:middle}
+table{empty-cells:show} 
+a{text-decoration:none;color: #666;}
+del{text-decoration:line-through}
+em{font-style:normal}
+a:link, a:visited {
+	color: #666666;
+}
+a:hover, a:active {
+	color: #E4393C;
+}
+.hide{
+    display:none;
+}
+.show{
+    display:block;
+}
+/*===========初始化end==============*/
+/*===========主体start==============*/
+/*===========logo  start==============*/
+.th {
+	padding: 20px 0 10px;
+}
+
+.w2 {
+	width: 990px;
+	margin: 0 auto;
+}
+.w1 {
+	margin-bottom: 10px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+#logo {
+	padding-left: 5px;
+	float: left;
+}
+.progress {
+	padding-top: 6px;
+}
+.progress .progress-2 {
+	background: url(../../Images/step2.png) no-repeat;
+	width: 481px;
+	padding-top: 23px;
+	overflow: hidden;
+	height: 23px;
+}
+.progress ul {
+	float: right;
+}
+.progress li {
+	width: 160px;
+	height: 23px;
+	float: left;
+	color: #bce8a3;
+	line-height: 23px;
+	text-align: center;
+}
+.progress li.s2 {
+	color: #7abd54;
+	width: 161px;
+}
+.progress li.s3 {
+	color: #aaaaaa;
+}
+/*===========logo end==============*/
+/*===========订单信息确认start==============*/
+.m2 {
+    margin-bottom: 20px;
+}
+#checkout {
+    border: 1px solid #DDDDDD;
+    width: 988px;
+}
+.m, .mt, .mc, .mb, .sm, .smt, .smc, .smb {
+    overflow: hidden;
+}
+.mt, .smt {
+    cursor: default;
+}
+#checkout .mt {
+    background-color: #F7F7F7;
+    height: 28px;
+    padding-top: 7px;
+}
+h2, h3 {
+    font-size: 14px;
+}
+.mt h2, .smt h3 {
+    font-family: "microsoft yahei";
+}
+#checkout .mt h2 {
+    background: url("../../Images/checkout-title.gif") no-repeat scroll 10px 0 rgba(0, 0, 0, 0);
+    height: 35px;
+    line-height: 100px;
+    overflow: hidden;
+}
+.checkout-steps .step {
+    border-top: 1px solid #DDDDDD;
+}
+
+.checkout-steps .step-current {
+    border: 3px solid #FF6600;
+    margin: -1px;
+    position: relative;
+    width: 984px;
+}
+
+.checkout-steps .step-title {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    position: relative;
+}
+.step-right {
+    height: 20px;
+    left: 133px;
+    line-height: 20px;
+    padding: 10px 10px 0 0;
+    position: absolute;
+    top: 2px;
+}
+.checkout-steps .step-title strong {
+    color: #999999;
+    font-size: 14px;
+}
+.checkout-steps .step-current .step-title strong, .checkout-steps .step-complete .step-title strong {
+    color: #000000;
+}
+.checkout-steps .step-action {
+    color: #005EA7;
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 10px;
+}
+.checkout-steps .step-action a, .checkout-steps .step-action a:visited, .checkout-steps .step-action a:hover {
+    color: #005EA7;
+}
+#checkout .step-complete .sbox-wrap {
+    padding: 0 44px;
+}
+#checkout .sbox {
+    padding: 0 0 20px;
+}
+.sbox {
+    overflow: hidden;
+    width: 900px;
+}
+
+/*=========确认收货人信息start=============*/
+#consignee .item, #part-invoice .item {
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+#consignee .item-selected, #part-invoice .item-selected {
+    background-color: #FFF4D3;
+}
+input {
+    margin: 0;
+    padding: 0;
+}
+
+#consignee .item .hookbox, #part-invoice .item .hookbox {
+    margin: 7px 5px 0 8px;
+}
+.form label, .form1 input, .form select, .form textarea, .form button, .form .label {
+    float: left;
+    font-size: 12px;
+}
+#consignee .item label b {
+    font-weight: normal;
+}
+
+#consignee .item-selected label b {
+    font-weight: bold;
+}
+#consignee-list .item-action {
+    color: #999999;
+    padding-left: 20px;
+}
+#consignee-list .item-action a, #invoice-list .item-action a {
+    color: #005EA7;
+    margin: 0 5px;
+}
+
+#consignee .list, .invoice-form .list {
+    overflow: hidden;
+    padding: 5px 0;
+}
+#consignee .list .label, .invoice-form .list .label {
+    color: #666666;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 5px;
+    text-align: right;
+    width: 85px;
+}
+#consignee .list .label em, .invoice-form .list .label em {
+    color: #FF6600;
+    font-family: sans-serif;
+    margin-right: 5px;
+}
+#consignee .list .field {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+}
+
+#consignee .textbox, .invoice-form .textbox {
+    border: 1px solid #CCCCCC;
+    font-family: Arial,"宋体",sans-serif;
+    padding: 4px 3px;
+    width: 138px;
+}
+#consignee .select-address select, .invoice-form .select-address select {
+    height: 22px;
+    margin: 2px 5px 0 0;
+}
+#consignee .form1 .form-tip {
+    padding-left: 10px;
+}
+#checkout .form-tip {
+    color: #999999;
+}
+.selected-address {
+    float: left;
+    margin-right: 5px;
+}
+#consignee .full-address .textbox, .invoice-form .full-address .textbox {
+    width: 308px;
+}
+#consignee .phone, .invoice-form .phone {
+    float: left;
+}
+#consignee .phone em, .invoice-form .phone em {
+    color: #999999;
+    padding: 0 20px 0 5px;
+}
+#consignee .phone span, .invoice-form .phone em {
+    color: #666666;
+}
+#consignee .phone span, #consignee .phone em, .invoice-form .phone span, .invoice-form .phone em {
+    float: left;
+}
+#consignee .form-btn {
+    height: 30px;
+    padding-top: 4px;
+}
+#checkout .btn-submit {
+    background: url("../../Images/btn-save2013.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    padding-left: 20px;
+}
+#checkout .btn-submit {
+    background: url("../../Images/btn-20130725.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+#checkout a.btn-submit, #checkout a.btn-submit:visited, #checkout a.btn-submit:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#checkout .btn-submit span {
+    background: url("../../Images/btn-save2013.png") no-repeat scroll 100% -30px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    padding-right: 20px;
+}
+#checkout .btn-submit span {
+    background: url("../../Images/btn-20130725.png") no-repeat scroll 100% -30px rgba(0, 0, 0, 0);
+}
+
+#checkout .btn-submit:hover span {
+    background: url("../../Images/btn-20130725.png") no-repeat scroll 100% -90px rgba(0, 0, 0, 0);
+}
+
+/*=========确认收货人信息end=============*/
+
+/*=========确认支付 start=============*/
+.step-right span {
+    color: #FF6600;
+    float: left;
+    margin-right: 5px;
+}
+.save-consignee-payship {
+    background-color: #FFFDEE;
+    border: 1px solid #EDD28B;
+    padding: 0 1px 0 3px;
+}
+#payment-ship .payment {
+    padding-bottom: 10px;
+}
+#payment-ship h3 {
+    border-bottom: 1px dashed #FFE6BC;
+    height: 30px;
+    line-height: 30px;
+}
+#payment-ship h3, #payment-ship .way-category h4, .step-stitle strong {
+    border-bottom: 0 none;
+}
+#payment-ship .mc {
+    overflow: visible;
+}
+#payment-ship .item {
+    line-height: 28px;
+    overflow: hidden;
+}
+#payment-ship .item .label {
+    float: left;
+    width: 250px;
+}
+#payment-ship .item .hookbox {
+    margin: 7px 5px 0 8px;
+}
+#payment-ship .item .field {
+    float: left;
+    max-width: 680px;
+}
+#payment-ship .item .tip {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #999999;
+    padding: 0 5px 0 0;
+    position: static;
+    z-index: inherit;
+}
+#payment-ship .item .tip a {
+    color: #005EA7;
+}
+.way-category-selected {
+    background: none repeat scroll 0 0 #FFF4D3;
+    padding: 0;
+}
+.way-category {
+    margin-top: 10px;
+}
+#payment-ship .item-selected {
+    background-color: #FFF4D3;
+}
+#payment-ship #shipment .item-selected .field {
+    display: block;
+}
+#payment-ship .way-category-selected .item .field {
+    max-width: 610px;
+}
+.express-form {
+    padding-top: 0;
+    position: relative;
+    z-index: 3;
+}
+.express-form .warm-prompt {
+    color: #999999;
+}
+.express-form .list {
+    line-height: 24px;
+    overflow: hidden;
+    padding: 2px 0;
+}
+.express-form .label {
+    line-height: 24px;
+    margin-right: 5px;
+    text-align: right;
+    width: 120px;
+}
+.express-form .field {
+    float: left;
+}
+
+/*=========确认支付 end=============*/
+#checkout .s-content p {
+    line-height: 22px;
+}
+#payment-ship .payment-selected, #payment-ship .way-list .way-item {
+    line-height: 22px;
+}
+#payment-ship .payment-selected {
+    padding-bottom: 0;
+}
+#checkout .invoice-content {
+    line-height: 22px;
+}
+.ftx-04 {
+    color: #FF6600;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-table;
+}
+.clearfix {
+    display: block;
+}
+.invoice-prompt dt {
+    float: left;
+    width: 60px;
+}
+
+.invoice-prompt dd {
+    float: left;
+}
+
+
+#order-cart {
+    width: 900px;
+}
+
+#order-cart .order-review {
+    padding-top: 5px;
+    width: 900px;
+}
+
+#order-cart .review-thead {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#order-cart .review-thead td {
+    background-color: #EEEEEE;
+    border-left: 1px solid #FFFFFF;
+    color: #666666;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+#order-cart .review-thead .fore1 {
+    border-left: 0 none;
+}
+#order-cart .review-thead .fore2 {
+    width: 120px;
+}
+#order-cart .review-thead .fore3 {
+    width: 150px;
+}
+#order-cart .review-thead .fore4 {
+    width: 100px;
+}
+#order-cart .review-thead .fore2 {
+    width: 120px;
+}
+#order-cart .review-tbody {
+    border-bottom: 1px dashed #DDDDDD;
+    padding: 10px 0;
+}
+
+#order-cart .order-table {
+    width: 900px;
+}
+#order-cart .order-table .fore1 {
+    padding: 0 10px;
+    width: 406px;
+}
+#order-cart .p-goods {
+    overflow: hidden;
+}
+#order-cart .p-goods {
+    width: 406px;
+}
+#order-cart .p-img {
+    border: 1px solid #DDDDDD;
+    float: left;
+    height: 50px;
+    margin-right: 5px;
+    overflow: hidden;
+    padding: 0;
+    width: 50px;
+}
+.p-img a:link, .p-img a:visited {
+    text-decoration: none;
+}
+#order-cart .p-detail {
+    float: left;
+    line-height: 16px;
+    width: 346px;
+}
+.p-name, .p-detail {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.p-img, .p-name, .p-price, .p-market, .p-detail {
+    overflow: hidden;
+}
+
+#order-cart .p-name {
+    height: 32px;
+    overflow: hidden;
+    width: 345px;
+
+}
+
+#order-cart .p-name a, #order-cart .p-name a:visited, #order-cart .p-name a:hover {
+    color: #005EA7;
+}
+#order-cart .p-more, #order-cart .p-extra {
+    color: #999999;
+    line-height: 20px;
+}
+.promise411 {
+    display: block;
+    height: 16px;
+}
+#order-cart .order-table .p-price {
+    padding-right: 10px;
+    text-align: center;
+    width: 110px;
+}
+#order-cart .order-table td {
+    padding-left: 1px;
+}
+.p-price {
+    color: #999999;
+}
+.p-price strong, .p-market strong {
+    color: #E4393C;
+}
+#order-cart .order-table .p-price strong {
+    color: #333333;
+}
+
+#order-cart .order-table .p-promotion {
+    padding-top: 5px;
+    width: 150px;
+}
+
+#order-cart .order-table .fore2 {
+    text-align: center;
+    width: 100px;
+}
+.order-summary {
+    overflow: hidden;
+    padding-top: 10px;
+}
+.order-summary .statistic {
+    width: 300px;
+}
+.fr {
+    float: right;
+}
+.order-summary .statistic .list {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+}
+.order-summary .statistic span {
+    float: left;
+    margin-right: 20px;
+    text-align: right;
+    width: 180px;
+}
+.order-summary .statistic em {
+    color: #E4393C;
+}
+
+.order-summary .statistic .price {
+    color: #333333;
+    float: left;
+    text-align: right;
+    width: 100px;
+}
+.order-coupon {
+    padding-top: 10px;
+}
+.order-coupon .toggle-title {
+    height: 30px;
+    overflow: hidden;
+}
+.order-coupon .toggler {
+    float: left;
+    height: 15px;
+    line-height: 15px;
+    margin-top: 7px;
+}
+.order-coupon a.toggler, .order-coupon a.toggler:visited, .order-coupon a.toggler:hover {
+    color: #005EA7;
+}
+.order-coupon .toggler b {
+    background: url("../../Images/toggler-arrow.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    font-size: 0;
+    height: 15px;
+    line-height: 0;
+    margin-right: 5px;
+    overflow: hidden;
+    width: 15px;
+}
+
+.order-coupon .toggle-active .toggler b {
+    background-position: 0 -15px;
+}
+.order-coupon .toggle-wrap {
+    padding: 0 20px 10px;
+}
+.order-coupon .cbox {
+    width: 858px;
+    background-color: #eefaff;
+    height:99px;
+}
+.beans {
+    border: 1px solid #A3D1EC;
+    padding: 5px 18px;
+    height: 86px;
+    text-align: center;
+    line-height:86px;
+}
+#checkout a.return-edit {
+    float: right;
+    font-size: 12px;
+    font-weight: 400;
+    padding-right: 24px;
+}
+#checkout a.return-edit, #checkout a.return-edit:visited {
+    color: #005EA7;
+}
+
+.group:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.check-code {
+    float: right;
+    padding-bottom: 10px;
+}
+.clr {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.checkout-buttons {
+    background-color: #F5F5F5;
+    height: 50px;
+    position: relative;
+    width: 988px;
+}
+.checkout-buttons .sticky-placeholder {
+    border-top: 1px solid #DDDDDD;
+    height: 50px;
+    width: 988px;
+}
+.checkout-steps .sticky-placeholder {
+    margin-left: 1px;
+}
+
+
+.checkout-buttons .sticky-placeholder .sticky-wrap {
+    background-color: rgba(238, 238, 238, 0.8);
+    height: 50px;
+    width: 100%;
+}
+
+.checkout-buttons .inner {
+    padding-right: 18px;
+}
+
+.checkout-buttons .checkout-submit, .checkout-buttons .checkout-submit2, .checkout-buttons .checkout-submit-disabled {
+    border: 0 none;
+    cursor: pointer;
+    float: right;
+}
+
+.checkout-buttons .checkout-submit-disabled {
+    background: url("../../Images/btn-disabled.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 36px;
+    line-height: 100px;
+    margin-top: 8px;
+    overflow: hidden;
+    width: 135px;
+}
+
+.checkout-buttons .checkout-submit-disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    position: relative;
+}
+
+.checkout-buttons .checkout-submit-disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    position: relative;
+}
+.checkout-buttons .checkout-submit {
+    height: 36px;
+    margin-top: 8px;
+    width: 135px;
+}
+.checkout-buttons .checkout-submit {
+    background-color: #EE0000;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    overflow: hidden;
+    position: relative;
+}
+.checkout-buttons .checkout-submit b {
+    background: url("../../Images/btn-submit.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    height: 36px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 135px;
+}
+.checkout-buttons .total {
+    float: right;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    padding-right: 18px;
+}
+.checkout-buttons .total strong {
+    color: #E4393C;
+    font-size: 20px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.clear{
+    clear:both;
+    height:10px;
+}
+
+/*===========订单信息确认end==============*/
+
+/*=============提交订单按钮样式start=====================*/
+.checkout-buttons .checkout-submit-disabled b {
+    background: url("../../Images/btn-disabled.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: not-allowed;
+    height: 36px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 135px;
+}
+
+.submit-check-info {
+    background-color: #FFFDEE;
+    border: 1px solid #EDD28B;
+    color: #FF6600;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 3px;
+    position: absolute;
+    right: 20px;
+    top: -30px;
+}
+
+/*=============提交订单按钮样式end=====================*/
+/*=============错误提示=====================*/
+#consignee .message, .invoice-form .message {
+    background-color: #FFE8E8;
+    border: 1px solid #DB9A9A;
+    padding: 4px 0;
+}
+#consignee .message .error, .invoice-form .error {
+    color: #CC0000;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 6px;
+}
+/*=============错误提示end=====================*/
+/*===========主体end==============*/
+*/

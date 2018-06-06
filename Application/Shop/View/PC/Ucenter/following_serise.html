@@ -1,0 +1,119 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+<div class="content_list">
+				<div class="title" style="background:#9fa0a0">
+					<ul class="followTap">
+					</ul>
+				</div>
+				<div class="content following">
+					<div class="followingSerise">
+						<?php if($list){ ?>
+						<ul>
+							<div id="select_all_div">
+								<a class="selectAll"><i class="checkBox" id="select_all"></i>Select All</a> | <a class="remove">Remove</a>
+							</div>
+							<volist name="list" id="ill">
+								<li data-id="{$ill.id}" class="fscb_li">
+								<i class="checkBox fscb"></i>
+								<a href="{$ill.href}"><img src="{$ill.image}"></a>
+								</li>
+							</volist>
+							<div class="clr"></div>
+						</ul>
+						<?php } ?>
+						<?php if($u_list){ ?>
+						<ul class="feature">
+							<div>Feature Recommendations</div>
+							<volist name="u_list" id="ull">
+								<li data-id="{$ull.id}">
+									<!--<i class="checkBox "></i>-->
+									<a href="{$ull.href}"><img src="{$ull.image}"></a>
+									<div><a href="#" class="follow" data-id="{$ull.id}">Follow</a></div>
+								</li>
+							</volist>
+							<div class="clr"></div>
+						</ul>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+	</section>
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+</body>
+</html>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".fscb").click(function(){
+			add_remove_active($(this).parent('.fscb_li'),0);
+		});
+		$("#select_all").click(function(){
+			add_remove_active($(this).parent('#select_all_div'),1);
+		});
+		$(".selectAll").click(function(){
+			add_remove_active($(this).parent('#select_all_div'),1);
+		});
+		$(".remove").click(function(){
+			var sid = new Array();
+			try {
+				$(".fscb_li.active").each(function () {
+					sid.push($(this).data('id'));
+				});
+				if (sid.length>0) {
+					post_url_data('__APP__/Users/remove_series_favourite', 'POST', {series_Id: sid}, function (err, Data) {
+						if (err) {
+							alert(err);
+						} else {
+							(Data.status == 1 || Data.status == -1) ? window.location.reload(true) : alert(Data.info);
+						}
+					});
+				} else {
+					alert('Please select the following series option');
+				}
+			} catch (e) {
+				console.log(e);
+			} finally {
+				sid = null;
+			}
+		});
+		$(".follow").click(function(){
+			var series_Id = $(this).data("id");
+			post_url_data('__APP__/Users/series_favourite', 'POST', {series_Id: series_Id}, function (err, Data) {
+				if (err) {
+					alert(err);
+				} else {
+					if (Data.status == 1) {
+						window.location.reload(true);
+					} else {
+						alert(Data.info);
+					}
+				}
+			});
+		})
+	});
+
+	function add_remove_active(dom,status){
+		if(dom.hasClass("active")){
+			dom.removeClass("active");
+			if(status==1) array_add_remove_active(0);
+		}else{
+			dom.addClass("active");
+			if(status==1) array_add_remove_active(1);
+		}
+	}
+
+	function array_add_remove_active(status){
+		var arr = $("li.fscb_li");
+		try {
+			(status == 1) ? arr.addClass("active") : arr.removeClass("active");
+		}catch (e){
+			console.log(e)
+		}finally {
+			arr = null;
+		}
+	}
+</script>

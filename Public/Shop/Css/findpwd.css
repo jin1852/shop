@@ -1,0 +1,146 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#find-log{
+	width: 990px;
+	height: 60px;
+	margin: 0px auto;
+	margin-bottom: 10px;
+}
+#find-log img{
+	position: absolute;
+	left: 200px;
+}
+#findpwd{
+	width: 990px;
+	height: 400px;
+	border: 1px solid #D1D1D1;
+	border-radius: 2px;
+	margin: 0px auto;
+}
+#findpwd .find-title{
+	height: 33px;
+	line-height: 33px;
+	padding-left: 10px;
+	background: url(../../Images/tit_regist.jpg) #D1D1D1 repeat-x 0 -34px;
+}
+#findpwd .mc{
+	width: 100%;
+	padding: 20px 40px 20px 40px;
+}
+#findpwd .mc .step{
+	text-align: center;
+	height: 25px;
+}
+#findpwd .mc .step ul li{
+	width: 236px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	float: left;
+}
+#findpwd .mc .step .one {
+	background: url(../../Images/p1.jpg) no-repeat top right #ededed;
+}
+#findpwd .mc .step .two{
+	background: url(../../Images/p1.jpg) no-repeat top right #ededed;
+}
+#findpwd .mc .step .three{
+	background: url(../../Images/p1.jpg) no-repeat top right #ededed;
+}
+#findpwd .mc .step .four{
+	width: 197px;
+	background: none #ededed;
+}
+#findpwd .mc .step .cur{
+	background: url(../../Images/p2.jpg) no-repeat top right #ffe6bc;
+	color: #FF6600;
+}
+#findpwd .mc .step .finish{
+	background: url(../../Images/p9.jpg) no-repeat top right #bbbbbb;
+	color: #FFF;
+}
+#findpwd .mc .step .finish3{
+	background: url(../../Images/p10.jpg) no-repeat top right #bbbbbb;
+	color: #FFF;
+}
+#findpwd .mc .form{
+	width: 682px;
+	height: 180px;
+	margin: 0px auto;
+	margin-top: 35px;
+}
+#findpwd .mc .form .item{
+	width: 582px;
+	height: 55px;
+	margin-bottom: 15px;
+
+}
+#findpwd .mc .form .item.step4{
+	margin-left: 100px;
+	margin-top: 100px;
+}
+#findpwd .mc .form .item .f{
+	width: 240px;
+	height: 26px;
+	float: left;
+	line-height: 26px;
+	border: 1px solid #999;
+}
+#findpwd .mc .form span{
+	text-align: right;
+	width: 140px;
+	float: left;
+	line-height: 26px;
+	font-size: 14px;
+	height:26px;
+}
+#findpwd .mc .form span.step4{
+	width: 48px;
+	height: 38px;
+	background: url(../../Images/p8.jpg) no-repeat;
+}
+#findpwd .mc .form .item .f input{
+	width: 240px;
+	height: 26px;
+	font-size: 12px;
+	size:30;
+	border: none;
+}
+#findpwd .mc .form .item .f input.step2{
+	color: #FF6600;
+	font-size: 16px;
+	font-weight:  bold;
+}
+#findpwd .mc .form .item .f select{
+	width: 240px;
+	height: 26px;
+	font-size: 12px;
+	size:30;
+	border: none;
+}
+#findpwd .mc .form .item .getcode{
+	width:140px;
+	float: left;
+}
+#findpwd .mc .form .item .getcode img{
+	width: 140px;
+	height: 30px;
+}
+#findpwd .mc .form .item .f input.b{
+	width: 70px;
+	height: 26px;
+	cursor: pointer;
+	background:url(../../Images/p3.jpg);
+}
+#findpwd .mc .form .item .f input.c{
+	width: 121px;
+	height: 26px;
+	cursor: pointer;
+	background:url(../../Images/p6.jpg);
+}
+#findpwd .mc .form .item .f label{
+	width: 440px;
+	height: 30px;
+}

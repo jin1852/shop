@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="__HOMECSS__/orderOk.css" />
+		<script src="__HOMEJS__/jquery-1.8.3.js"></script>
+		<script src="__HOMEJS__/orderOk.js"></script>
+	</head>
+	<body>
+		<!--===============导入头部start==================-->
+		<block name="include"><include file="Common/topper" /></block>
+		<!--===============导入头部end==================-->
+
+		<!--===========logo start=============-->
+		<div class="w2" id="p-header">
+		    <div id="logo">
+		        <a href="http://www.jd.com/">
+		            <img width="251" height="60" alt="京东 收银台" src="__HOMEIMG__/logo-pay.png">
+				</a>
+			</div>
+
+			<if condition="$payment eq 0">
+				<div class="stepflex">
+		        <dl id="payStepFrist" class="first doing">
+		            <dt class="s-num">1</dt>
+		            <dd class="s-text">我的购物车<s></s>
+		                <b></b>
+		            </dd>
+		            <dd></dd>
+		        </dl>
+		        <dl id="payStepNormal" class="normal doing">
+		            <dt class="s-num">2</dt>
+		            <dd class="s-text">填写核对订单信息<s></s>
+		                <b></b>
+		            </dd>
+		        </dl>
+		        <dl id="payStepLast" class="last doing">
+		            <dt class="s-num">3</dt>
+		            <dd class="s-text">成功提交订单<s></s>
+		                <b></b>
+		            </dd>
+		        </dl>
+			</div>
+			<else />
+			<div class="stepflex">
+		        <dl id="payStepFrist" class="first doing">
+		            <dt class="s-num">1</dt>
+		            <dd class="s-text">选择支付方式<s></s>
+		                <b></b>
+		            </dd>
+		            <dd></dd>
+		        </dl>
+		        <dl id="payStepNormal" class="normal">
+		            <dt class="s-num">2</dt>
+		            <dd class="s-text">核对支付信息<s></s>
+		                <b></b>
+		            </dd>
+		        </dl>
+		        <dl id="payStepLast" class="last">
+		            <dt class="s-num">3</dt>
+		            <dd class="s-text">支付结果信息<s></s>
+		                <b></b>
+		            </dd>
+		        </dl>
+			</div>
+
+			</if>
+
+			<div class="clr"></div>
+		</div>
+
+		<!--===========logo end=============-->
+		
+		
+		<!--===========订单提交成功 start=============-->
+		<div class="w2 main">
+
+		<!--========货到付款 start===========-->
+			<if condition="$payment eq 0">
+
+			<div class="m m3 msop">
+        		<div class="mt" id="success_tittle">
+        			<s class="icon-succ02"></s>
+        			<h3 class="ftx-02">感谢您，订单提交成功，订单号为：{$orderId}</h3>
+        		</div>
+				<div class="mc" id="success_detail">	
+					<input type="hidden" id="loadSuccessFlag" value="ok">
+					<input type="hidden" id="skuIds" value="667762">
+					<ul class="list-order">
+			    		<li class="li-st">
+							<div class="fore1">订单号：<a href="javascript:void(0)">{$orderId}</a></div>
+							<div class="fore2">货到付款：<strong class="ftx-01">{$tprice}元</strong></div>
+					   		<div class="fore3">
+					   			预计明日送达&nbsp;
+							</div>
+						</li>
+					</ul>
+
+					<div id="bookDiv"></div>
+ 					<p class="i-tips01">
+						您的订单已经在处理中，发货后订单内容会显示承运人联系方式，如有必要您可以联系对方
+             		</p>
+             		<p class="i-tips01">
+             			随时随地手机跟踪订单<a href="{:U('Ucenter/index')}">[查看详情]</a>
+             		</p>
+		 		</div>
+				<div class="qr-code">
+					<a class="code" href="javascript:void(0)">
+						<img src="__HOMEIMG__/getImage.action.jpg" height="77px" widht="77px" alt="暂无图片">
+					</a>
+					<a class="sao" href="javascript:void(0)"></a>
+				</div>
+			</div>
+
+			<div class="o-mb">完成支付后，您可以：
+              	<a href="{:U('Ucenter/index')}">查看订单状态</a>&nbsp;&nbsp;
+              	<a href="{:U('Index/index')}">继续购物</a>&nbsp;&nbsp;<a href="javascript:alert('暂时不支持')">问题反馈</a>
+            </div>
+        </div>
+		<!--========货到付款 end===========-->
+
+			<else />
+		<div class="w2 main">
+			<div class="m mainbody">
+				<div class="mc">
+					<s class="icon-succ04"></s>
+					<h3 class="orderinfo">订单提交成功，请您尽快付款！</h3>
+					<ul class="list-orderinfo">
+						<li>订单号：<strong class="ftx-01">{$orderId}</strong></li>
+						<li class="li-last">
+							应付金额：
+							<strong class="ftx-01">{$tprice}</strong>
+							元
+						</li>
+					</ul>
+					<p class="mb-tip">
+						 请您在提交订单后
+						<span class="ftx-04">24小时</span>
+						内完成支付，否则订单会自动取消。 
+					</p>
+					<div class="qr-code">
+						<a class="code" href="javascript:void(0)">
+							<img src="__HOMEIMG__/getImage.action.jpg" height="77px" widht="77px" alt="暂无图片">
+						</a>
+						<a class="sao" href="javascript:void(0)"></a>
+					</div>
+				</div>
+			</div>
+			<div id="mal01" class="m mainlist">
+				<div class="mt extra-mt">
+					<div class="extra">
+						<a clstag="payment|keycount|paymentlink|help" href="http://help.jd.com/help/question-68.html" target="_blank">使用帮助</a>
+					</div>
+				</div>
+				<div class="mc">
+					<h3 class="maintit">
+						<s class="paylogo"></s>
+						<em>
+							付款时通过银行预手机短信确认付款，
+							<strong>安全快捷！</strong>
+						</em>
+					</h3>
+					<div class="quickpay">
+						<ul class="list-pay" id="Q-bank">
+							<li class="select">
+								<div class="fore1">
+									<input class="jdradio" type="radio" name="quickRadio" value="" checked="checked">
+									<label>
+										<img width="125" height="28" src="__HOMEIMG__/cmb_1301.png" alt="暂无图片">
+									</label>
+								</div>
+								<div class="fore2">
+									<strong class="savingscard">储蓄卡</strong>
+								</div>
+								<div class="fore3">
+									<a href="#">查看支付限额</a>
+								</div>
+								<div class="fore4">
+									支付金额(元)：
+									<strong class="ftx-01">{$tprice}</strong>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="banking">
+						<h4 class="tit-sub">
+							<strong>网银支付</strong>
+							<span class="ftx-03">付款时需跳转至银行支付</span>
+						</h4>
+						<ul class="list-pay" id="E-bank">
+							<li class="">
+								<input type="hidden" value="banking">
+								<div class="fore1">
+									<input class="jdradio" type="radio" name="quickRadio" value="">
+									<label>
+										<img width="125" height="28" src="__HOMEIMG__/cmb_1301.png" alt="">
+									</label>
+								</div>
+								<div class="fore2">
+									<strong class="savingscard">储蓄卡 </strong>
+								</div>
+								<div class="fore3">
+									<a href="#">查看支付限额</a>
+								</div>
+								<div class="fore4">
+									支付金额(元)：
+									<strong class="ftx-01">{$tprice}</strong>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="btns">
+						<b class="btn-next">下一步</b>
+						<a class="link-more" href="javascript:void()">使用其他银行卡支付</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="w2 jdfooter">
+			<p>
+			完成支付后，您可以：
+				<a id="orderItemUrl" href="javascript:void()" target="_blank">查看订单详情</a>
+				<span class="ftx-line">  |  </span>
+				<a href="javascript:void()" target="_blank">支付调查</a>
+			</p>
+		</div>
+		</if>
+		<div class="w2 jdhelp">
+			<h3>付款帮助：</h3>
+			<div class="help-box">
+				<dl>
+					<dt>1、 什么是京东白条？</dt>
+					<dd>京东白条是京东推出的会员增值服务，会员购物时可以享受“先消费，后付款”的全新购物体验，还享有最长30天的延后付款期和灵活的分期付款方式。</dd>
+				</dl>
+				<dl>
+					<dt>2、如何激活和使用白条？</dt>
+					<dd>点击“立即激活”即跳转至网银钱包进行激活；激活成功后，您只需选购商品提交订单，在收银台选择 “京东白条”，输入支付密码，即可成功支付。</dd>
+				</dl>
+
+			</div>
+		</div>
+		<!--===========订单提交成功 end==============-->
+		<div id="deleteBackground" class="thickdiv hide" style="width: 100%; height: 980px;"></div>
+		<div class="thickbox hide" style="left: 499.5px; top: 250px; width: 300px; height: 200px;">
+		<!--===========删除商品弹框 start==============-->
+			<div class="thickwrap" id="deleteCartGoods" style="width: 300px;">
+				<div class="thickcon" style="width: 200px; height: 200px; padding-left: 10px; padding-right: 10px;">
+					<div class="m flexbox">
+						<div class="mc">
+							<div class="tip-box icon-box">
+								<span class="warn-icon m-icon"></span>
+								<div class="item-fore">
+									<h3 class="ftx04">暂时不支持此功能</h3>
+									<div class="op-btns">
+										前往&nbsp;&nbsp;<a href="{:U('Index/index')}">首页</a>
+									</div>
+									<div class="op-btns">
+										前往&nbsp;&nbsp;<a href="{:U('Ucenter/index')}">个人中心</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="paymentJumpMenu hide">
+			<div class="">
+				<div>暂时不支持此功能</div>
+				<div>将在3秒后跳转，你也可以立即前往<a><span>个人中心</span></a>查看订单</div>
+			</div>
+		</div>
+
+		<div class="clr"></div>
+		<!--===============导入头部start==================-->
+		<block name="include"><include file="Common/footer" /></block>
+		<!--===============导入头部end==================-->
+	</body>
+</html>

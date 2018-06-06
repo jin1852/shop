@@ -1,0 +1,54 @@
+<script>
+        var session=new Array();
+            session['levelId']='<?php session_start();
+                                echo $_SESSION['admin']['levelId']; 
+                                ?>'; 
+</script>
+<div id="mws-header" class="clearfix">
+    
+    	<!-- Logo Container -->
+    	<div id="mws-logo-container">
+        
+        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+        	<div id="mws-logo-wrap">
+            	<!--<img src="__ADMIN__/images/mws-logo.png" alt="mws admin">-->
+			</div>
+        </div>
+        
+        <!-- User Tools (notifications, logout, profile, change password) -->
+        <div id="mws-user-tools" class="clearfix">
+            <!-- User Information and functions section -->
+            <div id="mws-user-info" class="mws-inset">
+            
+            	<!-- User Photo -->
+            	<div id="mws-user-photo">
+                	<img src="__ADMIN__/example/profile.jpg" alt="User Photo">
+                </div>
+                
+                <!-- Username and Functions -->
+                <div id="mws-user-functions">
+                    <div id="mws-username">
+                       你好,{$_SESSION['admin']['nickName']}
+                    </div>
+                    <ul>
+                    	<li><a href="javascript:void(0)">
+                        <?php 
+                            $level=$_SESSION['admin']['levelId'];
+                            if($level==1){
+                                echo "超级管理员";
+                            }elseif($level==2){
+                                echo "高级管理员";
+                            }elseif ($level==3) {
+                                echo "商品管理员";
+                            }elseif ($level==4) {
+                                echo "业务员";
+                            }
+                        ?></a></li>
+                        <li><a href="{:U("Aedit/gedit")}">更改密码</a></li>
+                        <li><a href="{:U("Logout/logout")}">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+

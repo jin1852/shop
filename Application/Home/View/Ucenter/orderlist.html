@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>全部订单</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__user.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Multicuploads/uploadify.css">
+	<include file="./Application/Home/View/Common/header.html"/>
+	<!--header结束了-->
+	<div id="container">
+		<div class="wrap">
+			<div id="shortcut">
+				<div class="tit">
+					<a href="#">我的京东</a>
+				</div>
+				<!-- <div class="mypage" uid="{$uid}">
+					<a href="#">个人主页</a>
+				</div>
+				<dl class="myset">
+					<dt><span>设置</span><b></b></dt>
+					<dd>
+						<a href="javascript:;" id="info">个人信息</a>
+						<a href="javascript:;" id="uimg">上传图像</a>
+						<a href="javascript:;" id="address">添加收货地址</a>
+					</dd>
+				</dl> -->
+			</div>
+			<!--测试用例-->
+		
+			<!---->
+			<div id="main">
+				<div id="left">
+					<div id="menu">
+						<h3>我的交易</h3>
+						<ul>
+							<li><a href="#">我的订单</a></li>
+							<li><a href="#">关注的商品</a></li>
+							<li><a href="#">关注的店铺</a></li>
+							<li><a href="#">浏览历史</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="center">
+					<div id="order-list" class="mod-main">
+						<div class="mt">
+							<h3>全部订单</h3>
+							<ul class="extra-l">
+								<li class="fore1"><a href="#">待付款<em>0</em></a></li>
+								<li class="fore2"><a href="#">待确认收货<em>3</em></a></li>
+								<li class="fore3"><a href="#">待自提<em>0</em></a></li>
+								<li class="fore4"><a href="#">待评价<em>0</em></a></li>
+							</ul>
+							<div class="extra-r">
+								<a href="#"></a>
+							</div>
+						</div>
+						<div class="mc">
+							<div class="tb-order">
+								<table width="100%" >
+									<tr>
+										<th>订单编号</th>
+										<th>购买商品</th>
+										<th>收货人</th>
+										<th>订单金额</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								<foreach name="orderlist" item="vo">									
+									<tbody class="fore{$key+1}"><tr>
+										<td>
+											{$vo['orderId']}
+										</td>
+										<td>
+											<img src="__PUBLIC__/Uploads/{$vo['simimg']}"/>
+										</td>
+										<td>
+											{$vo['receiver']}
+										</td>
+										<td>
+											￥{$vo['price']*$vo['amount']}
+										</td>
+										<td>
+											{$orderstates[$vo['orderState']]}
+										</td>
+										<td>
+											<strong class="ftx04">
+												<a href="{:U('Ucenter/orderDetail','id='.$vo['orderId'])}" target="_blank">详情</a>
+												<a href="#">确认收货</a>
+												<a href="#">评价</a>
+											</strong>
+										
+										</td>
+									</tr>
+									</tbody>
+								</foreach>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+					
+					
+				</div>
+				<div id="right" class="mod-main">
+					<div id="recommend">
+						<div class="mt">
+							<h3>会员推荐</h3>
+							<div class="extra-r">
+								
+							</div>
+						</div>
+						<div class="mc">
+							<div class="economical">
+								<div class="gain-beans">
+									<div class="g-b-num">
+										会员俱乐部
+									</div>
+									<div class="g-b-btn" id="eco-item">
+										<a href="#">进入</a>
+									</div>
+								</div>
+								<ul class="eco-item">
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_1.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_2.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_3.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_1.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_2.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_3.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="service">
+						
+					</div>
+					<div class="history">
+						
+					</div>
+				</div>
+				<span class="clr"></span>
+			</div>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div class="w">
+	<div id="service-2014">
+		<dl class="fore1">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore2">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore3">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore4">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore5">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<span class="clr"></span>
+	</div>
+</div>
+<include file="Common/footer"/>
+</body>
+</html>

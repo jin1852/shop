@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport Metatag -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Plugin Stylesheets first to ease overrides -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/custom-plugins/wizard/wizard.css" media="screen">
+
+    <!-- Required Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+    <!-- Demo Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+    <!-- jQuery-UI Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Multicuploads/uploadify.css">
+
+    <title>MWS Admin - Dashboard</title>
+
+</head>
+
+<body>
+<!-- Themer End -->
+
+<!-- Header -->
+<include file="./Application/Admin/View/Common/header.html" />
+
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+
+    <!-- Necessary markup, do not remove -->
+    <include file="./Application/Admin/View/Common/left_nav.html" />
+
+
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix">
+
+        <!-- Inner Container Start -->
+        <div class="container">
+
+            <!-- Statistics Button Container -->
+
+            <!-- Panels Start -->
+
+
+            <div class="mws-panel grid_7">
+                <div class="mws-panel-header">
+                    <span>{$title}</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <form class="mws-form" action="{:U('Multipics/add_doit')}" method="post" enctype="multipart/form-data">
+                        <div class="mws-form-inline">
+                            <div class="mws-form-row bordered">
+                                <label class="mws-form-label">商品号</label>
+                                <div class="mws-form-item">
+                                    <input type="text" class="large require" name="prodId" readonly="readonly" value="{$gid}" id="gid"/>
+                                </div>
+                            </div>
+                            <div class="mws-form-row bordered">
+                                <label class="mws-form-label">颜色 <span class="required">*</span></label>
+                                <div class="mws-form-item">
+                                    <select class="small" name="colorId" id="pid">
+                                        <option value="">请选择</option>
+                                        <foreach name='colorsData' item='vo'>
+                                            <option value="{$vo['colorId']}">{$vo['colorName']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mws-form-row bordered">
+                                <label class="mws-form-label">商品图片 <span class="required">*</span></label>
+                                <div class="mws-form-item">
+                                    <!-- <input type="file" name="image" class="required">
+                                        <label for="picture" class="error" generated="true" style="display:none"></label> -->
+                                    <div id="queue"></div>
+
+                                    <input id="file_upload" name="file_upload" type="file" multiple="true">
+
+                                    <div class="progress progress-striped" style="height:4px; padding: 1px; broder:solid 1px #6e6e6e;margin-top:15px; border-radius:2px">
+                                        <div class="bar" id="bar"  data-status=0 style="width: 0;height:2px;background-color: cadetblue;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mws-form-row bordered">
+                                <button type="button"  class="btn" id="up" ><i class="icon-plus"></i>上传</button>
+                            </div>
+                        </div>
+                        <!-- <div class="mws-button-row">
+                            <input type="submit" value="提交" class="btn btn-danger">
+                            <input type="reset" value="重置" class="btn ">
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+            <div class="mws-panel grid_6">
+                <div class="mws-panel-header">
+                    <span><i class="icon-table"></i>{$title2}</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <div id="DataTables_Table_0_wrapper" class="" role="grid">
+                        <table class="mws-datatable mws-table">
+                            <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>颜色</th>
+                                <th>图片</th>
+                                <th>创建时间</th>
+                                <th>状态</th>
+                                <if condition="($_SESSION['admin']['levelId'] eq 1) or ($_SESSION['admin']['levelId'] eq 3)">
+                                    <th>操作</th>
+                                </if>
+                            </tr>
+                            </thead>
+                            <tbody id="imglist">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="grid_8 page">
+                        {$page}
+                    </div>
+                </div>
+                <div class="grid_8" style="margin:10px 0 10px 0;border-bottom:0"><a href="{:U('Goods/index')}" class="mws-ui-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">返回</span></a></div>
+
+            </div>
+
+            <!-- Panels End -->
+        </div>
+        <!-- Inner Container End -->
+
+        <!-- Footer -->
+        <include file="Common:footer"/>
+
+    </div>
+    <!-- Main Container End -->
+
+</div>
+
+<!-- JavaScript Plugins -->
+<script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+<script src="__PUBLIC__/Multicuploads/jquery.uploadify.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var gid=$('#gid').val();
+    $(document).ready(function() {
+        initial();
+        //初始化
+        $("#up").click(function () {
+            var pic = $("#file_upload").get(0).files[0];
+            var prodId = $('#gid').val();
+            var colorId = $('#pid').val();
+            if (pic && prodId > 0 && colorId > 0) {
+                var formData = new FormData();
+                formData.append("file_upload", pic);
+                formData.append("prodId", prodId);
+                formData.append("colorId",colorId);
+                $("#bar").css('width', 0);
+                $("#bar").html('0%');
+                setTimeout(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "__APP__/Multipics/multiupload",
+                        data: formData,
+                        processData: false,
+                        //必须false才会自动加上正确的Content-Type
+                        contentType: false,
+                        xhr: function () {
+                            var xhr = $.ajaxSettings.xhr();
+                            if (onprogress && xhr.upload) {
+                                console.log('xhr.success');
+                                xhr.upload.addEventListener("progress", onprogress, false);
+                                return xhr;
+                            }else{
+                                console.log('xhr.error');
+                            }
+                        },
+                        success: function (data) {
+                            if(data==1){
+                                alert("上传成功");
+                                initial();
+                            }
+                            //code
+                        },
+                        error: function () {
+                            alert("上传失败");
+                            //code
+                        }
+                    });
+                }, 1000);
+            } else {
+                alert("参数不全");
+            }
+        });
+    });
+    function initial() {
+        var value={id:gid};
+        doajax('initial',value,'initial');
+    }
+    function htmltr(data){
+        var b='',c='',lv=<?php echo  $_SESSION['admin']['levelId'] ;?>;
+        $.each(data, function (index, item) {
+            if(lv==1 || lv==3){
+                c="<td><a href='{:U('multipics/delete')}?cid="+item.picId+"'><button type='button' class='btn' ><i class='icon-trash'></i> 删除</button></a></td>";
+            }else{
+                c='';
+            }
+            b += "<tr><td>"+item.picId+"</td><td>"+item.colorName+"</td><td><img src='"+item.image+"' width='50' height='50'></td><td>"+item.create_time+"</td><td>"+item.status+"</td>" +
+            c+"</tr>";
+        });
+        $("#imglist").html(b)
+    }
+    //ajax
+    function doajax(url,value,type){
+        $.ajax({
+            timeout: 5000,
+            type: "POST",
+            url: '__APP__'+"/Multipics/"+url,
+            data: {value:value},
+            dataType: "json",
+            success: function (data) {
+                if (data) {
+                    if (data.status == 1) {
+                        switch (type){
+                            case "initial":htmltr(data.result);break;
+                        }
+                    } else {
+                        alert(data.msg);
+                    }
+                } else {
+                    alert("数据异常！");
+                }
+            },
+            error: function (e) {
+                alert("网络访问失败！");
+            }
+        });
+    }
+    function onprogress(evt){
+        var loaded = evt.loaded;     //已经上传大小情况
+        var tot = evt.total;      //附件总大小
+        var per = Math.floor(100*loaded/tot);  //已经上传的百分比
+        $("#bar").html( per +"%" );
+        $("#bar").css("width" , per +"%");
+    }
+</script>
+<script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+<script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+<script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+<script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__ADMIN__/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="__ADMIN__/js/core/themer.js"></script>
+
+</body>
+</html>

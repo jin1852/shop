@@ -1,0 +1,9 @@
+<div class="brand">
+    <a href="__APP__">Home page</a> > <span>
+    <?php if($ht){ ?>
+         <?php if($hth){ ?> <a href="{$hth}" style="color: #9fa0a0;cursor: pointer;">{$ht}</a> <?php }else{ ?>{$ht}<?php } ?></span>
+    <?php }else{ ?>
+         <?php if($hth){ ?> <a href="{$hth}" style="color: #9fa0a0;cursor: pointer;">{$head_title}</a> <?php }else{ ?>{$head_title}<?php } ?></span>
+    <?php } ?>
+    <?php if($pl){ ?> > <span>{$pl}</span><?php } ?>
+</div>

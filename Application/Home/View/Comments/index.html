@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+			<title>商品品论页面</title>
+			<meta charset="utf-8"/>
+			<load href="__HOMECSS__comments.css"/>
+			<load href="__HOMEJS__jquery-1.8.3.js"/>
+			<load href="__HOMEJS__comments.js"/>
+		</head>
+	<body>
+		<div id="container">
+			<!-- 地址导航栏 -->
+			<div id="address_daohang">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li> > </li>
+					<li><a href="#">笔记本</a></li>
+				</ul>
+			</div>
+			<!-- 左侧商品展示区 -->
+			<div id="container_left">
+				<!-- 商品信息 -->
+				<div class="goods_messages">
+					<!-- 导航栏 -->
+					<div class="daohang"><span>商品信息</span></div>
+					<!-- 商品图片展示 -->
+					<div class="goods_img"><a href="#"><img src="__PUBLIC__/Uploads/2014-09-21/541e45da95d63.jpeg" width="208" height="210px;"></a></div>
+					<!-- 商品名称 -->
+					<div class="goods_name">商品名称：<a href="#">爱宝莉 18K白金10分极白FG色豪华心心相印钻石吊坠 赠纯银项链 附带国家级权威证书 18K白金10分FG超白</a></div>
+					<!-- 商品京东价格 -->
+					<div class="goods_price">京东价：<span>￥888.00</span></div>
+					<!-- 商品评价得分 -->
+					<div class="goods_code">评价得分：<span class="code_checked">★★★★</span><span class="code_nochecked">★</span>(4分)</div>
+					<!-- 商品评论总数 -->
+					<div class="goods_comments_total">评论数：40条</div>
+					<!-- 加入购物车 -->
+					<div class="add_cart"><a href="#"><img src="__HOMEIMG__buy_cart.JPG"></a></div>
+				</div>
+				<!-- 其他谈论话题 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>其他谈论话题</span></div>
+					<div class="other_talk"><img src="__PUBLIC__/Uploads/img_20/s_541dab213ff9c.jpeg"><a href="#"><span>爱宝莉钻石吊坠</span></a></div>
+				</div>
+				<!-- 同类推荐 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>同类推荐</span></div>
+					<for start = "0" end="5">
+					<div class="tj_goods">
+						<div class="goods_img">
+							<a href="#">
+								<img src="__PUBLIC__/Uploads/2014-09-20/541d9cf648deb.jpeg" width="208px" height="210px;">
+							</a>
+						</div>
+						<div class="goods_desc">
+							<span>一搏千金 七夕礼物 18K白金5分钻石吊坠雪花爱恋钻坠 送银镀18K金链 可货到付款 </span>
+						</div>
+						<div class="price">499.00</div>
+					</div>
+					</for>
+				</div>
+				<!-- 搭配组合 -->
+				<div class="goods_messages">
+					<div class="daohang"><span>搭配组合</span></div>
+					<for start="0" end="5">
+					<div class="goods">
+						<div class="img">
+							<a href="#">
+								<img src="__PUBLIC__/Uploads/img_50/s_541e415665a98.jpeg" height="75px;" width="60px;">
+							</a>
+						</div>
+						<div class="descr"><a href="#">
+							恒久之星 心语18K白金天然南非钻石吊坠女求婚克拉吊坠女项链 现货闪发18K白金8分 </a></div>
+					</div>
+					</for>
+				</div>
+			</div>
+			<!-- 右侧商品评论区 -->
+			<div id="container_right">
+				<div class="daohang">
+					<span>商品评论</span>
+				</div>
+				<div class="shuoming">
+					<span>感谢您对本店的支持，为了我们能够更好的为您服务，请对您所购买的商品以及我们的服务进行评价！</span>
+				</div>
+				<div class="buy_goods_messages">
+					<div class="daohang">您的评价</div>
+					<div class="comments_img">
+						<a href="#"><img src="__PUBLIC__/Uploads/2014-09-21/541da6de97f3c.jpeg" width="200px" height="200px"></a>
+					</div>
+					<div class="comments_name"><a href="#">六喜珠宝LUKY 18K金40分效果镂空六爪超显钻石钻戒 结婚/求婚女戒求婚利器幸福时光</a></div>
+					<div class="form">
+						<form action="{:U('do_comments')}" method="post">
+							<input type="hidden" name="uId" value="1"/>
+							<input type="hidden" name="cId" value="1"/>
+							<input type="hidden" name="commentsBId" value="1"/>
+							<input type="hidden" name="Gcode"/>
+							<input type="hidden" name="Scode"/>
+							<input type="hidden" name="Tcode"/>
+							<table border="0">
+								<tr height="30px;">
+									<td style="padding-right:70px;" align="right">您对本次购物的总体评价：</td>
+									<td width="200px;" class="com">
+										<input type="radio" name="commentsdj" value="1"/>好评
+										<input type="radio" name="commentsdj" value="2"/>中评
+										<input type="radio" name="commentsdj" value="3"/><span>差评</span>
+									</td>
+								</tr>
+								<tr>
+									<td rowspan="2" align="right" style="padding-right:70px;">您对本次购买商品的评价：</td>
+									<td class="code1"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></td>
+									
+								</tr>
+								<tr>
+									<td align="center">
+										<textarea name="content" cols="20" id="text" rows="5"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td align="right" style="padding-right:70px;">您对我们服务的评价：</td>
+									<td class="code2"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></td>
+								</tr>
+								<tr>
+									<td style="padding-right:70px;" align="right">您对本次物流的评价：</td>
+									<td class="code3"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></td>
+								</tr>
+							</table>
+							<div class="sub">
+								<input id="submit" type='submit' value="提交评论"/>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="comments_area">
+					<form>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

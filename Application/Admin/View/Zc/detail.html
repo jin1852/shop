@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/custom-plugins/wizard/wizard.css" media="screen">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+<style type="text/css">
+    .page {
+        background: black;
+        margin:0;
+        padding:0;
+        width: 100%;
+    }
+    .page div span, .page div a{
+        font-weight: bold;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        padding: 5px 8px;
+    }
+    .page div span.current {
+        color: white;
+    }
+</style>
+
+<title>后台管理系统</title>
+
+</head>
+
+<body>
+    <!-- Themer End -->
+
+	<!-- Header -->
+	<include file="./Application/Admin/View/Common/header.html" />
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+        <include file="./Application/Admin/View/Common/left_nav.html" />
+    	<!-- Necessary markup, do not remove -->
+		
+        
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+                
+                <!-- Panels Start -->
+                
+
+                <div class="mws-panel grid_8 mws-collapsible">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-table"></i>{$title}</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <table class="mws-table mws-datatable">
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<tr>
+                                    <td>商品ID</td>
+                                    <td>{$goodData['id']}</td>
+                                </tr>
+                                <tr>
+                                    <td>众筹商品名称</td>
+                                    <td>{$goodData['title']}</td>
+                                </tr>
+                                <tr>
+                                    <td>商品原价</td>
+                                    <td>{$goodData['price']}</td>
+                                </tr>
+                                <tr>
+                                    <td>图片</td>
+                                    <td>
+                                    <if condition="is_null($goodData['image']) neq true">
+                                    <img src="__PUBLIC__/Uploads/Zc/m_{$goodData['image']}"/>
+                                    </td>
+                                    <else/>暂无
+                                    </if>
+                                </tr>
+                                <tr>
+                                    <td>当前数量</td>
+                                    <td>{$goodData['current_number']}</td>
+                                </tr>
+                                <tr>
+                                    <td>期待数量</td>
+                                    <td>{$goodData['expect_number']}</td>
+                                </tr>
+                                <tr>
+                                    <td>当前阶段</td>
+                                    <td>{$goodData['stage_no']}</td>
+                                </tr>
+                                <tr>
+                                    <td>当前价格</td>
+                                    <td>{$goodData['stage_price']}</td>
+                                </tr>
+                                <tr>
+                                    <td>众筹开始时间</td>
+                                    <td>{$goodData['start_time_date']}</td>
+                                </tr>
+                                <tr>
+                                    <td>众筹截止时间</td>
+                                    <td>{$goodData['end_time_date']}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <div class="grid_8 page">
+                            {$page}
+                        </div> -->
+                        <div class="grid_8" style="margin:10px 0 10px 0;border-bottom:0"><a href="{:U('Zc/ZcAll')}" class="mws-ui-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">返回</span></a></div>
+                        
+                            
+                    </div>
+                </div>
+                
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+    <script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+    <script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+    <script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+    <script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+    <script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+    <script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+    <!-- Core Script -->
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="__ADMIN__/js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body class="product">
+<include file="Public:nav"/>
+<section class="product">
+		<div class="container" style="width: 1208px;">
+			<div class="brand">
+				<a href="__APP__">Home page</a> > <span><a href="__APP__/Product/index" style="color: #9fa0a0;cursor: pointer;"> Product List</a></span> <?php if($tname){ ?> > <span><a href="__APP__/Product/product_list/order_type/1/id/{$tname.lv1.proTypeId}/pid/0/lv/1" style="color: #9fa0a0;cursor: pointer;">{$tname.lv1.proName}</a></span><?php } ?> > {$list.prodName}
+			</div>
+			<!-- end brand -->
+			<div class="deta">
+				<div class="img">
+					<div class="banner-deta">
+						<div class="focus" id="big_frame">
+							<ul id="big_list" name="big_list">
+								<volist name="list['pic_list']" id="bpl">
+									<li class="bpl" data-colorid="{$bpl.colorId}">
+										<div>
+											<a href="#" target="_blank"><img src="{$bpl.image}" /></a>
+										</div>
+									</li>
+								</volist>
+								<div class="clr"></div>
+							</ul>
+							<div class="clr"></div>
+						</div>
+						<a href="javascript:;" class="img_prev" id="back">&nbsp;</a> <a href="javascript:;" class="img_next" id="forward">&nbsp;</a>
+						<div class="small_show" id="small_frame">
+							<ul id="small_list">
+								<volist name="list['pic_list']" id="spl" key="i">
+									<li <?php if($i==1){ ?>class="spl visited"<?php }else{ ?>class="spl"<?php } ?> data-colorid="{$spl.colorId}">
+										<div>
+											<img src="{$spl.image}" />
+										</div>
+									</li>
+								</volist>
+								<div class="clr"></div>
+							</ul>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<!-- end .banner-deta -->
+					<a href="#" class="heart"><i class="fa fa-heart" aria-hidden="true"></i> Add To Following</a>
+				</div>
+				<!-- end .img -->
+				<div class="info">
+					<h5 id="prod" data-prodid="{$list.prodId}">{$list.prodName}</h5>
+					<h6>Item No.<span> {$list.prodNO}</span></h6>
+					<div class="tab">
+						<ul class="title">
+							<li class="active"><a style="cursor: pointer">Specifications</a></li>
+							<li><a style="cursor: pointer">Packaging</a></li>
+							<li><a style="cursor: pointer">Why Buy It</a></li>
+							<li><a style="cursor: pointer">Style</a></li>
+							<div class="clr"></div>
+						</ul>
+						<ul class="content">
+							<li class="active">
+								<div class="size">
+									<span>Size:</span>
+									<div>
+										<volist name="list['size_list']" id="sl">
+											<a <?php if($sl['selected']==1){ ?>class="size_list active"<?php }else{ ?>class="size_list"<?php } ?>style="cursor: pointer" data-size="{$sl.sizeName}" data-sizeid="{$sl.sizeId}">{$sl.sizeName}</a>
+										</volist>
+										<div class="clr"></div>
+									</div>
+								</div>
+								<div class="color">
+									<span>Color:</span>
+									<div>
+										<volist name="list['color_list']" id="cl">
+											<a <?php if($cl['selected']==1){ ?>class="color_list active"<?php }else{ ?>class="color_list"<?php } ?>data-colorid="{$cl.colorId}" style="cursor: pointer" data-color="{$cl.rgb}">
+												<?php if($cl['rgbimg']){ ?>
+													<span style="background-image:url('{$cl.rgbimg}');"></span>
+												<?php }elseif($cl['rgb']){ ?>
+													<span style="background-color:#{$cl.rgb};border:solid #bbbbbb 1px;"></span>
+												<?php }else{ ?>
+													<span style="font-size: 10px;border:solid #bbbbbb 1px;">{$cl.colorName}</span>
+												<?php } ?>
+											</a>
+										</volist>
+										<div class="clr"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<h6>{$list.paking}</h6>
+							</li>
+							<li>
+								<h6>{$list.wbi}</h6>
+							</li>
+							<li>
+								<h6>{$list.brand}</h6>
+							</li>
+						</ul>
+					</div>
+					<div class="IMOQ">
+						<span>MOQ:&nbsp;{$list.mqq}</span>
+						<button id="add_to_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ADD TO CART</button>
+						<div class="clr"></div>
+					</div>
+					<!-- end .imog -->
+					<div class="icon">
+						<div>
+							<ul>
+								<volist name="list['authentication_list']" id="bul" key="k">
+									<?php if( ($k-1)>0 && ($k-1)%4==0 ){ ?>
+										</ul></div><div><ul>
+									<?php } ?>
+									<li num="{$k}"><img src="{$bul.image}" title="{$bul.title}"></li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+					<!-- end .icon -->
+					<div class="banner">
+						<!--<img src="__IMG__/update/beta_banner_01.jpg">-->
+						<a href="{$list.banner_link}"><img src="{$list.banner}" /></a>
+					</div>
+					<!-- end .banner -->
+				</div>
+				<!-- end .info -->
+			</div>
+			<!-- end .deta -->
+			<div class="rproduct" data-styleId="{$related.styleId}" data-lv1="{$related.lv1}" data-proTypeId="{$related.proTypeId}" data-prodId="{$list.prodId}">
+				<ul class="title">
+					<li class="active"><a>Related Product</a></li>
+					<li><a>Similar Product</a></li>
+					<li><a>Related Product Price</a></li>
+				</ul>
+				<ul class="content">
+					<li class="active">
+						<ol>
+							<volist name="related['rp']" id="rp">
+								<li>
+									<a href="__APP__/Product/detail/prodId/{$rp.prodId}"><img src="{$rp.img}"><span>{$rp.prodName}</span></a>
+								</li>
+							</volist>
+						</ol>
+					</li>
+					<li>
+						<ol>
+							<volist name="related['sp']" id="sp">
+								<li>
+									<a href="__APP__/Product/detail/prodId/{$sp.prodId}"><img src="{$sp.img}"><span>{$sp.prodName}</span></a>
+								</li>
+							</volist>
+						</ol>
+					</li>
+					<li>
+						<ol>
+							<volist name="related['rpp']" id="rpp">
+								<li>
+									<a href="__APP__/Product/detail/prodId/{$rpp.prodId}"><img src="{$rpp.img}"><span>{$rpp.prodName}</span></a>
+								</li>
+							</volist>
+						</ol>
+					</li>
+
+				</ul>
+			</div>
+			<!-- end .rproduct -->
+			<div class="productInformation">
+				<h5>Product Information</h5>
+				{$list.prodInfo}
+			</div>
+		</div>
+		<!-- end .container -->
+	</section>
+	<!-- end .product -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script language="javascript" type="text/javascript" src="__JS__/banner-deta.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("div.tab > ul.title > li").each(function (i) { $(this).click(function () { $(this).addClass("active").siblings().removeClass("active"); $("div.tab > ul.content > li").eq(i).show().siblings("div.tab > ul.content > li").hide(); }); });
+		$("div.rproduct > ul.title > li").each(function (i) { $(this).click(function () { $(this).addClass("active").siblings().removeClass("active"); $("div.rproduct > ul.content > li").eq(i).show().siblings("div.rproduct > ul.content > li").hide(); }); });
+		$(".size_list").click(function () { change_view($(".size_list"), $(this)); jump(); });
+		$(".color_list").click(function () { change_view($(".color_list"), $(this)); jump(); });
+		$("#add_to_cart").click(function () {
+			var data = {}, c = $(".color_list.active").data("color"), cid = $(".color_list.active").data("colorid"), s = $(".size_list.active").data("size"), sid = $(".size_list.active").data("sizeid"), prodid = $("#prod").data("prodid"), prodName = "<?php echo $list['prodName'] ?>";
+			if (c && s && prodid > 0 && sid>0 && cid>0 ) {
+				data = {color: c, size: s, prodId: prodid, prodName: prodName, colorId: cid, sizeId: sid};
+				//console.dir(data);
+				post_url_data('__APP__/Users/add_to_cart','POST',data,function(err,result){
+					if(err){
+						alert(err);
+					}else{
+						alert(result.info);
+						if(result.status==-20){
+							window.location.href='__APP__/Login/index'
+						}
+					}
+				});
+			} else {
+				console.log('参数不全');
+			}
+		});
+	});
+	function change_view(name, th) { name.removeClass('active'); th.addClass('active'); }
+	function jump() {
+		var cid = $(".color_list.active").data("colorid"), sid = $(".size_list.active").data("sizeid"), url = '__APP__/Product/detail/prodId/' + $("#prod").data("prodid");
+		if (cid > 0) { url += '/cid/' + cid; } if (sid > 0) { url += '/sid/' + sid;}
+		window.location.href = url;
+	}
+</script>

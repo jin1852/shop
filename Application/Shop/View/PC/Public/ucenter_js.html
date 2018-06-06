@@ -1,0 +1,56 @@
+<script type="text/javascript">
+    $("div.content_list > div.list > ul.shoppingCart > li > div.checkBox > a").click(function () {
+        var pl = $(this).parents("li"), shoppingCart = $("div.content_list > div.list > ul.shoppingCart "), li = shoppingCart.find('li'), li_all = shoppingCart.find('li.all');
+        function do_(){
+            li_all.removeClass("active");
+            pl.removeClass("active");
+        }
+        try {
+            if (pl.hasClass("active")) {
+                (pl.hasClass("all")) ? li.removeClass("active") : do_();
+            } else {
+                (pl.hasClass("all")) ? li.addClass("active") : pl.addClass("active");
+            }
+        } catch (e) {
+            console.log(e);
+        } finally {
+            pl = null;
+            shoppingCart = null;
+            li = null;
+            li_all = null;
+        }
+    });
+    $('#dataOne').fdatepicker({format: 'dd/mm/yyyy'});
+    $('#dataTwo').fdatepicker({format: 'dd/mm/yyyy'});
+    $('div.content_list > div.list > ul.enquiry > li > ul.title').click(function () {
+        var li = $(this).parent('li');
+        try {
+            (li.hasClass('active')) ? li.removeClass('active') : li.addClass('active');
+        } catch (e) {
+            console.log(e);
+        } finally {
+            li = null;
+        }
+    });
+    $("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul > a").click(function () {
+        var p = $(this).parent(), sl = $("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList"), ul = sl.find("ul"), ul_all = sl.find('ul.all');
+        function do_() {
+            p.removeClass("active");
+            ul_all.removeClass("active");
+        }
+        try {
+            if (p.hasClass("active")) {
+                (p.hasClass("all")) ? ul.removeClass("active") : do_();
+            } else {
+                (p.hasClass("all")) ? ul.addClass("active") : p.addClass("active");
+            }
+        } catch (e) {
+            console.log(e);
+        } finally {
+            p = null;
+            sl = null;
+            ul = null;
+            ul_all = null;
+        }
+    });
+</script>

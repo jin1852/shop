@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html;charset=UTF-8"/>
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__user.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Multicuploads/uploadify.css">
+	<include file="./Application/Home/View/Common/header.html"/>
+	<!--header结束了-->
+	<div id="container">
+		<div class="wrap">
+			<div id="shortcut">
+				<div class="tit">
+					<a href="#">我的京东</a>
+				</div>
+				<div class="mypage" uid="{$uid}">
+					<!-- <a href="{:U('Ucenter/index')}">站内消息</a> -->
+					<dl class="mynews">
+						<dt><span>站内消息</span><b></b></dt>
+						<dd>
+							<empty name="mess">
+								<span>暂无消息</span>
+							<else/>
+								<foreach name="mess" item="vo">
+									<a href="javascript:;" data-mid="{$vo['messageId']}">{$vo['title']|mb_substr=0,5,'UTF-8'}</a>
+								</foreach>
+							</empty>
+						</dd>
+					</dl>
+				</div>
+				<dl class="myset">
+					<dt><span>设置</span><b></b></dt>
+					<dd>
+						<a href="javascript:;" id="info">个人信息</a>
+						<a href="javascript:;" id="uimg">上传图像</a>
+						<a href="javascript:;" id="address">修改密码</a>
+					</dd>
+				</dl>
+			</div>
+			<!--测试用例-->
+		
+			<!---->
+			<div id="main">
+				<div id="left">
+					<div id="menu">
+						<h3>我的交易</h3>
+						<ul>
+
+							<li><a href="#myorder">我的订单</a></li>
+							<li><a href="#care">关注的商品</a></li>
+							<li><a href="#history">浏览历史</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="center">
+					<div id="user-info">
+						<div class="u-pic">
+							<!--图片地址判断是在控制器中进行判断的-->
+							<img src="__PUBLIC__/Uploads/{$userInfo['userimg']}" alt="#">
+							<div class="mask"></div>
+						</div>
+						<div class="u-info">
+							<div class="u-name">
+								<a href="javascript:;">{$userInfo['uname']}</a>
+							</div>
+							<div class="u-signature">{$greeting[$hint]}</div>
+							<div class="u-level">
+								<span class="rank r3">
+									<s></s><a href="javascript:;">{$rank[$userInfo['userHYdjId']]}</a>
+								</span>
+							</div>
+							<div class="u-safe">
+								<span>账户安全:</span>
+								<i id="cla" class="safe-rank5"></i>
+								<strong class="rank-text">较高</strong>
+							</div>
+						</div>
+						<ul class="acco-info">
+							<li class="fore1">
+								<div class="jinku-info">
+									<div class="mt" id="income">
+										昨天收益<span class="ftx">（元）</span>
+									</div>
+									<div id="profit" class="profit">
+										0.00
+									</div>
+									<div class="mb" id="balance">
+										<a href="#">小金库</a>:
+										<span><a href="#">0.00</a></span>
+									</div>
+									<div class="mb hide">
+										<a href="#" class="alink">转入小金库，马上赚钱</a>
+									</div>
+								</div>
+							</li>
+							<li class="fore2">
+								<div class="baitiao-info">
+									<div class="mb5">京东白条</div>
+									<div>
+										<a href="#" class="alink">立即激活</a>
+									</div>
+								</div>
+							</li>
+							<li class="fore3">
+								<div class="mt">
+									<span>余额:</span>
+									<a href="#">0.00</a>
+								</div>
+								<div class="mt"><span>京豆:</span><a href="#">0.00</a></div>
+								<div class="mb"><span>京东卡:</span><a href="#">0</a></div>
+								<div class="mb"><span>优惠券:</span><a href="#">0</a></div>
+							</li>
+						</ul>
+					</div>
+					<div id="order-list" class="mod-main">
+						<div class="mt">
+							<h3 id="myorder">我的订单</h3>
+							<div class="extra-r">
+								<a href="{:U('Ucenter/orderlist','uid='.$userInfo['userId'])}"></a>
+							</div>
+						</div>
+						<div class="mc">
+							<div class="tb-order">
+							<empty name="orderData">
+										暂无订单
+							<else/>
+							<table width="100%" >
+								<tr>
+									<th>商品*数量</th>
+									<th>收货人</th>
+									<th>支付方式</th>
+									<th>时间</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+
+							<foreach name="orderData" item="vo">						
+								<tbody class="fore{$key+1}"><tr>
+									<td>
+										<div class="imglist">
+											<a href="#"><img src="__PUBLIC__/Uploads/{$vo['simimg']}" alt=""></a>
+											<span>数量: {$vo['amount']}</span>
+										</div>
+									</td>
+									<td>
+										<div class="u-name">
+											{$vo['receiver']}
+										</div>
+									</td>
+									<td>
+										￥{$vo['price']*$vo['amount']}<br/>
+										{$payments[$payment['payment']]}
+									</td>
+									<td>
+										<span>
+											{$vo['orderTime']|date='Y-m-d',###}<br/>
+											 {$vo['orderTime']|date='H:i:s',###}
+										</span>
+									</td>
+									<td>
+										<strong class="ftx04">
+											<switch name="vo['orderState']">
+												<case value="0">等待发货</case>
+												<case value="1">
+												已经发货
+												</case>
+												<case value="2">
+												已确认收货
+												</case>
+												<case value="3">
+												已取消订单
+												</case>
+											</switch>
+										</strong>
+									
+									</td>
+									<td class="order-doi">
+										<strong class="ftx04">
+											<a href="{:U('Ucenter/orderDetail','id='.$vo['orderId']."&pid=".$vo['productId'])}" target="_blank">查看</a>
+											<switch name="vo['orderState']">
+												<case value="0"><a href="{:U('Ucenter/cancel','orderId='.$vo['orderId'])}" onclick="return confirm('真的不爱了么')">{$actions[0]}</a></case>
+												<case value="1">
+												<a href="{:U('Ucenter/confirm','orderId='.$vo['orderId'])}" >{$actions[1]}</a>
+												</case>
+												<case value="2">
+												<a href="{:U('Comments/comments','id='.$vo['prodId'])}" target="_blank">{$actions[2]}</a>
+												</case>
+												<case value="3">
+												<a href="javascript:;">{$actions[3]}</a>
+												</case>
+											</switch>
+										</strong>
+									</td>
+								</tr>
+								</tbody>
+							</foreach>
+							</table>
+							</empty>
+								
+								<div>
+									{$page}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+					<div id="goods-list" class="mod-main">
+						<div class="mt">
+							<h3 id="care">我关注的商品</h3>
+							<!-- <ul class="extra-l">
+								<li><a href="#">降价商品<em class="ftx03">0</em></a></li>
+								<li><a href="#">促销商品<em class="ftx03">0</em></a></li>
+								<li><a href="#">现货商品<em class="ftx01">1</em></a></li>
+							</ul> -->
+							<div class="extra-r">
+								<!-- <a href="#">查看更多</a> -->
+							</div>
+						</div>
+						<div class="mc">
+							<div class="iloading" style="display:none">正在加载，请稍候...</div>
+							<div class="ac nocont-box hide">您还没有关注任何商品，看到感兴趣的商品就果断关注吧！看看大家都关注了什么！</div>
+							<div id="fol-p-con" class="follow" style="width:700px">
+								<a href="javascript:;" class="prev ctrl"><b></b></a>
+								<a href="javascript:;" class="next ctrl"><b></b></a>
+								<div class="slide-show">
+									<div class="slide-show-ctn">
+									<empty name="careGoods">
+											您暂时没哟关注商品，赶紧去关注吧
+										<else/>
+										<ul>
+											<foreach name="careGoods" item="vo">
+												<li>
+													<div class="p-img">
+														<a href="{:U('Details/details','id='.$vo['prodId'])}" target="_blank"><img src="__PUBLIC__/Uploads/{$vo['img']}" width="100px" height="100px" alt=""></a>
+													</div>
+													<div class="p-price">￥{$vo['price2']}</div>
+												</li>
+											</foreach>
+											</ul>
+										</empty>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="shop-list" class="mod-main">
+						<div class="mt" id="history">
+							<h3>我的浏览记录</h3>
+							<!-- ul class="extra-l">
+								<li><a href="#">最近浏览记录<em class="ftx01">1</em></a></li>
+							</ul> -->
+							<div class="extra-r"><!-- <a href="#">查看更多</a> --></div>
+						</div>
+						<div class="mc">
+							
+							<div class="iloading" style="display:none">正在加载，请稍候...</div>
+							<div class="ac nocont-box hide">您还没有关注任何商品，看到感兴趣的商品就果断关注吧！看看大家都关注了什么！</div>
+							<div id="fol-p-con" class="follow" style="width:700px">
+								<a href="javascript:;" class="prev ctrl"><b></b></a>
+								<a href="javascript:;" class="next ctrl"><b></b></a>
+								<div class="slide-show">
+									<div class="slide-show-ctn">
+										<empty name="historyGoods">
+												您还没有浏览过任何商品，赶紧去看看都有那些自己喜欢的东西吧~~
+										</empty>
+										<ul>
+											<foreach name="historyGoods" item="vo">
+											<li>
+												<div class="p-img">
+													<a href="{:U('Details/details','id='.$vo['prodId'])}"><img src="__PUBLIC__/Uploads/{$vo['img']}" alt="" width="108px"></a>
+												</div>
+												<div class="p-name"><a href="{:U('Details/details','id='.$vo['prodId'])}">{$vo['prodName']}</a></div>
+												<!-- <div class="p-follow mb5 mt5">{$vo['price2']}</div>
+												<span class="p-cut">
+													促销活动
+													<span class="num">0</span>
+												</span> -->
+											</li>
+										</foreach>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="right" class="mod-main">
+					<div id="recommend">
+						<div class="mt">
+							<h3>会员推荐</h3>
+							<div class="extra-r">
+								
+							</div>
+						</div>
+						<div class="mc">
+							<div class="economical">
+								<div class="gain-beans">
+									<div class="g-b-num">
+										会员俱乐部
+									</div>
+									<div class="g-b-btn" id="eco-item">
+										<a href="#">进入</a>
+									</div>
+								</div>
+								<ul class="eco-item">
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_1.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_2.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_3.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_1.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_2.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+									<li>
+										<div class="da-item">
+										<div class="ext1">定期送</div>
+										<div class="ext2">食品自动周期送货上门</div>
+										<a href="#"><img src="__HOMEIMG__commercial_3.jpg" width="110" height="60" alt=""></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="service">
+						
+					</div>
+					<div class="history">
+						
+					</div>
+				</div>
+				<span class="clr"></span>
+			</div>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div class="w">
+	<div id="service-2014">
+		<dl class="fore1">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore2">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore3">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore4">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore5">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#">购物流程</a></div>
+				<div><a href="#">会员介绍</a></div>
+				<div><a href="#">团购/机票</a></div>
+				<div><a href="#">常见问题</a></div>			
+				<div><a href="#">大家电</a></div>
+				<div><a href="#">联系客服</a></div>
+			</dd>
+		</dl>
+		<span class="clr"></span>
+	</div>
+    <script src="__PUBLIC__/Multicuploads/jquery.uploadify.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function(){
+		//获取用户id
+		$uid = $('#shortcut .mypage').attr('uid');
+
+		//鼠标hover效果
+		$('#shortcut .myset').hover(function(){
+			$(this).addClass('hover');
+			$(this).find('dd').css('display','block');
+		},function(){
+			$(this).removeClass('hover');
+			$(this).find('dd').css('display','none');
+		})
+
+		$('#shortcut .mynews').hover(function(){
+			$(this).addClass('hover');
+			$(this).find('dd').css('display','block');
+		},function(){
+			$(this).removeClass('hover');
+			$(this).find('dd').css('display','none');
+		})
+
+		//无刷新文件上传
+		$('#file_upload').uploadify({
+		    //formData用于传递一些数据到后台
+		    'formData'     : {
+		        'uid' : $uid,
+		    },
+		    'swf'      : '__PUBLIC__/Multicuploads/uploadify.swf',
+		    'uploader' : '{:U('Ucenter/multiupload')}',
+		    'method'   : 'post',
+		    'buttonText':'选择图片',
+		    'progressData':'percentage',
+		    'removeCompleted':true,
+		    'onUploadSuccess' : function(file, data) {
+		    	//避免在调试模式下的返回值的问题
+		    	//var path = data.substring(0,data.search("<"));
+		    	var path = data;
+		          $('#user-info .u-pic img')[0].src = '__PUBLIC__/Uploads/'+path;
+		        },
+		    'onQueueComplete':function(file,data){
+		    	$('#dialog2').fadeOut();
+		    	$('#feedback').fadeIn().html('<font color="green" style="margin-bottom:20px;">上传成功</font><br/><br/>');
+		    	// $('#userimg').html('<font color="green" style="margin-bottom:20px;">上传成功</font><br/><br/>');
+				setTimeout(function(){
+					$('#mask').fadeOut();
+					$('#feedback').fadeOut();
+				},1500);
+				
+		    }
+		});
+
+		//定义show函数 用来显示2个模块 mask和dialog
+		function show(){
+			$('#mask').css('display','block');
+			$('#dialog').css('display','block');
+		}
+
+		function fadding(){
+			$('#mask').fadeOut();
+			$('#dialog').fadeOut();
+		}
+		//隐藏这2个模块
+		function hide(){
+			$('#mask').css('display','none');
+			$('#dialog').css('display','none');
+		}
+
+		function clear(){
+			$('#dialog form').html('');
+		}
+
+		//当用户点击编辑个人信息时候
+		$('#info').live('click',function(){
+			show();
+			$.ajax({
+				'type':'get',
+				//这里的type参数用来指定用户需要修改的是那部分数据，便于返回对应的数据
+				'url':'{:U('Ucenter/getUserInfo')}',
+				'data':'uid='+ $uid + "&type=1",
+				'success':function(data){
+					$('#dialog #normal').html(data);
+				}
+			});
+		})
+
+		//当点击图片的时候
+		$('#uimg').click(function(){
+			$('#mask').fadeIn();
+			$('#dialog2').fadeIn();
+			$('#userimg').css('display','block');
+		})
+
+		//点击关闭按钮的时候隐藏遮罩层
+		$('#d_close').click(function(){
+			hide();
+			$('#mask').css('display','none');
+			$('#dialog').css('display','none');
+		})
+
+		
+		$('#i_close').click(function(){
+			$('#mask').css('display','none');
+			$('#dialog2').css('display','none');
+		})
+
+		
+		$('#a_close').live('click',function(){
+			$('#mask').css('display','none');
+			$('#newAddress').css('display','none');
+		})
+		
+		
+		$('#address').click(function(){
+			$('#mask').css('display','block');
+			$('#newAddress').css('display','block');
+		})
+
+		//点击添加地址数据到数据库
+		var $addhtml = $('#newAddress').html();
+		var	$oriIpt = $('input[name="oripass"]');
+		var	$upwdIpt = $('input[name="upwd"]');
+		var	$upwdedIpt = $('input[name="upwded"]');
+		var $tips = $('span.tip');
+		var $onOff = true;
+
+		//js判断用户原密码框用户是否有输入值
+		$oriIpt.live('blur',function(){
+			if($(this).val() == ""){
+				$(this).siblings('.tip').html('<font color="red">原密码不能为空</font>');
+			}else{
+				$(this).siblings('.tip').html('');
+			}
+		})
+
+		//判断用户是否输入新密码
+		$upwdIpt.live('blur',function(){
+			if($(this).val() == ""){
+				$(this).siblings('.tip').html('<font color="red">新密码不能为空</font>');
+			}else{
+				$(this).siblings('.tip').html('');
+			}
+		})
+
+		//js判断用户是否再次输入新密码
+		$upwdedIpt.live('blur',function(){
+			if($(this).val() == ""){
+				$(this).siblings('.tip').html('<font color="red">重复新密码不能为空</font>');
+			}else if($(this).val() != $upwdIpt.val()){
+				$(this).siblings('.tip').html('<font color="red">重复新密码和新密码不匹配</font>');
+			}else{
+				$(this).siblings('.tip').html('');
+			}
+		})
+
+		$('#add').live('click',function(){
+			//判断是否有错误存在
+			$.each($tips,function(i,n){
+				console.log(n.innerHTML);
+				if(n.innerHTML != ''){
+					$onOff = false;
+				}else{
+					$onOff = true;
+				}
+				console.log($onOff);
+			})
+
+			//如果存在错误，则返回，不提交ajax操作
+			if(!$onOff){
+				return false;
+			}
+
+			$data = $('#newAddress :input').serialize();
+				
+			$.ajax({
+				'type':'post',
+				//这里的type参数用来指定用户需要修改的是那部分数据，便于返回对应的数据
+				'url':'{:U('Ucenter/addAddress')}',
+				'data': $data,
+				'success':function(data){
+					if(data == 1){
+						$('#newAddress').fadeOut();
+						$('#feedback').fadeIn().html('<font style="color:green">修改成功</font><br/><br/>');
+
+						setTimeout(function(){
+							$('#feedback').fadeOut();
+							$('#mask').fadeOut();
+							$('#newAddress').html($addhtml);
+						},1000);
+					}else if(data == 0){
+						$('#newAddress').fadeOut();
+						$('#feedback').fadeIn().html('<font style="color:red">原密码错误</font><br/><br/>');
+
+						setTimeout(function(){
+							$('#feedback').fadeOut();
+							$('#mask').fadeOut();
+							$('#newAddress').html($addhtml);
+						},1000);
+					}else{
+						$('#newAddress').fadeOut();
+						$('#feedback').fadeIn().html('<font style="color:red">密码修改失败</font><br/><br/>');
+
+						setTimeout(function(){
+							$('#feedback').fadeOut();
+							$('#mask').fadeOut();
+							$('#newAddress').html($addhtml);
+						},1000);
+					}
+				}
+			});
+		})
+
+		//省市县三级联动效果
+		//当点击省的时候
+		$('#province').live('change',function(){
+			$.ajax({
+				'url':'{:U('Ucenter/getNext')}',
+				'data':'pid='+this.value,
+				'dataType':'json',
+				'success':function(data){
+					$('#city').html(data['city']);
+					$('#county').html(data['county']);
+				}
+			})
+		})
+
+		$('#city').live('change',function(){
+			$.ajax({
+				'url':'{:U('Ucenter/getNext')}',
+				'data':'pid='+this.value,
+				'dataType':'json',
+				'success':function(data){
+					$('#county').html(data['city']);
+				}
+			})
+		})
+
+		$('#commit input[type=submit]').live('click',function(){
+			//拼凑相关表单数据
+			$nickName = $('#nickName').val();
+			$userId = $('#userId').val();
+			$userday = $('#birthdayYear').val() + '/' + $('#birthdayMonth').val() + "/" + $('#birthdayDay').val();
+			$userdizhi = $('#province').val()+'/'+$('#city').val() +'/' + $('#county').val();
+			$data = "nickName="+$nickName + "&userId="+$userId+"&userday="+$userday+"&userdizhi="+$userdizhi;
+
+			$.ajax({
+				'type':'post',
+				'data':$data,
+				'url':'{:U('Ucenter/addUserInfo')}',
+				'success':function(data){
+					if(data == "添加成功"){
+						$('#dialog').fadeOut();
+						$('#feedback').css('display','block').html('<font color="green" style="font-weight:bold">'+data+'</font><br/><br/>');
+						setTimeout(function(){
+							$("#feedback").fadeOut();
+							$('#mask').fadeOut();
+						},1000);
+						
+					}
+				}
+			})
+		})
+
+		//滚动函数
+		function myslide(obj){
+			var $ul = $(obj).find('ul');
+			var $li = $(obj).find('li').eq(0);
+			var $wrapWidth = $(obj).find('.follow').width();
+			obj.total = 0;	//最大能够滚动的距离,需要使用自定义属性，不然会有兼容性问题
+			obj.iNow = 0;	//当前滚动的位置，也是使用自定义属性，避免相互影响
+			if($li){
+				var $slideWidth = $li.outerWidth();
+				var $width = $li.outerWidth(true);
+				var $totalWidth = $width * $(obj).find('li').length;
+				$ul.css({'width':$totalWidth});
+				if($totalWidth > $wrapWidth){
+					obj.total = Math.ceil(($totalWidth - $wrapWidth)/$width); 	//判断能够滚动的最大距离
+					$(obj).find('.next').css({'display':'block'});
+				}
+				$(obj).find('.next').on('click',function(){
+					obj.iNow--;
+					$pos = $ul.position().left - $width;
+					if(!($ul.is(':animated')) && Math.abs(obj.iNow) <= obj.total){
+						$ul.animate({left:$pos});
+					}
+					console.log(obj.iNow + ":" + obj.total);
+					if(Math.abs(obj.iNow) >= obj.total){	
+						$(this).css('display','none');
+					}
+
+					if(obj.iNow < 0){
+						$(obj).find('.prev').css('display',"block");
+					}
+				})
+
+				$(obj).find('.prev').on('click',function(){
+							obj.iNow++;
+							$pos = $ul.position().left + $width;
+							if(!($ul.is(':animated'))){
+								$ul.animate({left:$pos});
+							}
+							console.log(obj.iNow + ":" + obj.total);
+							if(obj.iNow >= 0){
+								$(obj).find('.prev').css('display','none');
+								$(obj).find('.next').css('display','block');
+							}
+						})
+			}
+		}
+
+		//调用滚动函数
+		var shops = $("#shop-list")[0];
+		var goods = $('#goods-list')[0];
+		myslide(shops);
+		myslide(goods);
+
+		//站内新闻查看
+		$("#shortcut .mynews dd a").live('click',function(){
+			$('#mess').fadeIn();
+			$('#mask').fadeIn();
+			$(this).fadeOut();
+			console.log($('#shortcut .mynews dd').html());
+			// if($('#shortcut .mynews dd').html() == ''){
+			// 	$this.html("<span>暂无消息</span>");
+			// };
+
+			$.ajax({
+				'url':'{:U('Ucenter/getNews')}',
+				'data':'mid='+$(this).attr('data-mid'),
+				'dataType':'json',
+				'success':function(data){
+					if(data){
+						$('#mess .title').html(data.title);
+						$('#mess .content').html(data.message);
+					}else{
+						$('#mess .title').html("站内新闻查看失败");
+					}
+			}
+		})
+	})
+
+		$('#mess_close').live('click',function(){
+			$('#mess').fadeOut();
+			$('#mask').fadeOut();
+		})
+
+});
+	</script>
+</div>
+<include file="Common/footer"/>
+
+	<!--遮罩层-->
+	<div id='mask'></div>
+	<div id="feedback">
+		
+	</div>
+	<!-- //图片弹出层，因为 -->
+	<div class="user-set userset-lcol" id="dialog2">
+		<a href="javascript:;" id="i_close">×</a>
+		<form id="userimg">
+				<div class="form"><div class="item"><div id="queue"></div><input id="file_upload" name="file_upload" type="file" multiple="true"></div></div>
+		</form>
+	</div>
+
+	<!-- //对话框层 -->
+	<div class="user-set userset-lcol" id="dialog">
+		<a href="javascript:;" id="d_close">×</a>
+		<form id="normal">
+		</form>
+		
+		<div id="commit">
+			<input type="submit" value="更新">
+		</div>
+	</div>
+	<!--站内消息弹出框-->
+	<div id="mess">
+		<a href="javascript:;" id="mess_close">×</a>
+		<div class="title">
+			哈哈哈哈哈哈哈哈哈哈
+		</div>
+		<div class="content">
+			哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈嘿嘿嘿黑恶化哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈呵呵呵呵呵
+		</div>
+	</div>
+
+	<!-- 修改密码弹出框 -->
+	<div class="user-set userset-lcol" id="newAddress">
+		<a href="javascript:;" id="a_close">×</a>
+		<div class="form">
+			    <div class="item">
+			        <span class="label"><em>*</em>原密码：</span>
+			        <div class="fl">
+			            <input type="password" class="itxt" maxlength="20" id="receiver" name="oripass"/>
+			            <span class="tip"></span>
+			            <div class="clr"></div>
+			        </div>
+			    </div>
+			    <div class="item">
+			        <span class="label"><em>*</em>新密码：</span>
+			        <div class="fl">
+			            <input type="password" class="itxt" maxlength="20" id="tel" name="upwd"/>
+			            <span class="tip"></span>
+			            <div class="clr"></div>
+			        </div>
+			    </div>
+			    <div class="item">
+			        <span class="label"><em>*</em>重复新密码：</span>
+			        <div class="fl">
+			            <input type="password" class="itxt" maxlength="20" id="tel" name="upwded"/>
+			            <span class="tip"></span>
+			            <div class="clr"></div>
+			        </div>
+			    </div>
+			    <input type="hidden" name="userId" value="{$uid}">
+			    <div class="item">
+			        <div class="fl">
+			            <input type="button" id="add" value="修改">
+			        </div>
+			    </div>
+		</div>
+	</div>
+<!--测试用-->
+</body>
+</html>

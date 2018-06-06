@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+<title>后台管理系统</title>
+<script>
+        /*var adminId='<?php session_start();echo $_SESSION['adminId'] ?>'; 
+        var levelId='<?php session_start();echo $_SESSION['levelId'] ?>'; */
+</script>
+</head>
+
+<body>
+
+	<!-- Themer (Remove if not needed) -->  
+    <!-- Themer End -->
+
+	<!-- Header -->
+	<include file="Common/header" />
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+   
+    <include file="Common/left_nav" />
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+                
+                <!-- Panels Start -->
+                <!--权限管理员表-->
+            	<div class="mws-panel grid_8">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-table"></i>权限管理员表</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <table class="mws-datatable-fn mws-table">
+                            <thead>
+                                <tr>
+                                    <th>管理员编号</th>
+                                    <th>帐号名称</th>
+                                    <th>锁定状态</th>
+                                   <!--  <th>帐号密码</th> -->
+                                    <th>管理员昵称</th>
+                                    <th>角色编号</th>
+                                    <th style="text-align:left" name="add">
+                                        <a href="{:U('register')}"><button class="btn btn-primary" type="button"><b>添加</b></button></a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <foreach name="gdatalist" item="val">
+                                    <tr>
+                                        <td>{$val.adminId}</td>
+                                        <td>{$val.uname}</td>
+                                        <th>{$val.uname}</th>
+                                        <!-- <td>{$val.upwd}</td> -->
+                                        <td>{$val.nickName}</td>
+                                        <td>{$levelname[$val['levelId']]}</td>
+                                        <td>
+                                            <a class="btn btn-small" href='{:U("gaEdit",array('adminId'=>$val['adminId']))}'>
+                                            <i class="icon-pencil"></i>
+                                            </a>
+                                            <a  name='gisdeleted'
+                                                value='{$val.adminId}'
+                                                class="btn btn-small"
+                                            href="javascript:void(0)">
+                                            <i value='{$val.isdeleted}'
+                                            class="<?php echo $val['isdeleted']?'icon-lock':'icon-unlock';
+                                                ?>
+                                            ">
+                                            </i>
+
+                                            </a>
+
+                                            <?php if($val['levelId']==1){?>
+                                            <a class="btn btn-small" name='delete' value='{$val.levelId}'>
+                                                <i class="<?php echo ($val['levelId']!=1)?'icon-trash':'icon-thumbs-up'?>">
+                                                </i>
+                                            </a>
+                                            <?php }?>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--权限表-->
+                <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-table"></i>&nbsp;权限表
+                              <i style="cursor: pointer;margin-left:91%;margin-top:5px;"class='icol-application-put'></i>
+                        </span>
+                    </div>
+                    <div class="mws-panel-body no-padding" style="display:none;">
+                        <table class="mws-datatable-fn mws-table">
+                            <thead>
+                                <tr>
+                                    <th>权限编号</th>
+                                    <th>权限名称</th>
+                                    <th>父级权限编号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <foreach name="pdatalist" item="val">
+                                    <tr>
+                                        <td>{$val.powerId}</td>
+                                        <td>{$val.powerName}</td>
+                                        <td>{$val.pId}</td>
+                                    </tr>
+                                </foreach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--角色权限表-->
+                <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-table"></i>&nbsp;&nbsp;角色权限表
+                              <i style="cursor: pointer;margin-left:88%;margin-top:5px;"class='icol-application-put'></i>
+                        </span>
+                    </div>
+                    <div class="mws-panel-body no-padding" style="display:none">
+                        <table class="mws-datatable-fn mws-table">
+                            <thead>
+                                <tr>
+                                    <th>关联编号</th>
+                                    <th>角色编号</th>
+                                    <th>权限编号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <foreach name="rdatalist" item="val">
+                                    <tr>
+                                        <td>{$val.relationId}</td>
+                                        <td>{$levelname[$val['levelId']]}</td>
+                                        <td>{$val.powerId}</td>
+                                    </tr>
+                                </foreach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--角色表-->
+                <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-table"></i>&nbsp;角色表
+                              <i style="cursor: pointer;margin-left:91%;margin-top:5px;"class='icol-application-put'></i>
+                        </span>
+                    </div>
+                    <div class="mws-panel-body no-padding" style="display:none">
+                        <table class="mws-datatable-fn mws-table">
+                            <thead>
+                                <tr>
+                                    <th>角色编号</th>
+                                    <th>角色名称</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <foreach name="ldatalist" item="val">
+                                    <tr>
+                                        <td>{$val.levelId}</td>
+                                        <td>{$val.levelName}</td>
+                                    </tr>
+                                </foreach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+    
+    <!-- JavaScript Plugins -->
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+   
+    <!-- Plugin Scripts -->
+    <script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!-- Core Script -->
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="__ADMIN__/js/demo/demo.table.js"></script>
+    <!-- 自定义js文件 -->
+    <script src="__ADMINJS__/style_change.js"></script>
+    <script src="__ADMINJS__/admin_action.js"></script>
+    <!--<script src="__ADMINJS__/visit_control.js"></script>-->
+</body>
+</html>

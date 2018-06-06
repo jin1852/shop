@@ -1,0 +1,1250 @@
+<include file = "PC:User:header" title = "{$title}"  username = ""/>
+			
+<include file = "PC:User:searchBar" title = "{$title}"  username = ""/>
+			<div class="content_list">
+				<div class="title">
+					<ul class="enquiry">
+						<li class="icon"> </li>
+						<li class="enquiryNo">Enquiry No.</li>
+						<li class="status">Status</li>
+						<li class="date">Date</li>
+						<li class="files">Files</li>
+					</ul>
+				</div>
+				<!-- end .title -->
+				<div class="list">
+					<ul class="enquiry">
+                  <volist name="orders_i" id="vo" key="i">
+                      <if condition="$vo.state == 4 ">
+						<li <if condition="$vo.inqid == $open_gd ">class="active"</if>>
+							<ul class="title">
+								<li class="icon">
+									<a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</li>
+								<li class="enquiryNo">{$vo.i_number}</li>
+								<li class="status">Success</li>
+								<li class="date">{$vo.itime|date="M-d-Y",###}</li>
+								<li class="files"><a href="#">Download Quotation</a></li>
+							</ul>
+							<div class="content">
+								<div class="title topTitle">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="pri">Unit Price</li>
+										<li class="inn">Inner/Out</li>
+										<li class="cbm">Cbm</li>
+										<li class="sam">Sample</li>
+										<li class="p20">20`</li>
+										<li class="p40">40`</li>
+										<li class="p40hc">40`HC</li>
+										<li class="moq">MOQ</li>
+										<li class="gw">G.W</li>
+										<li class="nw">N.W</li>
+										<li class="hs">HSCode</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list successList">
+									<ul class="all" id="successyy">
+										<a herf="#"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+										<span>All</span>
+									</ul>
+                                    <volist name="vo['shop_cart']" id="f">
+									  <ul>
+										<a herf="#"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+										<li class="item">
+                                            <img src="__PUBLIC__/Uploads/{$f.img}">
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+											<h5>{$f.prodName|subtextt=15}</h5>
+											<h5>{$f.type|subtextt=20}</h5>
+											<h5>housing material：{$f.content|subtextt=40}</h5>
+											<h5>blade material：{$f.size|substr=0,20}</h5>
+											<h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+
+										<li class="pri">USD4.30/SET</li>
+										<li class="inn">6/12</li>
+										<li class="cbm">40.5X24.0X30.5CM =0.03CBM
+										</li>
+										<li class="sam">1</li>
+										<li class="p20">11196</li>
+										<li class="p40">23196</li>
+										<li class="p40hc">27204</li>
+										<li class="moq">80,000</li>
+										<li class="gw"> </li>
+										<li class="nw"> </li>
+										<li class="hs"> </li>
+									  </ul>
+                                    </volist>
+
+								</div>
+								<!-- end .list -->
+								<div class="btnBar successList">
+									<a href="#">Download Quotation</a>
+									<a class="black" href="#">New Order</a>
+								</div>
+								<!-- end .btnBar -->
+								<h3>Sample Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+                                    <volist name="vo['shop_cart']" id="f">
+                                        <if condition="$f.number gt 0 ">
+									  <ul>
+										<li class="item">
+											<img>
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+                                            <span>{$f.remark}</span>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									  </ul>
+                                            </if>
+                                     </volist>
+
+								</div>
+								<!-- end .list -->
+								<h3>Pending Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+                                    <volist name="vo['shop_cart']" id="f">
+                                        <if condition="$f.number gt 0 ">
+									<ul>
+										<li class="item">
+											<img>
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+											<span>{$f.gremark}</span>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									</ul>
+                                            </if>
+                                        </volist>
+								</div>
+								<!-- end .list -->
+								<h3>Confirm Address</h3>
+								<div class="inputContent">
+									<ul>
+										<li style="width:60%"><span>Company</span>
+											<input type="text">
+										</li>
+										<li style="width:40%"><span>Country</span>
+											<select>
+												<volist name="clist" id="cl">
+													<option value="{$cl.id}">{$cl.en_name}</option>
+												</volist>
+											</select>
+										</li>
+										<li style="width:60%"><span>Address</span>
+											<textarea></textarea>
+										</li>
+										<li style="width:40%"><span>Acount No.</span>
+											<input type="text">
+										</li>
+										<li><span>Email</span>
+											<input type="text">
+										</li>
+										<li><span>Phone No.</span>
+											<input type="text">
+										</li>
+										<li><span>Postal Code</span>
+											<input type="text">
+										</li>
+										<li style="width:80%"><span>Express</span>
+											<label>
+												<input type="checkbox">Fedex
+											</label>
+											<label>
+												<input type="checkbox">UPS
+											</label>
+											<label>
+												<input type="checkbox">TNT
+											</label>
+											<label>
+												<input type="checkbox">DHL
+											</label>
+											<label>
+												<input type="checkbox">SF-EXPRESS
+											</label>
+											<label>
+												<input type="checkbox">Other
+											</label>
+										</li>
+										<li style="width:70%"><span>Service</span>
+											<label>
+												<input type="checkbox">Intl.Priority
+											</label>
+											<label>
+												<input type="checkbox">Intl.Economy
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">Other
+												<input type="text">
+											</label>
+											<label style="margin-left: 70px;">
+												<input type="checkbox">Fixed Receiver Address
+											</label>
+										</li>
+									</ul>
+								</div>
+								<!-- end .inputContent -->
+								<div class="btnBar">
+									<a href="#">Download Quotation</a>
+									<a class="black" href="#">New Order</a>
+								</div>
+								<!-- end .btnBar -->
+							</div>
+							<!-- end .content -->
+
+						</li>
+                        </if>
+                      <if condition="$vo.state == '1' ">
+						 <li u="{$vo.inqid}" d="0" id="t{$vo.inqid}" <if condition="$vo.inqid == $open_gd ">class="active"</if>>
+							<ul class="title">
+								<li class="icon">
+									<a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</li>
+								<li class="enquiryNo">{$vo.i_number}</li>
+								<li class="status">Edting</li>
+								<li class="date">{$vo.itime|date="M-d-Y",###}</li>
+								<li class="files"></li>
+							</ul>
+							<div class="content">
+								<div class="title topTitle">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+										<li class="oty">Oty</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list" id="test{$vo.inqid}">
+                                    <!-- 插入询价单-->
+
+
+								</div>
+								<!-- end .list -->
+								<h3>Sample Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list" id="Sample{$vo.inqid}">
+                                    <!-- 插入询价单 已有-->
+
+								</div>
+								<!-- end .list -->
+								<h3>Confirm Address</h3>
+								<div class="inputContent">
+									<ul>
+										<li style="width:60%"><span>Company</span>
+											<input type="text">
+										</li>
+										<li style="width:40%"><span>Country</span>
+											<select>
+												<volist name="clist" id="cl">
+													<option value="{$cl.id}">{$cl.en_name}</option>
+												</volist>
+											</select>
+										</li>
+										<li style="width:60%"><span>Address</span>
+											<textarea></textarea>
+										</li>
+										<li style="width:40%"><span>Acount No.</span>
+											<input type="text">
+										</li>
+										<li><span>Email</span>
+											<input type="text">
+										</li>
+										<li><span>Phone No.</span>
+											<input type="text">
+										</li>
+										<li><span>Postal Code</span>
+											<input type="text">
+										</li>
+										<li style="width:80%"><span>Express</span>
+											<label>
+												<input type="checkbox">Fedex
+											</label>
+											<label>
+												<input type="checkbox">UPS
+											</label>
+											<label>
+												<input type="checkbox">TNT
+											</label>
+											<label>
+												<input type="checkbox">DHL
+											</label>
+											<label>
+												<input type="checkbox">SF-EXPRESS
+											</label>
+											<label>
+												<input type="checkbox">Other
+											</label>
+										</li>
+										<li style="width:70%"><span>Service</span>
+											<label>
+												<input type="checkbox">Intl.Priority
+											</label>
+											<label>
+												<input type="checkbox">Intl.Economy
+											</label>
+											<label>
+												<input type="checkbox">Other
+												<input type="text">
+											</label>
+											<label style="margin-left: 70px;">
+												<input type="checkbox">Fixed Receiver Address
+											</label>
+										</li>
+									</ul>
+								</div>
+								<!-- end .inputContent -->
+								<div class="btnBar">
+									<a class="btn-enquiry-cancel" href="#">Cancel Enquiry</a>
+									<!--<a href="#">PDF Preview</a>-->
+									<a href="javascript:ajax_post_enquiry_i('{$vo.inqid}',1);">EDIT</a>
+								</div>
+								<!-- end .btnBar -->
+							</div>
+							<!-- end .content -->
+
+
+                            <!-- 分层 -->
+
+                           </li>
+                      </if>
+                      <if condition="$vo.state == '2' ">
+						<li <if condition="$vo.inqid == $open_gd ">class="active"</if>>
+							<ul class="title">
+								<li class="icon">
+									<a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</li>
+                                <li class="enquiryNo">{$vo.i_number}</li>
+                                <li class="status">Processing</li>
+                                <li class="date">{$vo.itime|date="M-d-Y",###}</li>
+                                <li class="files"><a href="#">Download Quotation</a></li>
+							</ul>
+							<div class="content">
+								<div class="title topTitle">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+									<h2 class="clear">
+										Enquiry Processing
+									</h2>
+                                    <volist name="vo['shop_cart']" id="f">
+									<ul>
+										<li class="item">
+                                            <img src="__PUBLIC__/Uploads/{$f.img}">
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+											<p> {$f.remark}</p>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									</ul>
+                                        </volist>
+
+								</div>
+								<!-- end .list -->
+								<h3>Sample Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+                                    <volist name="vo['shop_cart']" id="f">
+                                        <if condition="$f.number gt 0 ">
+									<ul>
+										<li class="item">
+											<img>
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+											<p> {$f.remark}
+											</p>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									</ul></if></volist>
+
+								</div>
+								<!-- end .list -->
+								<h3>Confirm Address</h3>
+								<div class="inputContent">
+									<ul>
+										<li style="width:60%"><span>Company</span>
+											<input type="text" disabled="disabled">
+										</li>
+										<li style="width:40%"><span>Country</span>
+											<select >
+												<volist name="clist" id="cl">
+													<option value="{$cl.id}">{$cl.en_name}</option>
+												</volist>
+											</select>
+										</li>
+										<li style="width:60%"><span>Address</span>
+											<textarea disabled="disabled"></textarea>
+										</li>
+										<li style="width:40%"><span>Acount No.</span>
+											<input type="text" disabled="disabled">
+										</li>
+										<li><span>Email</span>
+											<input type="text" disabled="disabled">
+										</li>
+										<li><span>Phone No.</span>
+											<input type="text" disabled="disabled">
+										</li>
+										<li><span>Postal Code</span>
+											<input type="text" disabled="disabled">
+										</li>
+										<li style="width:80%"><span>Express</span>
+											<label>
+												<input type="checkbox" disabled="disabled">Fedex
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">UPS
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">TNT
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">DHL
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">SF-EXPRESS
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">Other
+											</label>
+										</li>
+										<li style="width:70%"><span>Service</span>
+											<label>
+												<input type="checkbox" disabled="disabled">Intl.Priority
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">Intl.Economy
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">Other
+												<input type="text" disabled="disabled">
+											</label>
+											<label style="margin-left: 70px;">
+												<input type="checkbox" disabled="disabled">Fixed Receiver Address
+											</label>
+										</li>
+									</ul>
+								</div>
+								<!-- end .inputContent -->
+								<div class="btnBar">
+									<!--<a class="black" href="#">PDF Preview</a>-->
+									<a href='javascript:send_q("{$f.i_number}")'>Cancel Enquiry</a>
+								</div>
+								<!-- end .btnBar -->
+							</div>
+							<!-- end .content -->
+						</li>
+                          </if>
+                      <if condition="$vo.state == '5' ">
+
+						<li <if condition="$vo.inqid == $open_gd ">class="active"</if>>
+							<ul class="title">
+								<li class="icon">
+									<a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</li>
+                                <li class="enquiryNo">{$vo.i_number}</li>
+                                <li class="status">Pending</li>
+                                <li class="date">{$vo.itime|date="M-d-Y",###}</li>
+                                <li class="files"><a href="#">Download Quotation</a></li>
+							</ul>
+							<div class="content">
+								<div class="title topTitle">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+									<h2 class="clear">
+										Enquiry Pending
+									</h2>
+                                    <volist name="vo['shop_cart']" id="f">
+									<ul>
+										<li class="item">
+                                            <img src="__PUBLIC__/Uploads/{$f.img}">
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+											<p> {$f.remark}
+											</p>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									</ul>
+                                        </volist>
+
+
+								</div>
+								<!-- end .list -->
+								<h3>Sample Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+                                    <volist name="vo['shop_cart']" id="f">
+                                        <if condition="$f.number gt 0 ">
+									<ul>
+										<li class="item">
+											<img>
+											<h5>{$f.productNO}</h5>
+										</li>
+										<li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+                                        </li>
+                                        <li class="remark">
+                                            <p> {$f.remark}
+                                            </p>
+                                        </li>
+                                        <li class="sample">
+                                            {$f.number}
+                                        </li>
+									</ul></if></volist>
+
+								</div>
+								<!-- end .list -->
+								<h3>Confirm Address</h3>
+								<div class="inputContent">
+									<ul>
+										<li style="width:60%"><span>Company</span>
+											<input type="text">
+										</li>
+										<li style="width:40%"><span>Country</span>
+											<select>
+												<volist name="clist" id="cl">
+													<option value="{$cl.id}">{$cl.en_name}</option>
+												</volist>
+											</select>
+										</li>
+										<li style="width:60%"><span>Address</span>
+											<textarea></textarea>
+										</li>
+										<li style="width:40%"><span>Acount No.</span>
+											<input type="text">
+										</li>
+										<li><span>Email</span>
+											<input type="text">
+										</li>
+										<li><span>Phone No.</span>
+											<input type="text">
+										</li>
+										<li><span>Postal Code</span>
+											<input type="text">
+										</li>
+										<li style="width:80%"><span>Express</span>
+											<label>
+												<input type="checkbox">Fedex
+											</label>
+											<label>
+												<input type="checkbox">UPS
+											</label>
+											<label>
+												<input type="checkbox">TNT
+											</label>
+											<label>
+												<input type="checkbox">DHL
+											</label>
+											<label>
+												<input type="checkbox">SF-EXPRESS
+											</label>
+											<label>
+												<input type="checkbox" disabled="disabled">Other
+											</label>
+										</li>
+										<li style="width:70%"><span>Service</span>
+											<label>
+												<input type="checkbox">Intl.Priority
+											</label>
+											<label>
+												<input type="checkbox">Intl.Economy
+											</label>
+											<label>
+												<input type="checkbox">Other
+												<input type="text">
+											</label>
+											<label style="margin-left: 70px;">
+												<input type="checkbox">Fixed Receiver Address
+											</label>
+										</li>
+									</ul>
+								</div>
+								<!-- end .inputContent -->
+								<div class="btnBar">
+									<!--<a class="black" href="#">PDF Preview</a>-->
+								</div>
+								<!-- end .btnBar -->
+							</div>
+							<!-- end .content -->
+						</li>
+                          </if>
+                      <if condition="$vo.state == '3' ">
+						<li opid="open+{$vo.inqid}" <if condition="$vo.inqid == $open_gd ">class="active"</if>>
+							<ul class="title">
+								<li class="icon">
+									<a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</li>
+                                <li class="enquiryNo">{$vo.i_number}</li>
+                                <li class="status">Cancel</li>
+                                <li class="date">{$vo.itime|date="M-d-Y",###}</li>
+                                <li class="files"><a href="#">Download Quotation</a></li>
+							</ul>
+							<div class="content">
+								<div class="title topTitle">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+									<h2 class="clear">
+										Enquiry Cancel
+										<a href='javascript:enquiry_delt("{$vo.i_number}")'>Delete Enquiry</a>
+									</h2>
+                                    <volist name="vo['shop_cart']" id="f">
+									<ul>
+										<li class="item">
+                                            <img src="__PUBLIC__/Uploads/{$f.img}">
+                                            <h5>{$f.productNO}</h5>
+                                        </li>
+                                        <li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+                                            <p>{$f.remark}</p>
+                                        </li>
+                                        <li class="sample">
+                                            {$f.number}
+										</li>
+									</ul></volist>
+								</div>
+								<!-- end .list -->
+								<h3>Sample Request</h3>
+								<div class="title">
+									<ul>
+										<li class="item">Item No.</li>
+										<li class="description">Description</li>
+										<li class="remark">Remark</li>
+										<li class="sample">Sample</li>
+									</ul>
+								</div>
+								<!-- end .title -->
+								<div class="list">
+                                    <volist name="vo['shop_cart']" id="f">
+                                        <if condition="$f.number gt 0 ">
+									<ul>
+										<li class="item">
+											<img>
+                                            <h5>{$f.productNO}</h5>
+                                        </li>
+                                        <li class="description">
+                                            <h5>{$f.prodName|subtextt=15}</h5>
+                                            <h5>{$f.type|subtextt=20}</h5>
+                                            <h5>housing material：{$f.content|subtextt=40}</h5>
+                                            <h5>blade material：{$f.size|substr=0,20}</h5>
+                                            <h5>Colour：<font color="#{$f.color}">#{$f.color}</font></h5>
+										</li>
+										<li class="remark">
+											<p>{$f.remark}</p>
+										</li>
+										<li class="sample">
+                                            {$f.number}
+										</li>
+									</ul></if></volist>
+									</div>
+								<!-- end .list -->
+							</div>
+							<!-- end .content -->
+						</li>
+                          </if>
+                  </volist>
+					</ul>
+				</div>
+				<!-- end .list -->
+				<div class="page">
+					{$page}
+				</div>
+			</div>
+			<!-- end .content_list -->
+		</div>
+		<!-- end .content -->
+		<div class="clr"></div>
+	</section>
+	<!-- end .userCenter -->
+
+<include file = "PC:User:foot" title = "{$title}"  username = ""/>
+	<!-- end .contactBar-fixed -->
+
+	<div class="signIn-popup-fixed hiden">
+		<ul class="meun">
+			<li><a herf="#">Client</a></li>
+			<li class="active"><a herf="#">Supplier</a></li>
+			<li><a herf="#">Designer</a></li>
+			<li><a herf="#">Staff</a></li>
+			<div class="clr"></div>
+		</ul>
+		<form>
+			<label>
+				<input type="text" placeholder="Email address">
+			</label>
+			<label>
+				<input type="text" placeholder="Email password">
+			</label>
+			<label>
+				<button>Login</button>
+			</label>
+			<label>
+				<a href="#">Forgot your password? Click here</a>
+			</label>
+		</form>
+		<div class="reset hiden">
+			<h4>Reset Password</h4>
+			<h6>We can help you reset your password the email address linked to your account.</h6>
+			<input type="text" placeholder="Email address">
+			<button>Submit</button>
+		</div>
+		<div class="register ">
+			<h5>Don`t have an account?</h5>
+			<h5>Register for Market Place</h5>
+			<ul>
+				<li>
+					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+				</li>
+				<div class="clr"></div>
+			</ul>
+		</div>
+	</div>
+	<div class="mask"></div>
+	<!-- end .signIn-fixed -->
+
+<div class="popup-enquiry">
+    <div id="ck01" class="content"><h5 id="inform_shop">保存成功</h5><div class="btnDiv"><a class="closeBtn" href="#" id="ck_1">Yes</a></div></div>
+
+    <div class="mark-w"></div>
+</div>
+
+
+
+
+	<script src="__PUBLIC__/Shop/p/js/jquery-2.2.3.js ">
+	</script>
+
+	<!--Include easing-->
+	<script src="__PUBLIC__/Shop/p/js/jquery.easing-1.3.0.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="__PUBLIC__/Shop/p/js/bootstrap-3.3.5.js "></script>
+
+	<!-- unslider 图片轮播 -->
+	<script src="__PUBLIC__/Shop/p/js/unslider.min.js"></script>
+
+	<!-- datepicker 时间选择 -->
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.js"></script>
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.zh-CN.js"></script>
+
+	<script>
+        var hasSaved = true;//是否有输入的内容未保存标志，初始值为false
+        function CheckUnsave(){
+            if(hasSaved==false){
+                return "您有修改的东西未保存..";
+            }
+            //return true; //不能加这个语句
+        }
+        //保存了则改变状态
+        function ChangeState()
+        {
+            hasSaved = false;
+        }
+        function ChangeState_1()
+        {
+            hasSaved = true;
+        }
+        $('.popup-enquiry').css("z-index","999");
+        //增加和减少数量
+        function add(s){
+            ChangeState();
+            var aa = document.getElementById("num_t"+s).value;
+            aa++;
+            //alert(document.getElementById("num_f"+s).value);
+            if(document.getElementById("num_t"+s).value=="0"){
+                $('#Samplea').append( $('#lts'+s).clone(true));
+                $("#Samplea").find('#lts'+s).attr("id","ltsv"+s);
+                $("#Samplea").find('#num_t'+s).attr("id","num_f"+s);
+                $("#Samplea").find("#ddl").remove();
+                $("#Samplea").find("#nooty").remove();
+
+            }
+
+            document.getElementById("num_t"+s).value=aa;
+            document.getElementById("num_f"+s).value=aa;
+        }
+        function sub(s){
+            ChangeState();
+            var aa = document.getElementById("num_t"+s).value;
+            aa--;
+            if(aa<0){
+
+                document.getElementById("num_t"+s).value=0;
+            }else{
+                if(aa==0){
+                    $("#Samplea").find('#ltsv'+s).remove();
+                }
+                document.getElementById("num_t"+s).value=aa;
+                document.getElementById("num_f"+s).value=aa;
+            }
+
+        }
+
+        function myFunction(){
+            ChangeState();
+        }
+//触发刷新询价单数据
+        $(document).ready(function() {
+            $('.enquiry li').each(function(){
+                $(this).click(
+                        function(){
+                            if($(this).attr('class')=="active" && $(this).attr('u') !=null) {
+                                //alert($(this).attr('p'));
+                                if($(this).attr('d')==0){
+                                    $(this).attr('d', "1");
+                                    ajax_post_enquiry_i($(this).attr('u'),0);
+                                    $("#test" + $(this).attr('u')).empty();
+                                    $("#Sample" + $(this).attr('u')).empty();
+                                }else{
+                                }
+                            }
+                        });
+            });
+        });
+        /*删除询价单初始化*/
+        function del_send(id,inqid){
+            $("#ck01").remove();
+            $(".popup-enquiry").append('<div id="ck01" class="content"><h5 id="inform_shop">保存成功</h5><div class="btnDiv"><a class="closeBtn" href="#" id="ck_1">Yes</a></div></div>');
+            $("#ck_2").remove();
+            $cc='<a class="closeBtn" id="ck_2" href='+"'#' >Cancel</a>";
+            $("#ck_1").after($cc);
+            $('#ck_1').attr('href','javascript:del_send_g('+id+','+inqid+')');
+            $('#inform_shop').html("Sure to delete ?");
+            $('.popup-enquiry').fadeIn();
+        }
+        function enquiry_delt(a){
+            $("#ck01").remove();
+            $(".popup-enquiry").append('<div class="content"><h5>Delete Enquiry '+a+'</h5><textarea id="ck_04" placeholder="Reason of Cancelling Enquiry"></textarea><div class="btnDiv"><a id="ck_03" href="#">Yes</a><a class="closeBtn" href="#">No</a></div>');
+            $('#ck_03').attr('href','javascript:enquiry_deltt("'+a+'")');
+            $('.popup-enquiry').fadeIn();
+        }
+        function enquiry_deltt(a){
+            $.post("{:U('Ucenter/enquiry_delt')}",{id:a},
+                    function(data){
+                        alert("ok!");
+                        location.href = "{:U('ucenter/enquiry')}";
+                    },
+                    "text");//这里返回的类型有：json,html,xml,text
+        }
+        /*删除询价单请求*/
+        function del_send_g(id,inqid){
+            $.post("{:U('Ucenter/enquiry_del')}",{id:id,tid:inqid},
+                    function(data){
+                        $("#ck01").remove();
+                        $(".popup-enquiry").append('<div id="ck01" class="content"><h5 id="inform_shop">保存成功</h5><div class="btnDiv"><a class="closeBtn" href="#" id="ck_1">Yes</a></div></div>');
+                        $("#ck_2").remove();
+                        $('#ck_1').attr('href','#');
+                        $("#lts"+id).remove();
+                        $("#ltsv"+id).remove();
+                        $('#inform_shop').html("Delet ok！");
+                        $('.popup-enquiry').fadeIn();
+
+
+                    },
+                    "text");//这里返回的类型有：json,html,xml,text
+        }
+        /*保存已修改询价单*/
+        function save_too(){
+            $("#testa").find('ul').each(function(){
+                var tid = $(this).attr('bs');
+                var num_t = document.getElementById("num_t"+tid).value
+                var rem = document.getElementById("rem"+tid).value
+                var oty = document.getElementById("oty"+tid).value
+                $.post("{:U('Ucenter/enquiry_save')}",{id:tid,number:num_t,remark:rem,price:oty},
+                        function(data){
+                            $("#ck01").remove();
+                            $(".popup-enquiry").append('<div id="ck01" class="content"><h5 id="inform_shop">保存成功</h5><div class="btnDiv"><a class="closeBtn" href="#" id="ck_1">Yes</a></div></div>');
+                            $("#ck_2").remove();
+                            $('#ck_1').attr('href','#');
+                            $('#inform_shop').html("Save ok！");
+                            $('.popup-enquiry').fadeIn();
+                            ChangeState_1();
+                        },
+                        "text");//这里返回的类型有：json,html,xml,text
+            });
+        }
+//初始化询价单
+        function ajax_post_enquiry_i(id,c){
+            $.post("{:U('Ucenter/enquiry_i')}",{id:id},
+                    function(data){
+                        var obj =eval(data);
+                        if(c==1){
+                            //window.scrollTo(0,0);
+                            $("#testa").empty();
+                            $("#Samplea").empty();
+                            $("#del_").remove();
+                            $("#txl").remove();
+                            var data_all= $cont='<div class="content edit-content-popup" id="del_" ccx="1"><a class="close"><i class="fa fa-times" aria-hidden="true"></i></a><h3>Enquiry</h3><h5><span id="noo">No.001010</span></h5><div class="title black"><ul><li class="item">Item No.</li><li class="description">Description</li><li class="remark">Remark</li><li class="sample">Sample</li><li class="oty">Oty</li></ul></div><div class="list" id="testa"></div><!-- end .list --><h3>Sample Request</h3><div class="title"><ul><li class="item">Item No.</li><li class="description">Description</li><li class="remark">Remark</li><li class="sample">Sample</li></ul></div><div class="list" id="Samplea"></div><h3>Confirm Address</h3><div class="inputContent"><ul><li class="addressBook" style="width:100%"><span></span><a  class="bt" href="javascript:test('+id+');">Address Book</a><a class="add" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add New Address</a></li><li style="width:60%"><span>Company</span><input type="text"></li><li style="width:40%"><span>Country</span><select id="contry"></select></li><li style="width:60%"><span>Address</span><textarea></textarea></li><li style="width:40%"><span>Acount No.</span><input type="text"></li><li><span>Email</span><input type="text"></li><li><span>Phone No.</span><input type="text"></li><li><span>Postal Code</span><input type="text"></li><li style="width:80%"><span>Express</span><label><input type="checkbox">Fedex</label><label><input type="checkbox">UPS</label><label><input type="checkbox">TNT</label><label><input type="checkbox">DHL</label><label><input type="checkbox">SF-EXPRESS</label><label><input type="checkbox">Other</label></li><li style="width:70%"><span>Service</span><label><input type="checkbox">Intl.Priority</label><label><input type="checkbox">Intl.Economy</label><label><input type="checkbox">Other<input type="text"></label><label style="margin-left: 70px;"><input type="checkbox">Fixed Receiver Address</label></li></ul></div><!-- end .inputContent --><div class="btnBar"><!---- <a href="#">PDF Preview</a> ----><a href="javascript:save_too();">Save</a><a id="set_send" class="black" href="" >Send Enquiry</a></div></div>';
+                            $("#t"+id).append(data_all);
+                            $('.edit-content-popup').fadeIn();
+                        }
+                        if(obj && obj.length>0) {
+							for (var i = 0; i < obj.length; i++) {
+								if (c == 0) { //一层数据加载
+									$("#test" + id).append('<ul><li class="item"> <img src="__PUBLIC__/Uploads/' + obj[i]["img"] + '"><h5>' + obj[i]["productNO"] + '</h5> </li><li class="description"> <h5>' + obj[i]["prodName"].substr(1, 40) + '</h5> <h5>' + obj[i]["type"].substr(1, 40) + '</h5><h5>housing material：' + obj[i]["content"].substr(1, 15) + '</h5><h5>blade material：' + obj[i]["size"] + '</h5><h5>Colour：<font color="' + obj[i]["color"] + '">#' + obj[i]["color"] + '</font></h5></li><li class="remark"><textarea placeholder="remark" disabled="disabled">' + obj[i]["remark"] + '</textarea></li> <li class="sample"><a  disabled="true"><i class="fa fa-minus" aria-hidden="true"></i></a><input type="text" value="' + obj[i]["number"] + '" readonly="true"><a disabled="true" ><i class="fa fa-plus" aria-hidden="true"></i></a> </li><li class="oty"> <input type="text" value="' + obj[i]["price"] + '" readonly="true"></li></ul>');
+									if (obj[i]["number"] > 0) { //寄样品
+										$("#Sample" + id).append('<ul><li class="item"> <img src="__PUBLIC__/Uploads/' + obj[i]["img"] + '"><h5>' + obj[i]["productNO"] + '</h5> </li><li class="description"> <h5>' + obj[i]["prodName"].substr(1, 40) + '</h5> <h5>' + obj[i]["type"].substr(1, 40) + '</h5><h5>housing material：' + obj[i]["content"].substr(1, 15) + '</h5><h5>blade material：' + obj[i]["size"] + '</h5><h5>Colour：<font color="' + obj[i]["color"] + '">#' + obj[i]["color"] + '</font></h5></li><li class="remark"><textarea placeholder="remark" disabled="disabled">' + obj[i]["remark"] + '</textarea></li> <li class="sample"><a  disabled="true"><i class="fa fa-minus" aria-hidden="true"></i></a><input type="text" value="' + obj[i]["number"] + '" readonly="true"><a disabled="true"><i class="fa fa-plus" aria-hidden="true"></i></a> </li></ul>');
+
+									}
+								}
+								if (c == 1) { //二层数据加载
+									$('#noo').html(obj[i]["i_number"]);
+									//$('#set_send').html('javascript:send_e_g('+obj[i]["i_number"]+')');
+									$('#set_send').attr('href', 'javascript:send_e("' + obj[i]["i_number"] + '")');
+									$("#testa").append('<ul bs="' + obj[i]["id"] + '" id="lts' + obj[i]["id"] + '"><a href="javascript:del_send(' + obj[i]["id"] + ',' + obj[i]["inqid"] + ');"><i id="ddl" class="fa  fa-times" aria-hidden="true"></i></a><li class="item"> <img src="__PUBLIC__/Uploads/' + obj[i]["img"] + '"><h5>' + obj[i]["productNO"] + '</h5> </li><li class="description"> <h5>' + obj[i]["prodName"].substr(1, 40) + '</h5> <h5>' + obj[i]["type"].substr(1, 40) + '</h5><h5>housing material：' + obj[i]["content"].substr(1, 15) + '</h5><h5>blade material：' + obj[i]["size"] + '</h5><h5>Colour：<font color="' + obj[i]["color"] + '">#' + obj[i]["color"] + '</font></h5></li><li class="remark"><textarea id="rem' + obj[i]["id"] + '" placeholder="remark">' + obj[i]["remark"] + '</textarea></li> <li class="sample"><a href="javascript:sub(' + obj[i]["id"] + ');"><i class="fa fa-minus" aria-hidden="true"></i></a><input id="num_t' + obj[i]["id"] + '" type="text" value="' + obj[i]["number"] + '" readonly="true"><a href="javascript:add(' + obj[i]["id"] + ');"><i class="fa fa-plus" aria-hidden="true"></i></a> </li><li id="nooty" class="oty"> <input id="oty' + obj[i]["id"] + '" type="text" value="' + obj[i]["price"] + '" onpaste="return false;"  onkeypress="keyPress()"></li></ul>');
+									// $("#del_").append('<div class="address-popup" id="txl" style="display: none;"><a class="close"><i class="fa fa-times" aria-hidden="true"></i></a><div class="left"><ul><li class="active"><a>Address 1</a></li><li><a>Address 2</a></li><li><a>Address 3</a></li><li><a>Address 4</a></li><li><a>Address 5</a></li><li><a>Address 6</a></li><li><a>Address 7</a></li><li><a>Address 8</a></li></ul></div><!-- end .left --><div class="right"><div class="inputContent"><ul><li style="width:440px"><span>Company</span><input type="text"></li><li style="width:270px"><span>Country</span><select id="gjtt' + id + '" name="gjtt' + id + '"> </select></li><li style="width:440px"><span>Address</span><textarea></textarea></li><li style="width:270px"><span>Acount No.</span><input type="text"></li><li style="width:330px; clear:both"><span>Email</span><input type="text"></li><li style="width:330px; clear:both"><span>Phone No.</span><input type="text"></li><li style="width:330px; clear:both"><span>Postal Code</span><input type="text"></li><li style="width:100%"><span>Express</span><label><input type="radio" name="wr">Fedex</label><label><input type="radio" name="wr">UPS</label><label><input type="radio" name="wr">TNT</label><label><input type="radio" name="wr">DHL</label><label><input type="radio" name="wr">SF-EXPRESS</label><label><input type="radio" name="wr">Other</label></li><li style="width:100%"><span>Service</span><label style="margin-right:40px"><input type="radio" name="wr">Intl.Priority</label><label style="margin-right:40px"><input type="radio" name="wr">Intl.Economy</label><label><input type="radio" name="wr">Other<input type="text"></label><div class="bt"><a href="#">Select</a><a href="#">Delete</a><a href="javascript:save_too();">Save</a></div></li></ul></div></div><!-- end .right --><div class="clr"></div></div>');
+
+									if (obj[i]["number"] > 0) { //寄样品
+										$("#Samplea").append('<ul id="ltsv' + obj[i]["id"] + '"><li class="item"> <img src="__PUBLIC__/Uploads/' + obj[i]["img"] + '"><h5>' + obj[i]["productNO"] + '</h5> </li><li class="description"> <h5>' + obj[i]["prodName"].substr(1, 40) + '</h5> <h5>' + obj[i]["type"].substr(1, 40) + '</h5><h5>housing material：' + obj[i]["content"].substr(1, 15) + '</h5><h5>blade material：' + obj[i]["size"] + '</h5><h5>Colour：<font color="' + obj[i]["color"] + '">#' + obj[i]["color"] + '</font></h5></li><li class="remark"><textarea placeholder="remark" disabled="disabled">' + obj[i]["remark"] + '</textarea></li> <li class="sample"><a href="javascript:sub(' + obj[i]["id"] + ');"><i class="fa fa-minus" aria-hidden="true"></i></a><input id="num_f' + obj[i]["id"] + '" type="text" value="' + obj[i]["number"] + '" readonly="true"><a href="javascript:add(' + obj[i]["id"] + ');"><i class="fa fa-plus" aria-hidden="true"></i></a> </li></ul>');
+
+									}
+
+								}
+							}
+						}
+
+                    },
+              "text");//这里返回的类型有：json,html,xml,text
+        }
+
+        /*生成询价单*/
+        function send_e(a) {
+            $("#ck01").remove();
+            $(".popup-enquiry").append('<div id="ck01" class="content"><h5 id="inform_shop">保存成功</h5><div class="btnDiv"><a class="closeBtn" href="#" id="ck_1">Yes</a></div></div>');
+            $("#ck_2").remove();
+            $cc='<a class="closeBtn" id="ck_2" href='+"'#' >NO</a>";
+            $("#ck_1").after($cc);
+            $('#ck_1').attr('href','javascript:send_e_g("'+a+'")');
+            $('#inform_shop').html("Confirm Enquiry "+a);
+            $('.popup-enquiry').fadeIn();
+        }
+        //取消询价单
+        function send_q(a) {
+            $("#ck01").remove();
+            $(".popup-enquiry").append('<div class="content"><h5>Cancel Enquiry '+a+'</h5><textarea id="ck_04" placeholder="Reason of Cancelling Enquiry"></textarea><div class="btnDiv"><a id="ck_03" href="#">Yes</a><a class="closeBtn" href="#">No</a></div>');
+            $('#ck_03').attr('href','javascript:send_q_g("'+a+'")');
+            $('.popup-enquiry').fadeIn();
+        }
+        //发送取消询价单
+        function send_q_g(a) {
+            $.post("{:U('Ucenter/send_q_g')}", {id:a,nr:$('#ck_04').val()},
+                    function (data) {
+                        alert("ok!");
+                        location.href = "{:U('ucenter/enquiry/gd/"+data+"')}";
+                    },
+                    "text");//这里返回的类型有：json,html,xml,text
+
+        }
+        /*发送询价单*/
+        function send_e_g(a) {
+                $.post("{:U('Ucenter/send_e_g')}", {id: a},
+                        function (data) {
+                            alert("ok!");
+                            location.href = "{:U('ucenter/enquiry/gd/"+data+"')}";
+                        },
+                        "text");//这里返回的类型有：json,html,xml,text
+
+        }
+        /*只能输入数字*/
+        function keyPress() {
+            ChangeState();
+            var keyCode = event.keyCode;
+            if ((keyCode >= 48 && keyCode <= 57))
+            {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+        //触发窗口
+/*弹出窗口*/
+
+        $('.btn-enquiry-newOrder').click(function () {
+            $('.popup-enquiry').fadeIn();
+        });
+        $('div.popup-enquiry a.closeBtn').click(function () {
+            $('.popup-enquiry').fadeOut();
+        });
+        $(document).on('click','div.popup-enquiry a.closeBtn',function(){
+
+            $('.popup-enquiry').fadeOut();
+        });
+        /*弹出地址串口*/
+        $('.btn-enquiry-edit').click(function () {
+        $('.edit-content-popup').fadeIn();
+        });
+        $('div.edit-content-popup > a.close').click(function () {
+        $('.edit-content-popup').fadeOut();
+        });
+        $(document).on('click','div.edit-content-popup > a.close',function(){
+        $('.edit-content-popup').fadeOut();
+        });
+
+        /*打开地址簿*/
+        function test(ttid){
+            function ajax_post_enquiry_i(id,c) {
+                $.post("{:U('Ucenter/address')}", {id: id},
+                        function (data) {
+
+                        },
+                        "text");//这里返回的类型有：json,html,xml,text
+            }
+            $("#del_").append('<div class="address-popup" id="txl" style="display: none;"><a class="close"><i class="fa fa-times" aria-hidden="true"></i></a><div class="left"><ul><li class="active"><a>Address 1</a></li><li><a>Address 2</a></li><li><a>Address 3</a></li><li><a>Address 4</a></li><li><a>Address 5</a></li><li><a>Address 6</a></li><li><a>Address 7</a></li><li><a>Address 8</a></li></ul></div><!-- end .left --><div class="right"><div class="inputContent"><ul><li style="width:440px"><span>Company</span><input type="text"></li><li style="width:270px"><span>Country</span><select class="contry"></select></li><li style="width:440px"><span>Address</span><textarea></textarea></li><li style="width:270px"><span>Acount No.</span><input type="text"></li><li style="width:330px; clear:both"><span>Email</span><input type="text"></li><li style="width:330px; clear:both"><span>Phone No.</span><input type="text"></li><li style="width:330px; clear:both"><span>Postal Code</span><input type="text"></li><li style="width:100%"><span>Express</span><label><input type="radio" name="wr">Fedex</label><label><input type="radio" name="wr">UPS</label><label><input type="radio" name="wr">TNT</label><label><input type="radio" name="wr">DHL</label><label><input type="radio" name="wr">SF-EXPRESS</label><label><input type="radio" name="wr">Other</label></li><li style="width:100%"><span>Service</span><label style="margin-right:40px"><input type="radio" name="wr">Intl.Priority</label><label style="margin-right:40px"><input type="radio" name="wr">Intl.Economy</label><label><input type="radio" name="wr">Other<input type="text"></label><div class="bt"><a href="#">Select</a><a href="#">Delete</a><a href="javascript:save_too();">Save</a></div></li></ul></div></div><!-- end .right --><div class="clr"></div></div>');
+
+            $('.address-popup').fadeIn();
+           // $("#select_1").append("<option value=1>2</option>");
+        }
+
+$(document).on('click','div.address-popup > a.close',function(){
+    $('.address-popup').fadeOut();
+    $('.address-popup').remove();
+});
+
+        //触发窗口结束
+
+		$("section.nav > div.container > div.meunmain > ul > li").hover(function () {
+			var child = $(this).find('div.dropdown');
+			if (child.css('display') == 'none') {
+				child.fadeIn('fast');
+			} else {
+				child.fadeOut('fast');
+			}
+		});
+		$('.userCenter-logined').click(function () {
+			if ($('.userdropdown').hasClass('active')) {
+				$('.userdropdown').removeClass('active');
+			} else {
+				$('.userdropdown').addClass('active');
+			}
+		});
+
+		$(window).scroll(function () {
+			var targetTop = $(this).scrollTop();
+			if (targetTop < 129) {
+				$('section.navfixed').slideUp();
+			}
+			if (targetTop > 128) {
+				$('section.navfixed').slideDown();
+			}
+			if (targetTop < 661) {
+				$('.contactBar-fixed').fadeOut();
+			}
+			if (targetTop > 660) {
+				$('.contactBar-fixed').fadeIn();
+			}
+		});
+		$(".dropdown > .meunL > ul > li").each(function (i) {
+			$(this).hover(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		});
+		$(".userdropdown > ul.title-tap > li").each(function (i) {
+			$(this).click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".userdropdown > div.content > div").eq(i).addClass("active").siblings().removeClass("active");
+
+			});
+		});
+		$(function () {
+			$('.indexBanner').unslider({
+				dots: true,
+			});
+			$('.indexBanner-min').unslider({
+				dots: true,
+			});
+		});
+
+
+		/******************************************************************************************************************** user center */
+		/* shopping checkbox */
+		$("div.content_list > div.list > ul.shoppingCart > li > div.checkBox > a").click(function () {
+			if ($(this).parents("li").hasClass("active")) {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").removeClass("active");
+				} else {
+					$("div.content_list > div.list > ul.shoppingCart > li.all").removeClass("active");
+					$(this).parents("li").removeClass("active");
+				}
+			} else {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").addClass("active");
+				} else {
+					$(this).parents("li").addClass("active");
+				}
+			}
+		});
+		/* data */
+		$('#dataOne').fdatepicker({
+			format: 'dd/mm/yyyy'
+		});
+		$('#dataTwo').fdatepicker({
+			format: 'dd/mm/yyyy'
+		});
+		/* enquiry list */
+		$('div.content_list > div.list > ul.enquiry > li > ul.title').click(function () {
+			if ($(this).parent('li').hasClass('active')) {
+				$(this).parent('li').removeClass('active');
+			} else {
+				$(this).parent('li').addClass('active');
+			}
+		});
+		/* enquiry success checkbox */
+		$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul > a").click(function () {
+			if ($(this).parent().hasClass("active")) {
+				if ($(this).parent().hasClass("all")) {
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul").removeClass("active");
+				} else {
+					$(this).parent().removeClass("active");
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul.all").removeClass("active");
+				}
+			} else {
+				if ($(this).parent().hasClass("all")) {
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul").addClass("active");
+				} else {
+					$(this).parent().addClass("active");
+				}
+			}
+		});
+		/**************************************************************************************************************** end user center */
+
+
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('section.nav > div.container > div.meunmain > ul > li').hover(function () {
+            var child = $(this).find('div.dropdown'), stop = child.data('stop'), stop_ = $('section.nav > div.container > div.meunmain').data('stop');
+            function sd(val){
+                child.data('stop', val);
+            }
+            //console.log(stop_);
+            try {
+                if (stop_ == 'loading') {
+                    return false;
+                } else {
+                    if (stop != undefined && stop != 'undefined' && stop == 0 && stop_ ==0 ) {
+                        sd(1);
+                        (child.css('display') == 'none') ? child.show(0, function () {sd(0);}) : child.hide(0, function () {sd(0);});
+                    } else {
+                        return false;
+                    }
+                }
+            }catch (e){
+                console.log(e);
+            }finally {
+                child = null;
+                stop = null;
+                stop_ = null;
+            }
+        });
+        $('section.nav > div.container > div.meunmain > ul > li').mouseleave(function(){
+            $(this).find('.dropdown').hide();
+        });
+        $(window).scroll(function () {
+            var targetTop = $(this).scrollTop(), sn = $('section.navfixed'), cf = $('.contactBar-fixed');
+            function do_(){
+                sn.slideDown();
+                $('.userdropdown').removeClass('active');
+            }
+            try {
+                if (targetTop < 129) sn.slideUp();
+                if (targetTop > 128) do_();
+                if (targetTop < 661) cf.fadeOut();
+                if (targetTop > 660) cf.fadeIn();
+            }catch (e){
+                console.log(e);
+            }finally {
+                targetTop = null;
+                sn = null;
+                cf = null;
+            }
+        });
+        $(".dropdown > .meunL > ul > li").each(function (i) {
+            $(this).hover(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+        $(".userdropdown > ul.title-tap > li").each(function (i) {
+            $(this).click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+                $(".userdropdown > div.content > div").eq(i).addClass("active").siblings().removeClass("active");
+
+            });
+        });
+        $('.icon_book_p').click(function(){
+            handle($('.userdropdown'));
+        });
+        $('.userCenter-logined').click(function () {
+            handle($('.userdropdown'));
+        });
+        $('.indexBanner').unslider({dots: true});
+        $(window).resize(function () {
+            window.location.reload(true);
+        });
+        $('section.content-masonry ul.grid').masonry({itemSelector: '.grid-item'});
+        $('section.nav > div.container > div.meunmain').data('stop', 0);
+    });
+    function handle(dom){
+         (dom.hasClass('active')) ? dom.removeClass('active') : dom.addClass('active');
+    }
+    function post_url_data(url,type,data,callback,time,dom){
+        $.ajax({
+            type: type, url: url, data: data, dataType: 'json', timeout: ((time && time > 0) ? time : 10000),
+            beforeSend: function () {
+                if (dom) dom.data('status', 0);
+            },
+            success: function (Data) {
+                 (Data)? callback('',Data): callback('Post error!','');
+            },
+            error: function (e) {
+                callback('Please check your network , and try again','');
+            },
+            complete: function () {
+                if (dom) dom.data('status', 1);
+            }
+        });
+    }
+</script>

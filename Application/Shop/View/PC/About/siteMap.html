@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<style>
+	.list { min-height: 450px; max-height: 800px;margin-top: 4px;}
+</style>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+	<section class="resources">
+		<div class="container" style="border:none;">
+			<div class="siteMap">
+				<h5 class="title">Site Map</h5>
+				<div class="list">
+					<h5><a href="{$data.link}">{$data.title}</a></h5>
+					<?php if($data['lv1']){ ?>
+						<volist name="data['lv1']" id="dl1" key="dll">
+							<ul dll="{$dll}"><h5><a href="{$dl1.link}" num="{$dl1.num}" lv="1">{$dl1.proName}</a></h5>
+							<volist name="dl1['lv2']" id="dl2">
+								<li><a href="{$dl2.link}" num="{$dl2.num}" lv="2">{$dl2.proName}</a>
+								<?php if($dl2['lv3']){ ?>
+									<ul>
+									<volist name="dl2['lv3']" id="dl3">
+										<li><a href="{$dl3.link}" num="{$dl3.num}" lv="3">{$dl3.proName}</a></li>
+									</volist>
+									</ul>
+								<?php }	?>
+								</li>
+							</volist>
+							</ul>
+							<?php if($data['count'] > $dll){ ?>
+								<?php if(($dll+1)%3 == 0){ ?>
+									</div><div class="list" style="border-right: 1px dashed #9b9693;">
+								<?php }else{ ?>
+									</div><div class="list">
+							<?php }} ?>
+						</volist>
+					<?php }	?>
+				</div>
+				<div class="clr"></div>
+			</div>
+		</div>
+	</section>
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

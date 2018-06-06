@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport Metatag -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Plugin Stylesheets first to ease overrides -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/custom-plugins/wizard/wizard.css" media="screen">
+
+    <!-- Required Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+    <!-- Demo Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+    <!-- jQuery-UI Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/admin_page.css" media="screen">
+    <title>后台管理系统</title>
+
+
+</head>
+
+<body>
+<!-- Header -->
+<include file="Common/header"/>
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+
+    <include file="Common/left_nav" />
+
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix">
+
+        <!-- Inner Container Start -->
+        <div class="container">
+
+
+            <!-- Panels Start -->
+            <!-- 会员详细信息查询 -->
+            <foreach name='arr2' item='volist'>
+                <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-pencil"></i> 会员信息详情</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <form class="mws-form" action="form_elements.html">
+                            <div class="mws-form-inline">
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">用户编号：</label>
+                                    <div class="mws-form-item" style="height:30px;">
+                                        {$volist['userId']}
+                                    </div>
+                                </div>
+
+                                <notempty name="volist.TW_openid">
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">Twitter ID：</label>
+                                        <div class="mws-form-item" style="height:30px;">
+                                            {$volist['TW_openid']}
+                                        </div>
+                                    </div>
+                                </notempty>
+                                <notempty name="volist.FB_openid">
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">Facebook ID：</label>
+                                        <div class="mws-form-item" style="height:30px;">
+                                            {$volist['FB_openid']}
+                                        </div>
+                                    </div>
+                                </notempty>
+
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">真实姓名：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['lzhengNamen']}
+                                    </div>
+                                </div>
+
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">会员积分：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['userJF']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">昵称：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['nickName']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">购物次数：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['userGCS']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">购物行为评级：</label>
+                                    <div class="mws-form-item">
+                                        <?php
+                                            if($volist['userGWdjimg'])
+                                        ?>
+                                        <img src="__PUBLIC__/Uploads/Images/{$volist['userGWdjimg']}">&nbsp;&nbsp;{$volist['userGWdjId']}&nbsp;级
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">成长值：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['userCZ']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">身份证号：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['sfz']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">所在地：</label>
+                                    <div class="mws-form-item">
+                                        {$dizhi}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">生日：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['userday']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">婚姻状况：</label>
+                                    <div class="mws-form-item">
+                                        <?php
+                                        if($volist['hunyi']==0){
+                                            echo '保密';
+                                        }else if($volist['hunyi']==1){
+                                            echo '已婚';
+                                        }else if($volist['hunyi']==2){
+                                            echo '未婚';
+                                        }
+                                        ?>
+                                    </div>
+
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">月收入：</label>
+                                    <div class="mws-form-item">
+                                        ￥{$volist['ymoney']}
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">兴趣爱好：</label>
+                                    <div class="mws-form-item">
+                                        {$volist['xqah']}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </foreach>
+            <!-- 订单查询 -->
+
+            <div class="mws-panel grid_8">
+                <div class="mws-panel-header">
+                    <span><i class="icon-table"></i> 会员收货信息详情</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <table class="mws-table">
+                        <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>用户名</th>
+                            <th>收货人</th>
+                            <th>联系电话</th>
+                            <th>家庭电话</th>
+                            <th>收货地址</th>
+                            <th>地址别名</th>
+                            <th>邮箱</th>
+                            <th>下单时间</th>
+                            <th>订单状态</th>
+                            <th>是否默认</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if($arr1){ ?>
+                        <foreach name = 'arr1' item = 'volist'>
+                            <tr>
+                                <td>{$volist['addressId']}</td>
+                                <td>{$volist['uname']}</td>
+                                <td>{$volist['receiver']}</td>
+                                <td>{$volist['tel']}</td>
+                                <td>{$volist['hometel']}</td>
+                                <td>{$volist['address']}</td>
+                                <td>{$volist['addressbie']}</td>
+                                <td>{$volist['email']}</td>
+                                <td><?php echo date('Y-m-d H:i:s',time())?></td>
+                                <td><?php
+                                        if($volist['orderState'] == 0){
+                                            echo '待发货';
+                                        }else if($volist['orderState'] == 1){
+                                            echo '已发货';
+                                        }else if($volist['orderState'] == 2){
+                                            echo '交易完成';
+                                        }else if($volist['orderState'] == 3){
+                                            echo "取消订单";
+                                        }
+
+                                        ?></td>
+                                <td>
+                                    <?php
+                                            if($volist['isDefault'] == 0){
+                                                echo '否';
+                                            }else if($volist['isDefault'] == 1){
+                                                echo "是";
+                                            }
+                                        ?>
+                                </td>
+                            </tr>
+                        </foreach>
+                        <?php } ?>
+                    </table>
+                    </div>
+                </div>
+
+            <div class="mws-panel grid_8">
+                <div class="mws-panel-header">
+                    <span><i class="icon-table"></i> 会员地址库信息详情</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <table class="mws-table">
+                        <thead>
+                        <tr>
+                            <th>地址编号</th>
+                            <th>用户名</th>
+                            <th>收货人</th>
+                            <th>联系电话</th>
+                            <th>家庭电话</th>
+                            <th>收货地址</th>
+                            <th>地址别名</th>
+                            <th>邮箱</th>
+                            <th>快递方式</th>
+                            <th>邮编</th>
+                            <th>Service</th>
+                            <th>AccountNO</th>
+                            <th>是否默认</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if($address){ ?>
+                        <foreach name = 'address' item = 'al'>
+                            <tr>
+                                <td>{$al['addressId']}</td>
+                                <td>{$al['uname']}</td>
+                                <td>{$al['receiver']}</td>
+                                <td>{$al['tel']}</td>
+                                <td>{$al['hometel']}</td>
+                                <td>{$al['address']}</td>
+                                <td>{$al['addressbie']}</td>
+                                <td>{$al['email']}</td>
+                                <td>{$al['PostalCode']}</td>
+                                <td>{$al['Express_name']}</td>
+                                <td>{$al['Service_name']}</td>
+                                <td>{$al['AcountNo']}</td>
+                                <td>
+                                    <?php
+                                            if($al['isDefault'] == 0){
+                                                echo '否';
+                                            }else if($al['isDefault'] == 1){
+                                                echo "是";
+                                            }
+                                        ?>
+                                </td>
+                            </tr>
+                        </foreach>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Data Table with Numbered Pagination -->
+            <div class="mws-panel grid_8">
+                <div class="mws-panel-header">
+                    <span><i class="icon-table"></i> 会员基本信息</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+                        <form action="__APP__/User/user" method="get" >
+                            <div class="dataTables_filter">
+                                <label>
+                                    所属业务员&nbsp;&nbsp;<select name="adminId" id="">
+                                        <option value="">全部</option>
+                                        <volist name="ywy" id="vo">
+                                            <option value="{$vo.adminId}" <if condition="$vo['adminId'] eq $_GET['adminId']">selected</if>>{$vo.uname}</option>
+                                        </volist>
+                                    </select>
+                                    用户名&nbsp;&nbsp;<input type="text" name="uname" placeholder="搜索用户名" aria-controls="DataTables_Table_0" value="{$_GET['uname']}">
+                                    邮箱&nbsp;&nbsp;<input type="text" name="useremail" placeholder="搜索邮箱" aria-controls="DataTables_Table_0" value="{$_GET['useremail']}">&nbsp;&nbsp;&nbsp;&nbsp;
+                                    手机&nbsp;&nbsp;<input type="text" name="usertel" placeholder="搜索手机" aria-controls="DataTables_Table_0" value="{$_GET['usertel']}">&nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+                                <input type="submit" class='btn' value="搜索"><a href="{:U('User/user')}" class='btn'>清空</a></div>
+                        </form>
+                    </div>
+                    <table class="mws-datatable-fn mws-table" style="font-size:12px;">
+                        <thead>
+                        <tr>
+                            <th>用户编号</th>
+                            <th>账户名</th>
+                            <th>用户头像</th>
+                            <if condition="$_SESSION['admin']['levelId'] lt 3"><th>所属业务员</th> </if>
+                            <th>会员等级</th>
+                            <th>邮箱</th>
+                            <th>手机号码</th>
+                            <th><span style="color:#777;"><i class="icon-tools"></i></span>&nbsp;&nbsp;操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <foreach name="arr" item="volist">
+                            <tr>
+                                <td>{$volist['userId']}</td>
+                                <td>{$volist['uname']}</td>
+                                <td>
+                                    <if condition="($volist['userimg'] neq null)">
+                                        <a href="user.html?id={$volist['userId']}"> <img src="__PUBLIC__/Uploads/{$volist.userimg}" width='50px' /></a>
+                                        <else /> 未上传
+                                    </if>
+                                </td>
+                                <if condition="$_SESSION['admin']['levelId'] lt 3"><td>{$volist['admin_name']}</td> </if>
+                                <td>{$volist['userHYdjId']}</td>
+                                <td>{$volist['useremail']}</td>
+                                <td>{$volist['usertel']}</td>
+                                <td>
+                                    <a href="__APP__/User/user/id/{$volist['userId']}"><span style="color:#555;">查看会员订单信息</span></a>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="__APP__/User/user/aid/{$volist['userId']}"><span style="color:#555;">查看会员详情</span></a>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="__APP__/User/edit_user/uid/{$volist['userId']}"><span style="color:#555;">修改会员资料</span></a>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="__APP__/User/changepwd/aid/{$volist['userId']}"><span style="color:#555;">修改会员密码</span></a>
+                                    <!--&nbsp;&nbsp;|&nbsp;&nbsp;<a href="cart.html?cart_id={$volist['userId']}"><span style="color:#555;">查看购物车</span></a>-->
+                                </td>
+                            </tr>
+                        </foreach>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid_8 page">
+                    {$page}
+                </div>
+            </div>
+        </div>
+        <!-- Panels End -->
+    </div>
+    <!-- Inner Container End -->
+
+    <!-- Footer -->
+    <include file="Common:footer"/>
+
+</div>
+<!-- Main Container End -->
+
+</div>
+
+<!-- JavaScript Plugins -->
+<script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+<script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+<script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+<script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__ADMIN__/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="__ADMIN__/js/core/themer.js"></script>
+
+<!-- Demo Scripts (remove if not needed) -->
+
+</body>
+</html>

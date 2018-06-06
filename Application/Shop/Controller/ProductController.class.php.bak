@@ -1,0 +1,166 @@
+<?php
+namespace Shop\Controller;
+use Shop\Model\ProductsModel;
+use Think\Controller;
+class ProductController extends BaseController {
+    //产品页首页 - 产品列表
+    public function index(){
+        $tlid=I('get.id');  //nav 产品大类id
+        $lv=I('get.lv');    //nav 产品大类层级
+        $pid=I('get.pid');  //nav 产品大类上级id
+        $kid=I('get.kid');  //knifes 多选id
+        $tid=I('get.tid');  //左下 产品属性筛选条件id
+        $cid=I('get.cid');  //左下 产品属性颜色id
+        $search_key=I('get.product_key'); //产品搜索字符
+        $order_type=I('get.order_type'); //排序
+        $Product=new ProductsModel();
+        //获取顶级分类id
+        $type_id = $Product->find_lv($tlid, $lv, $pid);
+        //获取筛选条件数据
+        $type_list = $this->get_products_type_list($type_id);
+        //颜色
+        $color_list = $this->get_products_color_list($cid);
+        //处理 type_list 高亮
+        $type_list=$this->handle_type_list($type_list,$tid);
+        //获取产品列表数据
+        //配置分页显示条数
+        $num=$this->num;
+        //
+        $data = $Product->product_list($lv,$tid, $tlid, $num, $order_type,$search_key,$cid);
+        //获取路径
+        $lj=$Product->lj($tlid);
+        //排序数据
+        $order_list=$this->order_array();
+        $order_list=$this->order_select($order_list,$order_type);
+        //输出
+        //基础条件
+        $this->assign('id',$tlid);
+        $this->assign('lv',$lv);
+        $this->assign("pid",$pid);
+        $this->assign('tid',$tid);
+        $this->assign('order_type',$order_type);
+        $this->assign('product_key', $search_key);
+        //路径
+        $this->assign('tlv1',$lj['lv1']);
+        $this->assign('tlv2',$lj['lv2']);
+        $this->assign('tlv3',$lj['lv3']);
+        //左边筛选条件
+        $this->assign('type_list',$type_list);
+        $this->assign('color_list',$color_list);
+        //title设置额
+        $this->assign('head_title','Product');
+        //产品列表数据
+        $this->assign('product_list',$data['list']);
+        //产品列表分页数据
+        $this->assign('page',$data['page']);
+        //产品总数
+        $this->assign('count',$data['count']);
+        //排序
+        $this->assign('order_list',$order_list);
+        //输出界面
+        $this->display('Product/index');
+    }
+
+    //处理 type_list 高亮
+    private function handle_type_list($type_list,$tid){
+            if ($tid) {
+                $tid_list = explode(',', $tid);
+                if ($tid_list) {
+                    foreach ($tid_list as &$one) {
+                        foreach ($type_list as &$two) {
+                            if($two['child']) {
+                                foreach($two['child'] as &$th) {
+                                    if($th['selected']==0) {
+                                        if ($th['styleId'] == $one) {
+                                            $th['selected'] = 1;
+                                            $two['display'] = 1;
+                                        } else {
+                                            $th['selected'] = 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    foreach ($type_list as &$two) {
+                        if($two['child']) {
+                            foreach($two['child'] as &$th) {
+                                if($th['selected']==0) {
+                                    if ($th['styleId'] == $tid) {
+                                        $th['selected'] = 1;
+                                        $two['display'] = 1;
+                                    } else {
+                                        $th['selected'] = 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                foreach ($type_list as &$two) {
+                    if($two['child']) {
+                        foreach($two['child'] as &$th) {
+                            $th['selected'] = 0;
+                        }
+                    }
+                }
+            }
+        return $type_list;
+    }
+
+    private function order_array(){
+        $list=array(
+            0=>array('id'=>1,'title'=>'Sales','order'=>'1'),
+            1=>array('id'=>2,'title'=>'Price','order'=>'2'),
+            2=>array('id'=>3,'title'=>'New','order'=>'3'),
+            3=>array('id'=>4,'title'=>'Hot','order'=>'4'),
+        );
+        return $list;
+    }
+
+    private function order_select($order,$select){
+        if($select>0) {
+            foreach ($order as &$one) {
+                if ($one['order'] == $select) {
+                    $one['selected'] = 1;
+                } else {
+                    $one['selected'] = 0;
+                }
+            }
+        }else{
+            foreach ($order as &$one) {
+                $one['selected'] = 0;
+            }
+        }
+        return $order;
+    }
+
+    public function detail(){
+        $prodId=I('get.prodId');
+        $colorId=I('get.cid');
+        $sizeId=I('get.sid');
+        $Product = new ProductsModel();
+        if($prodId>0){
+            $list=$Product->get_product($prodId,$colorId,$sizeId);
+        }else{
+            $list=array();
+        }
+        $lj=$Product->lj($prodId);
+        $this->assign('cid',$colorId);
+        $this->assign('sid',$sizeId);
+        $this->assign('head_title','Product');
+        $this->assign('list',$list);
+        $this->assign('imqq',$list['imqq']);
+        $this->assign('tlv1',$lj['lv1']);
+        $this->assign('tlv2',$lj['lv2']);
+        $this->assign('tlv3',$lj['lv3']);
+        //var_dump($list);
+        $this->display('Product/detail');
+    }
+
+
+
+//end
+}

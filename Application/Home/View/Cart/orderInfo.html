@@ -1,0 +1,552 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="__HOMECSS__/orderInfo.css" />
+		<script src="__HOMEJS__/jquery-1.8.3.min.js"></script>
+		<script src="__HOMEJS__/orderInfo.js"></script>
+	</head>
+	<body>
+
+		<!--===========导入头部start============-->
+		<block name="include"><include file="Common/topper" /></block>
+		<!--===========导入头部start============-->
+
+		<!--===========logo start=============-->
+		<div class="w2 w1 th clear-fix">
+			<div id="logo">
+				<a href="#">
+					<img src="__HOMEIMG__/logo-201305.png" alt="返回京东商城首页" />
+				</a>
+			</div>
+			<div class="progress clearfix">
+				<ul class="progress-2">
+					<li>1.我的购物车</li>
+					<li class="s2">2.填写核对订单信息</li>
+					<li class="s3">3.成功提交订单</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--===========logo end=============-->
+		<!--===========订单信息确认 start=============-->
+		<div class="w2 m2">
+			<div id="checkout">
+				<div class="mt">
+					<h2>填写并核对订单信息</h2>
+				</div>
+				<div id="wizard" class="checkout-steps">
+					<div id="step-1" class="step step-complete step-current"><!--进入样式-->
+						<div class="step-title">
+							<div id="save-consignee-tip" class="step-right"> </div>
+							<strong id="consigneeTitleDiv">收货人信息</strong>
+							<span id="userAddress" class="step-action">
+								<a id="saveConsigneeTitleMinDiv" href="" style="color:#005EA7;">保存收货人信息</a>
+							</span>
+						</div>
+						<div class="step-content">
+							<div id="consignee" class="sbox-wrap">
+								<div class="sbox">
+									<div id="addressOkInfo" class="s-content hide">
+										<p>
+										{$list.receiver} &nbsp;&nbsp;{$list.tel} &nbsp;&nbsp;{$list.hometel}&nbsp;&nbsp; {$list.email}  
+										<br />
+										{$list.addressbie} &nbsp;&nbsp;{$list.address}
+										</p>
+									</div>
+
+								<!--===========-->
+								
+									<div id="addressInfo-verify" class="form1">
+					
+										<input type="hidden" name="hidden-uId" value="{$userId}" />
+										<input type="hidden" name="hidden-aId" value="{$list['addressId']}" />
+
+										<div id="consignee-list" name="consignee-list">
+										<!--==============隐藏域 start========== -->
+											<foreach name='list' item='vo'>
+												<input type="hidden" name="hidden-{$key}" value="{$vo}" />
+											</foreach>
+										<!--==============隐藏域 end========== -->
+											<div class="item item-selected {$list['isDefault']?'':'hide'}" index="consignee_index_1"> 
+												<label>
+												<input id="consignee_radio" class="hookbox" type="radio" checked='' value="" name="consignee_radio">
+													<b>{$list.receiver}</b>
+												  {$list.addressbie}{$list.address}&nbsp;&nbsp; {$list.tel}
+												</label>
+												<span class="item-action" style="display: inline;">
+													<a id="edit-address" href="javascript:void(0)">编辑</a>
+													<a id="del-address" href="javascript:void(0)">删除</a>
+												</span>
+												
+											</div>	
+										</div>
+										
+
+										<div id="use-new-address" class="item">
+											<input id="consignee_radio_new" class="hookbox" type="radio" name="consignee_radio" {$list['isDefault']?'':'checked'}>
+											<label for="consignee_radio_new">使用新地址 </label>
+										</div>
+										<p id="hehehe"></p>
+										<form>
+											<div id="consignee-form" class="consignee-form {$list['isDefault']?'hide':''}" style="padding-left: 12px;" name="consignee-form">
+												<div id="name_div" class="list">
+													<span class="label">
+														<em>*</em>
+														收货人：
+													</span>
+													<div class="field">
+														<input id="consignee_name" class="textbox" type="text"  maxlength="20" name="{consigneeParam.name}" value="">
+													</div>
+													<span id="name_div_error" class="status error"></span>
+												</div>
+												<div id="area_div" class="list select-address">
+													<span class="label"><em>*</em>
+													所在地区：
+													</span>
+													<div class="field">
+														<span id="span_area">
+															<span id="span_province">
+																<select id="consignee_province" pId="1" name="consigneeParam.provinceId">
+																	<option value="-1">请选择：</option>
+																	<foreach name="diqu" item="val"><option value="{$val.areaid}">{$val.diqu}</option></foreach> 
+																</select>
+															</span>
+															<span id="span_city">
+																<select id="consignee_city" name="consigneeParam.city">
+																	<option value="-1">请选择：</option>
+																	
+																</select>
+															</span>
+															<span id="span_county">
+																<select id="consignee_county" name="consigneeParam.countyId">
+																	<option value="-1" >请选择：</option>
+																
+																</select>
+															</span>
+															<span id="span_town" style="display:none"></span>
+														</span>
+														<span class="form-tip">
+															<span id="area_div_error" class="status error"></span>
+													  		标“*”的为支持货到付款的地区,
+															<a id="codHelpUrl" href="http://help.jd.com/help/distribution-768-0-0-0-0-1411719655700.html" target="_blank" style="color:#005EA7">查看货到付款地区</a>
+														</span>
+													</div>
+												</div>
+												<div id="address_div" class="list full-address">
+													<span class="label">
+														<em>*</em>
+														详细地址：
+													</span>
+													<div class="field">
+														<span id="areaNameTxt" class="fl selected-address"></span>
+														<input id="consignee_address" class="textbox" type="text" maxlength="50" name="consigneeParam.address">
+													</div>
+													<span id="address_div_error" class="status error"></span>
+												</div>
+												<div id="call_div" class="list">
+													<span class="label">
+														<em>*</em>
+														手机号码：
+													</span>
+													<div class="field">
+														<div class="phone">
+															<input id="consignee_mobile" class="textbox" type="text" maxlength="11"name="consigneeParam.mobile">
+															<em>或</em>
+															<span>固定电话：</span>
+															<input id="consignee_phone" class="textbox" type="text" maxlength="20"  name="consigneeParam.phone">
+														</div>
+														<span id="call_div_error" class="status error"></span>
+													</div>
+												</div>
+												<div id="email_div" class="list">
+													<span class="label">
+														<em></em>
+														邮箱：
+														</span>
+													<div class="field">
+														<input id="consignee_email" class="textbox" type="text"  maxlength="50" name="consigneeParam.email">
+														<span class="form-tip">用来接收订单提醒邮件，便于您及时了解订单状态</span>
+													</div>
+													<span id="email_div_error" class="status error"></span>
+												</div>
+											</div>
+
+										</form>
+										<div class="form-btn group">
+											<a class="btn-submit" href="javascript:void(0)">
+												<span id="saveConsigneeTitleDiv">保存收货人信息</span>
+											</a>
+										</div>
+
+									</div>
+
+								<!--====================-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="step-2" class="step step-complete"><!--确定了加-->
+						<div class="step-title">
+							<div id="save-payAndShip-tip" class="step-right">
+								<span class="save-consignee-payship">
+								</span>
+							</div>
+							<strong>支付及配送方式</strong>
+							<span id="payment-ship_edit_action" class="step-action">
+								<font color="#B0B0B0">如需修改，请先保存收货人信息</font>
+							</span>
+						</div>
+						<div class="step-content">
+							<div id="payment-ship" class="sbox-wrap">
+
+								<div id="payment-ok" class="sbox">
+									<div class="s-content payment-info">
+										<div class="payment-selected">
+										<switch name="$list['payment']">
+											<case value="0">货到付款</case>
+											<case value="1">在线支付</case>
+											<default />分期付款
+										</switch>
+										
+										</div>
+										<div class="way-list">
+											<div class="way-item">
+												<if condition="$list['delivery'] == 0">
+													京东快递
+												<else />
+													上门自提
+												</if>
+											
+											</div>
+										</div>
+									</div>
+								</div>
+							
+								<div id="payment-terms" class="payment hide">
+									<h3>支付方式</h3>
+									<input id="instalmentPlan" type="hidden" value="false">
+									<div style="padding-bottom:10px"></div>
+									<div class="mc form1">
+										<div class="item item-selected">
+											<div class="label">
+												<input id="pay-method-1" class="hookbox" type="radio" checked value="0" payname="货到付款" name="payment">
+												<label for="pay-method-1">
+													货到付款
+													<span id="supportPaySkus-1" style="display:none"></span>
+												</label>
+											</div>
+											<div class="field">
+												<span class="tip">
+													送货上门后再收款，支持现金、POS机刷卡、支票支付
+													<a href="http://help.jd.com/help/distribution-768-1-2901-4135-0-1411722463863.html" target="_blank">查看服务及配送范围</a>
+												</span>
+											</div>
+											<span class="clr"></span>
+										</div>
+										<div class="item">
+											<div class="label">
+												<input id="pay-method-2" class="hookbox" type="radio" value="1" payname="在线支付" name="payment">
+												<label for="pay-method-1">
+													在线支付
+													<span id="supportPaySkus-1" style="display:none"> </span>
+												</label>
+											</div>
+											<div class="field">
+												<span class="tip">
+													即时到帐，支持绝大数银行借记卡及部分银行信用卡 
+													<a href="http://help.jd.com/help/distribution-768-1-2901-4135-0-1411722463863.html" target="_blank">查看银行及限额</a>
+												</span>
+											</div>
+											<span class="clr"></span>
+										</div>
+										<div class="item">
+											<div class="label">
+												<input id="pay-method-3" class="hookbox" type="radio" payname="分期付款" value="2"  name="payment">
+												<label for="pay-method-1">
+													分期付款
+													<span id="supportPaySkus-1" style="display:none"></span>
+												</label>
+											</div>
+											<div class="field">
+												<span class="tip">
+													信用卡网上支付订单，按月还款，减轻资金周转压力 
+													<a href="http://help.jd.com/help/distribution-768-1-2901-4135-0-1411722463863.html" target="_blank">查看分期付款帮助</a>
+												</span>
+											</div>
+											<span class="clr"></span>
+										</div>
+										
+
+									</div>
+								</div>
+								<div id="shipment" class="hide">
+									<div class="way" style="padding-top:20px;">
+										<h3>配送方式</h3>
+										<div class="mc form1">
+											<div id="jd-shipment-way-category" class="way-category way-category-selected" style="padding-top:5px;">
+												<div class="item">
+													<div class="label">
+														<input id="jd-shipment" class="hookbox" type="radio" value="0" checked="" name="shipmentRadio">
+														<label for="jd-shipment">京东快递</label>
+													</div>
+													<div class="field">
+													<span id="jdShipmentTip" class="tip" style="">此订单支持预约配送，您可以选择指定的时间段</span>
+													</div>
+												</div>
+												<div id="jd-shipment-extend-info" class="express-form">
+													<div class="list warm-prompt">
+														<span class="label">温馨提示：</span>
+														<div class="field">
+															<p>1.我们会努力按照您指定的时间配送，但因天气、交通等各类因素影响，您的订单有可能会有延误现象！</p>
+															<p>2.部分服务仅在京东配送区域提供，非京东配送区域无法选择！</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="pick-shipment-way-category" class="way-category">
+												<div id="pick-sku" class="way-category-label" style="padding-top:10px;">
+													<div class="way-category-label-a">
+														<div class="item">
+															<div class="label">
+																<input id="pick-shipment" class="hookbox" type="radio" value="1" name="shipmentRadio">
+																<label style="color:#666" for="pick-shipment">上门自提</label>
+															</div>
+															<div class="field">
+																<span class="tip">
+																	自提时付款，支持现金、POS刷卡、支票支付
+																	<a target="_blank" href="http://help.jd.com/help/question-64-1-2800-2849-0-0-1405075665554.html">查看自提流程</a>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<br />
+										</div>
+										<div class="form-btn group">
+											<a class="btn-submit" href="javascript:void(0)">
+											<span id="savePaymentDeliveryTitleDiv">保存支付及配送方式</span>
+											</a>
+										</div>
+										<br />
+									</div>
+								</div>
+							</div>
+							
+							
+							<!--==========-->
+						</div>
+					</div>
+					<div id="step-3" class="step step-complete">
+						<div class="step-title">
+							<div class="step-title">
+								<strong>发票信息</strong>
+								<span id="part-invoice_edit_action" class="step-action">
+									<a href="#">[修改]</a>
+								</span>
+							</div>
+						</div>
+						<div class="step-content">
+							<div id="payment-invoice" class="sbox-wrap">
+								<div class="sbox">
+									<div class="invoice">
+										<div class="pinvoice-content">
+											 普通发票（纸质）&nbsp;个人&nbsp;明细
+											<br>
+											<div class="ftx-04 invoice-prompt">
+												<dl class="clearfix">
+													<dt>温馨提示：</dt>
+													<dd>
+														<div>发票的开票金额不包括京东卡/京东E卡、优惠券和京豆支付部分</div>
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="step-4" class="step step-complete">
+						<div class="step-title">
+							<a id="cartRetureUrl" class="return-edit" href="__CONTROLLER__/index">返回修改购物车</a>
+							<strong>商品清单</strong>
+						</div>
+						<div class="step-content">
+							<div id="part-order" class="sbox-wrap">
+								<div class="sbox">
+									<div id="order-cart">
+										<div class="order-review">
+											<span id="span-skulist">
+												<table class="review-thead">
+													<tbody>
+														<tr>
+														<td class="fore1">商品</td>
+														<td class="fore2">京东价</td>
+														<td class="fore3">优惠</td>
+														<td class="fore4">数量</td>
+														<td class="fore4">库存状态</td>
+														</tr>
+													</tbody>
+												</table>
+												<div class="review-body">
+													
+												<foreach name="goods" item="vo">
+														<if condition="($key neq 'tsum') AND  ($key neq 'tprice') ">
+													<div class="review-tbody">
+														<table class="order-table">
+															<tbody>
+																<tr>
+																	<td class="fore1">
+																		<div class="p-goods">
+																			<div class="p-img">
+																				<a href="#">
+																					<img src="__PUBLIC__/Uploads/{$vo.simimg}" alt="" />
+																				</a>
+																			</div>
+																			<div class="p-detail">
+																				<div class="p-name">
+																					<a target="_blank" href="http://item.jd.com/1127691.html">{$vo.prodName}</a>
+																				</div>
+																				<div class="p-more">
+																					商品编号：{$vo.productId}
+																					<br>
+																					<span id="promise_1127691" class="promise411"></span>
+																				</div>
+																			</div>
+																		</div>
+																	</td>
+																	<td class="p-price">
+																		<strong>￥{$vo.price1}</strong>
+																	</td>
+																	<td class="p-price" style="width:150px">
+																		<strong>￥{$vo.price2}</strong>
+																	</td>
+																	<td class="fore2">x {$vo.num}</td>
+																	<td class="fore2 p-inventory" skuid="1127691">有货</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+													</if>
+												</foreach>
+
+												</div>
+											</span>
+											<div class="order-summary">
+												<div class="statistic fr">
+													<div class="list">
+														<span>
+															<em id="span-skuNum">{$goods['tsum']}</em>
+														件商品，总商品金额：
+														</span>
+														<em id="warePriceId" class="price" v="null">￥{$goods['tprice']}</em>
+													</div>
+													<div id="showFreightPrice" class="list" style="padding-left:140px;">
+														<span id="freightSpan" style="width:40px;">运费：</span>
+														<em id="freightPriceId" class="price"> ￥0.00</em>
+													</div>
+													<div class="list">
+														<span>应付总额：</span>
+														<em id="sumPayPriceId" class="price">￥{$goods['tprice']}</em>
+													</div>
+													<div class="span clr"></div>
+												</div>
+												<div class="span clr"></div>
+												<div class="order-coupon" data-bind="coupon">
+													<div id="orderCouponItem" class="item">
+														<div class="toggle-title">
+															<a class="toggler"  href="javascript:void(0)">
+															<b></b>
+															使用优惠券抵消部分总额
+															</a>
+														</div>
+														<div class="toggle-wrap hide">
+															<div class="cbox">
+																<div class="beans">
+																	暂时不支持此功能
+																</div>
+															</div>
+														</div>
+													</div>
+													<div id="orderGiftCardItem" class="item">
+														<div class="toggle-title">
+															<a class="toggler"  href="javascript:void(0)">
+																<b></b>
+																京东卡
+															</a>
+														</div>
+														<div class="toggle-wrap hide">
+															<div class="cbox">
+																<div class="beans">
+																	暂时不支持此功能
+																</div>
+															</div>
+														</div>
+													</div>
+													<div id="orderECardItem" class="item">
+														<div class="toggle-title">
+															<a class="toggler"  href="javascript:void(0)">
+																<b></b>
+																京东E卡（此卡不能与京东卡同时使用）
+															</a>
+														</div>
+														<div class="toggle-wrap hide">
+															<div class="cbox">
+																<div class="beans">
+																	暂时不支持此功能
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="checkCodeDiv" class="check-code group"></div>
+									<span class="clr"></span>
+								</div>
+								<div id="checkCodeDiv" class="check-code group"></div>
+								<span class="clr"></span>
+							</div>
+							<div id="checkout-floatbar" class="checkout-buttons group">
+								<div class="sticky-wrap">
+									<div class="inner">
+										<button id="order-submit" class="checkout-submit checkout-submit-disabled" type="submit">
+											提交订单
+											<b></b>
+										</button>
+										<span class="total">
+											应付总额：
+											<strong id="payPriceId">￥{$goods['tprice']}</strong>
+											元 
+										</span>
+									</div>
+								</div>
+
+								<div id="submit_check_info_message" class="submit-check-info">
+									<span>
+										您需先保存
+										<a href="#consigneeFocus" style="color:#005EA7;">收货人信息</a>
+										，再提交订单
+									</span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<!--===========订单信息确认 end==============-->
+		<div class="clear"></div>
+		<!--===========导入尾部start============-->
+		<block name="include"><include file="Common/footer" /></block>
+		<!--===========导入尾部end============-->
+
+	</body>
+</html>

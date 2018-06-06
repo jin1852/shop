@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<section class="content-masonry">
+    <div class="container">
+        <div class="brand">
+            <a href="__APP__">Home page</a> > <span>{$head_title}</span>
+        </div>
+        <!-- end brand -->
+        <ul class="grid style">
+            <volist name="product['lv1']" id="lv1" key="i1">
+                <li l1num="{$i1}" lv="1" class="grid-item grid-item-half" style="height:{$lv1.height}">
+                    <a href="{$lv1.link}"><img src="{$lv1.image}" height="{$lv1.height}" width="{$lv1.width}"></a>
+                </li>
+            </volist>
+            <div class="clr"></div>
+        </ul>
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .content-masonry -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

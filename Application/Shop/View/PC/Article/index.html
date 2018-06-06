@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+
+<section class="marketing">
+    <div class="container list">
+        <form action="{:U('Article/index')}" method="post" id="searchform">
+        <div class="brandbar">
+            <a href="{:U('Index/index')}">Home Page</a> &gt; <span>Marketing Support</span>
+        </div>
+        <div class="search">
+            <div class="showallbar">
+                <a href="{:U('Article/index')}">Show All</a>
+            </div>
+
+            <div class="selectbar">
+                <select id="yearlist" name="year_key">
+                    <volist name="yearlist" id="yr">
+                    <option value="{$yr}">{$yr}</option>
+                    </volist>
+                </select>
+            </div>
+            <div class="inputbar">
+                <input type="text" id="title" name="title" placeholder="Search Marketing Support">
+                <a href="javascript:void(0);" id="articlesearch"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        </form>
+        <ul class="list">
+            <volist name="list" id="one">
+            <li>
+                <a href="{:U('Article/show',array('id'=>$one['id']))}">
+                    <div class="img" style="background-image:url({$one['thumb']});"></div>
+                    <h5>{$one.title}</h5>
+                    <h6>{$one.add_time|date="M-d-Y",###}</h6>
+                </a>
+            </li>
+            </volist>
+            <div class="clr"></div>
+        </ul>
+        <div class="page">
+            {$page}
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function(){
+        $("#articlesearch").click(function(){
+            $year=$("#yearlist").val();
+            $title=$("#title").val();
+            $("#searchform").submit();
+        });
+    });
+
+</script>
+<!-- end .content-masonry -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

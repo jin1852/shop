@@ -1,0 +1,1425 @@
+@charset "UTF-8";
+
+/********************************
+*
+*	
+*     product 产品列表
+*
+*
+*********************************/
+
+section.product {
+	width: 100%;
+	padding: 20px 0;
+}
+
+section.product > div.container {
+	width: 1238px;
+}
+
+section.product div.brand {
+	border-bottom: none !important;
+}
+
+section.product div.brand > div.result {
+	float: right;
+	width: auto;
+}
+
+section.product div.brand > div.result > div.text {
+	float: left;
+	height: 24px;
+	margin-right: 10px;
+}
+
+section.product div.brand > div.result > div.listStyle {
+	list-style: none;
+	border: 1px solid #ccc;
+	height: 24px;
+	float: left;
+	margin-right: 5px;
+}
+
+section.product div.brand > div.result > div.listStyle > ul {
+	margin: 0;
+	padding: 2px 0;
+	height: 24px;
+	line-height: 18px;
+}
+
+section.product div.brand > div.result > div.listStyle > ul > li {
+	float: left;
+	padding: 0 10px;
+	border-right: 1px #ccc solid;
+}
+
+section.product div.brand > div.result > div.listStyle > ul > li:last-of-type {
+	border-right: none;
+}
+
+section.product div.brand > div.result > div.listStyle > ul > li > a {
+	color: #9fa0a0;
+	text-decoration: none;
+}
+
+section.product div.brand > div.result > div.listStyle > ul > li > a:hover {
+	color: #333;
+}
+
+section.product div.brand > div.result > div.listStyle > ul > li.active > a {
+	color: #e60012;
+}
+
+section.product div.brand > div.result > div.search {
+	float: left;
+	height: 24px;
+	width: 200px;
+	border: 1px solid #ccc;
+	position: relative;
+}
+
+section.product div.brand > div.result > div.search > input {
+	background: none;
+	border: none;
+	outline: none;
+	width: 100%;
+	padding-left: 5px;
+}
+
+section.product div.brand > div.result > div.search > a {
+	height: 22px;
+	width: 35px;
+	color: #333;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: center;
+	display: block;
+	background: #e6e6e6;
+}
+
+section.product div.meun-product {
+	width: 230px;
+	float: left;
+}
+
+section.product div.meun-product a {
+	display: block;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	position: relative;
+	padding: 0 10px 0 20px;
+	text-decoration: none;
+}
+
+section.product div.meun-product > ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+section.product div.meun-product > ul > li {
+	width: 100%;
+	margin-bottom: 7px;
+}
+
+section.product div.meun-product > ul > li > a {
+	background: #898989;
+	color: #fff;
+}
+
+section.product div.meun-product > ul > li > a:hover {
+	background: #666;
+}
+
+section.product div.meun-product > ul > li > a > i {
+	float: right;
+	line-height: 24px;
+}
+
+section.product div.meun-product > ul > li > a > i:before {
+	content: "\f078";
+}
+
+section.product div.meun-product > ul > li.active > a > i:before {
+	content: "\f077";
+}
+
+section.product div.meun-product > ul > li > ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: none;
+}
+
+section.product div.meun-product > ul > li.active > ul {
+	display: block;
+}
+
+section.product div.meun-product > ul > li > ul > li {
+	width: 100%;
+	margin-top: 7px;
+	cursor: pointer;
+}
+
+section.product div.meun-product > ul > li > ul > li > a {
+	background: #fff;
+	color: #333;
+}
+
+section.product div.meun-product > ul > li > ul > li.active > a {
+	color: #b60005;
+	background: #ccc;
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > li > a > i {
+	display: inline-block;
+	font-size: 14px;
+	width: 15px;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 24px;
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > li.active > a > i:before {
+	content: "\f046";
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > li.active > a {
+	color: #333;
+	/*background: ;*/
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > div.btnDiv {
+	height: 26px;
+	width: 100%;
+	clear: both;
+	margin: 10px 0;
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > div.btnDiv > a {
+	width: 48%;
+	line-height: 26px;
+	margin: 0 1%;
+	padding: 0;
+	float: left;
+	background: #595757;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+section.product div.meun-product > ul > li > ul.choose-checkBox > div.btnDiv > a:hover {
+	background: #333;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle {
+	position: relative;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > a {
+	height: auto;
+	line-height: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	z-index: 999;
+	background: #fff;
+	box-shadow: 0 0 6px #ccc;
+	width: 790px;
+	padding: 5px 3px;
+	display: none;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > a.closeBtn {
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	padding: 0;
+	margin: 0;
+	color: #595757;
+	font-size: 20px;
+	text-align: center;
+	line-height: 20px;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > a.closeBtn:hover {
+	color: #b60005;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > a.closeBtn > i {
+	font-size: 20px;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle.active > ul.hanndleDiv {
+	display: block;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li {
+	height: 70px;
+	width: 190px;
+	float: left;
+	padding: 3px;
+	margin: 3px;
+	position: relative;
+	border: 1px solid #fff;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li:hover {
+	border: 1px solid #ccc;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li > i {
+	display: inline-block;
+	height: 64px;
+	width: 20px;
+	line-height: 64px;
+	font-size: 14px;
+	color: #888686;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li.active {
+	border: 1px solid #b60005;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li.active > i {
+	color: #b60005;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li.active > i:before {
+	content: "\f046";
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li > img {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	width: 160px;
+	height: 40px;
+	border: none;
+	background: #ccc;
+	outline: none;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li > h5 {
+	position: absolute;
+	bottom: 5px;
+	right: 3px;
+	width: 160px;
+	display: block;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	color: #595757;
+	font-size: 12px;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > div.btnDiv {
+	text-align: right;
+	height: 26px;
+	line-height: 26px;
+	margin: 20px;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > div.btnDiv > a {
+	height: 26px;
+	width: 110px;
+	text-align: center;
+	background: #595757;
+	color: #fff;
+	text-decoration: none;
+	margin-right: 3px;
+	font-size: 13px;
+	padding: 0;
+	display: inline-block;
+}
+
+section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > div.btnDiv > a:hover {
+	background: #333;
+}
+
+section.product div.meun-product > ul > li > ul.choose-color {
+	margin: 10px 0 5px;
+	padding: 5px 17px;
+}
+
+section.product div.meun-product > ul > li > ul.choose-color > li {
+	margin: 0.5%;
+	padding: 3px;
+	width: 24%;
+	float: left;
+	border: #fff solid 1px;
+}
+
+section.product div.meun-product > ul > li > ul.choose-color > li:hover {
+	border: #ccc solid 1px;
+}
+
+section.product div.meun-product > ul > li > ul.choose-color > li.active {
+	border: #b60005 solid 1px;
+}
+
+section.product div.meun-product > ul > li > ul.choose-color > li > a {
+	text-indent: -99999em;
+}
+
+section.product div.meun-product > ul > li > ul > li > a:hover {
+	background: #ddd;
+}
+
+section.product div.content-product {
+	margin-left: 230px;
+	width: calc(100% - 230px);
+}
+
+section.product div.content-product > ul {
+	margin: 0;
+	padding: 0;
+}
+
+section.product div.content-product > ul > li.box {
+	float: left;
+	width: 230px;
+	margin-left: 14px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box {
+	width: 467px;
+	margin-bottom: 28px;
+	margin-left: 14px;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box:nth-child(even) {
+	margin-left: 30px;
+}
+
+section.product div.content-product > ul > li.box > a.img {
+	height: 230px;
+	width: 230px;
+	display: block;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box > a.img {
+	height: 467px;
+	width: 467px;
+}
+
+section.product div.content-product > ul > li.box > a.img > h5 {
+	width: 103px;
+	height: 103px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(../images/update/new-productlist.png) no-repeat center;
+	text-indent: -99999em;
+	margin: 0;
+}
+
+section.product div.content-product > ul > li.box > a.heart {
+	color: red;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: none;
+	z-index: 10;
+	cursor: pointer;
+}
+
+section.product div.content-product > ul > li.box:hover > a.heart {
+	display: block;
+}
+
+section.product div.content-product > ul > li.box > a.name {
+	cursor: pointer;
+	color: #999;
+	font-size: 13px;
+	display: block;
+	height: 32px;
+	width: 100%;
+	line-height: 16px;
+	text-decoration: none;
+	margin: 5px 0;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
+
+section.product div.content-product > ul > li.box > a.name:hover {
+	color: #333;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box > a.name {
+	padding-right: 90px;
+}
+
+section.product div.content-product > ul > li.box > a.btn {
+	display: block;
+	float: right;
+	height: 21px;
+	width: 28px;
+	padding: 0;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box > a.btn {
+	height: 31px;
+	width: 41px;
+	position: absolute;
+	bottom: 0;
+	right: 15px;
+}
+
+section.product div.content-product > ul > li.box > a.btn:hover {
+	opacity: 1;
+}
+
+section.product div.content-product > ul > li.box > a > i.icon {
+	height: 21px;
+	width: 28px;
+	background: url(../images/images/icon-shoppingcart-product.png) no-repeat center;
+	display: inline-block;
+}
+
+section.product div.content-product > ul > li.box > a:hover > i.icon {
+	background: url(../images/images/icon-shoppingcart-product-red.png) no-repeat center;
+}
+
+section.product div.content-product > ul.bigStyleList > li.box > a > i.icon {
+	height: 31px;
+	width: 41px;
+	background-size: contain;
+}
+
+
+/********************************
+*
+*
+*     product 产品详情
+*
+*
+*********************************/
+
+section.product div.deta {
+	height: 599px;
+	width: 100%;
+	clear: both;
+	margin-bottom: 65px;
+}
+
+section.product div.deta > div.img {
+	height: 599px;
+	width: 498px;
+	position: relative;
+	float: left;
+}
+
+section.product div.deta > div.img > a.heart {
+	position: absolute;
+	font-size: 16px;
+	color: #999;
+	top: 620px;
+	right: 0;
+	text-decoration: none;
+}
+
+section.product div.deta > div.img > a.heart:hover {
+	color: #333;
+}
+
+section.product div.deta > div.img > a.heart > i {
+	color: #595757;
+	margin-right: 5px;
+}
+
+
+/*产品焦点图*/
+
+.banner-deta {
+	position: relative;
+	width: 498px;
+	height: 599px;
+	clear: both;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.banner-deta .img_prev {
+	z-index: 100;
+	position: absolute;
+	width: 30px;
+	top: 181px;
+	height: 60px
+}
+
+.banner-deta .img_next {
+	z-index: 100;
+	position: absolute;
+	width: 30px;
+	top: 181px;
+	height: 60px
+}
+
+.banner-deta .img_prev {
+	background-position: -5px top;
+	left: 0px
+}
+
+.banner-deta .img_next {
+	background-position: -43px top;
+	right: 0px
+}
+
+.banner-deta > .focus {
+	height: 498px;
+	margin-bottom: 7px;
+}
+
+.banner-deta .focus ul#big_list {
+	position: absolute;
+	width: 100000px;
+	height: 498px;
+	clear: both;
+}
+
+.banner-deta .focus ul#big_list li {
+	position: relative;
+	width: 498px;
+	float: left;
+	height: 498px;
+	overflow: hidden
+}
+
+.banner-deta .focus ul#big_list li div {
+	width: 498px;
+	height: 498px;
+	overflow: hidden
+}
+
+.banner-deta .focus ul#big_list li div a > img {
+	width: 498px;
+	height: 498px;
+}
+
+.banner-deta .small_show {
+	z-index: 98;
+	position: absolute;
+	margin: 0 auto;
+	width: 498px;
+	top: 505px;
+	height: 94px;
+	overflow: hidden;
+	left: 0;
+}
+
+.banner-deta .small_show ul {
+	width: 10000px
+}
+
+.banner-deta .small_show li {
+	width: 94px;
+	display: inline-block;
+	/*background: url(../images/img_bg.png) no-repeat left -49px;*/
+	float: left;
+	height: 94px;
+	overflow: hidden;
+	cursor: pointer;
+	margin-right: 7px;
+	border: 1px solid #999;
+}
+
+.banner-deta .small_show li:last-child {
+	margin-right: 0;
+}
+
+.banner-deta .small_show li.visited {
+	background-position: left top;
+	border: 1px solid red;
+}
+
+.banner-deta .small_show li div {
+	width: 94px;
+	height: 94px;
+	overflow: hidden;
+}
+
+.banner-deta .small_show li div > img {
+	width: 94px;
+	height: 94px;
+}
+
+.banner-deta .small_show .prev {
+	z-index: 100;
+	position: absolute;
+	width: 30px;
+	bottom: 5px;
+	background: url(../I/imgshow.png) no-repeat;
+	height: 60px
+}
+
+.banner-deta .small_show .next {
+	z-index: 100;
+	position: absolute;
+	width: 30px;
+	bottom: 5px;
+	background: url(../I/imgshow.png) no-repeat;
+	height: 60px
+}
+
+.banner-deta .small_show .prev {
+	background-position: -5px top;
+	left: 0px
+}
+
+.banner-deta .small_show .next {
+	background-position: -43px top;
+	right: 0px
+}
+
+
+/*焦点图 结束*/
+
+section.product div.deta > div.info {
+	margin-left: 540px;
+	height: 599px;
+	overflow: hidden;
+	width: calc(100% - 540px);
+	position: relative;
+}
+
+section.product div.deta > div.info > h5 {
+	font-family: 'HSregular';
+	font-size: 26px;
+	line-height: 28px;
+	height: 56px;
+	width: 100%;
+	/*white-space: nowrap;*/
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin: 0 0 5px;
+}
+
+section.product div.deta > div.info > h6 {
+	font-family: 'HSregular';
+	font-size: 20px;
+	width: 100%;
+	line-height: 28px;
+	height: 32px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin: 0;
+	padding: 0 0 5px;
+	border-bottom: 1px solid #898989;
+}
+
+section.product div.deta > div.info > h6 > span {
+	font-family: 'HSlight';
+	color: #666;
+}
+
+section.product div.deta > div.info > div.tab {
+	height: 200px;
+	width: 100%;
+	margin-top: 10px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+section.product div.deta > div.info > div.tab > ul.title {
+	border-left: 1px solid #898989;
+	height: 40px;
+	margin: 0;
+}
+
+section.product div.deta > div.info > div.tab > ul.title > li {
+	float: left;
+	width: 120px;
+	border-right: 1px solid #898989;
+	border-top: 1px solid #898989;
+	border-bottom: 1px solid RGBA(255, 255, 255, 0);
+	margin: 0;
+}
+
+section.product div.deta > div.info > div.tab > ul.title > li > a {
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	color: #333;
+	font-family: 'HSregular';
+}
+
+section.product div.deta > div.info > div.tab > ul.title > li.active {
+	border-bottom: 1px solid #fff;
+	background: #fff;
+}
+
+section.product div.deta > div.info > div.tab > ul.content {
+	height: 160px;
+	border: 1px solid #898989;
+	margin: 0;
+	padding: 15px 10px 10px;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li {
+	width: 100%;
+	height: 100%;
+	display: none;
+	overflow-y: scroll;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li.active {
+	display: block;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div {
+	width: 100%;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div > span {
+	width: 50px;
+	float: left;
+	display: block;
+	font-size: 16px;
+	color: #666;
+	line-height: 32px;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div > div {
+	margin-left: 60px;
+	line-height: 32px;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.size > div > a {
+	padding: 0 10px;
+	font-size: 14px;
+	line-height: 30px;
+	border: 1px solid #999;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	color: #999;
+	text-decoration: none;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.size > div > a:hover {
+	color: #666;
+	border: 1px solid #666;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.size > div > a.active {
+	color: #000;
+	border: 1px solid #000;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.color > div > a {
+	border: 1px solid #fff;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	height: 32px;
+	width: 32px;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.color > div > a:hover {
+	border: 1px solid #666;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.color > div > a.active {
+	border: 1px solid #000;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > div.color > div > a > span {
+	display: block;
+	border: 2px #eee solid;
+	width: 100%;
+	height: 100%;
+}
+
+section.product div.deta > div.info > div.tab > ul.content > li > h6 {
+	margin: 0 0 10px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #333;
+	font-family: 'HSregular';
+}
+
+section.product div.deta > div.info > div.IMOQ {
+	font-size: 18px;
+	line-height: 42px;
+	color: #595757;
+	font-family: 'HSregular';
+	height: 42px;
+	width: 100%;
+	margin-bottom: 90px;
+	overflow: hidden;
+}
+
+section.product div.deta > div.info > div.IMOQ > span {
+	float: left;
+	width: 120px;
+	margin-right: 20px;
+}
+
+section.product div.deta > div.info > div.IMOQ > form {
+	display: block;
+	width: 240px;
+	float: left;
+}
+
+section.product div.deta > div.info > div.IMOQ > form span {
+	float: left;
+}
+
+section.product div.deta > div.info > div.IMOQ > form input {
+	width: 125px;
+	height: 32px;
+	margin: 4px 5px 4px 10px;
+	padding: 2px 3px;
+	float: left;
+	border: 1px solid #898989;
+	outline: none;
+}
+
+section.product div.deta > div.info > div.IMOQ > form div {
+	margin: 4px 0;
+	float: left;
+}
+
+section.product div.deta > div.info > div.IMOQ > form div > a {
+	display: block;
+	width: 20px;
+	height: 15px;
+	line-height: 13px;
+	text-align: center;
+	border: 1px solid #898989;
+	color: #898989;
+}
+
+section.product div.deta > div.info > div.IMOQ > form div > a > i {
+	line-height: 13px;
+	height: 15px;
+}
+
+section.product div.deta > div.info > div.IMOQ > form div > a:last-child {
+	margin-top: 2px;
+}
+
+section.product div.deta > div.info > div.IMOQ > button {
+	height: 42px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 22px;
+	color: #fff;
+	background: #595757;
+	font-family: 'HSlight';
+	border: none;
+	outline: none;
+	float: right;
+	padding: 0 10px;
+}
+
+section.product div.deta > div.info > div.IMOQ > button:hover {
+	background: #b60005;
+}
+
+section.product div.deta > div.info > div.IMOQ > button > i {
+	margin-right: 10px;
+}
+
+section.product div.deta > div.info > div.icon {
+	height: 42px;
+	width: 100%;
+	overflow: hidden;
+}
+
+section.product div.deta > div.info > div.icon > div {
+	float: left;
+	height: 80px;
+	max-width: 50%;
+	border-right: 1px #595757 solid;
+	padding-right: 20px;
+}
+
+section.product div.deta > div.info > div.icon > div:last-child {
+	margin-left: 20px;
+	border-right: none;
+}
+
+section.product div.deta > div.info > div.icon > div > h5 {
+	font-size: 20px;
+	font-family: 'HSregular';
+	color: #595757;
+	height: 32px;
+	line-height: 32px;
+	margin: 0;
+}
+
+section.product div.deta > div.info > div.icon > div > ul {
+	height: 42px;
+	clear: both;
+}
+
+section.product div.deta > div.info > div.icon > div > ul > li {
+	float: left;
+	margin-right: 5px;
+	height: 36px;
+	text-align: center;
+	min-width: 50px;
+}
+
+section.product div.deta > div.info > div.icon > div > ul > li > img {
+	height: 36px;
+	width: auto;
+	margin: 0 auto;
+}
+
+section.product div.deta > div.info > div.banner {
+	width: 100%;
+	height: 90px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+section.product div.deta > div.info > div.banner > img {
+	height: 90px;
+	width: 100%;
+}
+
+section.product div.rproduct {
+	height: 210px;
+	width: 100%;
+	overflow: hidden;
+}
+
+section.product div.rproduct > ul.title {
+	height: 32px;
+	line-height: 32px;
+	background: #efefef;
+	clear: both;
+	margin: 0;
+}
+
+section.product div.rproduct > ul.title > li {
+	float: left;
+	width: 195px;
+	height: 32px;
+	padding: 0 10px;
+	line-height: 32px;
+}
+
+section.product div.rproduct > ul.title > li:hover > a {
+	color: #000;
+}
+
+section.product div.rproduct > ul.title > li.active {
+	border-top: 3px solid red;
+	line-height: 26px;
+	background: #fff;
+}
+
+section.product div.rproduct > ul.title > li > a {
+	text-align: center;
+	color: #999;
+	font-size: 16px;
+	text-decoration: none;
+	width: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+section.product div.rproduct > ul.content {
+	height: 168px;
+	margin: 0;
+}
+
+section.product div.rproduct > ul.content > li {
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+
+section.product div.rproduct > ul.content > li.active {
+	display: block;
+}
+
+section.product div.rproduct > ul.content > li > ol {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	list-style: none;
+	clear: both;
+}
+
+section.product div.rproduct > ul.content > li > ol > li {
+	float: left;
+	width: 14.2857%;
+}
+
+section.product div.rproduct > ul.content > li > ol > li > a {
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: 10px auto 0;
+	text-decoration: none;
+}
+
+section.product div.rproduct > ul.content > li > ol > li > a > img {
+	height: 100%;
+	width: 100%;
+	background: #ccc;
+	border: 1px #999 solid;
+}
+
+section.product div.rproduct > ul.content > li > ol > li > a > span {
+	display: none;
+	width: 100%;
+	text-align: center;
+	color: #999;
+	text-decoration: none;
+}
+
+section.product div.rproduct > ul.content > li > ol > li > a:hover > span {
+	display: block;
+}
+
+section.product div.productInformation {
+	width: 100%;
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+section.product div.productInformation > h5 {
+	display: block;
+	margin: 0 0 10px;
+	padding: 0 0 10px;
+	border-bottom: 1px solid #333;
+	font-size: 20px;
+	font-family: 'HSregular';
+	color: #333;
+}
+
+section.product div.productInformation > img {
+	width: 100%;
+	height: auto;
+	outline: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/********************************
+*
+*	
+*     product 产品列表
+*
+*
+*********************************/
+
+section.crowdfunding {
+	width: 100%;
+	padding: 20px 0;
+}
+
+section.crowdfunding div.meun-crowdfunding {
+	width: 230px;
+	float: left;
+}
+
+section.crowdfunding div.meun-crowdfunding a {
+	display: block;
+	width: 100%;
+	height: 42px;
+	line-height: 42px;
+	position: relative;
+	padding: 0 10px 0 20px;
+	text-decoration: none;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li {
+	width: 100%;
+	margin-bottom: 7px;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > a {
+	background: #e6e6e6;
+	color: #595757;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > a:hover {
+	background: #ccc;
+	color: #333;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li.active > a {
+	background: #e6e6e6;
+	color: red;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > a > i {
+	float: left;
+	line-height: 42px;
+	margin-right: 20px;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > ul > li {
+	width: 100%;
+	margin-top: 7px;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > ul > li > a {
+	background: #efefef;
+	color: #333;
+}
+
+section.crowdfunding div.meun-crowdfunding > ul > li > ul > li > a:hover {
+	background: #ddd;
+}
+
+section.crowdfunding div.content-crowdfunding {
+	margin-left: 230px;
+	width: calc(100% - 230px);
+}
+
+section.crowdfunding div.content-crowdfunding > ul {
+	margin: 20px 0 0;
+	padding: 0;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box {
+	float: left;
+	width: calc(33.3333% - 15px);
+	margin-left: 15px;
+	margin-bottom: 15px;
+	padding: 5px;
+	border: 1px solid #dcdddd;
+	position: relative;
+	overflow: hidden;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > div.img {
+	height: 260px;
+	width: 100%;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > h5 {
+	padding: 5px;
+	text-align: center;
+	width: 200px;
+	background: red;
+	position: absolute;
+	color: #fff;
+	top: 18px;
+	left: -58px;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	/* Internet Explorer */
+	-moz-transform: rotate(-45deg);
+	/* Firefox */
+	-webkit-transform: rotate(-45deg);
+	/* Safari 和 Chrome */
+	-o-transform: rotate(-45deg);
+	/* Opera */
+	z-index: 5;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > div.img > a {
+	color: red;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: none;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box:hover > div.img > a {
+	display: block;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > a.name {
+	cursor: pointer;
+	color: #999;
+	font-size: 14px;
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	text-decoration: none;
+	margin: 5px 0 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > a.name:hover {
+	color: #333;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > div.line {
+	height: 2px;
+	background: #9fa0a0;
+	margin-bottom: 10px;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > div.line > span {
+	width: 0.1%;
+	height: 2px;
+	margin: 0;
+	padding: 0;
+	background: #b60005;
+	display: block;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > ul {
+	margin: 0;
+	padding: 0;
+	height: 38px;
+	width: 100%;
+	clear: both;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > ul > li {
+	float: left;
+	border-right: 1px solid #999;
+	width: 33.3333%;
+	padding-left: 10px;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > ul > li:last-of-type {
+	border-right: none;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > ul > li > h5 {
+	margin: 0 0 2px;
+	font-size: 14px;
+	line-height: 18px;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+section.crowdfunding div.content-crowdfunding > ul > li.box > ul > li > h6 {
+	margin: 0;
+	font-size: 12px;
+	line-height: 18px;
+	color: #999;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result {
+	width: 100%;
+	padding-left: 15px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.search {
+	height: 23px;
+	margin: 0 0 10px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.search > label {
+	float: right;
+	margin: 0;
+	border: 1px solid #9fa0a0;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.search > label > input {
+	border: none;
+	line-height: 21px;
+	padding: 0 5px;
+	font-size: 14px;
+	background: none;
+	outline: none;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.search > label > a {
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	background: #dcdddd;
+	text-align: center;
+	color: #333;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main {
+	height: 62px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.checkbox {
+	border-bottom: 2px solid #595757;
+	width: 100%;
+	margin: 0;
+	height: 30px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.checkbox > li {
+	float: left;
+	margin-right: 20px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.ahref {
+	width: 100%;
+	margin: 0 0 20px;
+	height: 30px;
+	background: #dcdddd;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.ahref > li {
+	float: left;
+	line-height: 30px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.ahref > li > a {
+	color: #333;
+	line-height: 30px;
+	padding: 0 20px;
+}
+
+section.crowdfunding div.content-crowdfunding > div.result > div.main > ul.ahref > li.active > a {
+	color: #b60005;
+}

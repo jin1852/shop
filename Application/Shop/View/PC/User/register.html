@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<!-- 弹出层 -->
+<div class="popupDivForAll" style="display: none">
+	<div class="content">
+		<h5>Thank you for the registration</h5>
+		<h6>We will verify your details and send an email with login password to you within two working days.</h6>
+		<a class="bt-ok">OK</a>
+	</div>
+	<div class="bg"></div>
+</div>
+<!-- 弹出层 结束 -->
+<include file="Public:nav"/>
+<!-- end .indexBanner -->
+<section class="signup">
+	<div class="container">
+		<div class="signupDiv">
+			<h4>Register for Market Place</h4>
+			<h5>To experience Market Place and the ease of managing your orders and account, please complete the four fields below and click 'Send Application'. We will then verify your details and provide access log in's and passwords within 2 working days.</h5>
+			<div class="businessCard" id="business_card" style="background-size:contain;background-position:center;background-repeat:no-repeat;">
+				<h5>Upload your Business Card</h5>
+				<i id="upload" class="fa fa-folder-open-o" aria-hidden="true"></i>
+				<input id="upload_input" type="file">
+			</div>
+
+			<form>
+				<ul>
+					<li>
+						<label style="padding-left: 140px;">
+							<b id="help_text" style="color: red"></b>
+						</label>
+					</li>
+					<li>
+						<label><span>Company:</span>
+							<input type="text" id="company"><i class="fa fa-asterisk" aria-hidden="true"></i>
+						</label>
+					</li>
+					<li>
+						<label style="width:350px"><span>Telephone:</span>
+							<input type="text" id="company_phone"><i class="fa fa-asterisk" aria-hidden="true"></i>
+						</label>
+					</li>
+					<li>
+						<label style="width:415px"><span>Email:</span>
+							<input type="text" id="email"><i class="fa fa-asterisk" aria-hidden="true"></i>
+						</label>
+					</li>
+					<li>
+						<label style="width:330px;"><span>Contact:</span>
+							<input type="text" id="contact"><i class="fa fa-asterisk" aria-hidden="true"></i>
+						</label>
+						<label style="width:250px; margin-left:40px;"><span style="width:60px;">Title:</span>
+							<input type="text" style="width: calc(100% - 60px)" id="zy_title">
+						</label>
+					</li>
+					<li>
+						<label style="width:350px"><span>Phone:</span>
+							<input type="text" id="phone">
+						</label>
+					</li>
+					<li>
+						<label style="width:330px" ><span>Country:</span>
+							<div>
+								<select id="country">
+									<option value="0">select country</option>
+									<volist name="country_list" id="country_list">
+										<option value="{$country_list.id}">{$country_list.en_name}</option>
+									</volist>
+								</select>
+							</div>
+						</label>
+					</li>
+					<li style="margin-bottom:5px;">
+						<label><span>Full Address:</span>
+							<textarea id="address"></textarea>
+						</label>
+					</li>
+					<li>
+						<label><span>Company Website:</span>
+							<input type="text" id="website">
+						</label>
+					</li>
+					<li>
+						<label><span>Business Type:</span>
+							<input type="text" id="business_type">
+						</label>
+					</li>
+					<li>
+						<label class="agree" style="width: 400px;">
+							<input type="checkbox" id="agree"> I agree to the <a href="#">Terms & Conditions</a></label>
+						<button id="apply" type="button">Apply</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<!-- end .signupDiv -->
+	</div>
+</section>
+<!-- end .signup -->
+
+
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+	//判断浏览器是否支持FileReader接口
+	if(typeof FileReader == 'undefined'){
+		alert("你的浏览器版本过旧!");
+		//使选择控件不可操作
+		document.getElementById("upload_input").setAttribute("disabled","disabled");
+	}
+	$(document).ready(function(){
+		$("#upload").click(function(){
+			$(this).parent().find('input').click();
+		});
+		$("#upload_input").change(function(i){
+			var file = i.target.files[0],reader = new FileReader();
+			if(file) {
+				if (/image\/\w+/.test(file.type)) {
+					//将文件以Data URL形式读入页面
+					reader.readAsDataURL(file);
+					//监听
+					reader.onload = function (e) {
+						$('.businessCard').find('h5').hide();
+						$(".businessCard").data('img',this.result).css("background-image","url('"+this.result+"')");
+					}
+				} else {
+					show_alert("It is not a image");
+				}
+			}else{
+				show_alert('please select file');
+			}
+		});
+		$('#apply').click(function(){
+			var text = 'Please input your ', E = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			var company = get_dom_val($('#company')), company_phone = get_dom_val($('#company_phone')), email = get_dom_val($('#email')), contact = get_dom_val($('#contact')), phone = get_dom_val($("#phone")), zy_title = check_not_null($('#zy_title')), country = check_not_null($("#country")), address = check_not_null($("#address")), website = check_not_null($("#website")), business_type = check_not_null($("#business_type")),
+					business_card=$("#business_card").data('img'),data = {},ok=$(".bt-ok"),reg_help=$('.popupDivForAll');
+			change_reg_help_text('','');
+			change_help_text('');
+			ok.data('status',0);
+			if (company) {
+				if (company_phone) {
+					if (email) {
+						if (E.test(email)) {
+							if (contact) {
+								if (check_agree()) {
+									if (!business_card) {
+										business_card = '';
+									}
+									data = {
+										company: company,
+										company_phone: company_phone,
+										email: email,
+										contact: contact,
+										zy_title: zy_title,
+										country: country,
+										address: address,
+										website: website,
+										business_type: business_type,
+										business_card: business_card,
+										phone: phone
+									};
+									//console.dir(data);
+									post_url_data('__APP__/Register/do_register', 'POST', data, function (err, result) {
+										if (err) {
+											show_alert(err);
+										} else {
+											//show_alert(result.info);
+											if(result.status==1){
+												//window.location.href='__APP__/';
+												ok.data('status',1);
+												change_reg_help_text('Thank you for the registration','We will verify your details and send an email with login password to you within two working days.');
+												reg_help.show();
+											}else{
+												if(result.status==-10) {
+													ok.data('status',-10);
+													change_reg_help_text('Thank you for the registration', 'This ID had been registrated, Please change another one to register.');
+													reg_help.show();
+
+												}else {
+													change_help_text(result.info);
+												}
+											}
+										}
+									},300000);
+								}
+							} else {
+								change_help_text(text + 'contact',$("#contact"));
+							}
+						} else {
+							change_help_text('email error',$("#email"));
+						}
+					} else {
+						change_help_text(text + 'email',$("#email"));
+					}
+				} else {
+					change_help_text(text + 'telephone',$("#company_phone"));
+				}
+			} else {
+				change_help_text(text + 'company',$("#company"));
+			}
+		});
+		$(".bt-ok").click(function(){
+			var ok=$(this).data('status');
+			$(".popupDivForAll").hide();
+			if(ok==1) {
+				window.location.href = '__APP__/';
+			}else if(ok==-10){
+				change_help_text('This email has been register',$("#email"));
+			}
+		})
+	});
+	function show_alert(text){
+		alert(text);
+		return false;
+	}
+	function check_agree() {
+		if($('#agree').is(':checked')){
+			return true;
+		}else{
+			return change_help_text('Please agree to the Terms & Conditions',$("#agree"));
+		}
+	}
+	function get_dom_val(dom){
+		return dom.val();
+	}
+	function check_not_null(dom){
+		if(dom.val()){
+			return dom.val();
+		}else{
+			return '';
+		}
+	}
+	function change_reg_help_text(h5,h6){
+		var reg_help=$('.popupDivForAll');
+		reg_help.find('.content>h5').html(h5);
+		reg_help.find('.content>h6').html(h6);
+	}
+	function change_help_text(text,dom){
+		$('#help_text').text(text);
+		if(dom) {
+			dom.focus();
+		}
+	}
+</script>

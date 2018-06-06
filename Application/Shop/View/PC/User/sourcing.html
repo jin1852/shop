@@ -1,0 +1,285 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+<style>
+    .ssing{
+        color: #fff !important;
+        background: #595757 !important;
+        padding: 0 8px;
+        display: inline-block;
+        border: 1px solid #595757;
+        line-height: 26px;
+        text-align: center;
+        text-decoration: none !important;
+        right: 0;
+        float: right;
+        margin-top: 5px;
+    }
+    .ssing:hover{
+        color: #fff;
+        background: #b60005 !important;
+    }
+</style>
+<div class="content_list">
+    <div class="title">
+        <ul class="enquiry">
+            <li class="icon"> </li>
+            <li class="enquiryNo">Date</li>
+            <li class="date"> </li>
+            <li class="files">Files</li>
+        </ul>
+    </div>
+    <!-- end .title -->
+    <!-- uploadSourcingList icon [just loading one times] 关于Sourcing上传文件图标样式 -->
+    <link href="__PUBLIC__/Shop/p/css/uploadSourcingList.css" rel="stylesheet">
+
+    <!-- end link uploadSourcingList -->
+    <div class="list">
+        <ul class="enquiry sourcing">
+            <volist name="list" id="source">
+            <li class="active" id="M{$source.id}">
+                <ul class="title">
+                    <li class="icon">
+                        <a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="enquiryNo">{$source.add_time|date="M d Y",###}</li>
+                    <li class="date"></li>
+                    <li class="files">
+                        <!--<a href="javascript:void(0);" onclick="javascript:printContent('#M{$source.id}');">Print</a>-->
+                    </li>
+                </ul>
+                <div class="content">
+                    <div class="list sourcingList">
+                        <div class="sourcingL">
+                            <ul>
+                                <php>$items=$source['item_list'];</php>
+                                <volist name="items" id="item">
+                                    <li class="disabledList">
+                                        <div class="left">
+                                            <div class="img" style="background:url({$item.img}) no-repeat center;background-size:cover">
+                                            </div>
+                                            <div class="file">
+                                                <ul>
+                                                    <php>$attach_list=$item['attach'];</php>
+                                                    <volist name="attach_list" id="attach_item">
+                                                        <li class="{$attach_item.ext}" style="height:100px;">
+                                                            <img src="__ROOT__{$attach_item.filename}" style="position: relative;width: 50px;height:50px;"/>
+                                                            <span style="position: relative" >{$attach_item.name}</span>
+                                                        </li>
+                                                    </volist>
+                                                    <div class="clr"></div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <h5>Product Details  (Optional)</h5>
+                                            <label>
+                                                <span></span>
+                                                <div>
+                                                    <span style="margin:0 10px 0 10px;">{$item.prodtype}</span>
+                                                    <!--<select class="type" disabled="">-->
+                                                        <!--<option>Choose a Product Type </option>-->
+                                                        <!--<option>Tools &amp; Gadgets</option>-->
+                                                        <!--<option>Knife</option>-->
+                                                        <!--<option>Cutting Boards</option>-->
+                                                        <!--<option>BBQ</option>-->
+                                                        <!--<option>Baking</option>-->
+                                                        <!--<option>Accessories</option>-->
+                                                        <!--<option>Others</option>-->
+                                                    <!--</select>-->
+                                                </div>
+                                            </label>
+                                            <label>
+                                                <span>Size</span>
+                                                <div>
+                                                    <input type="text" class="sizetext" disabled="" value="{$item.size}">
+                                                </div>
+                                                <div>
+                                                    <!--<select class="size" disabled="">-->
+                                                        <!--<option>CM</option>-->
+                                                        <!--<option>Inch</option>-->
+                                                    <!--</select>-->
+                                                    <span style="margin:0 10px 0 10px;">{$item.size_type}</span>
+
+                                                </div>
+                                                <div>
+                                                    <!--<select class="function" disabled="">-->
+                                                        <!--<option>Function</option>-->
+                                                    <!--</select>-->
+                                                    <span style="margin:0 10px 0 10px;">{$item.function}</span>
+                                                </div>
+                                            </label>
+                                            <label>
+                                                <span>Tanget Price</span>
+                                                <div>
+                                                    <input class="price" type="text" disabled="" value="{$item.target_price}">
+                                                </div>
+                                                <div >
+                                                    <!--<select class="material" disabled="">-->
+                                                        <!--<option>Material</option>-->
+                                                        <!--<option>Stailess Steel</option>-->
+                                                        <!--<option>Silicone</option>-->
+                                                        <!--<option>Nylon</option>-->
+                                                        <!--<option>Wood</option>-->
+                                                        <!--<option>Bamboo</option>-->
+                                                        <!--<option>Plastic</option>-->
+                                                        <!--<option>MDF</option>-->
+                                                        <!--<option>Acrylic</option>-->
+                                                        <!--<option>Others</option>-->
+                                                    <!--</select>-->
+                                                    <span style="margin:0 10px 0 10px;">{$item.material}</span>
+                                                </div>
+                                            </label>
+                                            <label>
+                                                <span>Quantity</span>
+                                                <div>
+                                                    <input class="quantity" type="text" disabled="" value="{$item.quantity}">
+                                                </div>
+                                                <div  >
+                                                    <!--<select class="features" disabled="">-->
+                                                        <!--<option>Coating</option>-->
+                                                        <!--<option>Space Saving</option>-->
+                                                        <!--<option>Multi-functiongs</option>-->
+                                                        <!--<option>Innovative Functiong</option>-->
+                                                        <!--<option>Non-slip</option>-->
+                                                        <!--<option>Hot Selling</option>-->
+                                                    <!--</select>-->
+                                                    <span style="margin:0 10px 0 10px;">{$item.coating}</span>
+                                                </div>
+                                            </label>
+                                            <label>
+                                                <span>Remark</span>
+                                                <div class="remarkDiv">
+                                                    <textarea class="remark" disabled="">{$item.remark}</textarea>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <a class="ssing" href="javascript:void(0);" data-id="{$source.id}">Start sourcing</a>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end .list -->
+                </div>
+                <!-- end .content -->
+            </li>
+
+            </volist>
+        </ul>
+    </div>
+    <!-- end .list -->
+    <!--<div class="page">-->
+        <!--<ul>-->
+            <!--<li class="active"><a href="#">1</a></li>-->
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li><a href="#">3</a></li>-->
+            <!--<li><a href="#">4</a></li>-->
+            <!--<li>...</li>-->
+            <!--<li><a href="#">35</a></li>-->
+            <!--<li><a href="#">36</a></li>-->
+            <!--<li><a href="#">NEXT</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+</div>
+<div class="clr"></div>
+</section>
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+
+<script type="text/javascript" src="__PUBLIC__/Shop/J/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Shop/J/jquery.jqprint-0.3.js"></script>
+<script type="text/javascript">
+    function printContent(objid_name){
+        $(objid_name).jqprint();
+    }
+    $(document).ready(function(){
+        $(".t_list").click(function () {
+            window.location.href = '__APP__/Ucenter/view_history/type/' + $(this).data('id');
+        });
+        $(".delete").click(function () {
+            var prodId = $(this).data("id");
+            try {
+                if (prodId > 0) {
+                    post_url_data('__APP__/Users/del_history', 'POST', {prodId: prodId}, function (err, Data) {
+                        if (err) {
+                            alert(err);
+                        } else {
+                            if (Data.status == 1) {
+                                alert(Data.info);
+                                window.location.href = '__APP__/ucenter/view_history/type/' + $(".t_list.active").data('id');
+                            } else {
+                                alert(Data.info);
+                            }
+                        }
+                    });
+                } else {
+                    return false;
+                }
+            } catch (e) {
+                console.log(e);
+            } finally {
+                prodId = null;
+            }
+        });
+        $(".btn").click(function () {
+            var prodId = get_id($(this)), prodName = get_name($(this)), data = {};
+            try {
+                if (prodId > 0 && prodName) {
+                    data = {prodId: prodId, prodName: prodName};
+                    post_url_data('__APP__/Users/add_to_cart', 'POST', data, function (err, result) {
+                        if (err) {
+                            alert(err);
+                        } else {
+                            alert(result.info);
+                            if (result.status == -20) {
+                                window.location.href = '__APP__/Login/index';
+                            }
+                        }
+                    });
+                } else {
+                    return false;
+                }
+            } catch (e) {
+                console.log(e);
+            } finally {
+                prodId = null;
+                prodName = null;
+                data = null;
+            }
+        });
+        $(".ssing").click(function(){
+            var id = $(this).data('id'),data = {};
+            if(id>0){
+                try {
+                    data = {id: id};
+                    post_url_data('__APP__/Ucenter/start_sourcing', 'POST', data, function (err, result) {
+                        if (err) {
+                            alert(err);
+                        } else {
+                            alert(result.info);
+                            if (result.status == -20) {
+                                window.location.href = '__APP__/Login/index';
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.log(e);
+                }
+            }else{
+                return false;
+            }
+        })
+    });
+    function get_id(dom) {
+        return dom.data('id');
+    }
+    function get_name(dom) {
+        return dom.data('prodname');
+    }
+</script>
+</body>
+</html>

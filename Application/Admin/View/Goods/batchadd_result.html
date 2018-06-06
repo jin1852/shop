@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport Metatag -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Plugin Stylesheets first to ease overrides -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/custom-plugins/wizard/wizard.css" media="screen">
+
+    <!-- Required Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+    <!-- Demo Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+    <!-- jQuery-UI Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+
+    <title>后台管理系统</title>
+
+</head>
+
+<body>
+<!-- Themer End -->
+
+<!-- Header -->
+<include file="./Application/Admin/View/Common/header.html" />
+
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+
+    <!-- Necessary markup, do not remove -->
+    <include file="./Application/Admin/View/Common/left_nav.html" />
+
+
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix">
+
+        <!-- Inner Container Start -->
+        <div class="container">
+
+            <!-- Statistics Button Container -->
+
+            <!-- Panels Start -->
+
+
+            <div class="mws-panel grid_8">
+                <div class="mws-panel-header">
+                    <span>批量添加</span>
+                </div>
+                <div class="mws-panel-body no-padding">
+                    <form class="mws-form" action="{:U('Goods/batchadd')}" method="post" enctype="multipart/form-data">
+                        <div class="mws-form-inline">
+                            <table class="mws-datatable mws-table">
+                                <thead>
+                                <tr>
+                                    <th>选择 <input type="checkbox" name="selectALL" id="selectALL" ></th>
+                                    <th>编号</th>
+                                    <th>商品名称</th>
+                                    <th>商品分类</th>
+                                    <th>商品原价</th>
+                                    <th>mqq</th>
+                                    <th>New</th>
+                                    <th>热门</th>
+                                    <th>总销量</th>
+                                    <th>关键字</th>
+                                    <th>产品说明</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--prodNO	prodName	keyword	prodInfo	proTypeId	price1	price2	mqq	isNew	isHot	totalSale
+                                -->
+                                <volist name="batch_data" id="one">
+                                <tr>
+                                    <td><input type="checkbox" name="tempid[]" class="tempid" value="{$one['temp_id']}"></td>
+                                    <td>{$one['prodNO']}</td>
+                                    <td>{$one['prodName']}</td>
+                                    <td>{$one['proTypeId']}</td>
+                                    <td>{$one['price1']}</td>
+                                    <td>{$one['mqq']}</td>
+                                    <td>{$one['isNew']}</td>
+                                    <td>{$one['isHot']}</td>
+                                    <td>{$one.totalSale}</td>
+                                    <td>{$one.keyword}</td>
+                                    <td>{$one.prodInfo}</td>
+                                    <td>
+                                        <!--<a href="/Admin.php/Goods/edit/gid/80.html" style="color:black;padding:0 2px"><button type="button" class="btn btn-mini">修改</button></a>-->
+                                        <!--<a href="/Admin.php/Goods/detail/gid/80.html" style="color:black;padding:0 2px"><button type="button" class="btn btn-mini">属性</button></a>-->
+                                        <!--<a href="/Admin.php/Goods/style/gid/80.html" style="color:black;padding:0 2px"><button type="button" class="btn btn-mini">系列管理</button></a>-->
+                                        <!--<a href="/Admin.php/Multipics/add/gid/80.html" style="color:black;padding:0 2px"><button type="button" class="btn btn-mini">多图管理</button></a>-->
+                                        <!--<a href="/Admin.php/Related/index/gid/80.html" style="color:black;padding:0 2px"><button type="button" class="btn btn-mini">关联</button></a>-->
+                                        <!--<a onclick="show_confirm(80,'Goods','del')"><button type="button" class="btn btn-mini"><i class="icon-trash"></i> 删除</button></a>                                </td>-->
+                                </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="mws-button-row">
+                            <input type="hidden" name="form_type" value="commit_excel">
+                            <input type="submit" value="提交" class="btn btn-danger">
+                            <input type="reset" value="重置" class="btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Panels End -->
+        </div>
+        <!-- Inner Container End -->
+
+        <!-- Footer -->
+        <include file="Common:footer"/>
+
+    </div>
+    <!-- Main Container End -->
+
+</div>
+
+<!-- JavaScript Plugins -->
+<script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="__PUBLIC__/Ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/Ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue=UE.getEditor('myEditor',{
+        autoWidth: false ,
+        initialFrameHeight:300
+    });
+    var ue=UE.getEditor('myEditor1',{
+        autoWidth: false ,
+        initialFrameHeight:300
+    });
+    var ue=UE.getEditor('myEditor2',{
+        autoWidth: false ,
+        initialFrameHeight:300
+    });
+    $(function(){
+       $("#selectALL").click(function(){
+            $("input.tempid").attr("checked",this.checked);
+       });
+    });
+</script>
+
+<script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+<script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+<script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+<script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="__ADMIN__/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="__ADMIN__/plugins/flot/jquery.flot.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="__ADMIN__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="__ADMIN__/plugins/validate/jquery.validate-min.js"></script>
+<script src="__ADMIN__/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__ADMIN__/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="__ADMIN__/js/core/themer.js"></script>
+
+<!-- Demo Scripts (remove if not needed) -->
+
+</body>
+</html>

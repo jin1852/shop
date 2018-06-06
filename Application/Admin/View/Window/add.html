@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+<title>后台管理系统</title>
+
+</head>
+
+<body>
+
+	<!-- Header -->
+	<include file="Common/header" />
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    <include file="Common/left_nav" />
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+                <!-- Panels Start -->
+                
+            	<div class="mws-panel grid_8">
+                	<div class="mws-panel-header">
+                    	<span>添加导航</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                    	<form class="mws-form" action="{:U('Window/do_add')}" 
+                              method="post">
+                    		<div class="mws-form-inline">
+                    			<div class="mws-form-row">
+                    				<label class="mws-form-label">父级栏名称</label>
+                    				<div class="mws-form-item">
+                    					<input style="border:0px;"
+                                        type="text" disabled
+                                        value="{$data.indexCC}" 
+                                        class="large">
+                                        <input type="hidden" value='{$data.indexCCId}'name="indexCCPid"class="large">
+                    				</div>
+                    			</div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">导航栏名称</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" name="indexCC"class="large">
+                                    </div>
+                                </div>
+                    			
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">网站地址</label>
+                                    <div class="mws-form-item">
+                                        <textarea rows="" cols="" class="large" name="indexCCDWZ"></textarea>
+                                    </div>
+                                </div>
+                    		</div>
+                    		<div class="mws-button-row">
+                    			<input type="submit" value="提交" class="btn btn-danger">
+                    			<input type="reset" value="重置" class="btn ">
+                                <input type="button" value="退出" class="btn ">
+                    		</div>
+                    	</form>
+                    </div>    	
+                </div>
+                
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+ 
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input[type=button]').click(function(){
+                var url=window.location.pathname;
+                var reg=/.*php/;
+                    url=url.match(reg);
+                window.location.href=url+'/Window/showWindow';
+            });
+        })
+    </script>
+
+</body>
+</html>

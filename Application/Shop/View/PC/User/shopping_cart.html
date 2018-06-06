@@ -1,0 +1,438 @@
+<include file = "PC:User:header" title = "{$title}"  username = ""/>
+
+<include file = "PC:User:searchBar" title = "{$title}"  username = ""/>
+
+
+			<div class="content_list">
+				<div class="title">
+					<ul class="shoppingCart">
+						<li class="checkBox"> </li>
+						<li class="item">Item No.</li>
+						<li class="description">Description</li>
+						<li class="remark">Remark</li>
+						<li class="sample">Sample</li>
+					</ul>
+				</div>
+				<!-- end .title -->
+
+				<div class="list">
+					<ul class="shoppingCart">
+						<li class="all clear">
+							<div class="checkBox">
+								<a><i class="fa fa-square-o" aria-hidden="true"></i></a>
+							</div>
+							<div class="item">
+								<h5>All</h5>
+							</div>
+						</li>
+                        <volist name="orders_i" id="vo" key="num_k">
+						<li class="clear" id="{$vo.id}" u="{$num_k-1}">
+							<div class="checkBox">
+								<a><i class="fa fa-square-o" aria-hidden="true"></i></a>
+							</div>
+							<div class="item">
+								<img src="__PUBLIC__/Uploads/{$vo.img}">
+								<h5>{$f.productNO}</h5>
+							</div>
+							<div class="description">
+								<h5>{$vo.prodName|subtextt=10}</h5>
+								<h5>{$vo.type|subtextt=20}</h5>
+                                <h5>housing material：{$vo.content|subtextt=40}</h5>
+								<h5>blade material：{$vo.size|substr=0,20}</h5>
+								<h5>Colour：<font color="#{$vo.color}">#{$vo.color}</font></h5>
+							</div>
+							<div class="remark">
+								<textarea placeholder="remark" id="remark{$num_k-1}" name="remark{$num_k-1}" oninput="myFunction()">{$vo.remark}</textarea>
+							</div>
+							<div class="sample">
+								<a href="javascript:sub({$num_k-1});"><i class="fa fa-minus" aria-hidden="true"></i></a>
+								<input type="text" value="{$vo.number}" id="num_t{$num_k-1}" name="num_t{$num_k-1}">
+								<a href="javascript:add({$num_k-1});"><i class="fa fa-plus" aria-hidden="true"></i></a>
+							</div>
+						</li>
+						</volist>
+
+					</ul>
+				</div>
+				<!-- end .list -->
+				<div class="btn_div clear">
+					<a href="javascript:checkshop(1)">Save</a>
+					<a class="black" href="javascript:checkshop(2)">New Enquiry</a>
+				</div>
+				<div class="page">
+					{$page}
+				</div>
+			</div>
+			<!-- end .content_list -->
+
+		</div>
+		<!-- end .content -->
+		<div class="clr"></div>
+	</section>
+	<!-- end .userCenter -->
+
+<include file = "PC:User:foot" title = "{$title}"  username = ""/>
+
+	<div class="signIn-popup-fixed hiden">
+		<ul class="meun">
+			<li><a herf="#">Client</a></li>
+			<li class="active"><a herf="#">Supplier</a></li>
+			<li><a herf="#">Designer</a></li>
+			<li><a herf="#">Staff</a></li>
+			<div class="clr"></div>
+		</ul>
+		<form>
+			<label>
+				<input type="text" placeholder="Email address">
+			</label>
+			<label>
+				<input type="text" placeholder="Email password">
+			</label>
+			<label>
+				<button>Login</button>
+			</label>
+			<label>
+				<a href="#">Forgot your password? Click here</a>
+			</label>
+		</form>
+		<div class="reset hiden">
+			<h4>Reset Password</h4>
+			<h6>We can help you reset your password the email address linked to your account.</h6>
+			<input type="text" placeholder="Email address">
+			<button>Submit</button>
+		</div>
+		<div class="register ">
+			<h5>Don`t have an account?</h5>
+			<h5>Register for Market Place</h5>
+			<ul>
+				<li>
+					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+				</li>
+				<div class="clr"></div>
+			</ul>
+		</div>
+	</div>
+	<div class="mask"></div>
+<div class="popup-enquiry">
+    <div class="content">
+        <h5 id="inform_shop">保存成功</h5>
+        <div class="btnDiv">
+            <a class="closeBtn" href="#" id="ck_1">Yes</a>
+
+        </div>
+    </div>
+    <!-- end .popup-enquiry -->
+    <div class="mark-w"></div>
+</div>
+	<!-- end .signIn-fixed -->
+
+	<script src="__PUBLIC__/Shop/p/js/jquery-2.2.3.js ">
+	</script>
+
+	<!--Include easing-->
+	<script src="__PUBLIC__/Shop/p/js/jquery.easing-1.3.0.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="__PUBLIC__/Shop/p/js/bootstrap-3.3.5.js "></script>
+
+	<!-- unslider 图片轮播 -->
+	<script src="__PUBLIC__/Shop/p/js/unslider.min.js"></script>
+
+	<!-- datepicker 时间选择 -->
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.js"></script>
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.zh-CN.js"></script>
+<script language="JavaScript">
+
+    var hasSaved = true;//是否有输入的内容未保存标志，初始值为false
+    function CheckUnsave(){
+        if(hasSaved==false){
+            return "您有修改的东西未保存..";
+        }
+        //return true; //不能加这个语句
+    }
+
+    //保存了则改变状态
+    function ChangeState()
+    {
+        hasSaved = false;
+    }
+    function ChangeState_1()
+    {
+        hasSaved = true;
+    }
+
+    //增加和减少数量
+        function add(s){
+            ChangeState();
+            var aa = document.getElementById("num_t"+s).value;
+            aa++;
+            document.getElementById("num_t"+s).value=aa;
+        }
+        function sub(s){
+            ChangeState();
+            var aa = document.getElementById("num_t"+s).value;
+            aa--;
+            if(aa<0){
+                document.getElementById("num_t"+s).value=0;
+            }else{
+                document.getElementById("num_t"+s).value=aa;
+            }
+
+        }
+
+        function myFunction(){
+            ChangeState();
+        }
+
+
+
+    //统计被选中项
+    var choose=[];
+    $(document).ready(function() {
+        $('.shoppingCart>li').each(function(){
+            $(this).click(
+                    function(){
+//                        alert($(this).attr('u'));
+//                        alert($(this).attr('class'));
+
+                        if($(this).attr('class')==="clear active"){
+                        	choose[$(this).attr('u')]=$(this).attr('id');
+                        }
+                        if($(this).attr('class')==="clear"){
+                            choose[$(this).attr('u')] = -1;
+
+                        }
+                       // alert(choose[0]);
+                    });
+        });
+    });
+
+    //询价单添加
+    function shop_e() {
+        //$("#ck_2").remove();
+        $cc='<a class="closeBtn" id="ck_2" href='+"'#' >Cancel</a>";
+        $("#ck_1").after($cc);
+        $('#ck_1').attr('href','javascript:ajax_post_i()');
+        $('#ck_2').attr('href','javascript:shop_e_c_q()');
+        $('#inform_shop').html("Create a New Enquiry with Select Products.");
+        $('.popup-enquiry').fadeIn();
+        //$("#ck_2").remove();
+
+    }
+
+    function get_choose(){
+    	choose = [];
+		$('.shoppingCart>li.clear.active').each(function(){
+			if( $(this).attr('id')>=0 && $(this).attr('u')>=0 ){
+				choose[$(this).attr('u')]=$(this).attr('id');
+			}
+			if($(this).attr('class')=="clear"){
+				choose[$(this).attr('u')] = -1;
+
+			}
+		});
+	}
+
+    function shop_e_c_q() {
+        $('#ck_2').attr('href','');
+        $('#ck_1').attr('href','');
+    }
+    //询价单添加
+    function ajax_post_i(){
+        var cid="";
+		console.log(choose);
+        for (var i=0;i<choose.length;i++) {
+        	console.log(choose[i]);
+            if(choose[i]!= -1 && choose[i] != null){
+                //alert(choose[i]);
+                //kj=1;
+				if (cid == "") {
+					cid += choose[i];
+				} else {
+					cid += "," + choose[i];
+				}
+            }
+        }
+        console.log(cid);
+        $.post("{:U('Ucenter/shop_sava_i')}",{id:cid},
+
+                function(data){
+
+                    $("#ck_2").remove();
+                    $('#ck_1').attr('href','');
+                    $('#inform_shop').html("error！");
+                    if(data == "01"){
+                        $('#inform_shop').html("Save Ok！");
+                        ChangeState_1();
+
+                    }
+                    if(data == 02){
+                        $('#inform_shop').html("Save Failed！");
+                        ChangeState_1();
+                    }
+                    $('.popup-enquiry').fadeIn();
+                },
+                "text");//这里返回的类型有：json,html,xml,text
+
+    }
+
+    /* 保存购物车信息--开始 */
+    function checkshop(eck){
+        $("#ck_2").remove();
+        var kj=0;
+        for (var i=0;i<choose.length;i++)
+        {
+            if(choose[i]!= -1 && choose[i] != null){
+                //alert(choose[i]);
+                kj=1;
+                //if(eck==1){
+
+                    var num_t="#num_t"+i;
+                    var remark="#remark"+i;
+                    ajax_post(choose[i],$(num_t).val(),$(remark).val(),eck);
+               // }
+
+            }
+        }
+
+        console.log((kj));
+		console.log((choose));
+        if(kj==0){
+            $('#inform_shop').html("Please Select a Pronduct from Your shopping Cart.");
+            $('.popup-enquiry').fadeIn();
+        }
+        if(kj==1 && eck==2){
+            shop_e();
+        }
+        //ajax_post();
+    }
+
+    function ajax_post(id,a,b,ek){
+        $.post("{:U('Ucenter/shop_sava')}",{id:id,num_t:a,remark:b},
+                function(data){
+                    if( ek!=2){
+                    $('#inform_shop').html("error！");
+                    if(data == "01"){
+                        $('#inform_shop').html("Save Ok！");
+                        ChangeState_1();
+
+                    }
+                    if(data == 02){
+                        $('#inform_shop').html("Save Failed！");
+                        ChangeState_1();
+                    }
+                    $('.popup-enquiry').fadeIn();}
+                },
+                "text");//这里返回的类型有：json,html,xml,text
+    }
+    /* 保存购物车信息--结束 */
+
+    $('.btn-enquiry-newOrder').click(function () {
+        $('.popup-enquiry').fadeIn();
+    });
+    $('div.popup-enquiry a.closeBtn').click(function () {
+        $('.popup-enquiry').fadeOut();
+    });
+    $(document).on('click','div.popup-enquiry a.closeBtn',function(){
+
+        $('.popup-enquiry').fadeOut();
+    });
+
+
+
+
+    </script>
+
+
+	<script>
+		$("section.nav > div.container > div.meunmain > ul > li").hover(function () {
+			var child = $(this).find('div.dropdown');
+			if (child.css('display') == 'none') {
+				child.fadeIn('fast');
+			} else {
+				child.fadeOut('fast');
+			}
+		});
+		$('.userCenter-logined').click(function () {
+			if ($('.userdropdown').hasClass('active')) {
+				$('.userdropdown').removeClass('active');
+			} else {
+				$('.userdropdown').addClass('active');
+			}
+		});
+
+		$(window).scroll(function () {
+			var targetTop = $(this).scrollTop();
+			if (targetTop < 129) {
+				$('section.navfixed').slideUp();
+			}
+			if (targetTop > 128) {
+				$('section.navfixed').slideDown();
+			}
+			if (targetTop < 661) {
+				$('.contactBar-fixed').fadeOut();
+			}
+			if (targetTop > 660) {
+				$('.contactBar-fixed').fadeIn();
+			}
+		});
+		$(".dropdown > .meunL > ul > li").each(function (i) {
+			$(this).hover(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		});
+		$(".userdropdown > ul.title-tap > li").each(function (i) {
+			$(this).click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".userdropdown > div.content > div").eq(i).addClass("active").siblings().removeClass("active");
+
+			});
+		});
+		$(function () {
+			$('.indexBanner').unslider({
+				dots: true,
+			});
+			$('.indexBanner-min').unslider({
+				dots: true,
+			});
+		});
+
+		/******************************************************************************************************************** shopping cart */
+		/* checkbox */
+		$("div.content_list > div.list > ul.shoppingCart > li > div.checkBox > a").click(function () {
+			if ($(this).parents("li").hasClass("active")) {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").removeClass("active");
+				} else {
+					$("div.content_list > div.list > ul.shoppingCart > li.all").removeClass("active");
+					$(this).parents("li").removeClass("active");
+				}
+			} else {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").addClass("active");
+				} else {
+					$(this).parents("li").addClass("active");
+				}
+			}
+			get_choose();
+		});
+		/* data */
+		$('#dataOne').fdatepicker({
+			format: 'dd/mm/yyyy'
+		});
+		$('#dataTwo').fdatepicker({
+			format: 'dd/mm/yyyy'
+		}); /**************************************************************************************************************** end shopping cart */
+	</script>
+</body>
+
+</html>

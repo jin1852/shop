@@ -1,0 +1,224 @@
+<include file = "PC:User:header" title = "{$title}"  username = ""/>
+<include file = "PC:User:searchBar" title = "{$title}"  username = ""/>
+			<!-- end .searchBar -->
+
+			<div class="content_list specialService">
+				<img src="{$img_service}">
+			</div>
+			<!-- end .content_list -->
+		</div>
+		<!-- end .content -->
+		<div class="clr"></div>
+	</section>
+	<!-- end .userCenter -->
+
+<include file = "PC:User:foot" title = "{$title}"  username = ""/>
+	<!-- end .footer -->
+
+	<!-- followingActivitles img -->
+	<div class="followingActivitles-popup-fixed hiden">
+		<div class="content">
+			<img>
+		</div>
+		<div class="bg"></div>
+	</div>
+
+	<!-- end followingActivitles img -->
+
+
+
+
+
+	<div class="contactBar-fixed">
+		<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
+		<a href="#"><i class="fa fa-qrcode" aria-hidden="true"></i></a>
+	</div>
+	<!-- end .contactBar-fixed -->
+
+	<div class="signIn-popup-fixed hiden">
+		<ul class="meun">
+			<li><a herf="#">Client</a></li>
+			<li class="active"><a herf="#">Supplier</a></li>
+			<li><a herf="#">Designer</a></li>
+			<li><a herf="#">Staff</a></li>
+			<div class="clr"></div>
+		</ul>
+		<form>
+			<label>
+				<input type="text" placeholder="Email address">
+			</label>
+			<label>
+				<input type="text" placeholder="Email password">
+			</label>
+			<label>
+				<button>Login</button>
+			</label>
+			<label>
+				<a href="#">Forgot your password? Click here</a>
+			</label>
+		</form>
+		<div class="reset hiden">
+			<h4>Reset Password</h4>
+			<h6>We can help you reset your password the email address linked to your account.</h6>
+			<input type="text" placeholder="Email address">
+			<button>Submit</button>
+		</div>
+		<div class="register ">
+			<h5>Don`t have an account?</h5>
+			<h5>Register for Market Place</h5>
+			<ul>
+				<li>
+					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+				</li>
+				<div class="clr"></div>
+			</ul>
+		</div>
+	</div>
+	<div class="mask"></div>
+	<!-- end .signIn-fixed -->
+
+	<script src="__PUBLIC__/Shop/p/js/jquery-2.2.3.js ">
+	</script>
+
+	<!--Include easing-->
+	<script src="__PUBLIC__/Shop/p/js/jquery.easing-1.3.0.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="__PUBLIC__/Shop/p/js/bootstrap-3.3.5.js "></script>
+
+	<!-- unslider 图片轮播 -->
+	<script src="__PUBLIC__/Shop/p/js/unslider.min.js"></script>
+
+	<!-- datepicker 时间选择 -->
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.js"></script>
+	<script src="__PUBLIC__/Shop/p/js/foundation-datepicker.zh-CN.js"></script>
+
+	<script>
+		$("div.followingActivitles img").click(function () {
+			$('div.followingActivitles-popup-fixed ').fadeIn();
+		});
+		$("div.followingActivitles-popup-fixed div.bg").click(function () {
+			$('div.followingActivitles-popup-fixed ').fadeOut();
+		});
+		$("section.nav > div.container > div.meunmain > ul > li").hover(function () {
+			var child = $(this).find('div.dropdown');
+			if (child.css('display') == 'none') {
+				child.fadeIn('fast');
+			} else {
+				child.fadeOut('fast');
+			}
+		});
+		$('.userCenter-logined').click(function () {
+			if ($('.userdropdown').hasClass('active')) {
+				$('.userdropdown').removeClass('active');
+			} else {
+				$('.userdropdown').addClass('active');
+			}
+		});
+
+		$(window).scroll(function () {
+			var targetTop = $(this).scrollTop();
+			if (targetTop < 129) {
+				$('section.navfixed').slideUp();
+			}
+			if (targetTop > 128) {
+				$('section.navfixed').slideDown();
+			}
+			if (targetTop < 661) {
+				$('.contactBar-fixed').fadeOut();
+			}
+			if (targetTop > 660) {
+				$('.contactBar-fixed').fadeIn();
+			}
+		});
+		$(".dropdown > .meunL > ul > li").each(function (i) {
+			$(this).hover(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		});
+		$(".userdropdown > ul.title-tap > li").each(function (i) {
+			$(this).click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".userdropdown > div.content > div").eq(i).addClass("active").siblings().removeClass("active");
+
+			});
+		});
+		$(function () {
+			$('.indexBanner').unslider({
+				dots: true,
+			});
+			$('.indexBanner-min').unslider({
+				dots: true,
+			});
+		});
+
+		/******************************************************************************************************************** user center */
+		/* shopping checkbox */
+		$("div.content_list > div.list > ul.shoppingCart > li > div.checkBox > a").click(function () {
+			if ($(this).parents("li").hasClass("active")) {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").removeClass("active");
+				} else {
+					$("div.content_list > div.list > ul.shoppingCart > li.all").removeClass("active");
+					$(this).parents("li").removeClass("active");
+				}
+			} else {
+				if ($(this).parents("li").hasClass("all")) {
+					$("div.content_list > div.list > ul.shoppingCart > li").addClass("active");
+				} else {
+					$(this).parents("li").addClass("active");
+				}
+			}
+		});
+		/* data */
+		$('#dataOne').fdatepicker({
+			format: 'dd/mm/yyyy'
+		});
+		$('#dataTwo').fdatepicker({
+			format: 'dd/mm/yyyy'
+		});
+		/* enquiry list */
+		$('div.content_list > div.list > ul.enquiry > li > ul.title').click(function () {
+			if ($(this).parent('li').hasClass('active')) {
+				$(this).parent('li').removeClass('active');
+			} else {
+				$(this).parent('li').addClass('active');
+			}
+		});
+		/* enquiry success checkbox */
+		$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul > a").click(function () {
+			if ($(this).parent().hasClass("active")) {
+				if ($(this).parent().hasClass("all")) {
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul").removeClass("active");
+				} else {
+					$(this).parent().removeClass("active");
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul.all").removeClass("active");
+				}
+			} else {
+				if ($(this).parent().hasClass("all")) {
+					$("div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList > ul").addClass("active");
+				} else {
+					$(this).parent().addClass("active");
+				}
+			}
+		});
+		/**************************************************************************************************************** end user center */
+	</script>
+</body>
+
+</html>

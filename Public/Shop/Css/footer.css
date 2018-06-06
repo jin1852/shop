@@ -1,0 +1,26 @@
+.w {
+	width: 1210px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.links {
+	margin-top:10px;
+}
+#footer {
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+#footer .links a, #footer .links span {
+	margin: 0 10px;
+}
+
+#footer .copyright {
+	margin: 10px 0;
+}
+#footer .authentication a {
+	margin: 0 5px;
+}
+a img {
+	border: 0;
+}

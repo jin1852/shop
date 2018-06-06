@@ -1,0 +1,76 @@
+<footer>
+    <div class="container">
+        <div class="searchshare">
+            <ul>
+                <li class="search">
+                    <form>
+                        <input type="text" placeholder="Search" value="{$search_key}" id="search">
+                        <a id="search_btn" style="cursor: pointer"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </form>
+                </li>
+                <li class="share">
+                    <include file="Public:share_list"/>
+                </li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+        <div class="help">
+            <ul>
+                <h4>Log in</h4>
+                <?php if(!$user){ ?>
+                <li><a href="__APP__/Login/index">Customer Portal</a></li>
+                <?php }else{ ?>
+                <li>Customer Portal</li>
+                <?php } ?>
+                <li>Designer Portal</li>
+                <li>Supplier Portal</li>
+                <div class="clr"></div>
+            </ul>
+            <ul>
+                <h4>About Us</h4>
+                <li><a href="__APP__/Story/index#our_service" onclick="javascript:set_sT();">Our Service</a></li>
+                <li><a href="__APP__/Story/index#our_team" onclick="javascript:set_sT();">Our Team</a></li>
+                <li><a href="__APP__/Story/index#our_process" onclick="javascript:set_sT();">Our Process</a></li>
+                <div class="clr"></div>
+            </ul>
+            <ul>
+                <h4>Account</h4>
+                <li><a href="__APP__/Ucenter/shoppingcart">My Cart</a></li>
+                <li><a href="#">My Order</a></li>
+                <li><a href="__APP__/About/contactUs">Contact Us</a></li>
+                <div class="clr"></div>
+            </ul>
+            <ul>
+                <h4>Useful Guides</h4>
+                <li><a href="__APP__/About/siteMap">Site Map</a></li>
+                <li><a href="#">Trends</a></li>
+                <li><a href="__APP__/Series/index">Brands</a></li>
+                <div class="clr"></div>
+            </ul>
+            <div class="clr"></div>
+        </div>
+        <div class="copy">
+            <h5 class="left">GALA FACTORY CERTIFICATION</h5>
+            <h5 class="right"><a href="__APP__/About/TC" style="color: #595757;cursor: pointer;">TERMS AND CONDITIONS</a></h5>
+            <div class="icon"></div>
+            <div class="copyright">
+                <h6>Room1401,DongTian Tower,No,19,HaiAn Road,ZhuJiang New Town, Tianhe,Guangzhou,China 510627</h6>
+                <h6>Copyright &copy; 2016  Gala Group. All Rights Reserved.</h6>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#search_btn").click(function(){
+            var key = $("#search").val();
+            try {
+                if (key) window.location.href = '__APP__/Index/search/search_key/' + key;
+            } catch (e) {
+                console.log(e);
+            } finally {
+                key = null;
+            }
+        });
+    });
+</script>

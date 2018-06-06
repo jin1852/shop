@@ -1,0 +1,10 @@
+$(function(){
+    $('.mws-form-row').hover(function(){
+        $(this).css('background-color',"#ddd");
+    },function(){
+        $(this).css('background-color','#F7F7F7');
+    });
+    $(".icon-remove").click(function(){
+    	$(".callback").hide();
+    })
+})

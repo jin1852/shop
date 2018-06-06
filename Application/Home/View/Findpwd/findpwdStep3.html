@@ -1,0 +1,59 @@
+<!DOCTYPE  html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>找回密码</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__/findpwd.css">
+	<include file='Common/topper' />
+	<div id='find-log'>
+		<img src='__HOMEIMG__/logo-2013.png'>
+	</div>
+	<div id='findpwd'>
+		<div class='find-title'>
+			<h3>找回密码</h3>
+		</div>
+		<div class='mc'>
+			<div class="step">
+				<ul>
+					<li class="one finish">填写账户名</li>
+					<li class="two finish3">验证身份</li>
+					<li class="three cur">设置新密码</li>
+					<li class="four">完成</li>
+				</ul>
+			</div>
+			<div class="form">
+				<div class="item">
+					<span>历史收货人手机号码：</span>
+					<div class="f">
+						<input type="text" name='historytel'>
+						<label id='tel-error'></label>
+					</div>
+				</div>
+				<div class="item">
+					<span>新登录密码：</span>
+					<div class="f">
+						<input type="password" name='upwd'>
+					</div>
+					<label style='float:left;margin-left:140px;width:400px;'id='upwd-error'></label>
+				</div>
+				<div class="item">
+					<span>确认新密码：</span>
+					<div class="f">
+						<input type="password" name='cupwd'>
+						<label id='cupwd-error'></label>
+					</div>
+				</div>
+				<div class="item">
+					<span>&nbsp;</span>
+					<div class="f" style="width:70px;border:none">
+						<input class='b'type="button" value="提交">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file='Common/footer' />
+	<script src='__HOMEJS__/findpwd/step3.js'></script>
+	<script src='__HOMEJS__/md5.js'></script>
+</body>
+</html>

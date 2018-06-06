@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBgx42AsBx_wWL0DH880NQR4Low2KGYm2I&sensor=TRUE"></script>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+	<!-- end .indexBanner -->
+<section class="resources">
+	<div class="container" style="border:none;">
+		<div class="contactus">
+			<h5 class="title">Contact Us</h5>
+			<p>We always welcome feedback and comment, so if you need help, or would like to contact us, please use one
+				of the methods shown below.</p>
+			<p>We will do all we can to make sure that the relationship that you have with GALA is a positive one,
+				whether you are making contact to give us good news, make a complaint, place an order, or simply asking
+				for product advice. Please also be assured that GALA will not share, sell or give your details to any
+				other party.</p>
+			<div class="googleMap" id="map">
+
+			</div>
+			<div class="offices">
+				<h5>Offices</h5>
+				<p>14/F, Dongtian Tower, No.19 HaiAn Road, Zhujiang New Town, Guang Zhou, China. Post 510627</p>
+				<p>Tel: 86-20-3785 5883
+					<br> Tel: 86-20-3787 3058
+					<br> Fax: 86-20-3785 5200</p>
+				<p>Email: Gala@galison.co
+					<br> Email: Gala@21cn.net</p>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+</section>
+	<!-- end .resources -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+	window.onload = function() {
+		var x = '23.124629';
+		var y = '113.341519';
+		var address = '14/F, Dongtian Tower, No.19 HaiAn Road, Zhujiang New Town, Guang Zhou, China. Post 510627';
+		var tel = 'Tel: 86-20-3785 5883';
+		var latlng = new google.maps.LatLng(x, y);
+		var options = {
+			zoom: 15,
+			center: latlng,
+			disableDefaultUI: true,
+			panControl: true,
+			zoomControl: true,
+			mapTypeControl: true,
+			scaleControl: true,
+			streetViewControl: false,
+			overviewMapControl: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById("map"), options);
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+			draggable: true
+		});
+		var infowindow = new google.maps.InfoWindow({
+			content: address + '<br>' + tel
+		});
+		google.maps.event.addListener(marker, 'click', function () {
+			infowindow.open(marker.get('map'), marker);
+		});
+	}
+</script>

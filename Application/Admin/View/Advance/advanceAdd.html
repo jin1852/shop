@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/plugins/colorpicker/colorpicker.css" media="screen">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/themer.css" media="screen">
+
+<title>后台管理系统</title>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <block name="include"><include file="Common/header" /></block>
+
+
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    	<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        
+            <!-- Hidden Nav Collapse Button -->
+            <div id="mws-nav-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+        	<!-- left -->
+            <block name="include"><include file="Common/left_nav" /></block>
+        	
+        </div>
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+                
+            	<div class="mws-panel grid_7">
+                    <div class="mws-panel-header">
+                        <span>添加{$title}</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <form class="mws-form" action="{:U('Advance/advanceInsert')}" method="post"  enctype="multipart/form-data">
+                            <div class="mws-form-inline">
+                                <div class="mws-form-row bordered">
+                                    <label class="mws-form-label">读取方式<span class="required">*</span></label>
+                                    <div class="mws-form-item">
+                                        <select class="" name="location" style="width: 200px;">
+                                            <option value="1">本地</option>
+                                            <option value="0">链接地址</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mws-form-row bordered">
+                                    <label class="mws-form-label">链接地址</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" class="large" name="links" value="">
+                                    </div>
+                                </div>
+                                <div class="mws-form-row bordered">
+                                    <label class="mws-form-label">排序,值越高越靠前<span class="required">*</span></label>
+                                    <div class="mws-form-item">
+                                        <input type="text" class="large" name="seriation" value="">
+                                    </div>
+                                </div>
+                                <div class="mws-form-row bordered">
+                                    <label class="mws-form-label">上传图片<span class="required">*</span></label>
+                                    <div class="mws-form-item">
+                                        <input type="file" name="photo" value="" />
+                                    </div>
+                                </div>     
+                                <div class="mws-form-row bordered">
+                                    <label class="mws-form-label">{$title}状态</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline">
+                                            <li><input type="radio" name="status" value="0" checked> <label> 启用</label></li>
+                                            <li><input type="radio" name="status" value="2"> <label> 禁用</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mws-button-row">
+                                <input type="submit" value="添加" class="btn btn-danger">
+                                <input type="reset" value="重置" class="btn ">
+                            </div>
+                        </form>
+                    </div>      
+                </div>
+                
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <include file="Common:footer"/>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    <script src="__ADMIN__/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="__ADMIN__/js/libs/jquery.placeholder.min.js"></script>
+    <script src="__ADMIN__/custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="__ADMIN__/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="__ADMIN__/jui/jquery-ui.custom.min.js"></script>
+    <script src="__ADMIN__/jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="__ADMIN__/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="__ADMIN__/plugins/colorpicker/colorpicker-min.js"></script>
+
+    <!-- Core Script -->
+    <script src="__ADMIN__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__ADMIN__/js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="__ADMIN__/js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="__ADMIN__/js/demo/demo.table.js"></script>
+</body>
+</html>

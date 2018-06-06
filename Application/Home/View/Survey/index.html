@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>调查</title>
+		<link rel="stylesheet" type="text/css" href="__HOMECSS__/survey.css">
+	</head>
+	<body>
+		<div class="w">
+			<div class="top">
+				<div class="log">
+					<a href='{:U('Index/index')}'>
+					<img src="__HOMEIMG__/jdlogo.png">
+					</a>
+				</div>
+				<b>商品列表页用户调查</b>
+				<div class="dog">
+					<img src="__HOMEIMG__/jdog.png">
+				</div>
+			</div>
+			<div class="welcome">
+				<div class="welcome-content">
+					<span style='display:block'>尊敬的用户：</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        您在使用商品列表页的过程中遇到了哪些问题，有什么样的感受，请告诉我们。有助于我们进行页面的完善和优化，力求为您营造最佳的购物体验。【有关订单和快递的相关信息请不要在此处反馈哦^_^】
+				</div>
+			</div>
+			<form method="post" action="{:U('Survey/do_survey')}">
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您对商品列表页的总体满意度如何？</b>
+					</div>
+					<div class="input-content">
+						<input style="margin-bottom:10px;" type='radio' name='myd' value="1">&nbsp;&nbsp;非常满意<br/>
+						<input style="margin-bottom:10px;" type='radio' name='myd' value="2">&nbsp;&nbsp;满意</br>
+						<input style="margin-bottom:10px;"  type='radio' name='myd' value="3">&nbsp;&nbsp;一般</br>
+						<input style="margin-bottom:10px;" type='radio' name='myd' value="4">&nbsp;&nbsp;不满意</br>
+						<input style="margin-bottom:10px;" type='radio' name='myd' value="5">&nbsp;&nbsp;非常不满意
+						</br>
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>请留下您对商品列表页的一些意见和想法（比如希望网页增加哪些信息，或哪些信息需要优化等），谢谢！</b>
+					</div>
+					<div class="input-content">
+						<textarea name='suggest' style="width:600px;height:200px;"></textarea>
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您的性别是：</b>
+					</div>
+					<div class="input-content">
+						<input type="radio" name="sex" value="1">女
+						<input style='margin-left:25px;'type="radio" name="sex" value="2">男
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您的年龄是（周岁）：</b>
+					</div>
+					<div class="input-content">
+						<select name="age">
+	    					<option value="" selected="selected">请选择...</option>
+							<option value="1">17岁及以下</option>
+							<option value="2">18-23岁</option>
+							<option value="3">24-30岁</option>
+							<option value="4">31-35岁</option>
+							<option value="5">36岁及以上</option>
+						</select>
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您的学历是：</b>
+					</div>
+					<div class="input-content">
+						<select name="learn">
+	    					<option value="" selected="selected">请选择...</option>
+							<option value="1">高中/中专/技校及以下</option>
+							<option value="2">大学专科</option>
+							<option value="3">大学本科</option>
+							<option value="4">硕士及以上</option>
+						</select>
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您从事的行业：</b>
+					</div>
+					<div class="input-content">
+						<select name="work">
+    					<option value="" selected="selected">请选择...</option>
+						<option value="1">计算机/互联网/通信/电子</option>
+						<option value="2">会计/金融/银行/保险</option>
+						<option value="3">贸易/消费/制造/营运</option>
+						<option value="4">制药/医疗</option>
+						<option value="5">广告/媒体</option>
+						<option value="6">房地产/建筑</option>
+						<option value="7">专业服务/教育/培训</option>
+						<option value="8">服务业</option>
+						<option value="9">物流/运输</option>
+						<option value="10">能源/原材料</option>
+						<option value="11">政府/非盈利机构</option>
+						<option value="12">其他：</option>
+				</select>
+					</div>
+				</div>
+				<div class="input">
+					<div class="title">
+					<span style='color:red;margin:2px 10px;'>*</span><b>您目前所在的省份是：</b>
+					</div>
+					<div class="input-content">
+						<select name="province">
+    						<option value="" selected="selected">请选择...</option>
+							<option value="1">安徽</option>
+							<option value="2">北京</option>
+							<option value="3">重庆</option>
+							<option value="4">福建</option>
+							<option value="5">甘肃</option>
+							<option value="6">广东</option>
+							<option value="7">广西</option>
+							<option value="8">贵州</option>
+							<option value="9">海南</option>
+							<option value="10">河北</option>
+							<option value="11">河南</option>
+							<option value="12">黑龙江</option>
+							<option value="13">湖北</option>
+							<option value="14">湖南</option>
+							<option value="15">吉林</option>
+							<option value="16">江苏</option>
+							<option value="17">江西</option>
+							<option value="18">辽宁</option>
+							<option value="19">内蒙古</option>
+							<option value="20">宁夏</option>
+							<option value="21">青海</option>
+							<option value="22">山东</option>
+							<option value="23">山西</option>
+							<option value="24">陕西</option>
+							<option value="25">上海</option>
+							<option value="26">四川</option>
+							<option value="27">天津</option>
+							<option value="28">西藏</option>
+							<option value="29">新疆</option>
+							<option value="30">云南</option>
+							<option value="31">浙江</option>
+						</select>
+					</div>
+				</div>
+				<div class="input" style="margin-bottom:50px;">
+					<div class="title" style="height:50px;">
+						<input class='input-button-style'type="submit" value="提交">
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

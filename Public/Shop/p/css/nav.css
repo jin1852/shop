@@ -1,0 +1,1216 @@
+@charset "UTF-8";
+
+/********************************
+*
+*	
+*	NAV 头部菜单
+*
+*
+*********************************/
+
+section.nav {
+	padding: 10px 0 0;
+}
+
+section.nav > div.container > div.logo {
+	height: 50px;
+	width: 165px;
+	float: left;
+	background-image: url(../I/images/logo.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-size: contain;
+}
+
+section.nav > div.container > div.logo > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+section.nav > div.container > div.meun {
+	float: right;
+	padding-top: 30px;
+}
+
+section.nav > div.container > div.meun > ul,
+section.nav > div.container > div.meun > ul > li {
+	float: left;
+	line-height: 25px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+section.nav > div.container > div.meun > ul > li > a {
+	padding: 0 10px;
+	cursor: pointer;
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	font-family: 'HSregular';
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon {
+	display: block;
+	width: 25px;
+	height: 25px;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0 10px;
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_user {
+	background-image: url(../I/images/icon_user.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_book {
+	background-image: url(../I/images/icon_book.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_shoppingcart {
+	background-image: url(../I/images/icon_shoppingcart.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_user:hover {
+	background-image: url(../I/images/icon_user_hover.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_book:hover {
+	background-image: url(../I/images/icon_book_hover.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a.icon.icon_shoppingcart:hover {
+	background-image: url(../I/images/icon_shoppingcart_hover.png);
+}
+
+section.nav > div.container > div.meun > ul > li > a:hover,
+section.nav > div.container > div.meun > ul > li > a:focus {
+	color: #b60005;
+}
+
+section.nav > div.container > div.meunmain {
+	width: 100%;
+}
+
+section.nav > div.container > div.meunmain > ul {
+	width: 100%;
+	margin: 0;
+	padding: 10px 0 5px;
+	position: relative;
+}
+
+section.nav > div.container > div.meunmain > ul > li {
+	float: left;
+	width: 14%;
+	margin-left: 0.3333%;
+}
+
+section.nav > div.container > div.meunmain > ul > li:first-child {
+	margin-left: 0;
+}
+
+section.nav > div.container > div.meunmain > ul > li > a {
+	display: block;
+	width: 100%;
+	padding: 8px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid #fff;
+}
+
+section.nav > div.container > div.meunmain > ul > li > a:hover,
+section.nav > div.container > div.meunmain > ul > li > a:focus,
+section.nav > div.container > div.meunmain > ul > li:hover > a {
+	color: #000;
+	background: #fff !important;
+	border: 1px solid #999;
+}
+
+section.nav > div.container > div.meunmain > ul > li.active > a {
+	color: #000;
+	background: #fff !important;
+	border: 1px solid #333;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown {
+	position: absolute;
+	display: none;
+	top: 48px;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	background: rgba(255, 255, 255, 1);
+	padding: 20px 40px;
+	height: 680px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > div.img_product_rightbottom_bg {
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	width: 640px;
+	height: 400px;
+	/*background: url(../I/images/img-product-rightbottom-bg.jpg) no-repeat center;*/
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR {
+	min-width: 400px;
+	float: left;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > h5 {
+	font-size: 20px;
+	color: #333;
+	font-family: 'HSbold';
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px #ccc solid;
+	position: relative;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > h5 > a {
+	position: absolute;
+	line-height: 22px;
+	font-size: 8px;
+	padding: 0 5px;
+	color: #333;
+	border: 1px solid #333;
+	font-family: 'HSregular';
+	right: 0;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > ul {
+	max-height: 100%;
+	width: 180px;
+	float: left;
+	padding-right: 20px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > ul > li {
+	margin: 0 0 5px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > ul > li > a {
+	font-size: 14px;
+	color: #333;
+	text-decoration: none;
+	font-family: 'HSregular';
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunR > ul > li > a:hover {
+	color: #b60005;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL {
+	width: 170px;
+	margin-left: -40px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul {
+	margin: 0;
+	width: 100%;
+	position: relative;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > a {
+	position: relative;
+	display: block;
+	line-height: 32px;
+	padding-left: 40px;
+	padding-right: 15px;
+	color: #333;
+	font-family: 'HSregular';
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > a > i {
+	line-height: 32px;
+	right: 10px;
+	top: 0;
+	position: absolute;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > a:hover {
+	background: #ddd;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li.active > a {
+	background: #ccc;
+}
+
+
+/**/
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR {
+	min-width: 340px;
+	border-left: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	display: none;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li.active > .meunR {
+	display: block;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > h5 {
+	font-size: 20px;
+	color: #333;
+	font-family: 'HSbold';
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px #ccc solid;
+	position: relative;
+	padding-left: 20px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > h5 > a {
+	position: absolute;
+	line-height: 22px;
+	font-size: 8px;
+	padding: 0 5px;
+	color: #333;
+	border: 1px solid #333;
+	font-family: 'HSregular';
+	right: 0;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul {
+	max-height: 580px;
+	width: 50%;
+	float: left;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li {
+	margin: 0;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li > a {
+	font-size: 14px;
+	color: #333;
+	text-decoration: none;
+	font-family: 'HSbold';
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li a {
+	line-height: 24px;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li > ul > li > a {
+	color: #999;
+	text-decoration: none;
+	font-family: 'HSregular';
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li > a:hover,
+section.nav > div.container > div.meunmain > ul > li > div.dropdown > .meunL > ul > li > .meunR > ul > li > ul > li > a:hover {
+	color: #b60005;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown {
+	background: #444546;
+	height: 672px;
+	top: 53px !important;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown > div.logo-service {
+	width: 304px;
+	height: 123px;
+	margin: 100px auto 44px;
+	background: url(../I/images/nav_service01.jpg) no-repeat center;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown > div.logo-service > a {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown > ul {
+	clear: both;
+	height: 350px;
+	width: 1050px;
+	margin: 0 auto;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown > ul > li {
+	float: left;
+	height: 350px;
+	width: 210px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+section.nav > div.container > div.meunmain > ul > li > div.dropdown.serviceDropdown > ul > li > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+/********************************
+*
+*
+*	NAVFIXED 头部悬浮菜单
+*
+*
+*********************************/
+
+section.navfixed {
+	height: 72px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.96);
+	display: none;
+	z-index: 9999;
+}
+
+section.navfixed > div.container > div.logo {
+	height: 72px;
+	width: 10%;
+	float: left;
+	background-image: url(../I/images/logo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	margin-right: 2%;
+}
+
+section.navfixed > div.container > div.logo > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+section.navfixed > div.container > div.meunDiv {
+	float: left;
+	width: 70%;
+	padding: 6px 10px;
+}
+
+section.navfixed > div.container > div.meunDiv > div {
+	height: 30px;
+	width: 100%;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meun > ul {
+	float: right;
+	margin: 0;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meun > ul > li {
+	float: left;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meun > ul > li > a {
+	padding: 0 10px;
+	line-height: 30px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #333;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meun > ul > li > a:hover,
+section.navfixed > div.container > div.meunDiv > div.meun > ul > li > a:focus {
+	color: #b60005;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain {
+	width: 100%;
+	float: right;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul {
+	margin: 0;
+	height: 30px;
+	line-height: 28px;
+	padding-top: 2px;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li {
+	width: 14.2857%;
+	float: left;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li:first-child {
+	border-left: 1px solid #ccc;
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li > a {
+	display: block;
+	width: 100%;
+	line-height: 28px;
+	text-align: center;
+	font-size: 12px;
+	text-decoration: none;
+	color: #333;
+	font-family: 'HSregular';
+}
+
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li > a:hover,
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li > a:focus,
+section.navfixed > div.container > div.meunDiv > div.meunmain > ul > li.active > a {
+	background: #b60005;
+	color: #fff;
+}
+
+section.navfixed > div.container > div.userDiv {
+	line-height: 75px;
+	float: right;
+	width: 18%;
+}
+
+section.navfixed > div.container > div.userDiv > ul {
+	margin: 0;
+}
+
+section.navfixed > div.container > div.userDiv > ul > li {
+	float: left;
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a {
+	color: #333;
+	font-size: 12px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a:hover {
+	color: #b60005;
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon {
+	display: block;
+	width: 20px;
+	height: 75px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 0 8px;
+	cursor: pointer;
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_user {
+	background-image: url(../I/images/icon_user.png);
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_book {
+	background-image: url(../I/images/icon_book.png);
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_shoppingcart {
+	background-image: url(../I/images/icon_shoppingcart.png);
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_user:hover {
+	background-image: url(../I/images/icon_user_hover.png);
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_book:hover {
+	background-image: url(../I/images/icon_book_hover.png);
+}
+
+section.navfixed > div.container > div.userDiv > ul > li > a.icon.icon_shoppingcart:hover {
+	background-image: url(../I/images/icon_shoppingcart_hover.png);
+}
+
+
+/********************************
+*
+*
+*	SHAREFIXED 右侧分享导航
+*
+*
+*********************************/
+
+div.contactBar-fixed {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -151.5px;
+	z-index: 9999;
+	display: none;
+}
+
+div.contactBar-fixed > a {
+	display: block;
+	width: 37px;
+	height: 37px;
+	background: #727171;
+	margin-bottom: 1px;
+	text-align: center;
+	line-height: 37px;
+	color: #fff;
+	font-size: 20px;
+}
+
+div.contactBar-fixed > a:hover {
+	background: #000;
+}
+
+
+/********************************
+*
+*
+*	page 翻页导航
+*
+*
+*********************************/
+
+div.page {
+	width: 100%;
+	height: 18px;
+}
+
+div.page > div {
+	float: right;
+}
+
+div.page > div > span,
+div.page > div > a {
+	border-radius: 5px;
+	color: #595757;
+	padding: 0 5px;
+	line-height: 18px;
+	border: 1px solid #dcdddd;
+	margin: 0 2px;
+	text-decoration: none;
+}
+
+div.page > div > a:hover {
+	background: #eee;
+}
+
+div.page > div > span.current,
+div.page > div > a.current {
+	background: #b60005;
+	color: #fff;
+}
+
+
+/********************************
+*
+*
+*	user-dorpdown 用户下拉
+*
+*
+*********************************/
+
+section.nav > div.container > div.meun i.tiper {
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	border-radius: 30px;
+	background: #f71735;
+	color: #fff;
+}
+
+section.nav > div.container > div.meun > ul > li > i.tiper {
+	right: -5px;
+	top: -10px;
+}
+
+section.nav > div.container > div.meun div.arrow-up {
+	position: absolute;
+	z-index: 100;
+	top: -8px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 8px solid #fff;
+}
+
+section.nav > div.container > div.meun div.userdropdown {
+	position: absolute;
+	z-index: 99;
+	top: 33px;
+	right: -90px;
+	width: 375px;
+	box-shadow: 0 0px 20px #000;
+	background: #fff;
+	display: none;
+}
+
+section.nav > div.container > div.meun div.userdropdown.active {
+	display: block;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap {
+	height: 85px;
+	width: 100%;
+	padding: 0 15px;
+	clear: both;
+	border-bottom: 1px solid #595757;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li {
+	width: 33.333333%;
+	height: 85px;
+	float: left;
+	position: relative;
+	text-align: center;
+	padding: 10px;
+	cursor: pointer !important;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > i.icon {
+	width: 45px;
+	height: 45px;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > i.icon.icon_user {
+	background: url(../I/images/icon_user_max.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > i.icon.icon_book {
+	background: url(../I/images/icon_resoures_max.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > i.icon.icon_shoppingcart {
+	background: url(../I/images/icon_cart_max.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > i.tiper {
+	top: 7px;
+	right: 23px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > h5 {
+	margin: 5px 0 0;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li > span {
+	position: absolute;
+	width: 100%;
+	height: 6px;
+	background: #595757;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+
+section.nav > div.container > div.meun div.userdropdown > ul.title-tap > li.active > span {
+	display: block;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div {
+	display: none;
+	padding: 0;
+	overflow: hidden;
+	background: #fff;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.active {
+	display: block;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > ul {
+	overflow-y: scroll;
+	padding-left: 15px;
+	height: 480px;
+	width: 100%;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.cart,
+section.nav > div.container > div.meun div.userdropdown > div.content > div.resources {
+	height: 525px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.cart > ul > li,
+section.nav > div.container > div.meun div.userdropdown > div.content > div.resources > ul > li {
+	height: 60px;
+	border-bottom: 1px solid #d3d3d4;
+	padding: 2px 0;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.cart > ul > li > h5,
+section.nav > div.container > div.meun div.userdropdown > div.content > div.resources > ul > li > h5 {
+	line-height: 55px;
+	margin: 0 0 0 100px;
+	padding-right: 15px;
+	font-family: 'HSregular';
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 55px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > ul > li > h5 > a {
+	color: #595757;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > ul > li > h5 > a:hover {
+	color: #b60005;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.cart > ul > li > img {
+	height: 55px;
+	width: 55px;
+	margin-left: 10px;
+	float: left;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.resources > ul > li > span {
+	height: 55px;
+	width: 75px;
+	margin-left: 10px;
+	line-height: 55px;
+	text-align: center;
+	font-family: 'HSregular';
+	display: block;
+	float: left;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.viewall {
+	height: 45px;
+	background: #fff;
+	border-top: 1px solid #595757;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.viewall > a {
+	display: block;
+	width: 85px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid #595757;
+	color: #595757;
+	font-family: 'HSregular';
+	margin: 12px auto 0;
+	text-decoration: none;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.viewall > a:hover {
+	background: #595757;
+	color: #fff;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.logout {
+	height: 45px;
+	background: #fff;
+	border-top: 1px solid #595757;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.logout > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 44px;
+	text-align: center;
+	color: #595757;
+	font-family: 'HSregular';
+	margin: 0;
+	text-decoration: none;
+	transition: none;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.logout > a > i {
+	display: inline-block;
+	background: url(../images/images/logout.png) no-repeat left;
+	background-size: 16px;
+	width: 68px;
+	height: 44px;
+	text-align: left;
+	padding-left: 20px;
+	font-style: normal;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.logout > a:hover {
+	background: #fff;
+	color: #fff;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div > div.logout > a:hover > i {
+	background: url(../images/images/logout_hover.png) no-repeat left;
+	background-size: 16px;
+	color: #b60005;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul {
+	list-style: none;
+	padding: 0 0 0 15px;
+	margin: 0;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li {
+	border-bottom: 1px solid #d3d3d4;
+	padding: 10px 0;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li:last-child {
+	border-bottom: none;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li h6 {
+	margin: 0;
+	color: #595757;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li h5 {
+	margin: 0;
+	color: #595757;
+	line-height: 20px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li > div.icon {
+	width: 90px;
+	height: 45px;
+	float: left;
+	text-align: center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li > div.icon > i {
+	display: block;
+	height: 30px;
+	width: 30px;
+	margin: 0 auto;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.cart > div.icon > i {
+	background: url(../I/update/usercenter/icon_shoppingcart.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.enquiry > div.icon > i {
+	background: url(../I/update/usercenter/icon_enquiry.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.history > div.icon > i {
+	background: url(../I/update/usercenter/icon_history.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.order > div.icon > i {
+	background: url(../I/update/usercenter/icon_order.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.following > div.icon > i {
+	background: url(../I/update/usercenter/icon_following.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.support > div.icon > i {
+	background: url(../I/update/usercenter/icon_support.png) no-repeat center;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li > div.list {
+	margin-left: 90px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li > div.list > h5 {
+	line-height: 45px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.history > div.list > h5 {
+	line-height: 22px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.enquiry > div.list > h5,
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.order > div.list > h5 {
+	padding: 8px 0;
+	border-bottom: 1px #d4d4d5 dashed;
+	line-height: 20px;
+}
+
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.enquiry > div.list > h5:last-child,
+section.nav > div.container > div.meun div.userdropdown > div.content > div.user > ul > li.order > div.list > h5:last-child {
+	border-bottom: none;
+}
+
+
+/********************************
+*
+*
+*	signIn popup 登陆弹窗
+*
+*
+*********************************/
+
+div.signIn-popup-fixed {
+	width: 400px;
+	padding: 30px 40px;
+	background: #fff;
+	position: absolute;
+	top: 19%;
+	left: 50%;
+	margin-left: -200px;
+	z-index: 9990;
+}
+
+div.signIn-popup-fixed > ul.meun {
+	margin-bottom: 40px;
+}
+
+div.signIn-popup-fixed > ul.meun > li {
+	float: left;
+	border-bottom: 2px solid #cacbcc;
+	width: 25%;
+	text-align: center;
+	line-height: 48px;
+	font-size: 18px;
+}
+
+div.signIn-popup-fixed > ul.meun > li > a {
+	color: #999;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	cursor: pointer;
+	font-family: 'HSregular';
+}
+
+div.signIn-popup-fixed > ul.meun > li > a:hover {
+	color: #333;
+}
+
+div.signIn-popup-fixed > ul.meun > li.active {
+	border-bottom: 2px solid #000;
+}
+
+div.signIn-popup-fixed > ul.meun > li.active > a {
+	color: #000;
+}
+
+div.signIn-popup-fixed > form {
+	display: block;
+	padding: 0 20px 10px;
+	font-size: 16px;
+	position: relative;
+}
+
+div.signIn-popup-fixed > form > label {
+	width: 100%;
+	margin: 0 0 10px;
+	line-height: 32px;
+}
+
+div.signIn-popup-fixed > form > label > input {
+	width: 100%;
+	border: 1px #cacbcc solid;
+	text-align: center;
+	line-height: 32px;
+	outline: none;
+	background: none;
+}
+
+div.signIn-popup-fixed > form > label > input:focus {
+	border: #b60005 1px solid;
+}
+
+div.signIn-popup-fixed > form > label > button {
+	width: 100%;
+	border: 1px #050505 solid;
+	text-align: center;
+	outline: none;
+	background: none;
+}
+
+div.signIn-popup-fixed > form > label > button:hover {
+	border: #b60005 1px solid;
+	color: #b60005;
+}
+
+div.signIn-popup-fixed > form > label > a {
+	text-align: center;
+	color: #999;
+	display: block;
+	width: 100%;
+}
+
+div.signIn-popup-fixed > form > label > a:hover {
+	color: #000;
+}
+
+div.signIn-popup-fixed > form > div.warning-tiper {}
+
+div.signIn-popup-fixed > form > div.warning-tiper > span {
+	font-size: 13px;
+	color: #c81728;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	min-height: 34px;
+}
+
+div.signIn-popup-fixed > div.register {
+	text-align: center;
+	width: 180px;
+	margin: 0 auto 20px;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+div.signIn-popup-fixed > div.register > h5 {
+	font-size: 16px;
+	line-height: 20px;
+	margin: 0;
+	font-family: 'HSregular';
+}
+
+div.signIn-popup-fixed > div.register > ul {
+	margin: 10px 0 0;
+	padding: 10px 0 0;
+	border-top: 1px solid #333;
+}
+
+div.signIn-popup-fixed > div.register > ul > li {
+	float: left;
+	border-right: 1px solid #ccc;
+	height: 20px;
+	width: 25%;
+}
+
+div.signIn-popup-fixed > div.register > ul > li:last-child {
+	border: none;
+}
+
+div.signIn-popup-fixed > div.register > ul > li > a {
+	width: 28px;
+	height: 28px;
+	margin: -4px auto 0;
+	display: block;
+	line-height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	background: #5f5d5d;
+}
+
+div.signIn-popup-fixed div.reset {
+	background: #f1f1f0;
+	padding: 10px;
+	margin: 0;
+}
+
+div.signIn-popup-fixed div.reset > h4 {
+	font-size: 18px;
+	margin: 0;
+}
+
+div.signIn-popup-fixed div.reset > h6 {
+	margin: 5px 0 10px;
+}
+
+div.signIn-popup-fixed div.reset > input {
+	width: 100%;
+	border: 1px #898989 solid;
+	text-align: center;
+	line-height: 24px;
+	outline: none;
+	background: #fff;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+div.signIn-popup-fixed div.reset > button {
+	width: 100%;
+	border: 1px #898989 solid;
+	text-align: center;
+	line-height: 24px;
+	outline: none;
+	background: #f1f1f0;
+	font-size: 14px;
+	color: #898989;
+}
+
+div.signIn-popup-fixed div.reset >button:hover {
+	border: #b60005 1px solid;
+	color: #b60005;
+}
+
+div.signIn-popup-fixed div.reset > span {
+	color: #c81728;
+	font-size: 12px;
+	padding: 3px 0;
+}
+
+.popupDivForAll {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 99999;
+}
+
+.popupDivForAll > div.bg {
+	background: rgba(255, 255, 255, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+}
+
+.popupDivForAll > div.content {
+	background: #fff;
+	border: 1px solid #000;
+	width: 556px;
+	height: auto;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -278px;
+	padding: 65px 45px 30px;
+	z-index: 1;
+}
+
+.popupDivForAll > div.content > h5 {
+	font-size: 22px;
+	line-height: 35px;
+	text-align: center;
+	margin: 0 0 20px;
+}
+
+.popupDivForAll > div.content > h6 {
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	margin: 0 0 40px;
+}
+
+.popupDivForAll > div.content > a.bt-ok {
+	font-size: 18px;
+	line-height: 26px;
+	text-align: center;
+	margin: 0 auto;
+	width: 80px;
+	height: 26px;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.popupDivForAll > div.content > a.bt-ok:hover {
+	background: #b60005;
+}

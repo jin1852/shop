@@ -1,0 +1,8 @@
+<div class="title">
+    <ul class="followTap">
+        <h5>Sort:</h5>
+        <volist name="t_list" id="t_">
+            <li class="t_list <?php if($t_['has']==1){ ?>active<?php } ?>" data-id="{$t_.proTypeId}">{$t_.proName}</li>
+        </volist>
+    </ul>
+</div>

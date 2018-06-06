@@ -1,0 +1,348 @@
+/*===========初始化start==============*/
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    margin: 0;
+    padding: 0;
+}
+ol,ul{list-style:none}
+a img{border:0}
+img{vertical-align:middle}
+table{empty-cells:show} 
+a{text-decoration:none}
+del{text-decoration:line-through}
+em{font-style:normal}
+body{
+	margin:0 auto;
+    color: #333333;
+    font-family: Arial,"宋体",Lucida,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 150%;
+    background: none repeat scroll 0 0 #F2F2F2;
+}
+
+/*===========初始化end=============*/
+/*===========logo start==============*/
+.w {
+    margin: 0 auto;
+    padding: 0;
+    width: 990px;
+}
+#logo {
+    float: none;
+    margin: 0;
+    padding: 10px 0;
+    position: relative;
+}
+
+a:link, a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+#logo b {
+    background: url("../../Images/login-all-bg.png") no-repeat scroll 0 -131px rgba(0, 0, 0, 0);
+    height: 46px;
+    left: 180px;
+    position: absolute;
+    top: 18px;
+    width: 111px;
+}
+/*===========logo end==============*/
+
+/*===========主体start==============*/
+#entry {
+    background: none repeat scroll 0 0 #E8E8E8;
+    border-radius: 3px;
+    margin: 60px auto 55px;
+    padding: 5px;
+    position: relative;
+}
+.w1 {
+
+    width: 890px;
+}
+#entry .extra-en {
+    position: absolute;
+    right: 20px;
+    top: -20px;
+}
+a:link, a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+#entry .mc {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E1E1E1;
+    height: 355px;
+}
+.m, .mt, .mc, .mb {
+    overflow: hidden;
+}
+#entry-bg{
+    background: url("../../Images/53a247c5Ne727c5df.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 455px;
+    left: -44px;
+    position: absolute;
+    top: -44px;
+    width: 511px;
+}
+.form label, .form input, .form select, .form textarea, .form button, .form .label {
+    float: left;
+    font-size: 12px;
+}
+#entry .form {
+    height: 354px;
+    overflow: hidden;
+    position: absolute;
+    right: 32px;
+    top: 18px;
+    width: 320px;
+}
+
+#entry .fore1 {
+    z-index: 10;
+}
+#entry .item {
+    height: 64px;
+    line-height: 26px;
+    overflow: visible;
+    position: relative;
+    width: 320px;
+}
+#entry .item span {
+    color: #999999;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+}
+#entry .item .item-ifo {
+    position: relative;
+    width: 307px;
+}
+#entry .text {
+    border: 1px solid #CCCCCC;
+    float: none;
+    font-family: arial,"宋体";
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    padding: 4px 20px 4px 3px;
+    width: 200px;
+}
+#entry .item-ifo .i-name {
+    background: url("../../Images/login-all-bg.png") no-repeat scroll -373px -111px #FFFFFF;
+    height: 16px;
+    top: 8px;
+    width: 16px;
+}
+#entry .item-ifo .ico {
+    position: absolute;
+    left: 200px;
+    z-index: 5;
+}
+#entry .item-ifo .ico1 {
+    position: absolute;
+    left: 150px;
+    z-index: 5;
+}
+#entry .blank {
+    display: none;
+    float: none;
+    height: 16px;
+    padding: 2px;
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    width: 16px;
+    z-index: 10;
+}
+#entry .focus {
+    color: #999999;
+    display: none;
+    line-height: 22px;
+}
+#entry .fore2 {
+    z-index: 8;
+}
+#entry .item-ifo .i-pass {
+    background: url("../../Images/login-all-bg.png") no-repeat scroll -346px -108px #FFFFFF;
+    height: 19px;
+    top: 8px;
+    width: 14px;
+}
+#entry .succeed {
+    background: url("../../Images/sucess.png") no-repeat scroll 0 0 #FFFFFF;
+}
+#entry .fore3 {
+    height: 63px;
+    z-index: 6;
+}
+#entry .text1 {
+    border: 1px solid #CCCCCC;
+    float: none;
+    font-family: arial,"宋体";
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    padding: 4px 20px 4px 3px;
+    width:100px;
+}
+#entry .item-ifo .i-code {
+    height: 40px;
+    top: -5px;
+    width: 130px;
+    border: 1px solid #CCCCCC;
+}
+#entry #autoentry {
+    height: 37px;
+    margin-top: 10px;
+}
+#entry .fore4 {
+    z-index: 3;
+}
+
+#entry .checkbox {
+    margin-top: 7px;
+}
+#entry .mar {
+    margin-right: 10px;
+}
+.clr {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+#entry .login-btn2014 {
+    height: 52px;
+}
+#entry .btn-entry {
+    background: url("../../Images/login-all-bg.png") no-repeat scroll 0 -61px rgba(0, 0, 0, 0);
+    font-family: "微软雅黑";
+    height: 34px;
+    line-height: 100px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 307px;
+}
+.btn-img {
+    border: 0 none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#entry .coagent {
+    bottom: 26px;
+    line-height: 26px;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    z-index: 99999;
+}
+#entry .coagent .ftx24 {
+    color: #999999;
+}
+#entry .coagent .btns {
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 3px;
+    overflow: hidden;
+    position: relative;
+}
+#entry .coagent a:link, #entry .coagent a:visited {
+    border-right: 1px solid #DBDBDB;
+    color: #666666;
+    padding-right: 2px;
+    text-decoration: none;
+}
+.free-regist {
+    background: none repeat scroll 0 0 #E8E8E8;
+    border-radius: 0 0 3px 3px;
+    bottom: -31px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 5px 5px;
+    position: absolute;
+    right: 42px;
+    text-align: center;
+    width: 115px;
+}
+.free-regist span {
+    background: none repeat scroll 0 0 #7CBE56;
+    border-radius: 0 0 3px 3px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    height: 32px;
+    text-align: center;
+    width: 115px;
+}
+.free-regist a:link, .free-regist a:visited {
+    color: #FFFFFF;
+}
+.w1 {
+    margin: 0 auto;
+    width: 890px;
+}
+#mb-bg {
+    background: url("../../Images/login-all-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 59px;
+    width: 853px;
+}
+.mb {
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+#footer-2014 {
+    padding-bottom: 30px;
+    text-align: center;
+}
+#footer-2014 .links a, #footer-2013 .links span {
+    margin: 0 10px;
+}
+#footer-2014 .copyright {
+    margin: 10px 0;
+}
+
+/*===========主体end==============*/
+
+/*=============验证  start==================*/
+
+.checkInfoImg{
+    position: absolute;
+    z-index: 5;
+    top: 2px;
+    right: 15px;
+}
+
+.checkInfoImg1 {
+    position: absolute;
+    z-index: 100;
+    top: 5px;
+    left: 95px;
+}
+.i-success {
+    background: url("../../Images/message-success.png") no-repeat;
+    height: 24px;
+    width: 24px;
+}
+.i-error {
+    background: url("../../Images/message-error.png") no-repeat;
+    height: 24px;
+    width: 24px;
+}
+.error{
+    color: red;
+    line-height: 16px;
+}
+.hide{
+    display:none;
+}
+.hidden{
+    visibility:hidden;
+}
+/*============================================*/

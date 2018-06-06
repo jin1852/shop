@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<section class="content content-index">
+	<div class="container">
+		<!--&lt;!&ndash;series&ndash;&gt;-->
+		<!--<div class="box" style="background-image: url(__IMG__/update/index001.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;-product&ndash;&gt;-->
+		<!--<div class="box halfbox" style="background-image: url(__IMG__/update/index02.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;-crowdfunding&ndash;&gt;-->
+		<!--<div class="box halfbox" style="background-image: url(__IMG__/update/index03.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;-gala story&ndash;&gt;-->
+		<!--<div class="box" style="background-image: url(__IMG__/update/index04.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;-design&ndash;&gt;-->
+		<!--<div class="box" style="background-image: url(__IMG__/update/index05.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;-manufacture&ndash;&gt;-->
+		<!--<div class="box" style="background-image: url(__IMG__/update/index06.jpg)">-->
+			<!--<a href="#"></a>-->
+		<!--</div>-->
+		<volist name="image_list" id="il">
+			<div class="box {$il.class}" style="background-image: url({$il.image});background-repeat: no-repeat;">
+				<a href="{$il.href}"></a>
+			</div>
+		</volist>
+		<div class="clr"></div>
+	</div>
+</section>
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

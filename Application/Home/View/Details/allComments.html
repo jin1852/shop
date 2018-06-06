@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>评论详情页面</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__comments.css"/>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__detail.css"/>
+	<script type="text/javascript" src="__HOMEJS__jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="__HOMEJS__detail.js"></script>
+	<script>
+			//定义数据发送地址
+			var address = "{:U('Cart/addCart')}";
+			var compareListNum=<?php 
+									$compareList=cookie("prodIdCookie");
+									if(!empty($compareList)){
+										echo count($compareList);
+									}else{
+										echo 0;
+									}
+								?>;
+			var sessionExist=<?php
+								if(!empty($_SESSION['user'])){
+									echo 1;
+								}else{
+									echo -1;
+								}
+							?>;
+		</script>
+			<include file="Common/header" />
+		<div id="container">
+			
+			<!-- 左侧商品展示区 -->
+			<div id="container_left">
+				<!-- 商品信息 -->
+				<div class="goods_messages">
+					<!-- 导航栏 -->
+					<div class="daohang"><span>商品信息</span></div>
+					<!-- 商品图片展示 -->
+				<foreach name="arr" item="volist">
+				
+					<div class="goods_img"><a href="#">
+						<img src="__PUBLIC__/Uploads/{$volist['img']}" width="208" height="210px;"></a>
+					</div>
+						<!-- 商品名称 -->
+					<div class="goods_name">
+						商品名称：
+						<a href="{:U('Details/details?id='.$volist['prodId'])}">
+							{$volist['prodInfo']}
+						</a>
+					</div>
+					<!-- 商品京东价格 -->
+					<div class="goods_price">
+						京东价：<span>￥{$volist['price2']}</span>
+					</div>
+					<!-- 商品评价得分 -->
+					<div class="goods_code">
+						评价得分：<span class="code_checked">
+							<?php
+								for($i=0;$i<$volist['Gcode'];$i++){
+									echo "★";
+								}
+							?>
+						</span><span class="code_nochecked">
+							<?php
+								for($i=0;$i<5-$volist['Gcode'];$i++){
+									echo "★";
+								}
+							?>
+						</span>({$volist['Gcode']}分)
+					</div>
+					<!-- 商品评论总数 -->
+					<div class="goods_comments_total">
+						评论数：{$volist['count(cId)']}条
+					</div>
+					<!-- 加入购物车 -->
+					<div class="add_cart">
+						<a href="{:U('Cart/cart?prodId='.$volist['prodId'])}"><img src="__PUBLIC__/Uploads/Images/buy_cart.JPG"></a>
+					</div>
+				</div>
+				</foreach>
+			</div>
+			<!-- 右侧商品评论区 -->
+			<div id="container_right">
+				<foreach name="arr11" item="comments">
+					<?php
+						$count = count($arr11);
+						/*$hp = 0;//好评总数
+						$zp = 0;//中评总数
+						$cp = 0;//差评总数*/
+						if($comments['commentsdj'] == 1){
+							$hp += 1;
+						}
+						if($comments['commentsdj'] == 2){
+							$zp += 1;
+						}
+						if($comments['commentsdj'] == 3){
+							$cp += 1;
+						}
+						$hpl = ceil(($hp/$count)*100);
+						$zpl = ceil(($zp/$count)*100);
+						$cpl = ceil(($cp/$count)*100);
+						$arr12 = explode(',',$comments['mjyx']);
+						/*$pzbc = 0;//配置不错
+						$dnhbc = 0;//电脑还不错
+						$pmgqx = 0;//屏幕够清晰
+						$yxlc = 0;//运行流畅
+						$sdk = 0;//速度快
+						$wgpl = 0;//外观漂亮
+						$srh = 0;//散热好*/
+						if(in_array(0,$arr12)){
+							$pzbc += 1;
+						}
+						if(in_array(1, $arr12)){
+							$dnhbc += 1;
+						}
+						if(in_array(2, $arr12)){
+							$pmgqx += 1;
+						}
+						if(in_array(3, $arr12)){
+							$yxlc += 1;
+						}
+						if(in_array(4, $arr12)){
+							$sdk += 1;
+						}
+						if(in_array(5, $arr12)){
+							$wgpl += 1;
+						}
+						if(in_array(6, $arr12)){
+							$srh += 1;
+						}
+					?>
+				</foreach>
+				<div class="spzp">
+					<div class="sppj"><span>商品评价</span></div>
+					<div class="p_content">
+						<div class="hpl">
+							<span class="zhi">
+							<?php
+								if((isset($count)?$count:0) == 0){
+									echo 100;
+								}else{
+									echo isset($hpl)?$hpl:0;
+								}
+							?>
+							%</span><br/>
+							好评度
+						</div>
+						<div class="jindu">
+							<ul>
+								<li>
+									好评(<?php
+										if((isset($count)?$count:0) == 0){
+											echo 100;
+										}else{
+									 		echo isset($hpl)?$hpl:0;}
+									 	?>%) 
+									<span class="jindutiao">
+										<?php
+											if((isset($count)?$count:0) == 0){
+												for($i = 0;$i<100;$i++){
+													echo "<span class='jdt_red'></span>";
+												}
+											}else{
+												for($i=0;$i<$hpl;$i++){
+													echo "<span class='jdt_red'></span>";
+												}
+											}
+										?>
+									</span>
+								</li>
+								<li>中评(<?php echo isset($zpl)?$zpl:0;?>%) 
+									<span class="jindutiao">
+										<?php
+											for($i=0;$i<$zpl;$i++){
+												echo "<span class='jdt_red'></span>";
+											}
+										?>
+										
+									</span>
+								</li>
+								<li>差评(<?php echo isset($cpl)?$cpl:0;?>%) 
+									<span class="jindutiao">
+										<?php
+											for($i=0;$i<$cpl;$i++){
+												echo "<span class='jdt_red'></span>";
+											}
+										?>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="fgt"></div>
+						<div class="mjyx">
+							<div class="text">买家印象：</div>
+							<ul>
+								<li>配置不错(<?php echo isset($pzbc)?$pzbc:0;?>)</li>
+								<li>电脑还不错(<?php echo isset($dnhbc)?$dnhbc:0;?>)</li>
+								<li>屏幕够清晰(<?php echo isset($pmgqx)?$pmgqx:0;?>)</li>
+								<li>运行流畅(<?php echo isset($yxlc)?$yxlc:0;?>)</li>
+								<li>速度快({<?php echo isset($sdk)?$sdk:0;?>)</li>
+								<li>外观漂亮(<?php echo isset($wgpl)?$wgpl:0;?>)</li>
+								<li>散热好(<?php echo isset($srh)?$srh:0;?>)</li>
+							</ul>
+						</div>
+						<div class="fgt"></div>
+						<!-- 发表评论 -->
+						<div class="fbpl">
+							<div>您可对已购商品进行评价</div>
+							<div class="button"><button>发评价拿京豆</button></div>
+							<div class="guize">前五名可获双倍京豆<a href="#">[规则]</a></div>
+						</div>
+					</div>
+				</div>
+				<!-- 评论详情 -->
+				
+					<div class="plxq">
+						<div class="bt">
+							<ul>
+								<li class="title1">全部评价(<?php echo isset($count)?$count:0;?>)</li>
+								<li class="title2">好评(<?php echo isset($hp)?$hp:0;?>)</li>
+								<li class="title2">中评(<?php echo isset($zp)?$zp:0;?>)</li>
+								<li class="title2">差评(<?php echo isset($cp)?$cp:0;?>)</li>
+							</ul>
+						</div>
+					<foreach name="arr13" item="con">
+					<!--  -->
+						<div class="p_content p_content1">
+							<!-- 所有评论 -->
+							<!-- 会员 -->
+							<div class="huiyuan">
+								<div class="touxiang">
+									<a href="#">
+										<img src="
+											<?php
+												if(!empty($con['userimg'])){
+													echo "__PUBLIC__/Uploads/".$con['userimg'];
+												}else{
+											?>
+												__PUBLIC__/Uploads/Images/{$con['userHYdjimg']}
+											<?php
+												}
+											?>
+										" width="60px" height="60px">
+									</a>
+								</div>
+								<div class="username">
+									<a href="{:U('Ucenter/index?uid='.$con['uId'])}" target="_blank">{$con['nickName']}</a>
+								</div>
+								<div class="dengji">
+									<?php
+										if($con['userHYdjId'] == 0){
+											echo "注册会员";
+										}else if($con['userHYdjId'] == 1){
+											echo "铜牌会员";
+										}else if($con['userHYdjId'] == 2){
+											echo "银牌会员";
+										}else if($con['userHYdjId'] == 3){
+											echo "金牌会员";
+										}else if($con['userHYdjId'] == 4){
+											echo "钻石会员";
+										}
+									?>
+								</div>
+							</div>
+							<!-- 评论内容 -->
+							
+							<div class="content">
+								<div class="xingji">
+									<div class="xing1">
+										<?php
+											for($i = 0;$i<$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="xing2">
+										<?php
+											for($i = 0;$i<5-$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="add_time"><?php echo date('Y-m-d H:i:s',$con['commentsTime']);?></div>
+								</div>
+								<div class="yhpj">
+									<ul>
+										<li>标&nbsp;&nbsp;&nbsp;&nbsp;签：
+										<?php
+											$mjyx = array();
+											$mjyx = explode(",", $con['mjyx']);
+											if(in_array(0,$mjyx)){
+												echo "<span>配置不错</span>";
+											}
+											if(in_array(1, $mjyx)){
+												echo "<span>电脑还不错</span>";
+											}
+											if(in_array(2, $mjyx)){
+												echo "<span>屏幕够清晰</span>";
+											}
+											if(in_array(3, $mjyx)){
+												echo "<span>运行流畅</span>";
+											}
+											if(in_array(4, $mjyx)){
+												echo "<span>速度快</span>";
+											}
+											if(in_array(5, $mjyx)){
+												echo "<span>外观漂亮</span>";
+											}
+											if(in_array(6, $mjyx)){
+												echo "<span>散热好</span>";
+											}
+										?>
+										</li>
+										<li>心&nbsp;&nbsp;&nbsp;&nbsp;得：{$con['content']}</li>
+										<li>颜&nbsp;&nbsp;&nbsp;&nbsp;色：{$con['colorName']}</li>
+										<li>尺&nbsp;&nbsp;&nbsp;&nbsp;寸：{$con['sizeName']}</li>
+										<li>购买日期：<?php echo date('Y-m-d H:i:s',$con['orderTime']);?></li>
+									</ul>
+								</div>
+								<div class="hf">
+									<ul>
+										<li class="c_hf">回复({$cbCount})</li>
+										
+									</ul>
+									<div class="callback1">
+										<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+											<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+											<input type="hidden" name="objectName"/>
+											<input type="hidden" name="prodId" value="{$comments['cId']}">
+											<input type="text" name="cbContent" id="c_back"/>
+											<input type="submit" value="回复" id="button"/>
+										</form>
+									</div>
+								</div>
+								<script type="text/javascript">
+									function callback(b){
+										var username = $(b).find('i').text();
+										//console.log(username);
+										//return false;
+										var content = $(b).find('input[name=cbContent]').val();
+										$(b).find('input[name=objectName]').val(username);
+										//$(b).find('input[name=username]').val(uname);
+										<?php
+											if(empty($_SESSION['user'])){
+										?>
+										 $('.thickbox').show().offset({'top':600,'left':450});
+										$('.thickdiv').show();
+										return false;
+										<?php
+											}
+										?>
+									}
+								</script>
+						
+								<div class="yhhfnr">
+									<ul>
+									<volist name="arr14" id="callback">
+										<?php
+											if($con['uId'] == $callback['objectId']){
+										?>
+										<li>
+											<span class="num">{$n}</span><span class="yhm"><a href="#">{$callback['userName']}</a> ：回复：<a href="#">{$callback['objectName']}</a>：</span><span class="nr">{$callback['cbContent']}</span>
+											<div class="hfsj"><?php echo date('Y-m-d H:i:s',$callback['cbTime']);?><span style="float:right;color:#005AA0;margin-right:50px;display:none;cursor:pointer;">回复</span></div>
+											<div class="callback">
+												<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+													<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+													<input type="hidden" name="objectName"/>
+													<input type="hidden" name="prodId" value="{$callback['prodId']}">
+													<input type="text" name="cbContent" id="c_back"/>
+													<input type="submit" value="回复" id="button"/>
+												</form>
+											</div>
+										</li>
+										<?php
+											}
+										?>
+									</volist>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--------------------弹层效果---------------------->
+								<div class='thickdiv' style="display:none"></div>
+								<div class='thickbox' style='display:none'>
+									<div class="boxtitle">
+										<b>您尚未登录</b>
+										<a href='#'>×</a>
+									</div>
+									<div class='thickcon'>
+										<ul>
+											<li style="border-bottom:none;background:#fff;height:26px;"><b>登 录</b></li>
+											<li style="background:#F7F7F7;margin-bottom:1px"><a href='{:U('Register/register')}'>注册</a></li>
+										</ul>
+										<form action="#" method="post" onsubmit="return false;">
+										<div class="item fore1" style="	margin-top: 30px;">
+											<span>邮箱/用户名</span>
+											<div class="inputbox">
+												<input type='text' name="uname">
+												<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+											</div>
+											<label id='uname'></label>
+										</div>
+										<div class="item fore2">
+											<span>密码</span>
+											<div class="inputbox">
+												<input type='password' name="upass">
+												<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+											</div>
+											<label id='upass'></label>
+										</div>
+										<div class="item fore3">
+											<span>&nbsp;</span>
+											<div class="inputbox"  style="border:none">
+												<input style='font-weight:bold;color:#E43F42;font-size:16px;'type='text' readonly>
+											</div>
+											<label id='errorinfo'></label>
+										</div>
+										<div class="item fore4">
+						<!-- 					<span>&nbsp;</span>
+						 -->					<div class="inputbox" style="border:none";>
+												<input type='button' class="submit-button" value="登录">
+											</div>
+											<label id='tijiao'></label>
+										</div>
+										</form>
+										<a style='margin-left:300px;color:purple;'href='{:U('Findpwd/index')}'>找回密码</a>
+										<div class="item fore5">
+											<span>合作网站</span>
+											<div class="inputbox" style="border:none;">
+													<em>QQ</em>
+													<em>网易</em>
+													<em>奇虎360</em>
+													<em>开心</em>
+													<em>豆掰</em>
+													<em>搜狐</em>
+											</div>
+											<label id='collation'></label>
+										</div>
+									</div>
+								</div>
+								<!--------------------弹层效果---------------------->
+						<!-- 所有好评 -->
+						<?php
+							if($con['commentsdj'] == 1){
+						?>
+						<div class="p_content p_content2">
+							<!-- 会员 -->
+							<div class="huiyuan">
+								<div class="touxiang">
+									<a href="#">
+										<img src="
+											<?php
+												if(!empty($con['userimg'])){
+													echo "__PUBLIC__/Uploads/".$con['userimg'];
+												}else{
+											?>
+												__PUBLIC__/Uploads/Images/{$con['userHYdjimg']}
+											<?php
+												}
+											?>
+										" width="60px" height="60px">
+									</a>
+								</div>
+								<div class="username">
+									<a href="#">{$con['nickName']}</a>
+								</div>
+								<div class="dengji">
+									<?php
+										if($con['userHYdjId'] == 0){
+											echo "注册会员";
+										}else if($con['userHYdjId'] == 1){
+											echo "铜牌会员";
+										}else if($con['userHYdjId'] == 2){
+											echo "银牌会员";
+										}else if($con['userHYdjId'] == 3){
+											echo "金牌会员";
+										}else if($con['userHYdjId'] == 4){
+											echo "钻石会员";
+										}
+									?>
+								</div>
+							</div>
+							<!-- 评论内容 -->
+							
+							<div class="content">
+								<div class="xingji">
+									<div class="xing1">
+										<?php
+											for($i = 0;$i<$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="xing2">
+										<?php
+											for($i = 0;$i<5-$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="add_time"><?php echo date('Y-m-d H:i:s',$con['commentsTime']);?></div>
+								</div>
+								<div class="yhpj">
+									<ul>
+										<li>标&nbsp;&nbsp;&nbsp;&nbsp;签：
+										<?php
+											$mjyx = array();
+											$mjyx = explode(",", $con['mjyx']);
+											if(in_array(0,$mjyx)){
+												echo "<span>配置不错</span>";
+											}
+											if(in_array(1, $mjyx)){
+												echo "<span>电脑还不错</span>";
+											}
+											if(in_array(2, $mjyx)){
+												echo "<span>屏幕够清晰</span>";
+											}
+											if(in_array(3, $mjyx)){
+												echo "<span>运行流畅</span>";
+											}
+											if(in_array(4, $mjyx)){
+												echo "<span>速度快</span>";
+											}
+											if(in_array(5, $mjyx)){
+												echo "<span>外观漂亮</span>";
+											}
+											if(in_array(6, $mjyx)){
+												echo "<span>散热好</span>";
+											}
+										?>
+										</li>
+										<li>心&nbsp;&nbsp;&nbsp;&nbsp;得：{$con['content']}</li>
+										<li>颜&nbsp;&nbsp;&nbsp;&nbsp;色：{$con['colorName']}</li>
+										<li>尺&nbsp;&nbsp;&nbsp;&nbsp;寸：{$con['sizeName']}</li>
+										<li>购买日期：<?php echo date('Y-m-d H:i:s',$con['orderTime']);?></li>
+									</ul>
+								</div>
+								<div class="hf">
+									<ul>
+										<li class="c_hf">回复({$cbCount})</li>
+										
+									</ul>
+									<div class="callback1">
+										<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+											<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+											<input type="hidden" name="objectName"/>
+											<input type="hidden" name="prodId" value="{$comments['cId']}">
+											<input type="text" name="cbContent" id="c_back"/>
+											<input type="submit" value="回复" id="button"/>
+										</form>
+									</div>
+								</div>
+								<div class="yhhfnr">
+									<ul>
+									<volist name="arr14" id="callback">
+										<?php
+											if($con['uId'] == $callback['objectId']){
+										?>
+										<li>
+											<span class="num">{$n}</span><span class="yhm"><a href="#">{$callback['userName']}</a> ：回复：<a href="#">{$callback['objectName']}</a>：</span><span class="nr">{$callback['cbContent']}</span>
+											<div class="hfsj"><?php echo date('Y-m-d H:i:s',$callback['cbTime']);?><span style="float:right;color:#005AA0;margin-right:50px;display:none;cursor:pointer;">回复</span></div>
+											<div class="callback">
+												<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+													<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+													<input type="hidden" name="objectName"/>
+													<input type="hidden" name="prodId" value="{$callback['prodId']}">
+													<input type="text" name="cbContent" id="c_back"/>
+													<input type="submit" value="回复" id="button"/>
+												</form>
+											</div>
+										</li>
+										<?php
+											}
+										?>
+									</volist>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<?php
+							}
+						?>
+						<!-- 所有中评 -->
+						<?php
+							if($con['commentsdj'] == 2){
+						?>
+						<div class="p_content p_content3">
+							<!-- 所有评论 -->
+							<!-- 会员 -->
+							<div class="huiyuan">
+								<div class="touxiang">
+									<a href="#">
+										<img src="
+											<?php
+												if(!empty($con['userimg'])){
+													echo "__PUBLIC__/Uploads/".$con['userimg'];
+												}else{
+											?>
+												__PUBLIC__/Uploads/Images/{$con['userHYdjimg']}
+											<?php
+												}
+											?>
+										" width="60px" height="60px">
+									</a>
+								</div>
+								<div class="username">
+									<a href="#">{$con['nickName']}</a>
+								</div>
+								<div class="dengji">
+									<?php
+										if($con['userHYdjId'] == 0){
+											echo "注册会员";
+										}else if($con['userHYdjId'] == 1){
+											echo "铜牌会员";
+										}else if($con['userHYdjId'] == 2){
+											echo "银牌会员";
+										}else if($con['userHYdjId'] == 3){
+											echo "金牌会员";
+										}else if($con['userHYdjId'] == 4){
+											echo "钻石会员";
+										}
+									?>
+								</div>
+							</div>
+							<!-- 评论内容 -->
+							
+							<div class="content">
+								<div class="xingji">
+									<div class="xing1">
+										<?php
+											for($i = 0;$i<$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="xing2">
+										<?php
+											for($i = 0;$i<5-$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="add_time"><?php echo date('Y-m-d H:i:s',$con['commentsTime']);?></div>
+								</div>
+								<div class="yhpj">
+									<ul>
+										<li>标&nbsp;&nbsp;&nbsp;&nbsp;签：
+										<?php
+											$mjyx = array();
+											$mjyx = explode(",", $con['mjyx']);
+											if(in_array(0,$mjyx)){
+												echo "<span>配置不错</span>";
+											}
+											if(in_array(1, $mjyx)){
+												echo "<span>电脑还不错</span>";
+											}
+											if(in_array(2, $mjyx)){
+												echo "<span>屏幕够清晰</span>";
+											}
+											if(in_array(3, $mjyx)){
+												echo "<span>运行流畅</span>";
+											}
+											if(in_array(4, $mjyx)){
+												echo "<span>速度快</span>";
+											}
+											if(in_array(5, $mjyx)){
+												echo "<span>外观漂亮</span>";
+											}
+											if(in_array(6, $mjyx)){
+												echo "<span>散热好</span>";
+											}
+										?>
+										</li>
+										<li>心&nbsp;&nbsp;&nbsp;&nbsp;得：{$con['content']}</li>
+										<li>颜&nbsp;&nbsp;&nbsp;&nbsp;色：{$con['colorName']}</li>
+										<li>尺&nbsp;&nbsp;&nbsp;&nbsp;寸：{$con['sizeName']}</li>
+										<li>购买日期：<?php echo date('Y-m-d H:i:s',$con['orderTime']);?></li>
+									</ul>
+								</div>
+								<div class="hf">
+									<ul>
+										<li class="c_hf">回复({$cbCount})</li>
+										
+									</ul>
+									<div class="callback1">
+										<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+											<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+											<input type="hidden" name="objectName"/>
+											<input type="hidden" name="prodId" value="{$comments['cId']}">
+											<input type="text" name="cbContent" id="c_back"/>
+											<input type="submit" value="回复" id="button"/>
+										</form>
+									</div>
+								</div>
+								<div class="yhhfnr">
+									<ul>
+									<volist name="arr14" id="callback">
+										<?php
+											if($con['uId'] == $callback['objectId']){
+										?>
+										<li>
+											<span class="num">{$n}</span><span class="yhm"><a href="#">{$callback['userName']}</a> ：回复：<a href="#">{$callback['objectName']}</a>：</span><span class="nr">{$callback['cbContent']}</span>
+											<div class="hfsj"><?php echo date('Y-m-d H:i:s',$callback['cbTime']);?><span style="float:right;color:#005AA0;margin-right:50px;display:none;cursor:pointer;">回复</span></div>
+											<div class="callback">
+												<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+													<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+													<input type="hidden" name="objectName"/>
+													<input type="hidden" name="prodId" value="{$callback['prodId']}">
+													<input type="text" name="cbContent" id="c_back"/>
+													<input type="submit" value="回复" id="button"/>
+												</form>
+											</div>
+										</li>
+										<?php
+											}
+										?>
+									</volist>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<?php
+							}
+						?>
+						<!-- 所有差评 -->
+						<?php
+							if($con['commentsdj'] == 3){
+						?>
+						<div class="p_content p_content4">
+							<!-- 所有评论 -->
+							<!-- 会员 -->
+							<div class="huiyuan">
+								<div class="touxiang">
+									<a href="#">
+										<img src="
+											<?php
+												if(!empty($con['userimg'])){
+													echo "__PUBLIC__/Uploads/".$con['userimg'];
+												}else{
+											?>
+												__PUBLIC__/Uploads/Images/{$con['userHYdjimg']}
+											<?php
+												}
+											?>
+										" width="60px" height="60px">
+									</a>
+								</div>
+								<div class="username">
+									<a href="#">{$con['nickName']}</a>
+								</div>
+								<div class="dengji">
+									<?php
+										if($con['userHYdjId'] == 0){
+											echo "注册会员";
+										}else if($con['userHYdjId'] == 1){
+											echo "铜牌会员";
+										}else if($con['userHYdjId'] == 2){
+											echo "银牌会员";
+										}else if($con['userHYdjId'] == 3){
+											echo "金牌会员";
+										}else if($con['userHYdjId'] == 4){
+											echo "钻石会员";
+										}
+									?>
+								</div>
+							</div>
+							<!-- 评论内容 -->
+							
+							<div class="content">
+								<div class="xingji">
+									<div class="xing1">
+										<?php
+											for($i = 0;$i<$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="xing2">
+										<?php
+											for($i = 0;$i<5-$con['Gcode'];$i++){
+												echo "★";
+											}
+										?>
+									</div>
+									<div class="add_time"><?php echo date('Y-m-d H:i:s',$con['commentsTime']);?></div>
+								</div>
+								<div class="yhpj">
+									<ul>
+										<li>标&nbsp;&nbsp;&nbsp;&nbsp;签：
+										<?php
+											$mjyx = array();
+											$mjyx = explode(",", $con['mjyx']);
+											if(in_array(0,$mjyx)){
+												echo "<span>配置不错</span>";
+											}
+											if(in_array(1, $mjyx)){
+												echo "<span>电脑还不错</span>";
+											}
+											if(in_array(2, $mjyx)){
+												echo "<span>屏幕够清晰</span>";
+											}
+											if(in_array(3, $mjyx)){
+												echo "<span>运行流畅</span>";
+											}
+											if(in_array(4, $mjyx)){
+												echo "<span>速度快</span>";
+											}
+											if(in_array(5, $mjyx)){
+												echo "<span>外观漂亮</span>";
+											}
+											if(in_array(6, $mjyx)){
+												echo "<span>散热好</span>";
+											}
+										?>
+										</li>
+										<li>心&nbsp;&nbsp;&nbsp;&nbsp;得：{$con['content']}</li>
+										<li>颜&nbsp;&nbsp;&nbsp;&nbsp;色：{$con['colorName']}</li>
+										<li>尺&nbsp;&nbsp;&nbsp;&nbsp;寸：{$con['sizeName']}</li>
+										<li>购买日期：<?php echo date('Y-m-d H:i:s',$con['orderTime']);?></li>
+									</ul>
+								</div>
+								<div class="hf">
+									<ul>
+										<li class="c_hf">回复({$cbCount})</li>
+										
+									</ul>
+									<div class="callback1">
+										<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+											<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+											<input type="hidden" name="objectName"/>
+											<input type="hidden" name="prodId" value="{$comments['cId']}">
+											<input type="text" name="cbContent" id="c_back"/>
+											<input type="submit" value="回复" id="button"/>
+										</form>
+									</div>
+								</div>
+								<div class="yhhfnr">
+									<ul>
+									<volist name="arr14" id="callback">
+										<?php
+											if($con['uId'] == $callback['objectId']){
+										?>
+										<li>
+											<span class="num">{$n}</span><span class="yhm"><a href="#">{$callback['userName']}</a> ：回复：<a href="#">{$callback['objectName']}</a>：</span><span class="nr">{$callback['cbContent']}</span>
+											<div class="hfsj"><?php echo date('Y-m-d H:i:s',$callback['cbTime']);?><span style="float:right;color:#005AA0;margin-right:50px;display:none;cursor:pointer;">回复</span></div>
+											<div class="callback">
+												<form action="{:U('do_callback')}" method="post" onSubmit="return callback(this)">
+													<div id="h_back"><span>回复：<i>{$con['nickName']}</i>:</span></div>
+													<input type="hidden" name="objectName"/>
+													<input type="hidden" name="prodId" value="{$callback['prodId']}">
+													<input type="text" name="cbContent" id="c_back"/>
+													<input type="submit" value="回复" id="button"/>
+												</form>
+											</div>
+										</li>
+										<?php
+											}
+										?>
+									</volist>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<?php
+							}
+						?>
+					</foreach>
+					<div style="float:right;margin:10px;font-size:16px;">
+						<?php echo $show; ?>
+					</div>
+					</div>
+			</div>
+			
+		</div>
+		<include file="Common/footer"/>
+	</body>
+</html>

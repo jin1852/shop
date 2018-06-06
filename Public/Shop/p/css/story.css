@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/********************************
+*
+*	
+*     story 故事页 首页
+*
+*
+*********************************/
+
+section.content-masonry ul.grid.story {
+	width: calc(100% - 200px) !important;
+	margin: 0 auto !important;
+}
+
+section.content-masonry ul.grid.story > li.story {
+	padding: 10px 10px
+}
+
+section.content-masonry ul.grid.story > li.story > a.title {
+	width: 100%;
+	line-height: 52px;
+	font-size: 32px;
+	display: block;
+	color: #646262;
+	text-align: center;
+	margin-top: 30px;
+	font-family: 'HSregular';
+}
+
+section.content-masonry ul.grid.story > li.story > a.title:hover {
+	color: #333;
+	font-family: 'HSregular';
+}
+
+section.content-masonry ul.grid.story > li.story > div.line {
+	width: 100%;
+	height: 5px;
+	margin: 10px auto 30px;
+	-webkit-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+section.content-masonry ul.grid.story > li.story > div.line > span {
+	display: block;
+	width: 50px;
+	height: 5px;
+	background: #646262;
+	margin: 0 auto;
+}
+
+section.content-masonry ul.grid.story > li.story:hover > div.line {
+	background: #646262;
+}
+
+section.content-masonry ul.grid.story > li.story > h5 {
+	line-height: 20px;
+	font-family: 'HSregular';
+	text-align: center;
+}
+
+section.content-masonry ul.link.story {
+	width: 100%;
+	clear: both;
+}
+
+section.content-masonry ul.link.story > li {
+	float: left;
+	margin: 10px;
+	height: 140px;
+	width: auto;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner {
+	position: relative;
+	width: calc(100% + 220px);
+	margin-left: -110px;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner .jscarousal-contents-horizontal {
+	height: 174px;
+	position: relative;
+	overflow: hidden;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner .jscarousal-contents-horizontal > div {
+	height: 174px;
+	width: 100%;
+	position: absolute;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner .jscarousal-contents-horizontal > div > div {
+	float: left;
+	height: 174px;
+	width: 16.6666%;
+	text-align: center;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner .jscarousal-contents-horizontal > div > div > img {
+	height: 174px;
+	width: 174px;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner div.jscarousal-horizontal-back,
+section.content-masonry > div.container > ul.grid.story > li > div.banner div.jscarousal-horizontal-forward {
+	width: 40px;
+	height: 174px;
+	position: absolute;
+	top: 0;
+	left: -40px;
+	background: url(../images/images/ico-jscaousal-back.jpg) no-repeat center;
+	cursor: pointer;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner div.jscarousal-horizontal-forward {
+	left: auto;
+	right: -40px;
+	background: url(../images/images/ico-jscaousal-forward.jpg) no-repeat center;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner div.hidden {
+	display: none;
+}
+
+section.content-masonry > div.container > ul.grid.story > li > div.banner div.visible {
+	display: block;
+}
+
+section.content-masonry > div.container > div.story-text {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+section.content-masonry > div.container > div.story-text > h4 {
+	line-height: 180px;
+	font-size: 48px;
+	font-family: 'HSregular';
+	text-align: center;
+	margin: 0;
+}
+
+section.content-masonry > div.container > div.story-text > div.map {
+	width: 100%;
+	height: 574px;
+	margin-bottom: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+section.content-masonry > div.container > div.story-text > div.certification {
+	width: 100%;
+	height: 178px;
+	margin-bottom: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+section.content-masonry > div.container > div.story-text > h5 {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 40px;
+}
+
+section.content-masonry > div.container > ul.certificationImg.story {
+	margin: 0;
+	width: 100%;
+	clear: both;
+}
+
+section.content-masonry > div.container > ul.certificationImg.story > li {
+	float: left;
+	height: 336px;
+	width: 240px;
+	margin: 20px;
+}

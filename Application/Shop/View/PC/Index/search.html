@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<section class="content content-index">
+    <div class="container">
+        <if condition="$status eq 1">
+            <h4>搜索 " <span style="color: red">{$search_key}</span> "，结果如下：</h4>
+            <br/>
+            <div>
+                <volist name="list" id="pl" key="i">
+                    <div>
+                        <a href="{$pl.link}">{$i}. {$pl.title}</a>
+                    </div>
+                </volist>
+            </div>
+        <else/>
+            <h5>请输入搜索关键字</h5>
+        </if>
+        <div class="clr"></div>
+    </div>
+</section>
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>

@@ -1,0 +1,80 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+			<div class="content_list faq">
+				<ul class="faqList">
+					<style>
+						.faqList {
+							padding: 10px 20px;
+						}
+						
+						.faqList > li {
+							padding-right: 40px;
+							word-break: break-all;
+							margin-bottom: 30px;
+							width: 570px;
+						}
+						
+						.faqList > li > h3 {
+							font-size: 24px;
+							margin: 0 0 20px;
+							line-height: 1.4em;
+						}
+						
+						.faqList > li > h5 {
+							font-size: 12px;
+							margin: 0;
+							line-height: 1.4em;
+						}
+
+					</style>
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<h3>1.fjakslfjksaljfkslajfksal</h3>-->
+						<!--<h5>fajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajklfajkslfjsklajgkalhd;sajda;skjkdjsalkjdskla;jkg;ajkl</h5>-->
+					<!--</li>-->
+					<hr style="border-top:1px solid #000000 ">
+					<h3 style="color: #8c8c8c;font-weight: 600;font-size:50px;">FAQS</h3>
+					<br>
+					<volist name="list" id="vo" key="i">
+						<li>
+						<h3>{$i}. {$vo.title}</h3>
+						<h5>{$vo.content}</h5>
+						</li>
+					</volist>
+					<div class="clr"></div>
+					<div class="page">
+						{$page}
+					</div>
+				</ul>
+			</div>
+			<!-- end .content_list -->
+		</div>
+		<!-- end .content -->
+		<div class="clr"></div>
+	</section>
+	<!-- end .userCenter -->
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+</body>
+</html>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>

@@ -1,0 +1,103 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+			<div class="content_list">
+				<include file = "Public:ucenter_type_list" title = "{$header_title}"  username = ""/>
+				<div class="content following">
+					<div class="followingProduct">
+						<ul>
+							<volist name="list" id="list">
+								<li>
+								<a class="delete" data-id="{$list.prodId}" >x</a>
+								<a class="img" style="background-image:url({$list.img})" href="__APP__/Product/detail/prodId/{$list.prodId}">
+									<?php if($list['isNew']==1){ ?>
+									<h5 class="new"></h5>
+									<?php }else{ if($list['isHot']==1){ ?>
+									<h5 class="hot"></h5>
+									<?php } } ?>
+								</a>
+								<a class="name" href="__APP__/Product/detail/prodId/{$list.prodId}">{$list.prodName}</a>
+								<a class="btn" data-id="{$list.prodId}" data-prodname="={$list.prodName}">
+								<i class="icon" data-id="{$list.prodId}"></i>
+								</a>
+								</li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+				<div class="page">
+					{$page}
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+	</section>
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+</body>
+</html>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".t_list").click(function () {
+			window.location.href = '__APP__/Ucenter/following_products/type/' + $(this).data('id');
+		});
+		$(".delete").click(function () {
+			var prodId = $(this).data("id");
+			try {
+				if (prodId > 0) {
+					post_url_data('__APP__/Users/del_history', 'POST', {prodId: prodId}, function (err, Data) {
+						if (err) {
+							alert(err);
+						} else {
+							if (Data.status == 1) {
+								alert(Data.info);
+								window.location.href = '__APP__/ucenter/view_history/type/' + $(".t_list.active").data('id');
+							} else {
+								alert(Data.info);
+							}
+						}
+					});
+				} else {
+					return false;
+				}
+			} catch (e) {
+				console.log(e);
+			} finally {
+				prodId = null;
+			}
+		});
+		$(".btn").click(function () {
+			var prodId = get_id($(this)), prodName = get_name($(this)), data = {};
+			try {
+				if (prodId > 0 && prodName) {
+					data = {prodId: prodId, prodName: prodName};
+					post_url_data('__APP__/Users/add_to_cart', 'POST', data, function (err, result) {
+						if (err) {
+							alert(err);
+						} else {
+							alert(result.info);
+							if (result.status == -20) {
+								window.location.href = '__APP__/Login/index';
+							}
+						}
+					});
+				} else {
+					return false;
+				}
+			} catch (e) {
+				console.log(e);
+			} finally {
+				prodId = null;
+				prodName = null;
+				data = null;
+			}
+		});
+	});
+	function get_id(dom) {
+		return dom.data('id');
+	}
+	function get_name(dom) {
+		return dom.data('prodname');
+	}
+</script>

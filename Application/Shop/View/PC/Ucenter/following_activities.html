@@ -1,0 +1,92 @@
+<include file="User:header" title = "{$header_title}" />
+<include file = "User:searchBar" title = "{$header_title}"  username = ""/>
+			<div class="content_list">
+				<div class="content following">
+					<div class="followingActivitles">
+						<ul>
+							<!--<li>-->
+								<!--<a><img></a>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a><img></a>-->
+							<!--</li>-->
+							<volist name="al" id="al">
+								<li data-id="{$al.id}">
+								<a data-id="{$al.id}" href="__APP__/Article/show/id/{$al.id}"><img src="{$al.thumb}"></a>
+								</li>
+							</volist>
+							<div class="clr"></div>
+						</ul>
+
+						<?php if($frl){ ?>
+						<ul class="feature">
+							<div>
+								Feature Recommendations
+							</div>
+							<!--<li>-->
+								<!--<a><img></a>-->
+								<!--<div><a href="#">Follow</a></div>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a><img></a>-->
+								<!--<div><a href="#">Follow</a></div>-->
+							<!--</li>-->
+							<volist name="frl" id="fr">
+								<li>
+									<a data-id="{$fr.id}" href="__APP__/Article/show/id/{$fr.id}"><img src="{$fr.thumb}"></a>
+									<div><a class="fl" data-id="{$fr.id}" style="cursor: pointer">Follow</a></div>
+								</li>
+							</volist>
+							<div class="clr"></div>
+						</ul>
+						<?php } ?>
+					</div>
+				</div>
+				<!--<div class="page">-->
+					<!--<ul>-->
+						<!--<li class="active"><a href="#">1</a></li>-->
+						<!--<li><a href="#">2</a></li>-->
+						<!--<li><a href="#">3</a></li>-->
+						<!--<li><a href="#">4</a></li>-->
+						<!--<li>...</li>-->
+						<!--<li><a href="#">35</a></li>-->
+						<!--<li><a href="#">36</a></li>-->
+						<!--<li><a href="#">NEXT</a></li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			</div>
+		</div>
+		<div class="clr"></div>
+	</section>
+<include file = "Public:footer" title = "{$header_title}"  username = ""/>
+<include file = "Public:share" title = "{$header_title}"  username = ""/>
+</body>
+</html>
+<include file="Public:js"/>
+<include file="Public:ucenter_js"/>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).on('click','a.fl',function(){
+			var id = $(this).data('id'),data;
+			console.log(id);
+			if(id>0){
+				data={id:id};
+				post_url_data('__APP__/Users/add_to_activities','POST', data, function (err, result){
+					if (err) {
+						alert(err);
+					} else {
+						alert(result.info);
+						if(result.status==1){
+							window.location.reload(true);
+						}
+						if (result.status == -20) {
+							window.location.href = '__APP__/Login/index'
+						}
+					}
+				});
+			}else{
+				return false;
+			}
+		});
+	});
+</script>

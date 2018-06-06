@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<section class="content-masonry">
+    <div class="container">
+        <include file="Public:lj"/>
+        <!-- end brand -->
+        <ul class="grid style">
+            <volist name="image_list" id="il">
+                <li class="grid-item  grid-item-half" style="height:{$il.height}">
+                    <a href="{$il.href}"><img src="{$il.image}" height="{$il.height}"></a>
+                    <?php if($status_type==1){ ?>
+                        <?php if($il['favourite']==1){ ?>
+                        <a class="heart" data-favourite="1" data-series_id="{$il.id}"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                        <?php }else{ ?>
+                        <a class="heart" data-favourite="0" data-series_id="{$il.id}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        <?php } ?>
+                    <?php } ?>
+                </li>
+            </volist>
+            <div class="clr"></div>
+        </ul>
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .content-masonry -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //收藏
+        $(".heart").click(function () {
+            var series_Id = $(this).data("series_id"), favourite = $(this).data("favourite"), heart = $(this).find("i.fa");
+            post_url_data('__APP__/Users/series_favourite', 'POST', {series_Id: series_Id}, function (err, Data) {
+                if (err) {
+                    alert(err);
+                } else {
+                    if (Data.status == 1) {
+                        alert(Data.info);
+                        if (heart.hasClass("fa-heart")) {
+                            heart.removeClass("fa-heart");
+                            heart.addClass("fa-heart-o");
+                        } else {
+                            heart.removeClass("fa-heart-o");
+                            heart.addClass("fa-heart");
+                        }
+                    } else {
+                        alert(Data.info);
+                    }
+                }
+            });
+        });
+    })
+</script>

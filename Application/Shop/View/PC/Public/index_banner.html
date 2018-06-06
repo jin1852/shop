@@ -1,0 +1,39 @@
+<section class="indexBanner indexBanner-important">
+    <ul>
+        <volist name="banner" id="banner_list">
+            <li style="background-image:url('{$banner_list.image}');height:{$banner_list.height};witdh:{$banner_list.width};max-height: 500px; "></li>
+        </volist>
+        <div class="clr"></div>
+    </ul>
+</section>
+<section class="searchBar">
+    <div class="container">
+        <form>
+            <label style="position: relative;">
+                <input id="product_search_input" type='text' placeholder="Sourcing" value="{$product_key}"/><a id="product_search_btn" style="cursor: pointer;position: absolute;right: 0;top:0;color:#595757; background: none;font-size: 24px;padding: 4px 5px 0 0;width:40px;height:50px;margin: 0;"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </label>
+            <a id="uenq" href="__APP__/ucenter/sourcing_new" style="cursor: pointer">UPLOAD ENQUIRIES</a>
+            <div class="clr"></div>
+        </form>
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#product_search_btn").click(function () {search_product();});
+        $("#uenq").click(function () {search_product();});
+    });
+    function search_product(){
+        var keyword = $("#product_search_input").val();
+        try {
+            if (keyword && keyword.length > 0) {
+                window.location.href = '__APP__/Style/product_list/order_type/1/product_key/' + keyword;
+            } else {
+                return false;
+            }
+        }catch (e){
+            console.log(e);
+        }finally {
+            keyword = null;
+        }
+    }
+</script>

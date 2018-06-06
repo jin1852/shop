@@ -1,0 +1,515 @@
+	@charset "UTF-8";
+	@font-face {
+		font-family: 'HSlight';
+		src: url('../fonts/HanSanLight.otf');
+	}
+	
+	@font-face {
+		font-family: 'HSregular';
+		src: url('../fonts/HanSanRegular.otf');
+	}
+	
+	@font-face {
+		font-family: 'HSbold';
+		src: url('../fonts/HanSanBold.otf');
+	}
+	
+	body {
+		width: 100%;
+		font-family: 'HSlight', Microsoft YaHei, '微软雅黑';
+	}
+	
+	.container {
+		padding: 0 15px;
+		margin: 0 auto;
+		width: 1208px;
+	}
+	
+	body > section {
+		width: 100%;
+		position: relative;
+	}
+	/********************************
+*
+*	
+*	index banner 首页图片轮播
+*
+*
+*********************************/
+	
+	section.indexBanner {
+		width: 100%;
+		height: 348px;
+		position: relative;
+	}
+	
+	section.indexBanner ul,
+	section.indexBanner li {
+		list-style: none;
+	}
+	
+	section.indexBanner li {
+		float: left;
+		background-position: center;
+		background-size: cover;
+		height: 670px;
+	}
+	
+	section.indexBanner.indexBanner-important > ul > li {
+		height: 670px;
+	}
+	
+	section.indexBanner li > div.text {
+		height: 348px;
+		padding-left: 40px;
+		padding-top: 40px;
+		position: relative;
+		color: #fff;
+	}
+	
+	section.indexBanner li > div.text > h5 {
+		font-family: 'HSbold';
+		font-size: 32px;
+	}
+	
+	section.indexBanner li > div.text > h6 {
+		font-family: 'HSlight';
+		font-size: 36px;
+	}
+	
+	section.indexBanner li > div.text > a {
+		position: absolute;
+		bottom: 40px;
+		left: 40px;
+		padding: 10px 25px;
+		color: #fff;
+		border: 2px solid #fff;
+		text-decoration: none;
+	}
+	
+	section.indexBanner li > div.text > a:hover,
+	section.indexBanner li > div.text > a:focus {
+		background: rgba(255, 255, 255, 0.4);
+	}
+	
+	section.indexBanner > ol {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -37.5px;
+	}
+	
+	section.indexBanner > ol > li {
+		height: 15px;
+		width: 15px;
+		text-indent: -99999em;
+		background: #333;
+		margin: 5px;
+		border: 2px solid #fff;
+		border-radius: 15px;
+	}
+	
+	section.indexBanner > ol > li.active {
+		background: #b60005;
+		border: 2px solid #fff;
+	}
+	
+	section.indexBanner-important {
+		height: 670px;
+		min-width: 1208px;
+	}
+	/********************************
+*
+*	
+*     Subscribe 订阅
+*
+*
+*********************************/
+	
+	section.subscribe {
+		background: #595757;
+		height: 166px;
+		width: 100%;
+	}
+	
+	section.subscribe > div >span {
+		color: #fff;
+		line-height: 166px;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	section.subscribe > div > div {
+		float: left;
+		margin: 68px 0;
+		height: 30px;
+	}
+	
+	section.subscribe > div > div > input {
+		height: 30px;
+		width: 250px;
+		outline: none;
+		border: none;
+		display: inline-block;
+		padding: 0 5px;
+		top: 0;
+		position: relative;
+		float: left;
+	}
+	
+	section.subscribe > div > div > button {
+		height: 30px;
+		text-align: center;
+		padding: 0 10px;
+		font-size: 16px;
+		color: #333;
+		background: #c9cacb;
+		outline: none;
+		border: none;
+	}
+	/********************************
+*
+*	
+*	index search bar 首页搜索条
+*
+*
+*********************************/
+	
+	section.searchBar {
+		width: 100%;
+		height: auto;
+		padding: 30px 0;
+	}
+	
+	section.searchBar form {
+		display: block;
+		margin: 0 auto;
+		width: 800px;
+	}
+	
+	section.searchBar label {
+		height: 50px;
+		padding: 0;
+		border: 1px #b8b8b8 solid;
+		width: 580px;
+		display: block;
+		float: left;
+	}
+	
+	section.searchBar label > input {
+		color: #595757;
+		width: 100%;
+		padding: 5px 15px;
+		line-height: 38px;
+		border: none;
+		outline: none;
+		font-size: 24px;
+	}
+	
+	section.searchBar a {
+		background: #595757;
+		color: #fff;
+		text-decoration: none;
+		font-size: 18px;
+		line-height: 40px;
+		padding: 5px;
+		width: 200px;
+		text-align: center;
+		display: block;
+		float: left;
+		margin-left: 20px;
+	}
+	/********************************
+*
+*	
+*	content 内容
+*
+*
+*********************************/
+	
+	body > section.content div.box {
+		width: 100%;
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+	
+	body > section.content div.box:hover {
+		z-index: 990;
+		position: relative;
+	}
+	
+	body > section.content div.box > a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+	}
+	/********************************
+*
+*	
+*	index content 首页内容
+*
+*
+*********************************/
+	
+	body > section.content.content-index div.box.indexBanner-min {
+		height: 380px;
+		position: relative;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: 380px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul > li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		float: left;
+		height: 380px;
+		width: 100%;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -37.5px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol >li {
+		height: 15px;
+		width: 15px;
+		text-indent: -99999em;
+		background: #333;
+		margin: 5px;
+		border: 2px solid #fff;
+		border-radius: 15px;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ul > li > a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	body > section.content.content-index div.box.indexBanner-min > ol >li.active {
+		background: #b60005;
+		border: 2px solid #fff;
+	}
+	
+	body > section.content.content-index div.box {
+		height: 390px;
+	}
+	
+	body > section.content.content-index div.box.halfbox {
+		width: 50%;
+		height: 702px;
+	}
+	/********************************
+*
+*	
+*     masonry content 图片瀑布流
+*
+*
+*********************************/
+	
+	section.content-masonry {
+		width: 100%;
+		padding: 20px 0;
+	}
+	
+	section > div.container > div.brand {
+		padding: 3px 5px;
+		border-bottom: 1px solid #9fa0a0;
+		color: #9fa0a0;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	
+	section > div.container > div.brand > a {
+		color: #9fa0a0;
+	}
+	
+	section > div.container > div.brand > span {
+		color: #9fa0a0;
+	}
+	
+	section.content-masonry > div.container > ul.grid {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item {
+		width: 100%;
+		transition: all .3s;
+		z-index: 1;
+		float: left;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.grid-item-half {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a {
+		text-decoration: none;
+		display: block;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a > img {
+		width: 100%;
+		height: auto;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.jtweb:hover {
+		box-shadow: none;
+		margin: 0;
+		width: 100%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item.grid-item-half.jtweb:hover {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button {
+		font-size: 16px;
+		line-height: 32px;
+		position: absolute;
+		padding: 0px 20px;
+		color: #333;
+		border: 1px solid #333;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button.wbtn {
+		color: #fff;
+		border: 1px solid #fff;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button:hover {
+		background: #595757;
+		color: #fff;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > a.button.wbtn:hover {
+		background: #fff;
+		color: #595757;
+	}
+	
+	section.content-masonry > div.container > ul.grid > li.grid-item > h5.text {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo {
+		position: relative;
+		margin-bottom: 60px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result {
+		width: 100%;
+		position: absolute;
+		top: 40px;
+		left: 0;
+		color: #595757;
+		line-height: 23px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div {
+		border: 1px solid #9fa0a0;
+		display: inline-block;
+		height: 23px;
+		margin-left: 20px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div > a {
+		line-height: 23px;
+		padding: 0 15px;
+		border-right: 1px solid #9fa0a0;
+		text-decoration: none;
+		color: #595757;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result > div.float_left > div > a:last-child {
+		border: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label {
+		height: 24px;
+		line-height: 22px;
+		border: 1px #595757 solid;
+		margin: 0 0 0 5px;
+		padding: 0;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result input {
+		height: 22px;
+		line-height: 22px;
+		font-size: 16px;
+		padding: 0 10px;
+		border: none;
+		outline: none;
+		background: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label > a {
+		display: inline-block;
+		height: 22px;
+		line-height: 22px;
+		margin: 0;
+		padding: 0 8px;
+		color: #595757;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: #dcdddd;
+		text-decoration: none;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label.date {
+		width: 140px;
+	}
+	
+	section.content-masonry > div.container > div.brand.demo > div.result label.search {
+		width: 215px;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item {
+		float: left;
+		position: relative;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item img {
+		height: 445px;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item {
+		width: 33.33333333%;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item > a.heart {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		color: #000;
+		font-size: 18px;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item1 {
+		width: 33.33333333%;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item2 {
+		width: 50%;
+	}
+	
+	section.content-masonry > div.container > ul.demo > li.grid-item.grid-item3 {
+		width: 100%;
+	}

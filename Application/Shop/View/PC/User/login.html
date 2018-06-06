@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<body>
+<?php
+	$ls=$_GET['ls'];
+	if($ls==11){
+?>
+<!-- 弹出层 -->
+<div class="popupDivForAll">
+	<div class="content">
+		<h5>Thank you for visiting our Market Place</h5>
+		<h6>Please login to view our latest products</h6>
+		<a class="bt-ok">OK</a>
+	</div>
+	<div class="bg"></div>
+</div>
+<!-- 弹出层 结束 -->
+<?php
+	}
+?>
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<!-- end .indexBanner -->
+<section class="subscribe">
+	<div class="container">
+		<span>Subscribe to our newsletter</span>
+		<div>
+			<input type="text" id="add_mail_input">
+			<button id="add_mail_btn">Subscribe</button>
+		</div>
+	</div>
+</section>
+
+<include file="Public:footer"/>
+<include file="Public:share"/>
+<div class="signIn-popup-fixed">
+	<ul class="meun login_box">
+		<li class="active" data-type="1" style="width:100%"><a herf="#">Client</a></li>
+		<!--<li data-type="2"><a herf="#">Supplier</a></li>-->
+		<!--<li data-type="3"><a herf="#">Designer</a></li>-->
+		<!--<li data-type="4"><a herf="#">Staff</a></li>-->
+		<div class="clr"></div>
+	</ul>
+	<form>
+		<label>
+			<input id="email" type="text" placeholder="Email address">
+			<span class="help" id="email_help"></span>
+		</label>
+		<label>
+			<input id="pwd" type="password" placeholder="Enter password">
+			<span class="help" id="pwd_help"></span>
+		</label>
+		<label>
+			<button type="button" id="login">Login</button>
+		</label>
+		<label>
+			<a href="#" id="forgot">Forgot your password? Click here</a>
+		</label>
+		<div class="warning-tiper">
+			<span id="login-help"></span>
+		</div>
+	</form>
+	<div class="reset hiden">
+		<h4>Reset Password</h4>
+		<h6>We can help you reset your password the email address linked to your account.</h6>
+		<input id="reset_email" type="text" placeholder="Email address">
+		<button type="button" id="reset_btn">Submit</button>
+		<!--<span id="reset_help">We will send a new password to your email within tow working days.</span>-->
+		<span id="reset_help"></span>
+	</div>
+	<div class="register ">
+		<div id="reg" style="cursor: pointer;">
+			<h5>Don't have an account?</h5>
+			<h5>Register for Market Place</h5>
+		</div>
+		<ul>
+			<li>
+				<a style="cursor: pointer;" class="login_with_oauth" data-controller="Facebook" data-action="login_with_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			</li>
+			<li>
+				<a style="cursor: pointer;" class="login_with_oauth" data-controller="Twitter" data-action="login_with_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			</li>
+			<li>
+				<a href="__APP__/About/contactUs"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+			</li>
+			<li>
+				<a href="mailto:gala@galison.co"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+			</li>
+			<div class="clr"></div>
+		</ul>
+	</div>
+</div>
+<div class="mask"></div>
+<!-- end .signIn-fixed -->
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+	var L = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	$(document).ready(function () {
+		$(".login_box>li>a").click(function () {
+			$(".login_box>li").removeClass('active');
+			$(this).parents("li").addClass('active');
+		});
+		$("#forgot").click(function () {
+			$(".reset").show();
+		});
+		//login
+		$("#login").click(function(){
+			var type=$(".login_box>li.active").data('type'),email=$("#email").val(),pwd=$("#pwd").val();
+			help('');
+			if(email){
+				if(pwd){
+					if(L.test(email)) {
+						post_url_data('__APP__/Login/do_login', 'POST', {uname: email, upwd: pwd}, function (err, Data) {
+							if (err) {
+								alert(err);
+							} else {
+								help(Data.info);
+								if (Data.status == 1) {
+									setTimeout(function(){
+										window.location.href = '__APP__';
+									},2000);
+								}
+							}
+						});
+					}else{
+						help('Please enter a valid email address',$("#email"));
+					}
+				}else{
+					help("Please enter a valid email address",$("#pwd"));
+				}
+			}else{
+				help("Please enter a valid email address",$("#email"));
+			}
+		});
+		//login_with_oauth
+		$(".login_with_oauth").click(function(){
+			var controller=$(this).data('controller'), action=$(this).data('action');
+			post_url_data('__APP__/'+controller+'/'+action,'POST',{},function(err,Data){
+				if(err){
+					alert(err);
+				}else{
+					console.dir(Data);
+					if(Data.status==1){
+						//alert('Login success');
+						window.location.href=Data.result;
+					}else{
+						alert(Data.info);
+					}
+				}
+			});
+		});
+		//reset_password
+		$("#reset_btn").click(function(){
+			var email=$(this).parents('.reset').find("#reset_email").val(),help=$(this).parents(".reset").find("#reset_help");
+			help.text('');
+			if(email){
+				if(L.test(email)){
+					post_url_data('__APP__/Login/forget','POST',{email:email},function (err,Data) {
+						if(err){
+							alert(err);
+						}else{
+							console.dir(Data);
+							//code;
+							help.text(Data.info);
+						}
+					},60000,$(this));
+				}else{
+					help.text('Please enter a valid email address');
+				}
+			}else{
+				help.text("Please enter a valid email address");
+			}
+		});
+		$("#reg").click(function(){
+			window.location.href='__APP__/Register/index';
+		});
+		$(".bt-ok").click(function(){
+			$(".popupDivForAll").hide();
+		});
+		//newsletter
+		$('#add_mail_btn').click(function(){
+			console.log('add_mail_btn_click');
+			var email = $('#add_mail_input').val();
+			if(email){
+				if(L.test(email)){
+					post_url_data('__APP__/Login/newsletter','POST',{email:email},function (err,Data) {
+						if(err){
+							alert(err);
+						}else{
+							console.dir(Data);
+							alert(Data.info);
+						}
+					},10000,$(this));
+				}else{
+					alert('Please enter a valid email address');
+				}
+			}else{
+				alert("Please enter a valid email address");
+			}
+		});
+	});
+	function help(text,dom){
+		$("#login-help").text(text);
+		if(dom) {
+			dom.focus();
+		}
+	}
+</script>
+

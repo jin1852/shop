@@ -1,0 +1,50 @@
+	@charset "UTF-8";
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul > li {
+		height: 50px;
+		width: 120px;
+		line-height: 50px;
+		float: left;
+		margin: 5px;
+		padding-left: 30px;
+		padding-right: 17px;
+		position: relative;
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+	
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul > li > span {
+		display: block;
+		width: 75px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul > li > a {
+		font-size: 14px;
+		color: #333;
+		display: block;
+		width: 12px;
+		height: 12px;
+		line-height: 8px;
+		cursor: pointer;
+		border: 1px solid #e2e3e3;
+		position: absolute;
+		right: 0;
+		top: 19px;
+		text-decoration: none;
+	}
+	
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul > li.xls {
+		background-image: url(../images/images/icon-file-sourcingList-xls.png);
+	}
+	
+	div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file > ul > li.pdf {
+		background-image: url(../images/images/icon-file-sourcingList-pdf.png);
+	}

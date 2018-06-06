@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>jd-商品比较</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__/compare.css">
+	<include file='Common/header' />
+	<div id='compare'>
+	<div id='compare-title'>
+		<span>基本信息对比</span>
+	</div>
+	<table>
+		<tr>
+			<th>商品图片</th>
+			<foreach name='data' item='val'>
+				<td>
+					<a rel="nofollow" href="{:U('Details/details',array('id'=>$val['prodId']))}">
+						<img src="__PUBLIC__/Uploads/{$val.img}">
+					</a>
+					<div class='desc'>
+						<a href="{:U('Details/details',array('id'=>$val['prodId']))}">
+						{$val.prodInfo}
+						</a>
+					</div>
+				</td>
+			</foreach>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>京东价</th>
+			<foreach name='data' item='val'>
+				<td><b style='color:#E4393C'>￥{$val.price1}</b></td>
+			</foreach>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>所属品牌</th>
+			<foreach name='data' item='val'>
+				<td>{$val.brandName}</td>
+			</foreach>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>颜色</th>
+			<foreach name='data' item='val'>
+				<td>{$val.colorName}</td>
+			</foreach>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>屏幕尺寸</th>
+			<foreach name='data' item='val'>
+				<td>{$val.sizeName}</td>
+			</foreach>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>操作系统</th>
+			<for start='0' end='4-$num'>
+				<td>Win 8</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>内存容量</th>
+			<for start='0' end='4-$num'>
+				<td>4GB</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>硬盘容量</th>
+			<for start='0' end='4-$num'>
+				<td>500GB</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>转速</th>
+			<for start='0' end='4-$num'>
+				<td>5400转/分钟</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>接口类型</th>
+			<for start='0' end='4-$num'>
+				<td>SATA 串行</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>内置蓝牙</th>
+			<for start='0' end='4-$num'>
+				<td>有</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>红外</th>
+			<for start='0' end='4-$num'>
+				<td>--</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>USB3.0</th>
+			<for start='0' end='4-$num'>
+				<td>2</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>键盘</th>
+			<for start='0' end='4-$num'>
+				<td>全尺寸键盘</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+		<tr>
+			<th>电池</th>
+			<for start='0' end='4-$num'>
+				<td>6芯 锂离子电池</td>
+			</for>
+			<for start='0' end='$num'>
+				<td>
+				</td>
+			</for>
+		</tr>
+	</table>
+	</div>
+	<include file='Common/footer' />
+</body>
+</html>

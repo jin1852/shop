@@ -1,0 +1,61 @@
+<!DOCTYPE  html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>找回密码</title>
+	<link rel="stylesheet" type="text/css" href="__HOMECSS__/findpwd.css">
+	<include file='Common/topper' />
+	<div id='find-log'>
+		<img src='__HOMEIMG__/logo-2013.png'>
+	</div>
+	<div id='findpwd'>
+		<div class='find-title'>
+			<h3>找回密码</h3>
+		</div>
+		<div class='mc'>
+			<div class="step">
+				<ul>
+					<li class="one finish3">填写账户名</li>
+					<li class="two cur">验证身份</li>
+					<li class="three">设置新密码</li>
+					<li class="four">完成</li>
+				</ul>
+			</div>
+			<div class="form">
+				<div class="item">
+					<span>请选择验证身份方式：</span>
+					<div class="f">
+						<select name="findmethod">
+							<option value="1" selected>邮箱</option>
+							<option value='2' disabled>手机</option>
+						</select>
+						<label id='name-error'></label>
+					</div>
+				</div>
+				<div class="item">
+					<span>昵称：</span>
+					<div class="f" style="border:none;">
+						<input readonly class='step2' type="text" name='nickName' value="{$findInfo.nickName}">
+						<label id='nickName-error'></label>
+					</div>
+				</div>
+				<div class="item">
+					<span>邮箱地址：</span>
+					<div class="f" style="border:none">
+						<input readonly class='step2' type="text" name='email' value="{$findInfo.useremail}">
+						<label id='email-error'></label>
+					</div>
+				</div>
+				<div class="item">
+					<span>&nbsp;</span>
+					<div class="f" style="width:69px;border:none">
+						<input class='c'type="button" value="发送邮件">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file='Common/footer' />
+	<script src='__HOMEJS__/findpwd/step2.js'></script>
+</body>
+</html>

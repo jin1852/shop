@@ -1,0 +1,2381 @@
+@charset "UTF-8";
+section.userCenter {
+	width: 1108px;
+	margin: 20px auto;
+}
+
+
+/********************************
+*
+*	
+*	左侧菜单栏
+*
+*
+*********************************/
+
+section.userCenter > div.meun {
+	float: left;
+	width: 165px;
+	background: #fcfdfd;
+	padding: 15px 0;
+}
+
+section.userCenter > div.meun > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section.userCenter > div.meun > ul > li {
+	line-height: 24px;
+	height: 24px;
+}
+
+section.userCenter > div.meun > ul > li.title {
+	color: #595757;
+	font-family: 'HSbold';
+	margin-top: 15px;
+}
+
+section.userCenter > div.meun > ul > li.title > a {
+	color: #595757;
+}
+
+section.userCenter > div.meun > ul > li.title > h5 {
+	margin: 0;
+	padding-left: 30px;
+	line-height: 24px;
+}
+
+section.userCenter > div.meun > ul > li > a {
+	margin: 0;
+	padding-left: 30px;
+	text-decoration: none;
+	color: #898989;
+	display: block;
+	height: 24px;
+	width: 100%;
+}
+
+section.userCenter > div.meun > ul > li > a:hover {
+	/*background: #ddd;*/
+	color:#fff ;
+	background: #b60005;
+}
+
+section.userCenter > div.meun > ul > li.title.active > a {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.meun > ul > li.active > a {
+	color: #fff;
+	background: #595757;
+}
+section.userCenter > div.meun > ul > li.active > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+/********************************
+*
+*	
+*	右侧内容模块  功能头部
+*
+*
+*********************************/
+
+section.userCenter > div.content {
+	width: calc(100% - 170px);
+	margin-left: 170px;
+	position: relative;
+}
+
+section.userCenter > div.content > div.title-function {
+	height: 120px;
+	width: 100%;
+	background: url(../images/update/bg-usercenter-tools.png) no-repeat center;
+	background-size: 100%;
+}
+
+section.userCenter > div.content > div.title-function > ul {
+	list-style: none;
+	margin: 0;
+	padding: 17px 0 0;
+}
+
+section.userCenter > div.content > div.title-function > ul > li {
+	float: left;
+	margin-left: 38px;
+	margin-bottom: 10px;
+	width: 187px;
+	height: 38px;
+}
+
+section.userCenter > div.content > div.title-function > ul > li > a {
+	width: 187px;
+	height: 38px;
+	line-height: 38px;
+	display: block;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	padding-left: 48px;
+	position: relative;
+	opacity: 0.9;
+	text-decoration: none;
+	transition: opacity 0.3s;
+}
+
+section.userCenter > div.content > div.title-function > ul > li > a:hover {
+	opacity: 1;
+}
+
+section.userCenter > div.content > div.title-function > ul > li > a > i {
+	position: absolute;
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	width: 38px;
+	top: 0;
+	left: 5px;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.cart > a > i {
+	background: url(../images/images/icon_uc_toolbar_cart.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.enquiry > a > i {
+	background: url(../images/images/icon_uc_toolbar_enquiry.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.sourcing > a > i {
+	background: url(../images/images/icon_uc_toolbar_sourcing.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.history > a > i {
+	background: url(../images/images/icon_uc_toolbar_history.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.following > a > i {
+	background: url(../images/images/icon_uc_toolbar_following.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.profile > a > i {
+	background: url(../images/images/icon_uc_toolbar_profile.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.order > a > i {
+	background: url(../images/images/icon_uc_toolbar_order.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.support > a > i {
+	background: url(../images/images/icon_uc_toolbar_support.png)
+}
+
+section.userCenter > div.content > div.title-function > ul > li.cart > a {
+	color: #5f4b66;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.enquiry > a {
+	color: #56667a;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.support > a {
+	color: #b07156;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.sourcing > a {
+	color: #702632;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.history > a {
+	color: #9dbf9e;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.order > a {
+	color: #5e5c5d;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.following > a {
+	color: #56667a;
+}
+
+section.userCenter > div.content > div.title-function > ul > li.profile > a {
+	color: #5f4b66;
+}
+
+
+/********************************
+*
+*	
+*	右侧内容模块  搜索条
+*
+*
+*********************************/
+
+section.userCenter > div.content > div.searchBar {
+	height: 28px;
+	width: 100%;
+	margin-top: 5px;
+	padding-left: 20px;
+}
+
+section.userCenter > div.content > div.searchBar > div.start {
+	float: left;
+	height: 28px;
+	width: 390px;
+	border: 1px solid #605e5e;
+	border-radius: 5px;
+}
+
+section.userCenter > div.content > div.searchBar > div.start > input {
+	border: none;
+	background: none;
+	padding: 0 10px;
+	margin: 0;
+	outline: none;
+	width: 290px;
+	height: 26px;
+	line-height: 26px;
+}
+
+section.userCenter > div.content > div.searchBar > div.start > a {
+	display: inline-block;
+	width: 96px;
+	height: 26px;
+	line-height: 26px;
+	text-decoration: none;
+	color: #605e5e;
+	border-left: 1px solid #605e5e;
+	border-radius: 4px;
+	float: right;
+	text-align: center;
+}
+
+section.userCenter > div.content > div.searchBar > div.start > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.upload {
+	float: left;
+	height: 28px;
+	margin-left: 5px;
+}
+
+section.userCenter > div.content > div.searchBar > div.upload > a {
+	width: 144px;
+	text-align: center;
+	text-decoration: none;
+	background: #595757;
+	color: #fff;
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	border-radius: 5px;
+}
+
+section.userCenter > div.content > div.searchBar > div.upload > a:hover {
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.search {
+	float: right;
+	height: 28px;
+	border: 1px solid #605e5e;
+	border-radius: 5px;
+	width: 280px;
+}
+
+section.userCenter > div.content > div.searchBar > div.search > input,
+section.userCenter > div.content > div.searchBar > div.search > form > input {
+	border: none;
+	background: none;
+	padding: 0 10px;
+	margin: 0;
+	outline: none;
+	width: 240px;
+	height: 26px;
+	line-height: 26px;
+}
+
+section.userCenter > div.content > div.searchBar > div.search > a,
+section.userCenter > div.content > div.searchBar > div.search > form > button {
+	display: inline-block;
+	width: 38px;
+	height: 26px;
+	line-height: 26px;
+	text-decoration: none;
+	color: #605e5e;
+	border: none;
+	border-left: 1px solid #605e5e;
+	border-radius: 4px;
+	float: right;
+	text-align: center;
+	background: #fff;
+	padding: 0 6px;
+	outline: none;
+}
+
+section.userCenter > div.content > div.searchBar > div.search > a:hover,
+section.userCenter > div.content > div.searchBar > div.search > form > button:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.data {
+	float: right;
+	width: 280px;
+}
+
+section.userCenter > div.content > div.searchBar > div.data > div {
+	display: inline-block;
+	margin: 0 5px;
+	width: 90px;
+	position: relative;
+	border: 1px solid #e7e7e7;
+}
+
+section.userCenter > div.content > div.searchBar > div.data > div:hover {
+	border: 1px solid #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.data > div > input {
+	outline: none;
+	width: 88px;
+	border: none;
+	height: 26px;
+	color: #898989;
+	padding: 0 3px;
+}
+
+section.userCenter > div.content > div.searchBar > div.data > div > i {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 20px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	color: #898989
+}
+
+section.userCenter > div.content > div.searchBar > div.button {
+	float: left;
+}
+
+section.userCenter > div.content > div.searchBar > div.button > a {
+	padding: 0 8px;
+	display: inline-block;
+	border: 1px solid #595757;
+	color: #595757;
+	line-height: 26px;
+	text-align: center;
+	text-decoration: none;
+}
+
+section.userCenter > div.content > div.searchBar > div.button.black {
+	margin-right: 5px;
+}
+
+section.userCenter > div.content > div.searchBar > div.button.black > a {
+	color: #fff;
+	background: #595757;
+}
+
+section.userCenter > div.content > div.searchBar > div.button > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.select {
+	margin-left: 5px;
+	width: 150px;
+	float: left;
+}
+
+section.userCenter > div.content > div.searchBar > div.select > div.btn-group > button {
+	border-radius: 0;
+	height: 28px;
+	line-height: 26px;
+	color: #595757;
+	border: 1px solid #595757;
+	padding: 0 0 0 10px;
+	width: 150px;
+	text-align: left;
+}
+
+section.userCenter > div.content > div.searchBar > div.select > div.btn-group > button:hover,
+section.userCenter > div.content > div.searchBar > div.select > div.btn-group > button:focus {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.searchBar > div.select > div.btn-group > button > span {
+	position: absolute;
+	right: 10px;
+	top: 12px;
+}
+
+section.userCenter > div.content > div.searchBar > div.select > div.btn-group > ul {
+	overflow-y: scroll;
+	height: 140px;
+	width: 150px;
+	min-width: 150px;
+	border-radius: 0;
+	border: 1px solid #9fa0a0;
+}
+
+
+/********************************
+*
+*	
+*	右侧内容模块  订单主要内容列表
+*
+*
+*********************************/
+
+div.content_list {
+	margin-top: 10px;
+	position: relative;
+}
+
+div.content_list > div.title {
+	background: #595757;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	color: #fff;
+	padding: 0 20px;
+}
+
+div.content_list > div.title > ul {
+	height: 25px;
+	line-height: 25px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+div.content_list > div.title > ul > li {
+	float: left;
+}
+
+div.content_list > div.page {
+	margin-top: 35px;
+}
+
+div.content_list > div.page > ul {
+	width: 220px;
+	float: right;
+	height: 18px;
+	text-align: right;
+}
+
+div.content_list > div.page > ul > li {
+	height: 18px;
+	line-height: 18px;
+	float: left;
+	margin-left: 7px;
+}
+
+div.content_list > div.page > ul > li > a {
+	border: 1px solid #e2e3e3;
+	color: #595757;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 4px;
+	border-radius: 3px;
+}
+
+div.content_list > div.page > ul > li > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.page > ul > li.active > a {
+	color: #fff;
+	background: #595757;
+	border: 1px solid #595757;
+}
+
+
+/********************************************************************************* shoppingCart */
+
+div.content_list > div.title > ul.shoppingCart > li.checkBox {
+	width: 12px;
+	height: 25px;
+}
+
+div.content_list > div.title > ul.shoppingCart > li.item {
+	width: 66px;
+	margin-left: 25px;
+}
+
+div.content_list > div.title > ul.shoppingCart > li.description {
+	width: 230px;
+	margin-left: 25px;
+}
+
+div.content_list > div.title > ul.shoppingCart > li.sample {
+	width: 70px;
+	float: right;
+}
+
+div.content_list > div.title > ul.shoppingCart > li.remark {
+	width: 200px;
+	float: right;
+	margin-left: 25px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li.all {
+	height: 40px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li.all > div.checkBox {
+	line-height: 20px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li.all > div.item {
+	line-height: 20px;
+	height: 40px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li.all > div.item > h5 {
+	margin: 0;
+	line-height: 20px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li {
+	padding: 10px 20px;
+	border-bottom: 1px solid #e6e6e6;
+	height: 108px;
+	position: relative;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div {
+	float: left;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.checkBox {
+	width: 12px;
+	line-height: 78px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.checkBox > a {
+	cursor: pointer;
+	color: #333;
+}
+
+div.content_list > div.list > ul.shoppingCart > li.active > div.checkBox > a > i.fa-square-o:before {
+	content: "\f046";
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.item {
+	width: 66px;
+	height: 78px;
+	margin-left: 25px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.item > img {
+	width: 66px;
+	height: 66px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.item > h5 {
+	font-size: 12px;
+	margin: 5px 0 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.description {
+	width: 230px;
+	height: 78px;
+	margin-left: 25px;
+	padding: 3px 0;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.description > h5 {
+	font-size: 12px;
+	margin: 0 0 3px;
+	padding: 0;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.remark {
+	width: 200px;
+	height: 78px;
+	float: right;
+	margin-left: 25px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.sample {
+	width: 70px;
+	height: 78px;
+	float: right;
+	padding-top: 30px;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.sample > a {
+	border: 1px solid #595757;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	line-height: 16px;
+	color: #595757;
+	float: left;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.sample > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.sample > input {
+	display: inline-block;
+	height: 16px;
+	width: 30px;
+	line-height: 14px;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #595757;
+	border-bottom: 1px solid #595757;
+	border-left: none;
+	border-right: none;
+	outline: none;
+	float: left;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.shoppingCart > li > div.remark > textarea {
+	border: 1px solid #595757;
+	width: 100%;
+	height: 78px;
+	outline: none;
+	padding: 3px 5px;
+	resize: none;
+}
+
+div.content_list > div.btn_div {
+	margin-top: 35px;
+	text-align: right;
+}
+
+div.content_list > div.btn_div > a {
+	line-height: 26px;
+	border: 1px solid #595757;
+	color: #595757;
+	text-align: center;
+	padding: 0 10px;
+	margin-left: 5px;
+	text-decoration: none;
+}
+
+div.content_list > div.btn_div > a.black {
+	background: #595757;
+	color: #fff;
+}
+
+div.content_list > div.btn_div > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-title {
+	height: 300px;
+	width: calc(100% - 20px);
+	border-top: 1px solid #595757;
+	border-bottom: 1px solid #595757;
+	padding-top: 100px;
+	margin-left: 20px;
+	margin-top: 40px;
+	position: relative;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-title > h5 {
+	width: 100%;
+	text-align: left;
+	padding-left: 300px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-title > i {
+	position: absolute;
+	top: 105px;
+	left: 235px;
+	display: block;
+	height: 50px;
+	width: 50px;
+	background: url(../images/images/icon-ShoppingCartNull.png) no-repeat center;
+	background-size: 100%;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand {
+	padding: 25px 60px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > h5 {
+	font-size: 14px;
+	margin: 0 0 25px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul {
+	margin: 0 0 20px;
+	list-style: none;
+	width: 100%;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul > li {
+	float: left;
+	width: 25%;
+	margin-bottom: 20px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul > li > a.img {
+	width: 190px;
+	height: 210px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul > li > a.img > img {
+	width: 190px;
+	height: 210px;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul > li > a.text {
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-right: 15px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	color: #898989;
+}
+
+section.userCenter > div.content > div.shoppingCartNull-recommand > ul > li > a.bt {
+	float: right;
+	margin-right: 15px;
+	line-height: 22px;
+	padding: 0 10px;
+	color: #fff;
+	background: #b60005;
+	text-decoration: none;
+}
+
+
+/********************************************************************************* end shoppingCart */
+
+
+/********************************************************************************* enquiry */
+
+div.content_list > div.title > ul.enquiry > li.icon {
+	width: 12px;
+	height: 25px;
+}
+
+div.content_list > div.title > ul.enquiry > li.enquiryNo {
+	width: 160px;
+	margin-left: 15px;
+}
+
+div.content_list > div.title > ul.enquiry > li.status {
+	width: 90px;
+	margin-left: 25px;
+	text-align: center;
+}
+
+div.content_list > div.title > ul.enquiry > li.files {
+	width: 140px;
+	float: right;
+	text-align: center;
+}
+
+div.content_list > div.title > ul.enquiry > li.date {
+	width: 110px;
+	float: right;
+	margin-left: 25px;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry {
+	margin-bottom: 20px;
+}
+
+div.content_list > div.list > ul.enquiry > li {
+	margin-top: 10px;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title {
+	padding: 0 20px;
+	height: 27px;
+	line-height: 25px;
+	border: 1px solid #595757;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.icon {
+	width: 12px;
+	height: 25px;
+	float: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.icon > a {
+	color: #595757;
+	font-size: 18px;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.enquiryNo {
+	width: 160px;
+	margin-left: 15px;
+	float: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.status {
+	width: 90px;
+	margin-left: 25px;
+	text-align: center;
+	float: left;
+	background: #595757;
+	color: #fff;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.files {
+	width: 140px;
+	float: right;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.files > a {
+	text-decoration: none;
+	color: #595757;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.files > a:hover {
+	color: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry > li > ul.title > li.date {
+	width: 110px;
+	float: right;
+	margin-left: 25px;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content {
+	padding: 0 20px 10px;
+	border-left: 1px solid #595757;
+	border-right: 1px solid #595757;
+	border-bottom: 1px solid #595757;
+	display: none;
+}
+
+div.content_list > div.list > ul.enquiry > li.active > div.content {
+	display: block;
+}
+
+div.content_list > div.list > ul.enquiry > li.active > div.content.edit-content-popup {
+	position: absolute;
+	background: #fff;
+	top: 0;
+	right: 0;
+	box-shadow: 0 0 6px #999;
+	border: none;
+	display: none;
+	z-index: 999;
+}
+
+div.content_list > div.list > ul.enquiry > li.active > div.content.edit-content-popup > h3 {
+	font-size: 34px;
+	margin: 0;
+	padding: 20px 25px 10px;
+}
+
+div.content_list > div.list > ul.enquiry > li.active > div.content.edit-content-popup > h5 {
+	font-size: 14px;
+	padding: 0 25px;
+	margin: 0 0 20px;
+}
+
+div.content_list > div.list > ul.enquiry > li.active > div.content.edit-content-popup > a {
+	position: absolute;
+	font-size: 24px;
+	color: #595757;
+	right: 20px;
+	top: 10px;
+	cursor: pointer;
+}
+
+div.content_list > div.list > ul.enquiry > li.active i.fa-caret-right:before {
+	content: "\f0d7";
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title {
+	padding: 0;
+	margin: 10px 0;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title > ul {
+	border: 1px solid #595757;
+	padding: 0 0px 0 27px;
+	height: 27px;
+	line-height: 25px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title.black > ul {
+	color: #fff;
+	background: #595757;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title.topTitle {
+	margin: 0 -20px 10px;
+	border: 0 !important;
+	background: #9fa0a0;
+	color: #fff;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title.topTitle > ul {
+	border: none;
+	padding: 0 20px 0 47px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.title > ul > li {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #595757;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list.successList {
+	padding-bottom: 40px;
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul {
+	height: auto;
+	padding: 10px 0 10px 25px;
+	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul:last-child {
+	border-bottom: none;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul.all {
+	height: 25px;
+	padding: 0 25px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul > a {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	color: #595757;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul.all > a {
+	top: 0;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul.active > a > i:before {
+	content: "\f046";
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul >li {
+	float: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.item {
+	width: 70px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.item > img {
+	width: 66px;
+	height: 66px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.item > h5 {
+	font-size: 12px;
+	margin: 5px 0 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.description {
+	width: 210px;
+	margin-left: 10px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.description > h5 {
+	font-size: 12px;
+	margin: 0 0 3px;
+	padding: 0;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.oty {
+	width: 65px;
+	float: right !important;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul >li.oty {
+	padding-top: 28px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.oty > input {
+	height: 16px;
+	line-height: 16px;
+	width: 100%;
+	border: 1px solid #595757;
+	text-align: right;
+	padding: 0 5px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.sample {
+	width: 65px;
+	float: right !important;
+	margin-left: 10px;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul >li.sample {
+	padding-top: 30px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.sample > a {
+	border: 1px solid #595757;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	line-height: 16px;
+	color: #595757;
+	float: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.sample > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.sample > input {
+	display: inline-block;
+	height: 16px;
+	width: 30px;
+	border-top: 1px solid #595757;
+	border-bottom: 1px solid #595757;
+	border-left: none;
+	border-right: none;
+	outline: none;
+	float: left;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.remark {
+	width: 190px;
+	float: right !important;
+	margin-left: 10px;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.remark > textarea {
+	border: 1px solid #595757;
+	width: 100%;
+	height: 78px;
+	outline: none;
+	padding: 3px 5px;
+	resize: none;
+	text-align: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.remark > p {
+	width: 100%;
+	height: 78px;
+	margin: 0;
+	padding: 0;
+	line-height: 16px;
+	overflow: hidden;
+	word-break: break-all;
+	text-align: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.remark > span {
+	margin-top: 30px;
+	display: inline-block;
+	text-align: left;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > h3 {
+	font-size: 14px;
+	font-family: 'HSregular';
+	padding: 5px 25px 15px;
+	margin: 0;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent {
+	padding: 40px 20px 20px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li {
+	float: left;
+	width: 51%;
+	min-height: 20px;
+	max-height: 70px;
+	margin-bottom: 8px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > span {
+	width: 110px;
+	height: 20px;
+	font-size: 12px;
+	display: inline-block;
+	float: left;
+	padding-left: 40px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > a.bt {
+	color: #fff;
+	background: #595757;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	position: absolute;
+	left: 30px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > a.bt:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > a.add {
+	color: #595757;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > a.add:hover {
+	color: #b60005;
+	text-decoration: none;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > input {
+	height: 20px;
+	line-height: 18px;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > textarea {
+	height: 70px;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+	resize: none;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > select {
+	height: 20px;
+	background: none;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+	border-radius: 0px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > label {
+	margin-right: 10px;
+	font-size: 12px
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > label > input {
+	border: 1px solid #595757;
+	border-radius: 1px;
+	margin-right: 3px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.inputContent > ul > li > label > input[type="text"] {
+	height: 20px;
+	margin-left: 5px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.btnBar {
+	text-align: right;
+	padding: 0 0 20px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.btnBar.successList {
+	padding: 40px 0 40px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #595757;
+	border-top: 1px solid #f9f9f9;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.btnBar > a {
+	padding: 0 15px;
+	border: 1px solid #595757;
+	height: 28px;
+	line-height: 26px;
+	display: inline-block;
+	color: #595757;
+	text-decoration: none;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.btnBar > a.black {
+	background: #595757;
+	color: #fff;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.btnBar > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > h2 {
+	height: 50px;
+	margin: 0 0 10px;
+	font-size: 24px;
+	padding: 15px 25px;
+	border-bottom: 1px solid #595757;
+	display: block;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > h2 > a {
+	font-size: 12px;
+	line-height: 28px;
+	text-align: center;
+	padding: 0 10px;
+	text-decoration: none;
+	border: 1px solid #595757;
+	color: #595757;
+	display: block;
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	right: 0;
+	bottom: 8px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > h2 > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.pri {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 58px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.inn {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 58px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.cbm {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 60px;
+	word-break: break-all;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.sam {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 50px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.p20 {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 35px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.p40 {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 35px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.p40hc {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 35px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.moq {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 35px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.gw {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 30px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.nw {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 30px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content li.hs {
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	width: 40px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul > li {
+	font-size: 12px;
+	padding-top: 0px;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul > li.item {
+	padding-top: 0;
+}
+
+div.content_list > div.list > ul.enquiry > li > div.content > div.list > ul > li.description {
+	padding-top: 0;
+}
+
+
+/********************************
+*
+*	
+*	enquiry popup 询价单弹出层
+*
+*
+*********************************/
+
+div.popup-enquiry {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+div.mark-w {
+	background: rgba(255, 255, 255, .9);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99998;
+}
+
+div.popup-enquiry > div.content {
+	width: 450px;
+	padding: 40px;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	margin-left: -225px;
+	z-index: 99999;
+	background: #fff;
+	border: 1px solid #595757;
+}
+
+div.popup-enquiry > div.content > h5 {
+	font-size: 14px;
+	width: 100%;
+	margin: 0 0 20px;
+	word-break: break-all;
+	color: #595757;
+	text-align: center;
+	font-family: 'HSbold';
+}
+
+div.popup-enquiry > div.content > textarea {
+	display: block;
+	resize: none;
+	width: 200px;
+	height: 90px;
+	margin: 0 auto;
+}
+
+div.popup-enquiry > div.content > div.btnDiv {
+	text-align: center;
+	margin: 20px 0 0;
+}
+
+div.popup-enquiry > div.content > div.btnDiv > a {
+	display: inline-block;
+	padding: 0 20px;
+	line-height: 25px;
+	text-decoration: none;
+	color: #fff;
+	background: #595757;
+	margin: 0 10px;
+}
+
+div.popup-enquiry > div.content > div.btnDiv > a:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+
+/********************************
+*
+*	
+*	address popup 地址本弹出层
+*
+*
+*********************************/
+
+div.address-popup {
+	position: absolute;
+	background: #fff;
+	bottom: 77px;
+	right: 64px;
+	width: 938px;
+	box-shadow: 0 0 6px #000;
+	padding: 40px 0 40px 38px;
+}
+
+div.address-popup > a.close {
+	position: absolute;
+	font-size: 24px;
+	color: #595757;
+	right: 20px;
+	top: 10px;
+	cursor: pointer;
+}
+
+div.address-popup > div.left {
+	width: 140px;
+	height: 220px;
+	float: left;
+}
+
+div.address-popup > div.left > ul {
+	width: 140px;
+	padding: 20px 20px 20px 10px;
+	height: 220px;
+	overflow-y: scroll;
+}
+
+div.address-popup > div.left > ul > li {
+	width: 115px;
+	height: 30px;
+	margin-bottom: 12px;
+}
+
+div.address-popup > div.left > ul > li > a {
+	display: block;
+	color: #595757;
+	border: #595757 1px solid;
+	width: 115px;
+	height: 30px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	line-height: 30px;
+}
+
+div.address-popup > div.left > ul > li > a:hover {
+	border-color: #b60005;
+	color: #b60005;
+}
+
+div.address-popup > div.left > ul > li.active > a {
+	color: #fff;
+	background: #595757;
+}
+
+div.address-popup > div.right {
+	width: 760px;
+	border-left: 1px solid #595757;
+	float: left;
+}
+
+div.address-popup > div.right > div.inputContent {
+	padding: 0;
+}
+
+div.address-popup > div.right > div.inputContent > ul:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li {
+	float: left;
+	width: 51%;
+	min-height: 20px;
+	max-height: 70px;
+	margin-bottom: 5px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > span {
+	width: 85px;
+	height: 20px;
+	font-size: 12px;
+	display: inline-block;
+	float: left;
+	padding-left: 12px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > a.bt {
+	color: #fff;
+	background: #595757;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	position: absolute;
+	left: 30px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > a.bt:hover {
+	color: #fff;
+	background: #b60005;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > a.add {
+	color: #595757;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > a.add:hover {
+	color: #b60005;
+	text-decoration: none;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > input {
+	height: 20px;
+	line-height: 18px;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > textarea {
+	height: 70px;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+	resize: none;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > select {
+	height: 20px;
+	background: none;
+	border: 1px solid #595757;
+	width: calc(100% - 110px);
+	border-radius: 0px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > label {
+	margin-right: 10px;
+	font-size: 12px
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > label > input {
+	border: 1px solid #595757;
+	border-radius: 1px;
+	margin-right: 3px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > label > input[type="text"] {
+	height: 20px;
+	margin-left: 5px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > div.bt {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+div.address-popup > div.right > div.inputContent > ul > li > div.bt > a {
+	display: inline-block;
+	width: 62px;
+	height: 20px;
+	background: #595758;
+	color: #fff;
+	margin-left: 7px;
+	text-align: center;
+	text-decoration: none;
+}
+
+
+/********************************************************************************* end enquiry */
+
+
+/********************************************************************************* Sample Request */
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content li.description {
+	width: 220px;
+	float: left !important;
+	margin-left: 40px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content li.sample {
+	width: 60px;
+	float: left !important;
+	margin-left: 40px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content li.remark {
+	width: 180px;
+	float: left !important;
+	margin-left: 40px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content li.samplePhoto {
+	width: 110px;
+	float: left !important;
+	margin-left: 40px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.list > ul >li.sample {
+	padding-top: 0;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.list > ul >li.samplePhoto > img {
+	width: 95px;
+	height: 50px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express {
+	width: 840px;
+	margin: 20px auto 40px;
+	border-top: 1px solid #595757;
+	border-bottom: 1px solid #595757;
+	margin-bottom: 80px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > h5 {
+	height: 70px;
+	line-height: 70px;
+	margin: 0;
+	text-align: center;
+	font-size: 18px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > div.title {
+	height: 36px;
+	line-height: 36px;
+	background: #595757;
+	color: #fff;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > div.title > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > div.title > ul > li {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > div.content > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 48px;
+}
+
+div.content_list > div.list > ul.enquiry.sample > li > div.content > div.express > div.content > ul > li {
+	float: left;
+	width: 25%;
+	text-align: center;
+	height: 48px;
+	line-height: 48px;
+}
+
+
+/********************************************************************************* end Sample Request */
+
+
+/********************************************************************************* Sourcing */
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList {
+	border-bottom: none;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul {
+	list-style: none;
+	margin: 0;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li {
+	padding: 20px 0;
+	border-bottom: 1px solid #333;
+	height: auto;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li:last-child {
+	border-bottom: none;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > a.closeLi {
+	position: absolute;
+	top: 48%;
+	left: 0;
+	color: #595757;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > a.closeLi:hover {
+	color: #b60005;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left {
+	float: left;
+	width: 390px;
+	margin-left: 27px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div a {
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	text-decoration: underline;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.img {
+	text-align: center;
+	height: 210px;
+	width: 390px;
+	background: #c9cacb;
+	line-height: 210px;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.img > a.deletImg {
+	display: block;
+	font-size: 52px;
+	line-height: 18px;
+	height: 30px;
+	width: 30px;
+	border-radius: 50px;
+	border: 2px solid #595757;
+	color: #595757;
+	text-decoration: none;
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	overflow: hidden;
+	cursor: pointer;
+	font-family: 'HSlight';
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.upload {
+	text-align: center;
+	height: 85px;
+	width: 390px;
+	background: #595757;
+	margin-top: 5px;
+	line-height: 85px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.left > div.file {
+	height: 75px;
+	width: 390px;
+	background: #fff;
+	margin-top: 5px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right {
+	margin-left: 445px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > h5 {
+	margin-top: 0;
+	font-family: 'HSregular';
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label {
+	width: 450px;
+	padding-left: 80px;
+	line-height: 30px;
+	position: relative;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label > span {
+	display: block;
+	width: 80px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 12px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label > div {
+	display: inline-block;
+	border: 1px solid #595757;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select {
+	background: #fff;
+	border-radius: 0px;
+	display: inline-block;
+	height: 29px;
+	border: none;
+	outline: none;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select.type {
+	width: 360px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select.size {
+	width: 90px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select.function,
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select.material,
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label select.features {
+	width: 147px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label input.sizetext {
+	width: 113px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label input.price,
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label input.quantity {
+	width: 209px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label input {
+	height: 30px;
+	padding: 0;
+	border: none;
+	outline: none;
+	padding-left: 10px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li > div.right > label textarea {
+	resize: none;
+	width: 360px;
+	height: 190px;
+	border: none;
+	outline: none;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
+div.content_list > div.list > ul.enquiry.sourcing > li > div.content > div.sourcingList > div.sourcingL > ul > li.disabledList div.remarkDiv {
+	border: none;
+}
+
+
+/********************************************************************************* end Sourcing */
+
+
+/********************************************************************************* following */
+
+div.content_list > div.title > ul.followTap {
+	padding: 1px 0;
+	line-height: 23px;
+}
+
+div.content_list > div.title > ul.followTap > h5 {
+	margin: 0;
+	display: inline-block;
+	width: 100px;
+	float: left;
+	text-align: center;
+	line-height: 23px;
+}
+
+div.content_list > div.title > ul.followTap > li {
+	padding: 0 10px;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+div.content_list > div.title > ul.followTap > li.active {
+	color: #595757;
+	background: #fff;
+}
+
+div.content.following > div.followingProduct {}
+
+div.content.following > div.followingProduct > ul {
+	padding: 0 45px;
+}
+
+div.content.following > div.followingProduct > ul:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+div.content.following > div.followingProduct > ul > li {
+	float: left;
+	margin-top: 24px;
+	margin-right: 15px;
+	width: 192px;
+	position: relative;
+}
+
+div.content.following > div.followingProduct > ul > li > .delete {
+	display: block;
+	font-size: 30px;
+	line-height: 10px;
+	height: 20px;
+	width: 20px;
+	border-radius: 50px;
+	border: 2px solid #929292;
+	color: #929292;
+	text-decoration: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	overflow: hidden;
+	cursor: pointer;
+	font-family: 'HSlight';
+	text-align: center;
+	z-index: 1;
+	cursor: pointer;
+}
+div.content.following > div.followingProduct > ul > li > .delete:hover {
+	color:#b60005;
+	border: 2px solid #b60005;
+}
+div.content.following > div.followingProduct > ul > li > a.img {
+	height: 192px;
+	width: 192px;
+	display: block;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	border: #595757 1px solid;
+}
+
+div.content.following > div.followingProduct > ul > li > a.img > h5 {
+	width: 75px;
+	height: 75px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(../images/update/new-productlist.png) no-repeat center;
+	background-size: cover;
+	text-indent: -99999em;
+	margin: 0;
+}
+
+div.content.following > div.followingProduct > ul > li > a.name {
+	cursor: pointer;
+	color: #999;
+	font-size: 13px;
+	display: block;
+	height: 32px;
+	width: 100%;
+	line-height: 16px;
+	text-decoration: none;
+	margin: 5px 0;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
+
+div.content.following > div.followingProduct > ul > li > .btn {
+	display: block;
+	float: right;
+	height: 22px;
+	/*width: 112px;*/
+	padding: 0;
+	color: #fff;
+	/*background: #595757;*/
+	border-radius: 0;
+	line-height: 22px;
+	border: none;
+	padding-left: 28px;
+	position: relative;
+}
+
+/*div.content.following > div.followingProduct > ul > li > .btn:hover {*/
+	/*background: #bd000f;*/
+/*}*/
+
+div.content.following > div.followingProduct > ul > li > .btn > i {
+	height: 22px;
+	width: 28px;
+	/*background: url(../images/images/icon_shoppingcar.png) no-repeat center;*/
+	background: url(http://www.galacasa.com/Public/Shop/I/images/icon-shoppingcart-product.png) no-repeat center;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+div.content.following > div.followingProduct > ul > li > .btn > i:hover {
+	background: url(http://www.galacasa.com/Public/Shop/I/images/icon-shoppingcart-product-red.png) no-repeat center;
+}
+
+div.content.following > div.followingSerise > ul {
+	padding: 0;
+	margin-left: 20px;
+	margin-bottom: 0;
+	position: relative;
+	border-bottom: 1px solid #b5b5b6;
+	width: 860px;
+}
+
+div.content.following > div.followingSerise > ul.feature {
+	border: none;
+}
+
+div.content.following > div.followingSerise > ul > div.clr {
+	clear: both;
+	height: 1px !important;
+	width: 100% !important;
+	display: inline-block;
+}
+
+div.content.following > div.followingSerise > ul > div {
+	height: 42px;
+	width: 100%;
+	line-height: 42px;
+}
+
+div.content.following > div.followingSerise > ul > div > a {
+	text-decoration: none;
+	color: #898989;
+	cursor: pointer;
+	line-height: 42px;
+	display: inline-block;
+}
+
+div.content.following > div.followingSerise > ul > div > a:hover {
+	color: #b60005;
+}
+
+div.content.following > div.followingSerise > ul > div > a.selectAll {
+	margin-right: 5px;
+	padding-left: 40px;
+	position: relative;
+}
+
+div.content.following > div.followingSerise > ul i.checkBox {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	cursor: pointer;
+	color: #333;
+	width: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+}
+
+div.content.following > div.followingSerise > ul i.checkBox:before {
+	content: "\f096";
+}
+
+div.content.following > div.followingSerise > ul div.active i.checkBox:before,
+div.content.following > div.followingSerise > ul li.active i.checkBox:before {
+	content: "\f046";
+}
+
+div.content.following > div.followingSerise > ul > li {
+	position: relative;
+	padding-left: 40px;
+	margin-bottom: 30px;
+	margin-right: 28px;
+	float: left;
+}
+
+div.content.following > div.followingSerise > ul.feature > li {
+	margin-bottom: 0;
+}
+
+div.content.following > div.followingSerise > ul.feature > li > div {
+	height: 22px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+div.content.following > div.followingSerise > ul.feature > li > div > a {
+	display: block;
+	margin: 0 auto;
+	height: 22px;
+	width: 110px;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #595757;
+	color: #595757;
+}
+
+div.content.following > div.followingSerise > ul.feature > li > div > a:hover {
+	color: #fff;
+	background: #595757;
+}
+
+div.content.following > div.followingSerise > ul > li:nth-child(3n+1) {
+	margin-right: 0;
+}
+
+div.content.following > div.followingSerise > ul > li img {
+	height: 90px;
+	width: 226px;
+	border: #595757 1px solid;
+}
+
+div.content.following > div.followingSerise > ul > li i.checkBox {
+	height: 13px;
+	line-height: 13px;
+}
+
+div.content.following > div.followingSerise > ul > div > a.remove {
+	margin-left: 5px;
+}
+
+div.content.following > div.followingActivitles > ul {
+	padding: 0;
+	margin-left: 20px;
+	margin-bottom: 0;
+	margin-top: 0;
+	position: relative;
+	border-bottom: 1px solid #b5b5b6;
+	width: 860px;
+}
+
+div.content.following > div.followingActivitles > ul.feature {
+	border: none;
+}
+
+div.content.following > div.followingActivitles > ul > div {
+	height: 42px;
+	width: 100%;
+	line-height: 42px;
+}
+
+div.content.following > div.followingActivitles > ul > div.clr {
+	clear: both;
+	height: 1px !important;
+	width: 100% !important;
+	display: inline-block;
+}
+
+div.content.following > div.followingActivitles > ul > li {
+	position: relative;
+	margin-bottom: 15px;
+	float: left;
+}
+
+div.content.following > div.followingActivitles > ul > li > a {
+	cursor: pointer;
+}
+
+div.content.following > div.followingActivitles > ul > li img {
+	height: 280px;
+	width: 428px;
+	border: #595757 1px solid;
+}
+
+div.content.following > div.followingActivitles > ul.feature > li {
+	margin-bottom: 0;
+}
+
+div.content.following > div.followingActivitles > ul.feature > li > div {
+	height: 22px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+div.content.following > div.followingActivitles > ul.feature > li > div > a {
+	display: block;
+	margin: 0 auto;
+	height: 22px;
+	width: 110px;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #595757;
+	color: #595757;
+}
+
+div.content.following > div.followingActivitles > ul.feature > li > div > a:hover {
+	color: #fff;
+	background: #595757;
+}
+
+div.followingActivitles-popup-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 999999;
+}
+
+div.followingActivitles-popup-fixed > div.bg {
+	background: rgba(255, 255, 255, 0.8);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+div.followingActivitles-popup-fixed > div.content {
+	width: 1000px;
+	max-height: calc(100% - 80px);
+	top: 40px;
+	left: 50%;
+	margin-left: -500px;
+	position: absolute;
+	z-index: 2;
+	background: #fff;
+	border: #000 1px solid;
+	overflow-y: scroll;
+}
+
+div.followingActivitles-popup-fixed > div.content > img {
+	border: none;
+	outline: none;
+	width: 100%;
+	height: auto;
+}
+
+
+/********************************************************************************* end following */
+
+
+
+/* specialService */
+.specialService > img{
+	width: calc(100% - 40px);
+	height: auto;
+	min-height: 670px;
+	margin: 0 20px;
+	border: 1px solid #eee;
+}
+
+
+/* deleted */
+div.content_list > div.list > ul.enquiry > li.order > div.content > div.title.topTitle.orderTitle{
+	height: 84px;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content > div.title.topTitle.orderTitle > span{
+	height: 28px;
+	line-height: 28px;
+	float: left;
+	width: 50%;
+	padding-left: 50px;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content > div.list{
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content > div.list > ul{
+	min-height: 100px;
+	height: auto;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content li.Amount{
+	float: right;
+	width: 150px;
+	text-align: center;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content li.Unit{
+	float: right;
+	width: 150px;
+	text-align: center;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content li.Quantity{
+	float: right;
+	text-align: center;
+	width: 150px;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content div.jieguo{
+	width: calc(100% + 40px);
+	margin-left: -20px;
+	line-height: 28px;
+	height: 28px;
+	position: relative;
+	text-align: center;
+	border-bottom: 1px solid #e6e6e6;
+	border-top: 1px solid #e6e6e6;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content div.jieguo > h5{
+	position: absolute;
+	right: 40px;
+	top: 0;
+	margin: 0;
+	line-height: 28px;
+	height: 28px;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content div.info{
+	padding-left: 30px;
+	margin: 10px 0;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content div.info > span{
+	display: block;
+}
+div.content_list > div.list > ul.enquiry > li.order > div.content div.info > span > b{
+	font-family: 'HSbold';
+}

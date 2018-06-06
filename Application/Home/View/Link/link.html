@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="__HOMECSS__/link.css" />
+	</head>
+	<body class="link">
+		<!--===============导入头部start==================-->
+		<block name="include"><include file="Common/header" /></block>
+		<!--===============导入头部end==================-->
+		<form action="{:U('Link/alink')}" method="post">
+			<!--=========内容展示start==========-->
+			<div class="w">
+			<!--=========链接展示start==========-->
+				<div class="link_box">
+					<div class="link_content">
+						<h3 class="link_tit">友情链接</h3>
+						<ul class="link_list">
+							<foreach name="list" item="vo">
+								<li>
+									<a target="_blank" href="{$vo.url}">{$vo.linkname}</a>
+								</li>
+							</foreach>
+						</ul>
+						<div class="clear"></div>
+						<div class="Pagination">
+							{$page}
+						</div>
+					</div>
+
+				</div>	
+				<!--=========链接展示end==========-->
+				<!--=========申请start==========-->
+				<div class="link_box_a">
+					<div class="link_content">
+						<h3 class="link_tit">申请友情链接</h3>
+						<ul class="link_step">
+							<li class="link_step_tit">申请步骤：</li>
+							<li>
+								<div class="float_Left"> 1.</div>
+								<div class="margin_1_12">
+									请先在贵网站做好京东的文字友情链接：<br />链接文字：京东链接地址：
+									<a target="_blank" href="http://www.jd.com">http://www.jd.com</a>
+								</div>
+							</li>
+							<li>2.做好链接后，请在右侧填写申请信息。京东只接受申请文字友情链接。</li>
+							<li>
+							<div class="float_Left"> 3.</div>
+							<div class="margin_l_12"> 已经开通我站友情链接且内容健康，符合本站友情链接要求的网站，经京东管理员审核后，可以显示在此友情链接页面。</div>
+							</li>
+						</ul>
+						
+						<table class="link_table" width="309" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td class="link_step_tit" valign="top" height="29" colspan="2"> 申请信息</td>
+								</tr>
+								<tr>
+									<td height="29"> 网站名称： </td>
+									<td height="29">
+									<input id="name" class="w247" type="text" name="linkname">
+									</td>
+								</tr>
+								<tr>
+									<td height="29"> 网    址： </td>
+									<td height="29">
+									<input id="url" class="w247" type="text" value="http://" name="url"><span>&nbsp;&nbsp;*&nbsp;网址不能重复</span>
+									</td>
+								</tr>
+								<tr>
+									<td height="35"> 网站管理员： </td>
+									<td height="29">
+									<input id="webmaster" class="w247" type="text" name="webmaster">
+									</td>
+								</tr>
+								<tr>
+									<td height="35"> 电子邮箱： </td>
+									<td height="29">
+									<input id="email" class="w247" type="text" name="email">
+									</td>
+								</tr>
+								<tr>
+									<td width="61" valign="top" height="29"> 网站介绍： </td>
+									<td width="348" valign="top">
+									<textarea id="intro" class="w247h60" rows="" cols="" name="siteIntro"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td valign="middle" height="45" align="center" colspan="2">
+									<input id="bttSubmit" class="link_button" type="submit" value="提交申请" name="submit">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+				<!--=========申请end==========-->
+			</div>
+			<!--=========内容展示end==========-->
+		</form>
+		<!--===============导入头部start==================-->
+		<block name="include"><include file="Common/footer" /></block>
+		<!--===============导入头部end==================-->
+	</body>
+</html>

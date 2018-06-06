@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public:header"/>
+<style>.type.active{ color: red !important; }</style>
+<body class="product">
+<include file="Public:nav"/>
+<include file="Public:index_banner"/>
+<section class="product">
+    <div class="container">
+        <div class="brand">
+            <a href="__APP__">Home page</a> > <span><a href="__APP__/Product/index" style="color: #9fa0a0;cursor: pointer;">{$head_title}</a></span> <?php if($tlv1){ ?> > <span>{$tlv1.proName}</span><?php } ?><?php if($tlv2){ ?> > <span>{$tlv2.proName}</span><?php } ?><?php if($tlv3){ ?> > <span>{$tlv3.proName}</span><?php } ?>
+            <div class="result">
+                <div class="text"><span>{$count} results in Total</span></div>
+                <div class="listStyle">
+                    <ul>
+                        <li class="ds" data-size="1">
+                            <a style="cursor: pointer;"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="ds active" data-size="2">
+                            <a style="cursor: pointer;"><i class="fa fa-th" aria-hidden="true"></i></a>
+                        </li>
+                        <volist name="order_list" id="ol">
+                            <li <?php if($ol['selected']==1){ ?>class='order active'<?php }else{ ?>class='order'<?php } ?> data-order="{$ol.order}" style="cursor: pointer;">
+                                <a>{$ol.title}</a>
+                            </li>
+                        </volist>
+                        <div class="clr"></div>
+                    </ul>
+                </div>
+                <div class="search">
+                    <input id="product_search" type="text" value="{$product_key}" placeholder="Search"><a id="sbtn" style="cursor: pointer;"><i class="fa fa-search" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- end brand -->
+        <div class="meun-product">
+            <ul>
+                <!--lv1-->
+                <volist name="type_list" id="tl1">
+                    <li class="type_main_list_manager" data-status="0" data-stop="0">
+                        <a>{$tl1.styleName}
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </a>
+                        <?php if($tl1['child_list']){ ?>
+                            <!--lv2 start-->
+                            <!--function-->
+                            <?php if($tl1['radio']==1 && $tl1['has_lv3']==0){ ?>
+                            <ul class="type_main_list choose-checkBox f_type" style="display: none;">
+                                <volist name="tl1['child_list']" id="tl2_f">
+                                    <li <?php if($tl2_f['selected']==1){ ?>class="f_type_li active"<?php }else{ ?>class="f_type_li"<?php } ?> data-id="{$tl2_f.styleId}" data-pid="{$tl2_f.pid}" data-proTypeId="{$tl2_f.proTypeId}"><a><i class="fa fa-square-o" aria-hidden="true"></i> {$tl2_f.styleName}</a></li>
+                                </volist>
+                                <div class="btnDiv">
+                                    <a class="btn-OK" style="cursor: pointer">OK</a>
+                                    <a class="btn-clearAll" style="cursor: pointer">Clear All</a>
+                                </div>
+                            </ul>
+                            <?php }elseif($tl1['radio']==1 && $tl1['has_lv3']==1){ ?>
+                                <!---knives--->
+                                <ul class="type_main_list">
+                                    <volist name="tl1['child_list']" id="tl2">
+                                        <li class="choose-hanndle">
+                                            <a <?php if($tl2['selected']==1){ ?>class="k_type active"<?php }else{ ?>class="k_type"<?php } ?> data-pid="{$tl1.styleId}" data-id="{$tl2.styleId}" data-proTypeId="{$tl2.proTypeId}" style="padding-right:120px">{$tl2.styleName}</a>
+                                            <?php if($tl2['child_list']){ ?>
+                                                <!--lv3 start-->
+                                                <ul class="hanndleDiv">
+                                                    <a class="closeBtn">
+                                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                                    </a>
+                                                    <volist name="tl2['child_list']" id="tl3">
+                                                        <li <?php if($tl3['selected']==1){ ?>class="k_type_li active"<?php }else{ ?>class="k_type_li"<?php } ?> data-id="{$tl3.styleId}" data-pid="{$tl3.pid}" data-proTypeId="{$tl3.proTypeId}">
+                                                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                                                            <img src="{$tl3.photo}">
+                                                            <h5>{$tl3.styleName}</h5>
+                                                        </li>
+                                                    </volist>
+                                                    <div class="clr"></div>
+                                                    <div class="btnDiv">
+                                                        <a class="btn-ok">OK</a>
+                                                        <a class="btn-clearAll">Clear All</a>
+                                                    </div>
+                                                </ul>
+                                                <!--lv3 end-->
+                                            <?php } ?>
+                                        </li>
+                                    </volist>
+                                </ul>
+                            <?php }else{ ?>
+                                <ul class="type_main_list " style="display: none;">
+                                    <volist name="tl1['child_list']" id="tl2_o">
+                                        <li>
+                                            <a <?php if($tl2_o['selected']==1){ ?>class="type active"<?php }else{ ?>class="type"<?php } ?> data-pid="{$tl1.styleId}" data-id="{$tl2_o.styleId}"data-proTypeId="{$tl2_o.proTypeId}">{$tl2_o.styleName}</a>
+                                        </li>
+                                    </volist>
+                                </ul>
+                            <?php }} ?>
+                    </li>
+                </volist>
+                <li class="color_list_manager" data-status="0" data-stop="0">
+                    <a>Color
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                    <?php if($color_list){ ?>
+                    <ul class="choose-color c_type" style="display: none;">
+                        <volist name="color_list" id="cl">
+                            <li <?php if($cl['selected']==1){ ?>class="c_type_li active"<?php }else{ ?>class="c_type_li"<?php } ?>>
+                            <a data-id="{$cl.colorId}" data-colorName="{$cl.colorName}" style="background:url('{$cl.rgbimg}');background-color:#{$cl.rgb}">{$cl.rgb}</a></li>
+                        </volist>
+                        <div class="clr"></div>
+                    </ul>
+                    <?php } ?>
+                </li>
+            </ul>
+        </div>
+        <!-- end .meun-product -->
+        <div class="content-product">
+            <ul>
+                <volist name="product_list" id="list">
+                    <li class="box">
+                        <a class="img" data-prodId="{$list.prodId}" style="background-image: url({$list.img})"
+                           href="__APP__/Product/detail/prodId/{$list.prodId}">
+                            <?php if($list['isNew']==1){ ?>
+                               <h5 class="new"></h5>
+                            <?php }else{ if($list['isHot']==1){ ?>
+                                <h5 class="hot"></h5>
+                            <?php } } ?>
+                        </a>
+                        <?php if($list['favourite']==1){ ?>
+                            <a class="heart" data-favourite="1"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                        <?php }else{ ?>
+                            <a class="heart" data-favourite="0"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        <?php } ?>
+                        <a class="name" href="__APP__/Product/detail/prodId/{$list.prodId}">{$list.prodName}</a>
+                        <a class="btn" data-prodid="{$list.prodId}" data-prodname="{$list.prodName}" style="cursor: pointer;">
+                            <i class="icon"></i>
+                        </a>
+                    </li>
+                </volist>
+                <div class="clr"></div>
+            </ul>
+            <div class="page">
+                {$page}
+            </div>
+        </div>
+        <!-- end .content-product -->
+    </div>
+    <!-- end .container -->
+</section>
+<!-- end .product -->
+<include file="Public:footer"/>
+<include file="Public:share"/>
+</body>
+</html>
+<include file="Public:js"/>
+<script type="text/javascript">
+    //基础属性获取
+    var kid = '<?php echo $kid; ?>', fid = '<?php echo $fid; ?>', order = '<?php echo $order_type; ?>', url = do_url(), product_key = '<?php echo $product_key; ?>', tid = '<?php echo $tid; ?>', cid = '<?php echo $cid; ?>';
+
+    $(document).ready(function () {
+        //base
+        $("section.product div.meun-product > ul > li > ul.choose-checkBox > li").click(function () {
+            add_del_active($(this), 0);
+        });
+        $("section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > a.closeBtn").click(function () {
+            $("section.product div.meun-product > ul > li > ul > li.choose-hanndle").removeClass("active");
+        });
+        $("section.product div.meun-product > ul > li > ul > li.choose-hanndle > ul.hanndleDiv > li").click(function () {
+            add_del_active($(this), 0);
+        });
+        show_lv1($(".type.active"), ".type_main_list", 0);
+        show_lv1($(".f_type_li.active"), '.f_type', 0);
+        show_lv1($(".k_type_li.active"), '.type_main_list', 1);
+        show_lv1($('.c_type_li.active'), '.c_type', 0);
+        $(".dropdown > .meunL > ul > li").each(function (i) {
+            $(this).hover(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+        $(".type_main_list_manager>a").click(function () {
+            var m = $(this).parents('.type_main_list_manager'), status = m.data('status'), stop = m.data('stop'), child = '.type_main_list';
+            show_hide_child_list(stop, m, child);
+        });
+        $('.color_list_manager>a').click(function () {
+            var m = $(this).parents('.color_list_manager'), status = m.data('status'), stop = m.data('stop'), child = '.choose-color';
+            show_hide_child_list(stop, m, child);
+        });
+
+        //knifes 多选
+        $('.hanndleDiv>.btnDiv>.btn-ok').click(function () {
+            var k_arr = push_arr($(this).parents('.hanndleDiv').find('.k_type_li.active')), link = explain_id(url, '/kid/', k_arr);
+            jump(link, order, '', fid, tid, cid, product_key);
+        });
+
+        //knifes 高亮
+        $('.k_type').click(function () {
+            var child = $(this).parents('.choose-hanndle');
+            add_del_active(child, 0);
+        });
+
+        //knifes clear all
+        $('.hanndleDiv>.btnDiv>.btn-clearAll').click(function () {
+            clear_All($(this).parents('.hanndleDiv').find('.k_type_li.active'));
+        });
+
+        //function多选
+        $('.f_type>.btnDiv>.btn-OK').click(function () {
+            var f_arr = push_arr($(this).parents('.f_type').find('.f_type_li.active')), link = explain_id(url, '/fid/', f_arr);
+            jump(link, order, kid, '', tid, cid, product_key);
+        });
+
+        //function clear all
+        $('.f_type>.btnDiv>.btn-clearAll').click(function () {
+            clear_All($(this).parents('.f_type').find('.f_type_li.active'));
+        });
+
+        //其他单选
+        $(".type").click(function () {
+            add_del_active($(this), 1);
+            var Data = push_arr($('.type.active')), link = explain_id(url, '/tid/', Data);
+            jump(link, order, kid, fid, '', cid, product_key);
+        });
+
+        //颜色单选
+        $(".c_type_li").click(function () {
+            add_del_active($(this), 1);
+            var id = $(this).find("a").data("id");
+            jump(url, order, kid, fid, tid, id, product_key);
+        });
+
+        //排序
+        $(".order").click(function () {
+            $(this).parents('.listStyle').find('.order').removeClass('active');
+            $(this).addClass('active');
+            var o = $('.order.active').data('order');
+            jump(url, o, kid, fid, tid, cid, product_key);
+        });
+
+        //显示方式
+        $(".ds").click(function () {
+            $(this).parents('.listStyle').find('.ds').removeClass('active');
+            $(this).addClass('active');
+            if($(this).data('size')==1){
+                $('.content-product').find('ul').addClass('bigStyleList');
+            }else{
+                $('.content-product').find('ul').removeClass('bigStyleList');
+            }
+        });
+
+        //收藏
+        $(".heart").click(function () {
+            var prodId = $(this).parents("li").children('.img').data("prodid"), favourite = $(this).data("favourite"), heart = $(this).find("i.fa");
+            post_url_data('__APP__/Users/favourite', 'POST', {prodId: prodId}, function (err, Data) {
+                if (err) {
+                    alert(err);
+                } else {
+                    if (Data.status == 1) {
+                        alert(Data.info);
+                        if (heart.hasClass("fa-heart")) {
+                            heart.removeClass("fa-heart");
+                            heart.addClass("fa-heart-o");
+                        } else {
+                            heart.removeClass("fa-heart-o");
+                            heart.addClass("fa-heart");
+                        }
+                    } else {
+                        alert(Data.info);
+                    }
+                }
+            });
+        });
+
+        //搜索按钮
+        $("#sbtn").click(function () {
+            var search = $("#product_search").val();
+            jump(url, order, kid, fid, tid, cid, search);
+        });
+
+        //添加到购物车
+        $(".btn").click(function(){
+            var prodId=$(this).data('prodid'),prodName=$(this).data('prodname'),data={};
+            //console.log(prodId);
+            //console.log(prodName);
+            if(prodId>0 && prodName ) {
+                data={prodId:prodId,prodName:prodName};
+                post_url_data('__APP__/Users/add_to_cart', 'POST', data, function (err, result) {
+                    if (err) {
+                        alert(err);
+                    } else {
+                        alert(result.info);
+                        if (result.status == -20) {
+                            window.location.href = '__APP__/Login/index'
+                        }
+                    }
+                });
+            }else{
+                return false;
+            }
+        })
+    });
+
+    //跳转链接
+    function jump(url, order, kid, fid, tid, cid, key) {
+        if (kid) {
+            url += '/kid/' + kid;
+        }
+        if (fid) {
+            url += '/fid/' + fid;
+        }
+        if (tid) {
+            url += '/tid/' + tid;
+        }
+        if (cid) {
+            url += '/cid/' + cid;
+        }
+        if (order > 0) {
+            url += '/order_type/' + order;
+        }
+        if (key) {
+            url += '/product_key/' + key;
+        }
+        window.location.href = url;
+    }
+
+    //拼接url
+    function do_url() {
+        var lv = '<?php echo $lv; ?>', pid = '<?php echo $pid; ?>', id = '<?php echo $id; ?>', url = '__APP__/Product/product_list';
+        if (id > 0) {
+            url += '/id/' + id;
+        }
+        if (pid > 0) {
+            url += '/pid/' + pid;
+        }
+        if (lv > 0) {
+            url += '/lv/' + lv;
+        }
+        return url;
+    }
+
+    //拼接数组
+    function push_arr(dom) {
+        var data = [];
+        dom.each(function () {
+            data.push($(this).data('id'));
+        });
+        return data;
+    }
+
+    //展开收起
+    function add_del_active(dom, val) {
+        if (dom.hasClass("active")) {
+            dom.removeClass("active");
+        } else {
+            if (val == 1) {
+                dom.parents('.type_main_list').find(".type").removeClass('active');
+            }
+            dom.addClass("active");
+        }
+    }
+
+    //展开收起动画
+    function show_hide_child_list(stop, m, child) {
+        if (stop == 0) {
+            m.data('stop', 1);
+            $('.k_type').parents('.choose-hanndle').removeClass('active');
+            if (m.data('status') == 0) {
+                m.children(child).slideDown('slow', function () {
+                    m.data('status', 1);
+                    m.data('stop', 0);
+                    m.addClass('active');
+                });
+            } else {
+                m.children(child).slideUp('slow', function () {
+                    m.data('status', 0);
+                    m.data('stop', 0);
+                    m.removeClass('active');
+                });
+            }
+        }
+    }
+
+    //clear all
+    function clear_All(dom) {
+        dom.each(function () {
+            $(this).removeClass('active');
+        })
+    }
+
+    //拼接id
+    function explain_id(url, value, Data) {
+        if (Data.length > 0) {
+            url += value;
+            for (var i = 0; i < Data.length; i++) {
+                if (i == 0) {
+                    url += Data[i];
+                } else {
+                    url += ',' + Data[i];
+                }
+            }
+        }
+        return url;
+    }
+
+    //选择后首层展开
+    function show_lv1(lv2, lv1, val) {
+        var p = lv2.parents(lv1), pp = lv2.parents(lv1).parent();
+        if (val == 1) {
+            lv2.parent().parent().addClass('active');
+            lv2.parent().find('.closeBtn').click();
+        }
+        p.show();
+        pp.data('status', 1);
+        pp.children("i").removeClass('fa-chevron-down').addClass('fa-chevron-up');
+    }
+</script>
